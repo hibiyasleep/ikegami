@@ -12,9 +12,7 @@ const _state = () => ({
   allies: {},
   party: [],
   topdps: 0,
-  active: false,
-  username: null,
-  uid: null
+  active: false
 })
 
 export default {
@@ -45,7 +43,7 @@ export default {
         deaths:    parseInt(encounter.deaths)
       })
     },
-    setCombatants(state, combatants) {
+    setCombatants(state, { combatants, playerName }) {
       let players = {}
       // const containsYou = combatants.some(_ => _.name === 'YOU')
 
@@ -89,7 +87,10 @@ export default {
       }
 
       for(let name in players) {
-        let owner = resolveOwner(name.replace('히비야', 'YOU')) // FIXME
+        let owner = resolveOwner(name) // FIXME
+        if(playerName) {
+          owner = resolveOwner(name.replace('YOU', playerName))
+        }
         if(owner && players[owner]) {
           let ownerData = players[owner] || {}
           let petData = players[name]
@@ -138,10 +139,6 @@ export default {
 
       Vue.set(state, 'combatants', players)
     },
-    setName(state, [ uid, name ]) {
-      state.uid = uid
-      state.username = name
-    },
     addPlayer(state, user) {
       Vue.set(state.allies, user.uid, user)
     },
@@ -154,38 +151,32 @@ export default {
   },
   actions: {
     // Listeners
-    update({ commit, dispatch }, { Encounter, Combatant }) {
+    update({ commit, dispatch, rootState }, { Encounter, Combatant }) {
       commit('setEncounter', Encounter)
-      commit('setCombatants', Combatant)
+      commit('setCombatants', {
+        combatants: Combatant,
+        playerName: rootState.settings.username
+      })
     },
     logline({ commit, dispatch }, { type, payload }) {
       if(type === 2) {
-        console.log('02', payload)
         // register my name
-        commit('setName', payload)
+        commit('settings/setName', payload, { root: true })
 
       } else if(type === 3) {
-
-        console.log('03', payload)
         const [ uid, name, job, level, hp, mp, ownerid ] = payload
-        console.log(uid, name)
-
         if(uid && uid.startsWith('4') && ownerid === '0') return
         commit('addPlayer', {
           uid, name, job, level, hp, mp, ownerid
         })
-
       } else if(type === 4) {
-        // TODO: consider pet
-        if(uid && uid.startsWith('4')) return
+        // if(uid && uid.startsWith('4')) return
 
-        console.log('04', payload)
         const [ uid, name ] = payload
         commit('removePlayer', {
           uid, name
         })
       } else if(type === 11) {
-        console.log('11', payload)
         commit('setParty', payload.slice(1, -1))
       }
     }

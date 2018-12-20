@@ -15,7 +15,18 @@ uid: {{ uid }}</pre>
 import { mapState } from 'vuex'
 
 export default {
-  computed: mapState('encounter', [ 'username', 'uid', 'allies', 'party' ])
+  computed: {
+    ...mapState('encounter', [
+      'username',
+      'uid',
+      'allies',
+      'party'
+    ]),
+    ...mapState('settings', [
+      'username',
+      'uid'
+    ])
+  }
 }
 
 </script>

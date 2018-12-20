@@ -10,7 +10,7 @@
       <group name="Main">
         <string
           label="Name for merging"
-          v-model="my_name" />
+          v-model="username" />
         <blockquote>
           This will be automatically detected on ACTWS or LogParse. If not, try move to another region.
         </blockquote>
@@ -95,9 +95,9 @@ export default {
     releasename: packageinfo.releasename
   }),
   computed: {
-    my_name: {
-      get() { return this.$store.state.settings.my_name },
-      set(v) { this.$store.commit('settings/set', { k: 'my_name', v })}
+    username: {
+      get() { return this.$store.state.settings.username },
+      set(v) { this.$store.commit('settings/set', { k: 'username', v })}
     },
     cell_display1: {
       get() { return this.$store.state.settings.cell_display1 },
