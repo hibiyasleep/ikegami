@@ -1,0 +1,52 @@
+$_1px: 1px // 0.08rem
+
+$font-small: 0.75rem
+
+$color-theme: #2196f3
+
+$shadow-without-background: 0 0 0.3rem #000, 0 0 0.3rem #000, 0 0 0.5rem #000
+$shadow-with-background: 0 0 0.3rem #000
+
+$job-color-group-dps: #FF6E2C
+$job-color-group-healer: #00E676
+$job-color-group-tank: #82B1FF
+
+$ui-background: transparentize(#333, 0.5)
+$ui-color: #fff
+$ui-width: 25rem
+$ui-text-size: 0.875rem
+$nav-height: 1.5rem
+$nav-text-size: 0.75rem
+
+$cell-background: transparentize(#111, 0.5)
+$cell-color: #fff
+$cell-width: 7.5rem
+$cell-line-height: 1.5rem
+$cell-ticker-height: 50% // 0.125rem
+$cell-margin: 0.25rem
+
+$details-background: transparentize(#111, 0.25)
+$details-seperator: transparentize(#fff, 0.5)
+$details-width: 7.5rem
+$details-row-height: 1.125rem
+$details-text-size: 0.75rem
+
+$settings-element-height: 2rem
+$settings-input-width: 10rem
+
+$z-window: 3500
+$z-details: 3000
+$z-ui: 2000
+$z-cell: 1000
+
+
+
+@mixin unselectable
+  user-select: none
+  -moz-user-select: none
+  -webkit-user-select: none
+
+@mixin clickable
+  @include unselectable
+
+  cursor: pointer

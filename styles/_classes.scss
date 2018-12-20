@@ -1,0 +1,77 @@
+i.class {
+  background-image: url('./assets/classes.png');
+  background-size: 1100% 600%;
+  background-repeat: no-repeat;
+  background-position: 90% 60%;
+  opacity: 1 !important;
+}
+
+$class-matrix: (
+  ( 'gla', 'mrd', 'pgl', 'lnc', 'rog', 'arc', 'thm', 'acn', null,  'cnj' ),
+  ( 'pld', 'war', 'mnk', 'drg', 'nin', 'brd', 'blm', 'smn', 'sch', 'whm' ),
+  ( 'drk', 'mch', 'ast', 'sam', 'rdm' ),
+  ( 'acn-pet', 'garuda', 'ifrit', 'titan', 'eos', 'selene', 'rook', 'bishop' ),
+  ( 'crp', 'bsm', 'arm', 'gsm', 'ltw', 'wvr', 'alc', 'cul', null,  'chocobo' ),
+  ( 'min', 'btn', 'fsh', null,  null,  null,  null,  null,  null,  'limit-break' )
+);
+
+$y: 0%;
+@each $l in $class-matrix {
+  $x: 0%;
+  @each $class in $l {
+    @if $class != null {
+      i.class.class-#{$class} {
+        background-position: $x $y;
+      }
+    }
+    $x: $x + 10%;
+  }
+  $y: $y + 20%;
+}
+
+$colors: (
+  'gauge-default': #444,
+  'pld': rgb(21, 28, 100), // Indigo 900 (B -10%)
+  'war': rgb(153, 23, 23), // Red 900 (B -10%)
+  'drk': rgb(136, 14, 79), // Pink 900
+  'mnk': rgb(255, 152, 0), // Orange 500
+  'drg': rgb(63, 81, 181), // Indigo 500
+  'brd': rgb(158, 157, 36), // Lime 800
+  'nin': rgb(211, 47, 47), // Red 700 // 와! 시바! 진성! 닌자다!
+  'smn': rgb(46, 125, 50), // Green 800
+  'blm': rgb(126, 87, 194), // Deep Purple 400
+  'mch': rgb(0, 151, 167), // Cyan 700
+  'rdm': rgb(233, 30, 99), // Pink 500
+  'sam': rgb(255, 202, 40), // Amber 400
+  'whm': rgb(117, 117, 117), // Gray 600
+  'sch': rgb(121, 134, 203), // Indigo 300
+  'ast': rgb(121, 85, 72), // Brown 500
+  'smn-pet': rgba(46, 125, 50, 0.5),
+  'sch-pet': rgba(121, 134, 203, 0.5),
+  'mch-pet': rgba(0, 151, 167, 0.5),
+  'chocobo': #444,
+  'limit-break': #444
+);
+
+$class-remap: (
+  'pld': 'gla',
+  'war': 'mrd',
+  'mnk': 'pgl',
+  'drg': 'lnc',
+  'brd': 'arc',
+  'nin': 'rog',
+  'smn': 'acn',
+  'blm': 'thm'
+);
+
+@each $k in map-keys($colors) {
+  .class-#{$k} .ticker {
+    background-color: map-get($colors, $k);
+  }
+  $cl: map-get($class-remap, $k);
+  @if $cl {
+    .class-#{$cl} .ticker {
+      background-color: map-get($colors, $k);
+    }
+  }
+}

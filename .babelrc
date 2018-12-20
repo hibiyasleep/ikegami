@@ -1,0 +1,21 @@
+{
+  "presets": [
+    [ "@babel/preset-env", {
+      "targets": {
+        "browsers": [
+          "last 2 versions",
+          "not dead",
+          "not android <= 999",
+          "not ie <= 999",
+          "chrome 45"
+        ]
+      },
+      "debug": true
+    }]
+  ],
+  "plugins": [
+    [ "module:@babel/plugin-proposal-object-rest-spread", {
+      "useBuiltIns": true
+    }]
+  ]
+}

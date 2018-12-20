@@ -1,0 +1,25 @@
+
+*
+  box-sizing: border-box
+
+body
+  margin: 0
+  padding: 0
+  font-family: Lato, 'Segoe UI', 'Malgun Gothic', 'Meiryo UI', sans-serif
+
+  overflow-x: hidden
+
+body::after
+  display: block
+  content: ''
+
+  position: fixed
+  right: 0
+  bottom: 0
+
+  width: 0
+  height: 0
+
+  border: 8px solid // Resize handle size is controlled by plugin - no ctrl
+  border-color: transparent rgba(127, 127, 127, 0.3) rgba(127, 127, 127, 0.3) transparent
+  background: rgba(127, 127, 127, 0.1)
