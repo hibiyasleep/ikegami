@@ -38,6 +38,7 @@ export default {
   .button
     @include clickable
     background: #fff
+    margin-right: -1.25rem
 
   .input-text
 
