@@ -1,14 +1,27 @@
 <template>
   <div class="c-settings-group">
-    <h5>
-      Main
-      <button></button>
+    <h5 @click="opened = !opened">
+      {{ name }}
+      <button :class="{ opened }"></button>
     </h5>
-    <div class="c-settings-group-content">
+    <div class="c-settings-group-content" v-if="opened">
       <slot></slot>
     </div>
   </div>
 </template>
+
+<script>
+
+export default {
+  props: {
+    name: String
+  },
+  data: () => ({
+    opened: false
+  })
+}
+
+</script>
 
 <style lang="sass">
 
@@ -52,8 +65,8 @@
 
         transform: rotate(-45deg)
 
-  &.opened > h5 > button
-    transform: rotate(0deg)
+      &.opened::after
+        transform: rotate(0deg)
 
 .c-settings-group-content
   padding: 0 1rem 0 2.25rem
