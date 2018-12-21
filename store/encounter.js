@@ -233,8 +233,7 @@ export default {
       if(type === 2) {
         // register my name
         commit('settings/setName', payload, { root: true })
-
-      } else if(type === 3) {
+      }/* else if(type === 3) {
         const [ uid, name, job, level, hp, mp, ownerid ] = payload
         if(uid && uid.startsWith('4') && ownerid === '0') return
         commit('addPlayer', {
@@ -247,7 +246,7 @@ export default {
         commit('removePlayer', {
           uid, name
         })
-      } else if(type === 11) {
+      } */ else if(type === 11) {
         commit('setParty', payload.slice(1, -1))
       }
     }
