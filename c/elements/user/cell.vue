@@ -139,6 +139,7 @@ export default {
   .c-details
     position: absolute
     top: $cell-line-height * 2.25
+    left: 0
 
     opacity: 0
     pointer-events: none
@@ -160,7 +161,7 @@ export default {
 .hide-job-icons .c-user-cell
 
   &.singleline label
-    padding-left: 0.5rem
+    margin-left: 0.375rem
 
   label > i.class
     display: none
