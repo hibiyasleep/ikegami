@@ -6,10 +6,10 @@
     </label>
     <var>
       <span class="l">
-        {{ combatant[cell_display1] }}
+        {{ combatant[cell_display1] | f(cell_display1) }}
       </span>
       <span class="r" v-if="cell_display2">
-        {{ combatant[cell_display2] }}
+        {{ combatant[cell_display2] | f(cell_display2) }}
       </span>
     </var>
     <span class="ticker" :style="{ width }"></span>
@@ -20,6 +20,7 @@
 <script>
 
 import { mapState } from 'vuex'
+import { filters } from '../../../lib/util.js'
 
 export default {
   props: {
@@ -35,12 +36,21 @@ export default {
   methods: {
 
   },
-  computed: Object.assign({},
-    mapState('settings', [ 'cell_display1', 'cell_display2' ]), {
+  computed: {
+    ...mapState('settings', [ 'cell_display1', 'cell_display2' ]),
     width() {
       return Math.min(100, this.combatant.dps / (this.topdps || 1) * 100) + '%'
     }
-  })
+  },
+  filters: {
+    f(value, key) {
+      if(key === 'dps' || key === 'dps1m' || key === 'hps') {
+        return filters.decimal(value, 1)
+      } else {
+        return value
+      }
+    }
+  }
 }
 
 </script>
