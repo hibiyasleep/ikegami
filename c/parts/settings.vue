@@ -67,7 +67,7 @@
             <path opacity="0.25" fill="#FC73A3" d="M288,8v3h-16v2h16v3h8V8H288z M294,14h-4v-4h4V14z"/>
             <path opacity="0.25" fill="#FC73A3" d="M312,8v3h-16v2h16v3h8V8H312z M318,14h-4v-4h4V14z"/>
             <path opacity="0.25" fill="#FC73A3" d="M336,8v3h-16v2h16v3h8V8H336z M342,14h-4v-4h4V14z"/>
-            <path fill="#FC73A3" d="M211,18v2h-1.6l-9-9H200v2l9,9h2v2h10v-6H211z M219,22h-6v-2h6V22z"/>
+            <path fill="#FC73A3" d="M214,18v2h-1.6l-9-9H200v2h3l9,9h2v2h10v-6H214z M222,22h-6v-2h6V22z"/>
           </svg>
         </p>
         <p>
