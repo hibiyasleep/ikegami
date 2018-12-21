@@ -5,7 +5,8 @@
   "description": "experimental vertical FFXIV Miniparse overlay",
   "dependencies": {
     "vue": "2.x",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7",
