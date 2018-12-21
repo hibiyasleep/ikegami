@@ -1,5 +1,5 @@
 <template>
-  <li :class="[ 'c-user-cell', 'class-' + combatant.job ]">
+  <li :class="[ 'c-user-cell', 'class-' + combatant.job, { singleline: !cell_display2 } ]">
     <label>
       <i :class="[ 'class', 'class-' + combatant.job ]"></i>
       {{ combatant.name }}
@@ -32,6 +32,9 @@ export default {
       default: 1
     }
   },
+  methods: {
+
+  },
   computed: Object.assign({},
     mapState('settings', [ 'cell_display1', 'cell_display2' ]), {
     width() {
@@ -60,7 +63,19 @@ export default {
 
   // hitbox
   background-color: rgba(0, 0, 0, 0.005)
-  box-shadow: 0 0 0 0.5rem rgba(0, 0, 0, 0.005)
+  box-shadow: 0 0 0 0.5rem rgba(0, 0, 0, 0.005), 0 $cell-line-height * -1 0 $cell-background inset
+
+  &.singleline
+    height: $cell-line-height
+    flex-direction: row
+
+    > label
+      text-align: left
+      text-shadow: $shadow-with-background
+      margin-left: 0.125rem
+
+    .c-details
+      top: $cell-line-height * 1.25
 
   > label, > var
     text-align: center
@@ -75,6 +90,7 @@ export default {
     word-break: keep-all
     white-space: nowrap
     text-overflow: ellipsis
+    flex-grow: 1
 
     text-shadow: $shadow-without-background
 
@@ -90,18 +106,18 @@ export default {
 
     padding: 0 0.5rem
 
-    background: $cell-background
+    // background: $cell-background
     text-shadow: $shadow-with-background
 
     > .l, > .r
       z-index: $z-cell + 1
 
     > .l
-      text-align: center
+      text-align: left
+      margin-right: auto
 
     > .r
-      text-align: right
-      margin-left: auto
+      text-align: center
 
   .ticker
     position: absolute
@@ -121,5 +137,23 @@ export default {
 
     &:hover
       opacity: 1
+
+.hide-name .c-user-cell
+  height: $cell-line-height
+
+  label
+    display: none
+
+  .c-details
+    top: $cell-line-height * 1.25
+
+.hide-job-icons .c-user-cell
+
+  &.singleline label
+    padding-left: 0.5rem
+
+  label > i.class
+    display: none
+
 
 </style>

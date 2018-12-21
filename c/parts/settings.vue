@@ -30,7 +30,22 @@
           'Overheal', but will keep their graphs.
         </blockquote>
       </group>
-      <group main="About">
+      <group name="Layout">
+        <checkbox
+          label="Hide name section"
+          v-model="hide_name" />
+        <checkbox
+          label="Hide Job icons"
+          :class="{ disabled: hide_name }"
+          v-model="hide_job_icon" />
+        <checkbox
+          label="Debug"
+          v-model="debug" />
+        <blockquote>
+          Show debug box about combatant tracking.
+        </blockquote>
+      </group>
+      <group name="About" :opened="true">
         <p class="justify">
           <span> ikegami {{ version }} </span>
           <span> '{{ releasename }}' </span>
@@ -110,6 +125,18 @@ export default {
     reduced: {
       get() { return this.$store.state.settings.reduced },
       set(v) { this.$store.commit('settings/set', { k: 'reduced', v })}
+    },
+    hide_name: {
+      get() { return this.$store.state.settings.hide_name },
+      set(v) { this.$store.commit('settings/set', { k: 'hide_name', v })}
+    },
+    hide_job_icon: {
+      get() { return this.$store.state.settings.hide_job_icon },
+      set(v) { this.$store.commit('settings/set', { k: 'hide_job_icon', v })}
+    },
+    debug: {
+      get() { return this.$store.state.settings.debug },
+      set(v) { this.$store.commit('settings/set', { k: 'debug', v })}
     }
   }
 }

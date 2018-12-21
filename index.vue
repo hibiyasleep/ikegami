@@ -5,8 +5,9 @@
       @openSettings="settingsOpened = true" />
     <settings
       v-if="settingsOpened"
-      @close="settingsOpened = false"/>
-    <debug v-if="process.env.NODE_ENV === 'development'"/>
+      @close="settingsOpened = false" />
+    <debug
+      v-if="debug" />
   </div>
 </template>
 
@@ -29,7 +30,10 @@ export default {
   data: () => ({
     settingsOpened: false
   }),
-  computed: mapState('encounter', [ 'combatants', 'maxdps' ])
+  computed: {
+    ...mapState('encounter', [ 'combatants', 'maxdps' ]),
+    ...mapState('settings', [ 'debug' ])
+  }
 }
 
 </script>

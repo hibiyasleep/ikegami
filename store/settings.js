@@ -6,7 +6,10 @@ const _state = () => ({
   cell_display2: 'critcounts',
   reduced: true,
   username: '',
-  uid: ''
+  uid: '',
+  // layout
+  hide_name: false,
+  hide_job_icon: false
 })
 
 export default {

@@ -1,5 +1,8 @@
 <template>
-  <div class="c-parts-userlist">
+  <div :class="[ 'c-parts-userlist', {
+      'hide-name': hide_name,
+      'hide-job-icons': hide_job_icon
+    }]">
     <ul>
       <cell
         v-for="c in combatants"
@@ -104,7 +107,9 @@ export default {
   },
   computed: {
     ...mapState('settings', [
-      'reduced'
+      'reduced',
+      'hide_name',
+      'hide_job_icon'
     ]),
     ...mapState('encounter', {
       combatants: 'combatants',
