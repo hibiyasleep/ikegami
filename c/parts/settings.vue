@@ -101,7 +101,8 @@ export default {
       dps: 'DPS',
       dps1m: 'DPS (1min)',
       swings: 'Swings',
-      critcounts: 'Critical Counts',
+      critcounts: 'Criticals',
+      critcounts_wo_direct: '(w/o Direct) Criticals',
       hps: 'HPS',
       ohpct: 'Overheal %',
       deaths: 'Deaths'
