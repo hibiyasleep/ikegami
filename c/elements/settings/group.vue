@@ -28,9 +28,10 @@ export default {
 .c-settings-group
 
   > h5
+    @include clickable
     display: flex
     margin: 0
-    padding: 0 0.5rem
+    padding: 0 0.25rem 0 1rem
 
     font-weight: 600
 

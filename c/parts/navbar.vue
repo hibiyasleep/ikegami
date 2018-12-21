@@ -16,7 +16,7 @@
       <span> {{ e.rdps }}rdps </span>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="button" @click="dropdownOpened = !dropdownOpened">
-      <polygon points="18,10 12,16 6,10 7,9 12,14 17,9" fill="#fff" />
+      <path d="M8,10 l4,4 l4,-4" fill="none" stroke="#fff" />
     </svg>
     <ul class="dropdown" v-if="dropdownOpened" @click="dropdownOpened = false">
       <li @click="endEncounter"> Split Encounter </li>

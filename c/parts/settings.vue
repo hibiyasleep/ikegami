@@ -3,7 +3,7 @@
     <h4>
       Settings - ikegami {{ version }} '{{ releasename }}'
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="button" @click="$emit('close')">
-        <path d="M6,6l12,12z M18,6l-12,12z" stroke="#fff" />
+        <path d="M7,7l9,9z M16,7l-9,9z" stroke="#fff" />
       </svg>
     </h4>
     <div class="settings-wrap">
@@ -20,7 +20,7 @@
           v-model="cell_display1" />
         <dropdown
           label="Element 2"
-          :selections="elementSelections"
+          :selections="Object.assign({ '': 'None' }, elementSelections)"
           v-model="cell_display2" />
         <checkbox
           label="Reduced Mode"
@@ -32,7 +32,7 @@
       </group>
       <group main="About">
         <p class="justify">
-          <span> hibiyasleep/ikegami {{ version }} </span>
+          <span> ikegami {{ version }} </span>
           <span> '{{ releasename }}' </span>
         </p>
         <p>
@@ -121,7 +121,7 @@ export default {
 .settings-window
   position: relative
 
-  margin: 0.5rem auto
+  margin: 0.5rem auto 0 auto
 
   width: $ui-width
   font-size: $ui-text-size
@@ -152,8 +152,9 @@ export default {
     line-height: $settings-element-height
     padding: 0.25rem 0 0.5rem 0
 
-    max-height: 18rem
-    overflow-y: auto
+    height: 18rem
+    max-height: calc(100vh - #{($cell-line-height * 2) + $nav-height + 3rem})
+    overflow-y: scroll
 
   .c-settings-input, blockquote, p
     display: flex
@@ -174,6 +175,9 @@ export default {
     line-height: 1.25rem
     &.justify
       justify-content: space-between
+
+  .disabled
+    opacity: 0.25
 
 .input-text
   border: $_1px solid #fff

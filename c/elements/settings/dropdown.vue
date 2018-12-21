@@ -44,6 +44,9 @@ export default {
 .c-settings-dropdown
   position: relative
 
+  .input-text
+    @include clickable
+
 .c-settings-dropdown-body
   position: absolute
   top: 0.25rem

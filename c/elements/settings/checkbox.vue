@@ -24,6 +24,7 @@ export default {
 <style lang="sass">
 
 .c-settings-checkbox .input
+  @include clickable
   position: relative
   width: 1.5rem
   height: 1.5rem

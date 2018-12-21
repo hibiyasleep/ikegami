@@ -11,8 +11,8 @@
       <span class="r" v-if="cell_display2">
         {{ combatant[cell_display2] }}
       </span>
-      <span class="ticker" :style="{ width }"></span>
     </var>
+    <span class="ticker" :style="{ width }"></span>
     <slot></slot>
   </li>
 </template>
@@ -103,11 +103,12 @@ export default {
       text-align: right
       margin-left: auto
 
-    > .ticker
-      position: absolute
-      left: 0
-      bottom: 0
-      height: $cell-ticker-height
+  .ticker
+    position: absolute
+    left: 0
+    bottom: 0
+    height: $cell-ticker-height
+    z-index: -1
 
   .c-details
     position: absolute
