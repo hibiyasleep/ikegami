@@ -4,7 +4,7 @@
 </template><!--
 -->allies↑ ({{ Object.keys(allies).length }})
 party: ({{ Object.keys(party).length }})
-<template v-for="p in party">{{ p }} ({{ allies[p] || '?' }})
+<template v-for="(p, idx) in party">{{ p }} ({{ idx }} {{ allies[p] && allies[p].name || '?' }})
 </template><!--
 -->username: {{ username }}
 uid: {{ uid }}</pre>
