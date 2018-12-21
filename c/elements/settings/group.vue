@@ -1,10 +1,10 @@
 <template>
   <div class="c-settings-group">
-    <h5 @click="opened = !opened">
+    <h5 @click="show = !show">
       {{ name }}
-      <button :class="{ opened }"></button>
+      <button :class="{ show }"></button>
     </h5>
-    <div class="c-settings-group-content" v-if="opened">
+    <div class="c-settings-group-content" v-if="show">
       <slot></slot>
     </div>
   </div>
@@ -14,11 +14,17 @@
 
 export default {
   props: {
-    name: String
+    name: String,
+    opened: Boolean
   },
   data: () => ({
-    opened: false
-  })
+    show: false
+  }),
+  mounted() {
+    if(this.opened) {
+      this.show = true
+    }
+  }
 }
 
 </script>
@@ -66,7 +72,7 @@ export default {
 
         transform: rotate(-45deg)
 
-      &.opened::after
+      &.show::after
         transform: rotate(0deg)
 
 .c-settings-group-content
