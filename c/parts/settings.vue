@@ -20,7 +20,8 @@
           v-model="cell_display1" />
         <dropdown
           label="Element 2"
-          :selections="Object.assign({ '': 'None' }, elementSelections)"
+          empty="None"
+          :selections="elementSelections"
           v-model="cell_display2" />
         <checkbox
           label="Reduced Mode"

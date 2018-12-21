@@ -1,8 +1,13 @@
 <template>
   <label class="c-settings-input c-settings-dropdown" v-click-outside="close">
     <span @click="open" class="label"> {{ label }} </span>
-    <span @click="open" class="input-text dropdown-label"> {{ selections[value] }} </span>
+    <span @click="open" class="input-text dropdown-label"> {{ selections[value] || empty }} </span>
     <ul class="c-settings-dropdown-body" v-if="opened">
+      <li
+        v-if="empty"
+        @click="select('')">
+        {{ empty }}
+      </li>
       <li
         v-for="(s, id) in selections"
         @click="select(id)">
@@ -17,6 +22,7 @@
 export default {
   props: {
     label: { type: String },
+    empty: { type: String },
     selections: { type: Object, required: true },
     value: { type: String }
   },
