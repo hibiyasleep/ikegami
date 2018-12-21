@@ -1,9 +1,62 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+const PET_MAPPING = {
+  '카벙클 에메랄드': 'acn-pet',
+  '카벙클 토파즈': 'acn-pet',
+  '카벙클 루비': 'acn-pet',
+  '가루다 에기': 'garuda',
+  '타이탄 에기': 'titan',
+  '이프리트 에기': 'ifrit',
+  '요정 에오스': 'eos',
+  '요정 셀레네': 'selene',
+  '자동포탑 룩': 'rook',
+  '자동포탑 비숍': 'bishop',
+  'Emerald Carbuncle': 'acn-pet',
+  'Topaz Carbuncle': 'acn-pet',
+  'Ruby Carbuncle': 'acn-pet',
+  'Garuda-Egi': 'garuda',
+  'Titan-Egi': 'titan',
+  'Ifrit-Egi': 'ifrit',
+  'Eos': 'eos',
+  'Selene': 'selene',
+  'Rook Autoturret': 'rook',
+  'Bishop Autoturret': 'bishop',
+  'カーバンクル・エメラルド': 'acn-pet',
+  'カーバンクル・トパーズ': 'acn-pet',
+  'カーバンクル・ルビー': 'acn-pet',
+  'ガルーダ・エギ': 'garuda',
+  'タイタン・エギ': 'titan',
+  'イフリート・エギ': 'ifrit',
+  'フェアリー・エオス': 'eos',
+  'フェアリー・セレネ': 'selene',
+  'オートタレット・ルーク': 'rook',
+  'オートタレット・ビショップ': 'bishop'
+  // TODO: add another languages
+  // TODO: move to const
+}
+
 const resolveOwner = function resolveOwner(_) {
   let o = /^.+? \((.+?)\)$/.exec(_)
   return o && o[1] || undefined
+}
+
+const resolveJobFromName = function resolveJobFromName(_job, _name) {
+  _job = _job || ''
+
+  const o = /^(.+?) \((.+?)\)$/.exec(_name)
+  if(!o) {
+    if(_name === 'Limit Break' || _name === '리미트 브레이크') {
+      return ['limit-break', 'Limit Break', '']
+    } else {
+      return [_job.toLowerCase(), _name, '']
+    }
+  }
+
+  o[0] = PET_MAPPING[o[1]] || 'chocobo'
+
+  // TODO: make this localizable again (from kagerou)
+  return o
 }
 
 const _state = () => ({
@@ -25,7 +78,7 @@ export default {
       if(state.combatants.length === 0) {
         return 0
       }
-      return state.combatants.findIndex(_ => _.name === 'YOU' || _.name === rootState.settings.my_name) + 1
+      return state.combatants.findIndex(_ => _.name === 'YOU' || _.name === rootState.settings.username) + 1
     }
   },
   mutations: {
@@ -49,20 +102,23 @@ export default {
 
       for(let k in combatants) {
         let c = combatants[k]
-        if(!c.Job) {
-          if(c.name === 'Limit Break') {
-            c.Job = 'limit-break'
-            c.name = c.swings === '1' && c.maxhit? c.maxhit.split('-')[0] : 'Limit Break'
-          } else {
-            continue
-          }
+        const [
+          _job,
+          _name,
+          _owner
+        ] = resolveJobFromName(c.Job, c.name === 'YOU' && playerName? playerName : c.name)
+
+        if(!_job) {
+          continue
         }
 
         const [ dskill, damount ] = c.maxhit.split('-')
         const [ hskill, hamount ] = c.maxheal.split('-')
         const o = {
-          job:                c.Job.toLowerCase(),
-          name:               c.name,
+          job:                _job,
+          name:               _name,
+         _name:               c.name,
+         _owner:              _owner,
           dps:     parseFloat(c.encdps),
           dps1m:   parseFloat(c.Last60DPS),
           maxhit:  [ parseInt(damount) || 0, dskill || '---' ],
@@ -83,17 +139,30 @@ export default {
           minion_over: 0
         }
         o.critcounts = [ o.ch, o.dh, o.cdh ].join('/')
-        players[k] = o
+        o.critcounts_wo_direct = [ o.ch, o.cdh ].join('/')
+
+        // override name with maxhit/heal skillname when LMB used once
+        if(o.job === 'limit-break' && (
+           o.swings === 1 ||
+           o.maxheal[0] === o.healed
+        )) {
+          if(dskill) {
+            o.name = dskill
+          } else if(hskill) {
+            o.name = hskill
+          }
+        }
+
+        players[o._name] = o
       }
 
-      for(let name in players) {
-        let owner = resolveOwner(name) // FIXME
-        if(playerName) {
-          owner = resolveOwner(name.replace('YOU', playerName))
-        }
+      for(let index in players) {
+        const player = players[index]
+        let { name, _owner: owner } = player
+
         if(owner && players[owner]) {
           let ownerData = players[owner] || {}
-          let petData = players[name]
+          let petData = players[index]
 
           for(let k in ownerData) {
             let old = ownerData[k]
@@ -128,11 +197,10 @@ export default {
             ownerData.cdh
           ].join('/')
 
-          delete players[name]
+          delete players[index] // merge done
         }
       }
 
-      // TODO: merge
       players = Object.keys(players).map(_ => players[_]).sort((a, b) => b.dps - a.dps)
 
       state.topdps = players[0]? players[0].dps : 0
