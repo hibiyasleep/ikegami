@@ -23,6 +23,8 @@
           empty="None"
           :selections="elementSelections"
           v-model="cell_display2" />
+      </group>
+      <group name="Layout">
         <checkbox
           label="Reduced Mode"
           v-model="reduced" />
@@ -30,8 +32,6 @@
           This option will hide too much detailed values, like 'Swings' or
           'Overheal', but will keep their graphs.
         </blockquote>
-      </group>
-      <group name="Layout">
         <checkbox
           label="Hide name section"
           v-model="hide_name" />
@@ -39,12 +39,12 @@
           label="Hide Job icons"
           :class="{ disabled: hide_name }"
           v-model="hide_job_icon" />
-        <checkbox
+        <!--checkbox
           label="Debug"
           v-model="debug" />
         <blockquote>
-          Show debug box about combatant tracking.
-        </blockquote>
+          Show debug box about partylist tracking.
+        </blockquote-->
       </group>
       <group name="About" :opened="true">
         <p class="justify">
@@ -90,6 +90,17 @@ import checkbox from '../elements/settings/checkbox.vue'
 import dropdown from '../elements/settings/dropdown.vue'
 import string from '../elements/settings/string.vue'
 
+const _computedGetter = (keys) => {
+  let o = {}
+  for(let key of keys) {
+    o[key] = {
+      get() { return this.$store.state.settings[key] },
+      set(v) { this.$store.commit('settings/set', { k: key, v })}
+    }
+  }
+  return o
+}
+
 export default {
   components: {
     group,
@@ -98,6 +109,7 @@ export default {
     string
   },
   data: () => ({
+    // warning: dropdown content's order are rely on object key order!
     elementSelections: {
       dps: 'DPS',
       dps1m: 'DPS (1min)',
@@ -112,34 +124,15 @@ export default {
     releasename: packageinfo.releasename
   }),
   computed: {
-    username: {
-      get() { return this.$store.state.settings.username },
-      set(v) { this.$store.commit('settings/set', { k: 'username', v })}
-    },
-    cell_display1: {
-      get() { return this.$store.state.settings.cell_display1 },
-      set(v) { this.$store.commit('settings/set', { k: 'cell_display1', v })}
-    },
-    cell_display2: {
-      get() { return this.$store.state.settings.cell_display2 },
-      set(v) { this.$store.commit('settings/set', { k: 'cell_display2', v })}
-    },
-    reduced: {
-      get() { return this.$store.state.settings.reduced },
-      set(v) { this.$store.commit('settings/set', { k: 'reduced', v })}
-    },
-    hide_name: {
-      get() { return this.$store.state.settings.hide_name },
-      set(v) { this.$store.commit('settings/set', { k: 'hide_name', v })}
-    },
-    hide_job_icon: {
-      get() { return this.$store.state.settings.hide_job_icon },
-      set(v) { this.$store.commit('settings/set', { k: 'hide_job_icon', v })}
-    },
-    debug: {
-      get() { return this.$store.state.settings.debug },
-      set(v) { this.$store.commit('settings/set', { k: 'debug', v })}
-    }
+    ..._computedGetter([
+      'username',
+      'cell_display1',
+      'cell_display2',
+      'reduced',
+      'hide_name',
+      'hide_job_icon',
+      'debug'
+    ])
   }
 }
 
@@ -195,6 +188,7 @@ export default {
       flex-grow: 10
 
   blockquote
+    display: block
     line-height: 1.25rem
     margin-bottom: 0.75rem
     opacity: 0.5

@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 const _state = () => ({
   cell_display1: 'dps',
   cell_display2: 'critcounts',
-  reduced: true,
+  reduced: false,
   username: '',
   uid: '',
   // layout
