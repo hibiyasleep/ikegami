@@ -152,6 +152,9 @@ export default {
   actions: {
     // Listeners
     update({ commit, dispatch, rootState }, { Encounter, Combatant }) {
+      if(!Encounter || Encounter.hits < 1) {
+        return
+      }
       commit('setEncounter', Encounter)
       commit('setCombatants', {
         combatants: Combatant,
