@@ -1,6 +1,6 @@
 {
   "name": "ikegami",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "releasename": "Yukigaya Depot",
   "description": "experimental vertical FFXIV Miniparse overlay",
   "dependencies": {
@@ -9,6 +9,7 @@
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
+    "@babel/core": "^7",
     "@babel/plugin-proposal-object-rest-spread": "^7",
     "@babel/preset-env": "^7",
     "@vue/component-compiler-utils": "1.x",
