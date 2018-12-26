@@ -59,7 +59,6 @@ export default {
   right: 0
 
   width: $settings-input-width
-  line-height: $nav-height
   max-height: 12rem
   overflow-y: auto
 

@@ -7,13 +7,7 @@
       </svg>
     </h4>
     <div class="settings-wrap">
-      <group name="Main">
-        <string
-          label="Name for merging"
-          v-model="username" />
-        <blockquote>
-          This will be automatically detected on ACTWS or LogParse. If not, try move to another region.
-        </blockquote>
+      <group name="Layout">
         <dropdown
           label="Element 1"
           :selections="elementSelections"
@@ -23,8 +17,6 @@
           empty="None"
           :selections="elementSelections"
           v-model="cell_display2" />
-      </group>
-      <group name="Layout">
         <checkbox
           label="Reduced Mode"
           v-model="reduced" />
@@ -45,6 +37,22 @@
         <blockquote>
           Show debug box about partylist tracking.
         </blockquote-->
+      </group>
+      <group name="Data">
+        <textlist
+          label="Name for merging"
+          :values="username_configured_computed"
+          @input="updateUsername" />
+        <string
+          label="Automatically set"
+          v-model="username"
+          disabled />
+        <blockquote>
+          This will be automatically detected on ACTWS or LogParse. If not, try move to another region.
+        </blockquote>
+        <blockquote>
+          TODO: customable decimal digits (hide/show is enough)
+        </blockquote>
       </group>
       <group name="About" :opened="true">
         <p class="justify">
@@ -89,6 +97,7 @@ import group from '../elements/settings/group.vue'
 import checkbox from '../elements/settings/checkbox.vue'
 import dropdown from '../elements/settings/dropdown.vue'
 import string from '../elements/settings/string.vue'
+import textlist from '../elements/settings/textlist.vue'
 
 const _computedGetter = (keys) => {
   let o = {}
@@ -106,7 +115,8 @@ export default {
     group,
     checkbox,
     dropdown,
-    string
+    string,
+    textlist
   },
   data: () => ({
     // warning: dropdown content's order are rely on object key order!
@@ -123,16 +133,25 @@ export default {
     version: packageinfo.version,
     releasename: packageinfo.releasename
   }),
+  methods: {
+    updateUsername({ index, value }) {
+      this.$store.commit('settings/updateName', { index, name: value })
+    }
+  },
   computed: {
     ..._computedGetter([
-      'username',
       'cell_display1',
       'cell_display2',
       'reduced',
       'hide_name',
       'hide_job_icon',
+      'username',
+      'username_configured',
       'debug'
-    ])
+    ]),
+    username_configured_computed() {
+      return [].concat(this.username_configured, [''])
+    }
   }
 }
 
@@ -205,7 +224,7 @@ export default {
 .input-text
   border: $_1px solid #fff
   width: 10rem
-  height: $ui-text-size + 0.5rem
+  height: $ui-text-size + 0.625rem
 
   padding: 0 0.5rem 0 0.25rem
   line-height: 1.25rem

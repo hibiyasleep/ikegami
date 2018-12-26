@@ -6,6 +6,7 @@ const _state = () => ({
   cell_display2: 'critcounts',
   reduced: false,
   username: '',
+  username_configured: [],
   uid: '',
   // layout
   hide_name: false,
@@ -21,9 +22,23 @@ export default {
     setName(state, [ uid, username ]) {
       state.uid = uid
       state.username = username
+    },
+    updateName(state, { index, name }) {
+      if(name.trim() === '') {
+        state.username_configured.splice(index, 1)
+      } else {
+        Vue.set(state.username_configured, index, name)
+      }
     }
   },
   getters: {
+    usernames(state) {
+      if(username_configured.length) {
+        return [state.username].concat(state.username_configured)
+      } else {
+        return [state.username]
+      }
+    }
   },
   actions: {
   },

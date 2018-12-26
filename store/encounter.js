@@ -47,9 +47,9 @@ const resolveJobFromName = function resolveJobFromName(_job, _name) {
   const o = /^(.+?) \((.+?)\)$/.exec(_name)
   if(!o) {
     if(_name === 'Limit Break' || _name === '리미트 브레이크') {
-      return ['limit-break', 'Limit Break', '']
+      return ['limit-break', 'Limit Break', false]
     } else {
-      return [_job.toLowerCase(), _name, '']
+      return [_job.toLowerCase(), _name, false]
     }
   }
 
@@ -96,7 +96,7 @@ export default {
         deaths:    parseInt(encounter.deaths)
       })
     },
-    setCombatants(state, { combatants, playerName }) {
+    setCombatants(state, { combatants, playerNames = [] }) {
       let players = {}
       // const containsYou = combatants.some(_ => _.name === 'YOU')
 
@@ -106,7 +106,7 @@ export default {
           _job,
           _name,
           _owner
-        ] = resolveJobFromName(c.Job, c.name === 'YOU' && playerName? playerName : c.name)
+        ] = resolveJobFromName(c.Job, c.name)
 
         if(!_job) {
           continue
@@ -117,7 +117,6 @@ export default {
         const o = {
           job:                _job,
           name:               _name,
-         _name:               c.name,
          _owner:              _owner,
           dps:     parseFloat(c.encdps),
           dps1m:   parseFloat(c.Last60DPS),
@@ -153,12 +152,21 @@ export default {
           }
         }
 
-        players[o._name] = o
+        players[o.name] = o
       }
 
       for(let index in players) {
         const player = players[index]
         let { name, _owner: owner } = player
+
+        let isYourMinion = playerNames.indexOf(owner)
+        if(isYourMinion !== -1) {
+          if(players.YOU) {
+            owner = 'YOU'
+          } else {
+            owner = playerNames[isYourMinion]
+          }
+        }
 
         if(owner && players[owner]) {
           let ownerData = players[owner] || {}
@@ -219,14 +227,14 @@ export default {
   },
   actions: {
     // Listeners
-    update({ commit, dispatch, rootState }, { Encounter, Combatant }) {
+    update({ commit, dispatch, rootGetters }, { Encounter, Combatant }) {
       if(!Encounter || Encounter.hits < 1) {
         return
       }
       commit('setEncounter', Encounter)
       commit('setCombatants', {
         combatants: Combatant,
-        playerName: rootState.settings.username
+        playerNames: rootGetters.settings.usernames
       })
     },
     logline({ commit, dispatch }, { type, payload }) {
