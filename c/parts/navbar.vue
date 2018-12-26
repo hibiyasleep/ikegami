@@ -2,7 +2,7 @@
   <nav class="c-navbar-wrapper">
     <div class="location">
       <mark>
-        {{ ~~(e.duration / 60) | pad }}:{{ e.duration % 60 | pad }}
+        {{ ~~(e.duration / 60) | pad }}:{{ (e.duration || 0) % 60 | pad }}
       </mark>
       <span v-if="e.zone">
         {{ e.zone }}
