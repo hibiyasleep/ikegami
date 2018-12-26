@@ -103,7 +103,7 @@ export default {
   line-height: $nav-height
 
   color: $ui-color
-  background: $ui-background
+  background: $cell-background
   font-size: $nav-text-size
   text-shadow: $shadow-with-background
 
