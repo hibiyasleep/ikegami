@@ -34,7 +34,7 @@ export default {
   },
   getters: {
     usernames(state) {
-      if(username_configured.length) {
+      if(state.username_configured.length) {
         return [state.username].concat(state.username_configured)
       } else {
         return [state.username]

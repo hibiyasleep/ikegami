@@ -234,7 +234,7 @@ export default {
       commit('setEncounter', Encounter)
       commit('setCombatants', {
         combatants: Combatant,
-        playerNames: rootGetters.settings.usernames
+        playerNames: rootGetters['settings/usernames']
       })
     },
     logline({ commit, dispatch }, { type, payload }) {
