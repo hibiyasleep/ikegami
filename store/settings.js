@@ -5,6 +5,7 @@ const _state = () => ({
   cell_display1: 'dps',
   cell_display2: 'critcounts',
   reduced: false,
+  show_decimals: true,
   username: '',
   username_configured: [],
   uid: '',

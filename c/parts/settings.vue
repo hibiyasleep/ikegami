@@ -44,15 +44,15 @@
           :values="username_configured_computed"
           @input="updateUsername" />
         <string
-          label="Automatically set"
-          v-model="username"
+          label="(Automatically set)"
+          :value="`(${uid}) ${username}`"
           disabled />
         <blockquote>
           This will be automatically detected on ACTWS or LogParse. If not, try move to another region.
         </blockquote>
-        <blockquote>
-          TODO: customable decimal digits (hide/show is enough)
-        </blockquote>
+        <checkbox
+          label="Show .1 units"
+          v-model="show_decimals" />
       </group>
       <group name="About" :opened="true">
         <p class="justify">
@@ -146,7 +146,9 @@ export default {
       'hide_name',
       'hide_job_icon',
       'username',
+      'uid',
       'username_configured',
+      'show_decimals',
       'debug'
     ]),
     username_configured_computed() {

@@ -6,10 +6,10 @@
     </label>
     <var>
       <span class="l">
-        {{ combatant[cell_display1] | f(cell_display1) }}
+        {{ combatant[cell_display1] | f(cell_display1, show_decimals) }}
       </span>
       <span class="r" v-if="cell_display2">
-        {{ combatant[cell_display2] | f(cell_display2) }}
+        {{ combatant[cell_display2] | f(cell_display2, show_decimals) }}
       </span>
     </var>
     <span class="ticker" :style="{ width }"></span>
@@ -37,15 +37,19 @@ export default {
 
   },
   computed: {
-    ...mapState('settings', [ 'cell_display1', 'cell_display2' ]),
+    ...mapState('settings', [
+      'cell_display1',
+      'cell_display2',
+      'show_decimals'
+    ]),
     width() {
       return Math.min(100, this.combatant.dps / (this.topdps || 1) * 100) + '%'
     }
   },
   filters: {
-    f(value, key) {
+    f(value, key, show_decimals) {
       if(key === 'dps' || key === 'dps1m' || key === 'hps') {
-        return filters.decimal(value, 1)
+        return filters.decimal(value, show_decimals? 1 : 0)
       } else {
         return value
       }
