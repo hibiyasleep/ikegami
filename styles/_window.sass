@@ -1,0 +1,61 @@
+.window
+  position: relative
+
+  margin: 0.5rem auto 0 auto
+
+  width: $ui-width
+  font-size: $ui-text-size
+  line-height: $ui-text-size
+
+  background: $ui-background
+  color: $ui-color
+
+  z-index: $z-window
+
+  h4
+    display: flex
+    margin: 0
+    padding: 0 0 0 0.5rem
+    font-weight: inherit
+
+    height: $nav-height
+    line-height: $nav-height
+    font-size: $nav-text-size
+    background: $ui-background
+
+    .button
+      @include clickable
+      vertical-align: top
+      margin-left: auto
+
+  .window-wrap
+    line-height: $settings-element-height
+    padding: 0.25rem 0 0.5rem 0
+
+    height: 18rem
+    max-height: calc(100vh - #{($cell-line-height * 2) + $nav-height + 3rem})
+    overflow-y: scroll
+
+  .c-settings-input, blockquote, p
+    display: flex
+    align-items: center
+    margin: 0
+    padding: 0
+
+    .label
+      flex-grow: 10
+
+  blockquote
+    display: block
+    line-height: 1.25rem
+    margin-bottom: 0.75rem
+    opacity: 0.5
+
+  p
+    margin: 0.25rem 0
+    line-height: 1.25rem
+    &.justify
+      justify-content: space-between
+
+  .disabled
+    opacity: 0.25

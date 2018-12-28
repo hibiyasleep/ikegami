@@ -6,11 +6,13 @@ Vue.use(Vuex)
 
 import encounter from './encounter'
 import settings from './settings'
+import ui from './ui'
 
 export default new Vuex.Store({
   modules: {
     encounter,
-    settings
+    settings,
+    ui
   },
   plugins: [
     createPersistedState({

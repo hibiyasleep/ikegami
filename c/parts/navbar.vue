@@ -20,7 +20,8 @@
     </svg>
     <ul class="dropdown" v-if="dropdownOpened" @click="dropdownOpened = false">
       <li @click="endEncounter"> Split Encounter </li>
-      <li @click="settings"> Settings </li>
+      <li @click="open('changelog')"> Changelog </li>
+      <li @click="open('settings')"> Settings </li>
     </ul>
     <detail-wrap>
       <article class="details-group dps">
@@ -54,7 +55,7 @@
 
 <script>
 
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapMutations } from 'vuex'
 
 import packageinfo from '../../package.json'
 
@@ -72,11 +73,9 @@ export default {
     releasename: packageinfo.releasename
   }),
   methods: {
+    ...mapMutations('ui', [ 'open' ]),
     endEncounter() {
       this.$layer.request('end')
-    },
-    settings() {
-      this.$emit('openSettings')
     }
   },
   computed: {

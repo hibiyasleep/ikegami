@@ -1,11 +1,9 @@
 <template>
   <div>
     <userlist />
-    <navbar
-      @openSettings="settingsOpened = true" />
-    <settings
-      v-if="settingsOpened"
-      @close="settingsOpened = false" />
+    <navbar />
+    <settings v-if="opened_window === 'settings'" />
+    <changelog v-if="opened_window === 'changelog'" />
     <debug
       v-if="debug" />
   </div>
@@ -19,20 +17,23 @@ import userlist from './c/parts/userlist.vue'
 import navbar from './c/parts/navbar.vue'
 import debug from './c/parts/debug.vue'
 import settings from './c/parts/settings.vue'
+import changelog from './c/parts/changelog.vue'
 
 export default {
   components: {
     userlist,
     navbar,
     debug,
-    settings
+    settings,
+    changelog
   },
   data: () => ({
     settingsOpened: false
   }),
   computed: {
     ...mapState('encounter', [ 'combatants', 'maxdps' ]),
-    ...mapState('settings', [ 'debug' ])
+    ...mapState('settings', [ 'debug' ]),
+    ...mapState('ui', [ 'opened_window' ])
   }
 }
 
@@ -43,5 +44,6 @@ export default {
 @import styles/reset
 @import styles/index
 @import styles/classes
+@import styles/window
 
 </style>
