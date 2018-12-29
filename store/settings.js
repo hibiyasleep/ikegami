@@ -12,7 +12,9 @@ const _state = () => ({
   // layout
   hide_name: false,
   hide_job_icon: false,
-  color_scheme: 'kagerou-material'
+  color_scheme: 'kagerou-material',
+  never_show_changelog_again: false,
+  last_launched_version: null
 })
 
 export default {
