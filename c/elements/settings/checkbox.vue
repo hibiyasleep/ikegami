@@ -1,6 +1,8 @@
 <template>
   <label class="c-settings-input c-settings-checkbox" @click="input">
-    <span class="label"> {{ label }} </span>
+    <span class="label">
+      <slot>{{ label }}</slot>
+    </span>
     <span :class="[ 'input', { checked: value } ]" />
   </label>
 </template>

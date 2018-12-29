@@ -1,6 +1,8 @@
 <template>
   <label class="c-settings-input c-settings-string">
-    <span class="label"> {{ label }} </span>
+    <span class="label">
+      <slot>{{ label }}</slot>
+    </span>
     <string-base v-model="value" :disabled="disabled" />
   </label>
 </template>

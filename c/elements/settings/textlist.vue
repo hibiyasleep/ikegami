@@ -1,6 +1,8 @@
 <template>
   <div class="c-settings-input c-settings-textlist">
-    <span class="label"> {{ label }} </span>
+    <span class="label">
+      <slot>{{ label }}</slot>
+    </span>
     <ul class="textlist-wrap">
       <li v-for="(value, index) in values">
         <string-base
