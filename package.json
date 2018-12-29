@@ -1,7 +1,7 @@
 {
   "name": "ikegami",
-  "version": "0.1.0",
-  "releasename": "Kamata",
+  "version": "0.1.1",
+  "releasename": "Hasunuma",
   "description": "experimental vertical FFXIV Miniparse overlay",
   "dependencies": {
     "vue": "2.x",
