@@ -20,12 +20,16 @@
 import { mapMutations } from 'vuex'
 
 import group from '../elements/settings/group.vue'
-import version from '../elements/version.vue'
+import checkbox from '../elements/settings/checkbox.vue'
+import version from '../elements/present/version.vue'
+import classColors from '../elements/present/class-colors.vue'
 
 export default {
   components: {
     group,
-    version
+    checkbox,
+    version,
+    classColors
   },
   methods: {
     ...mapMutations('ui', [ 'close' ])

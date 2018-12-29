@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div :class="[
+    'scheme-' + (color_scheme || 'kagerou-material')
+  ]">
     <userlist />
     <navbar />
     <settings v-if="opened_window === 'settings'" />
@@ -31,8 +33,7 @@ export default {
     settingsOpened: false
   }),
   computed: {
-    ...mapState('encounter', [ 'combatants', 'maxdps' ]),
-    ...mapState('settings', [ 'debug' ]),
+    ...mapState('settings', [ 'debug', 'color_scheme' ]),
     ...mapState('ui', [ 'opened_window' ])
   }
 }

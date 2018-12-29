@@ -11,7 +11,8 @@ const _state = () => ({
   uid: '',
   // layout
   hide_name: false,
-  hide_job_icon: false
+  hide_job_icon: false,
+  color_scheme: 'kagerou-material'
 })
 
 export default {

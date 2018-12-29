@@ -31,6 +31,15 @@
           label="Hide Job icons"
           :class="{ disabled: hide_name }"
           v-model="hide_job_icon" />
+        <dropdown
+          label="Color Scheme"
+          :selections="{
+            'kagerou-material': 'kagerou Material',
+            'ikegami-by-role-3': 'by-role (3)',
+            'ikegami-by-role-5': 'by-role (5)'
+          }"
+          v-model="color_scheme" />
+        <class-colors />
         <!--checkbox
           label="Debug"
           v-model="debug" />
@@ -77,7 +86,8 @@ import checkbox from '../elements/settings/checkbox.vue'
 import dropdown from '../elements/settings/dropdown.vue'
 import string from '../elements/settings/string.vue'
 import textlist from '../elements/settings/textlist.vue'
-import version from '../elements/version.vue'
+import version from '../elements/present/version.vue'
+import classColors from '../elements/present/class-colors.vue'
 
 const _computedGetter = (keys) => {
   let o = {}
@@ -97,7 +107,8 @@ export default {
     dropdown,
     string,
     textlist,
-    version
+    version,
+    classColors
   },
   data: () => ({
     // warning: dropdown content's order are rely on object key order!
@@ -127,6 +138,7 @@ export default {
       'reduced',
       'hide_name',
       'hide_job_icon',
+      'color_scheme',
       'username',
       'uid',
       'username_configured',

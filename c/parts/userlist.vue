@@ -1,7 +1,9 @@
 <template>
-  <div :class="[ 'c-parts-userlist', {
+  <div :class="[
+    'c-parts-userlist',
+    {
       'hide-name': hide_name,
-      'hide-job-icons': hide_job_icon
+      'hide-job-icons': hide_job_icon,
     }]">
     <ul>
       <cell

@@ -1,7 +1,7 @@
 <template>
   <li :class="[ 'c-user-cell', 'class-' + combatant.job, { singleline: !cell_display2 } ]">
     <label>
-      <i :class="[ 'class', 'class-' + combatant.job ]"></i>
+      <i :class="[ 'icon-class', 'class-' + combatant.job ]"></i>
       {{ combatant.name }}
     </label>
     <var>
@@ -108,7 +108,7 @@ export default {
 
     text-shadow: $shadow-without-background
 
-    > i.class
+    > .icon-class
       display: inline-block
       width: 1.25rem
       height: 1.25rem
