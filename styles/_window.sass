@@ -36,6 +36,9 @@
     max-height: calc(100vh - #{($cell-line-height * 2) + $nav-height + 3rem})
     overflow-y: scroll
 
+    > .c-settings-input, > blockquote, > p
+      padding: 0 1rem
+
   .c-settings-input, blockquote, p
     display: flex
     align-items: center
@@ -44,12 +47,23 @@
 
     .label
       flex-grow: 10
+      padding-right: 0.5rem
+
+    &.small
+      font-size: 0.75em
+      line-height: $settings-element-height * 0.75
+
+      .label
+        text-align: right
 
   blockquote
     display: block
     line-height: 1.25rem
     margin-bottom: 0.75rem
     opacity: 0.5
+
+    &.text
+      opacity: 1
 
   p
     margin: 0.25rem 0
@@ -59,3 +73,7 @@
 
   .disabled
     opacity: 0.25
+
+  .center
+    text-align: center
+    align-self: center
