@@ -35,8 +35,10 @@
           label="Color Scheme"
           :selections="{
             'kagerou-material': 'kagerou Material',
-            'ikegami-by-role-3': 'by-role (3)',
-            'ikegami-by-role-5': 'by-role (5)'
+            'ikegami-by-role-3': 'ikegami 3-roles',
+            'ikegami-by-role-5': 'ikegami 5-roles',
+            'mopimopi-default': 'MopiMopi default',
+            'mopimopi-by-role': 'MopiMopi 3-roles'
           }"
           v-model="color_scheme" />
         <class-colors />
