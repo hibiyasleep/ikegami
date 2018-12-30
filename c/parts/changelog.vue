@@ -17,10 +17,11 @@
       </checkbox>
       <hr />
       <version />
-      <blockquote class="center text">
-        C95爆死　　　　たすけて
-      </blockquote>
-      <group name="0.1.1 'Hasunuma'" :opened="true">
+      <group name="0.1.2 'Ikegami'" :opened="true">
+        <p> fix 'Hide Job Icons' not working </p>
+        <p> added MopiMopi color scheme </p>
+      </group>
+      <group name="0.1.1 'Hasunuma'">
         <p> Changelog added </p>
         <p> Color scheme can be changed (see Settings) </p>
         <class-colors />
