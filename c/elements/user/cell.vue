@@ -167,7 +167,7 @@ export default {
   &.singleline label
     margin-left: 0.375rem
 
-  label > i.class
+  label > .icon-class
     display: none
 
 
