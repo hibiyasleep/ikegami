@@ -1,10 +1,5 @@
 <template>
-  <div :class="[
-    'c-parts-userlist',
-    {
-      'hide-name': hide_name,
-      'hide-job-icons': hide_job_icon,
-    }]">
+  <div class="c-parts-userlist">
     <ul>
       <cell
         v-for="c in combatants"
@@ -108,11 +103,7 @@ export default {
     graph
   },
   computed: {
-    ...mapState('settings', [
-      'reduced',
-      'hide_name',
-      'hide_job_icon'
-    ]),
+    ...mapState('settings', [ 'reduced' ]),
     ...mapState('encounter', {
       combatants: 'combatants',
       topdps: 'topdps',
@@ -132,6 +123,11 @@ export default {
   align-items: flex-start
   justify-content: center
 
+  // this container exists for alignment.
+  // |      *------*      |
+  // -> this may implemented by only one container
+  // |*-------------------|---*
+  // -> but this is why <ul> exists
   > ul
     display: flex
     max-width: 100%

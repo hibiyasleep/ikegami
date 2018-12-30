@@ -1,6 +1,9 @@
 <template>
   <div :class="[
-    'scheme-' + (color_scheme || 'kagerou-material')
+    'scheme-' + (color_scheme || 'kagerou-material'), {
+      'hide-name': hide_name,
+      'hide-job-icons': hide_job_icon
+    }
   ]">
     <userlist />
     <navbar />
@@ -35,7 +38,12 @@ export default {
     settingsOpened: false
   }),
   computed: {
-    ...mapState('settings', [ 'debug', 'color_scheme' ]),
+    ...mapState('settings', [
+      'debug',
+      'color_scheme',
+      'hide_name',
+      'hide_job_icon'
+    ]),
     ...mapState('ui', [ 'opened_window' ])
   },
   mounted() {
