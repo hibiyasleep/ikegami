@@ -155,7 +155,8 @@ $class-remap: (
   'brd': 'arc',
   'nin': 'rog',
   'smn': 'acn',
-  'blm': 'thm'
+  'blm': 'thm',
+  'whm': 'cnj'
 );
 
 @each $set in map-keys($colorset) {
