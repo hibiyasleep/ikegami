@@ -59,7 +59,9 @@
           :value="`(${uid}) ${username}`"
           disabled />
         <blockquote>
-          This will be automatically detected on ACTWS or LogParse. If not, try move to another region.
+          If multiple pet (including other's) detected as yours, it'll cause duplication of merging.
+          <br />
+          Name will be automatically detected on ACTWS or LogParse. If not, try move to another region.
         </blockquote>
         <checkbox
           label="Show .1 units"
