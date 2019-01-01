@@ -1,7 +1,7 @@
 {
   "name": "ikegami",
-  "version": "0.1.2",
-  "releasename": "Ikegami",
+  "version": "0.1.3",
+  "releasename": "Chidori-cho",
   "description": "experimental vertical FFXIV Miniparse overlay",
   "dependencies": {
     "vue": "2.x",

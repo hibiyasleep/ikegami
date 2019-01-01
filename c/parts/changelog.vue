@@ -17,7 +17,12 @@
       </checkbox>
       <hr />
       <version />
-      <group name="0.1.2 'Ikegami'" :opened="true">
+      <group name="0.1.3 'Chidori-cho'" :opened="true">
+        <p> fix Conjurer gauge color </p>
+        <p> adjust (may) noticeable margin </p>
+        <p> Nameblur added; clicking on name section will toggle it </p>
+      </group>
+      <group name="0.1.2 'Ikegami'">
         <p> fix 'Hide Job Icons' not working </p>
         <p> added MopiMopi color scheme </p>
       </group>
