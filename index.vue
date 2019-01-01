@@ -2,7 +2,8 @@
   <div :class="[
     'scheme-' + (color_scheme || 'kagerou-material'), {
       'hide-name': hide_name,
-      'hide-job-icons': hide_job_icon
+      'hide-job-icons': hide_job_icon,
+      'blur-name': blur_name
     }
   ]">
     <userlist />
@@ -42,7 +43,8 @@ export default {
       'debug',
       'color_scheme',
       'hide_name',
-      'hide_job_icon'
+      'hide_job_icon',
+      'blur_name'
     ]),
     ...mapState('ui', [ 'opened_window' ])
   },

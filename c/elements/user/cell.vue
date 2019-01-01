@@ -1,8 +1,8 @@
 <template>
   <li :class="[ 'c-user-cell', 'class-' + combatant.job, { singleline: !cell_display2 } ]">
-    <label>
+    <label @click="toggleBlur">
       <i :class="[ 'icon-class', 'class-' + combatant.job ]"></i>
-      {{ combatant.name }}
+      <span class="name">{{ combatant.name }}</span>
     </label>
     <var>
       <span class="l">
@@ -34,7 +34,9 @@ export default {
     }
   },
   methods: {
-
+    toggleBlur() {
+      this.$store.commit('settings/toggle', 'blur_name')
+    }
   },
   computed: {
     ...mapState('settings', [
@@ -170,5 +172,8 @@ export default {
   label > .icon-class
     display: none
 
+.blur-name .c-user-cell
+  .name
+    filter: blur(0.2rem)
 
 </style>

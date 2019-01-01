@@ -12,7 +12,9 @@ const _state = () => ({
   // layout
   hide_name: false,
   hide_job_icon: false,
+  blur_name: false,
   color_scheme: 'kagerou-material',
+  // changelog
   never_show_changelog_again: false,
   last_launched_version: null
 })
@@ -22,6 +24,11 @@ export default {
   mutations: {
     set(state, { k, v }) {
       Vue.set(state, k, v)
+    },
+    toggle(state, k) {
+      if(typeof state[k] === 'boolean') {
+        state[k] = !state[k]
+      }
     },
     setName(state, [ uid, username ]) {
       state.uid = uid

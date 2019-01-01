@@ -42,12 +42,12 @@
           }"
           v-model="color_scheme" />
         <class-colors />
-        <!--checkbox
-          label="Debug"
-          v-model="debug" />
+        <checkbox
+          label="Blur out usernames"
+          v-model="blur_name" />
         <blockquote>
-          Show debug box about partylist tracking.
-        </blockquote-->
+          This can be toggled by left-clicking on username.
+        </blockquote>
       </group>
       <group name="Data">
         <textlist
@@ -140,6 +140,7 @@ export default {
       'reduced',
       'hide_name',
       'hide_job_icon',
+      'blur_name',
       'color_scheme',
       'username',
       'uid',
