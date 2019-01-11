@@ -9,7 +9,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     // publicPath: '/dist/',
-    filename: 'ikegami.[name]-' + package.version + '.js'
+    filename: 'ikegami.[name]-' + package.version + '.js',
+    chunkFilename: 'ikegami.[name].[chunkhash].js'
   },
   module: {
     rules: [
