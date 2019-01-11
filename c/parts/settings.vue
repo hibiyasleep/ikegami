@@ -8,6 +8,14 @@
     </h4>
     <div class="window-wrap">
       <group name="Layout">
+        <!-- 62.5 = 10px = usual zoomout limit -->
+        <number
+          label="UI Scale (%)"
+          :min="62.5"
+          :max="300"
+          :step="6.25"
+          :default="100"
+          v-model="ui_scale" />
         <dropdown
           label="Element 1"
           :selections="elementSelections"
@@ -88,6 +96,7 @@ import packageinfo from '../../package.json'
 import group from '../elements/settings/group.vue'
 import checkbox from '../elements/settings/checkbox.vue'
 import dropdown from '../elements/settings/dropdown.vue'
+import number from '../elements/settings/number.vue'
 import string from '../elements/settings/string.vue'
 import textlist from '../elements/settings/textlist.vue'
 import version from '../elements/present/version.vue'
@@ -109,6 +118,7 @@ export default {
     group,
     checkbox,
     dropdown,
+    number,
     string,
     textlist,
     version,
@@ -140,6 +150,7 @@ export default {
       'cell_display1',
       'cell_display2',
       'reduced',
+      'ui_scale',
       'hide_name',
       'hide_job_icon',
       'blur_name',

@@ -10,6 +10,7 @@ const _state = () => ({
   username_configured: [],
   uid: '',
   // layout
+  ui_scale: 100,
   hide_name: false,
   hide_job_icon: false,
   blur_name: false,
@@ -52,6 +53,9 @@ export default {
     }
   },
   actions: {
+    updateGlobalStyle({ state }) {
+      window.document.body.parentElement.style.fontSize = (state.ui_scale * 0.16) + 'px'
+    }
   },
   namespaced: true
 }

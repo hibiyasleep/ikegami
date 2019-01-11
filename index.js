@@ -33,7 +33,15 @@ const vm = window.rootvm = new Vue({
   components: { index },
   el: '#vue-root',
   template: '<index />',
-  store
+  store,
+  watch: {
+    ['$store.state.settings.ui_scale'](to, from) {
+      this.$store.dispatch('settings/updateGlobalStyle')
+    }
+  },
+  mounted() {
+    this.$store.dispatch('settings/updateGlobalStyle')
+  }
 })
 
 const layer = window.layer = Vue.prototype.$layer = new (detectLayer())
