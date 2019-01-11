@@ -3,6 +3,7 @@ const package = require('./package.json')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
+const ArchivePlugin = require('webpack-archive-plugin')
 
 module.exports = {
   entry: './index.js',
@@ -106,6 +107,10 @@ module.exports = {
     }),
     new ScriptExtHtmlWebpackPlugin({
       inline: 'index.js'
+    }),
+    new ArchivePlugin({
+      output: `dist/ikegami-${package.version}`,
+      format: 'tar'
     })
   ],
   node: {

@@ -29,6 +29,7 @@
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
     "webpack": "latest",
+    "webpack-archive-plugin": "^3.0.0",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-dev-server": "latest"
   }
