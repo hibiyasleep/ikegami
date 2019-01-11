@@ -175,5 +175,6 @@ export default {
 .blur-name .c-user-cell
   .name
     filter: blur(0.2rem)
+    -webkit-filter: blur(0.2rem)
 
 </style>
