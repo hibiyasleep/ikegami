@@ -17,7 +17,12 @@
       </checkbox>
       <hr />
       <version />
-      <group name="0.1.3 'Chidori-cho'" :opened="true">
+      <group name="0.1.4 'Kugahara'" :opened="true">
+        <p> added UI scale adjustment </p>
+        <p> color scheme adjusted </p>
+        <p> hide name bugfix </p>
+      </group>
+      <group name="0.1.3 'Chidori-cho'">
         <p> fix Conjurer gauge color </p>
         <p> adjust (may) noticeable margin </p>
         <p> Nameblur added; clicking on name section will toggle it </p>
