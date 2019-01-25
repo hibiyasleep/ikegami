@@ -33,6 +33,9 @@
           'Overheal', but will keep their graphs.
         </blockquote>
         <checkbox
+          label="Show Critical graph on cell"
+          v-model="show_critbar" />
+        <checkbox
           label="Hide name section"
           v-model="hide_name" />
         <checkbox
@@ -151,6 +154,7 @@ export default {
       'cell_display2',
       'reduced',
       'ui_scale',
+      'show_critbar',
       'hide_name',
       'hide_job_icon',
       'blur_name',

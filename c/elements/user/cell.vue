@@ -1,5 +1,14 @@
 <template>
   <li :class="[ 'c-user-cell', 'class-' + combatant.job, { singleline: !cell_display2 } ]">
+    <graph
+      class="dps-crit"
+      v-if="show_critbar"
+      :value="[
+        (combatant.swings - combatant.ch - combatant.dh - combatant.cdh),
+        combatant.ch,
+        combatant.dh,
+        combatant.cdh
+      ]" /> <!-- TODO: show healer graph? -->
     <label @click="toggleBlur">
       <i :class="[ 'icon-class', 'class-' + combatant.job ]"></i>
       <span class="name">{{ combatant.name }}</span>
@@ -22,7 +31,10 @@
 import { mapState } from 'vuex'
 import { filters } from '../../../lib/util.js'
 
+import graph from '../detail/graph.vue'
+
 export default {
+  components: { graph },
   props: {
     combatant: {
       type: Object,
@@ -42,7 +54,8 @@ export default {
     ...mapState('settings', [
       'cell_display1',
       'cell_display2',
-      'show_decimals'
+      'show_decimals',
+      'show_critbar'
     ]),
     width() {
       return Math.min(100, this.combatant.dps / (this.topdps || 1) * 100) + '%'
@@ -92,6 +105,10 @@ export default {
 
     .c-details
       top: $cell-line-height * 1.25
+
+    > .c-details-graph
+      top: 0
+      bottom: unset
 
   > label, > var
     text-align: center
@@ -155,6 +172,17 @@ export default {
     &:hover
       opacity: 1
 
+  > .c-details-graph
+    position: absolute
+    bottom: $cell-line-height
+    width: 100%
+    height: 0.125rem
+
+    z-index: $z-cell + 1
+
+    &.dps-crit .piece:nth-child(1)
+      background: transparent
+
 .hide-name .c-user-cell
   height: $cell-line-height
 
@@ -163,6 +191,10 @@ export default {
 
   .c-details
     top: $cell-line-height * 1.25
+
+  > .c-details-graph
+    top: 0
+    bottom: unset
 
 .hide-job-icons .c-user-cell
 

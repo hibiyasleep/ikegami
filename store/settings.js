@@ -15,6 +15,7 @@ const _state = () => ({
   hide_job_icon: false,
   blur_name: false,
   color_scheme: 'kagerou-material',
+  show_critbar: true,
   // changelog
   never_show_changelog_again: false,
   last_launched_version: null
