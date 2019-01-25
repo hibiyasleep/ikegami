@@ -19,7 +19,7 @@
       <path opacity="0.25" fill="#FC73A3" d="M144,8h8v3h16v2h-16v3h-8V8h8l-2,2h-4v4h4v-4l2,-2z"/>
       <path opacity="0.25" fill="#FC73A3" d="M168,8h8v3h16v2h-16v3h-8V8h8l-2,2h-4v4h4v-4l2,-2z"/>
       <path opacity="0.25" fill="#FC73A3" d="M192,8h8v3h16v2h-16v3h-8V8h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <path opacity="0.25" fill="#FC73A3" d="M216,8h8v3h16v2h-16v3h-8V8h8l-2,2h-4v4h4v-4l2,-2z"/>
+      <path opacity="1.00" fill="#FC73A3" d="M216,8h8v3h16v2h-16v3h-8V8h8l-2,2h-4v4h4v-4l2,-2z"/>
       <path opacity="1.00" fill="#FC73A3" d="M240,8h8v3h16v2h-16v3h-8V8h8l-2,2h-4v4h4v-4l2,-2z"/>
       <path opacity="1.00" fill="#FC73A3" d="M264,8h8v3h16v2h-16v3h-8V8h8l-2,2h-4v4h4v-4l2,-2z"/>
       <path opacity="1.00" fill="#FC73A3" d="M288,8h8v3h16v2h-16v3h-8V8h8l-2,2h-4v4h4v-4l2,-2z"/>

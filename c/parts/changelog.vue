@@ -17,7 +17,12 @@
       </checkbox>
       <hr />
       <version />
-      <group name="0.1.4 'Kugahara'" :opened="true">
+      <group name="0.1.5 'Ontakesan'" :opened="true">
+        <p> (<i>On-ta-ke-san</i>. don't pronounce like&nbsp;<i>on-teik-sein</i>.) </p>
+        <p> Critcal count graph also shown on cell (can be disabled) </p>
+        <p> Deathcount will not merged from pet. </p>
+      </group>
+      <group name="0.1.4 'Kugahara'">
         <p> added UI scale adjustment </p>
         <p> color scheme adjusted </p>
         <p> hide name bugfix </p>

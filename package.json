@@ -1,7 +1,7 @@
 {
   "name": "ikegami",
-  "version": "0.1.4",
-  "releasename": "Kugahara",
+  "version": "0.1.5",
+  "releasename": "Ontakesan",
   "description": "experimental vertical FFXIV Miniparse overlay",
   "dependencies": {
     "vue": "2.x",
