@@ -41,14 +41,14 @@
         <row
           title="RHPS"
           :value="e.rhps | decimal" />
-        <hr />
+        <!-- <hr /> -->
       </article>
 
-      <article class="details-group tank">
+      <!-- <article class="details-group tank">
         <row
           title="Deaths"
           :value="e.deaths" />
-      </article>
+      </article> -->
     </detail-wrap>
   </nav>
 </template>
