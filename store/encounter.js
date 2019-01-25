@@ -195,7 +195,7 @@ export default {
             } else if(k === 'oh') {
               ownerData[k] += pet
               ownerData.minion_over = pet
-            } else {
+            } else if(k !== 'deaths') { // don't merge death count
               ownerData[k] = (old + pet) || 0
             }
           }
