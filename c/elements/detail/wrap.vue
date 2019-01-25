@@ -37,6 +37,10 @@
     border-left: 0.125rem solid transparent
     padding-left: 0.25rem
 
+  .c-details-graph
+    margin: 0.25rem 0
+    height: 0.25rem
+
 .details-group
   &.dps .row
     border-left-color: #FF6E2C

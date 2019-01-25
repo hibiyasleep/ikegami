@@ -1,11 +1,9 @@
 <template>
-  <div class="c-details-graph row">
-    <div class="graph-wrap">
-      <span
-        class="piece"
-        v-for="v in value"
-       :style="{ width: (v / total * 100) + '%' }"></span>
-    </div>
+  <div class="c-details-graph">
+    <span
+      class="piece"
+      v-for="v in value"
+     :style="{ width: (v / total * 100) + '%' }"></span>
   </div>
 </template>
 
@@ -31,18 +29,13 @@ export default {
 
 .c-details-graph
   display: flex
-  align-items: center
+  align-items: stretch
   justify-content: center
 
   height: $details-row-height / 2
 
-  > .graph-wrap
-    display: flex
-    width: 100%
-    height: 0.25rem
-
-    > .piece
-      //
+  > .piece
+    //
 
   &.dps-crit .piece
     &:nth-child(1)

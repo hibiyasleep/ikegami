@@ -31,10 +31,11 @@
               title="D/!/!!!"
               :value="c.critcounts"
               v-if="!reduced" />
-            <graph
-              class="dps-crit"
-              :value="[ (c.swings - c.ch - c.dh - c.cdh), c.ch, c.dh, c.cdh ]" />
-
+            <div class="row">
+              <graph
+                class="dps-crit"
+                :value="[ (c.swings - c.ch - c.dh - c.cdh), c.ch, c.dh, c.cdh ]" />
+            </div>
             <hr />
 
           </article>
@@ -62,15 +63,17 @@
               title="Shielded"
               :value="c.shield"
               v-if="!reduced" />
-            <graph
-              class="healer-pct"
-              :value="[
-                c.shield,
-                (c.healed - c.minion_total - c.oh + c.minion_over - c.shield),
-                c.minion_total - c.minion_over,
-                c.minion_over,
-                c.oh - c.minion_over
-              ]" /> <!-- TODO -->
+            <div class="row">
+              <graph
+                class="healer-pct"
+                :value="[
+                  c.shield,
+                  (c.healed - c.minion_total - c.oh + c.minion_over - c.shield),
+                  c.minion_total - c.minion_over,
+                  c.minion_over,
+                  c.oh - c.minion_over
+                ]" /> <!-- TODO -->
+            </div>
 
             <hr />
 
