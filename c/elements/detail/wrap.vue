@@ -38,8 +38,8 @@
     padding-left: 0.25rem
 
   .c-details-graph
-    margin: 0.25rem 0
-    height: 0.25rem
+    padding: 0.25rem 0
+    height: 0.75rem
 
 .details-group
   &.dps .row
