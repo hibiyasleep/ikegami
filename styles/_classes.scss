@@ -144,7 +144,31 @@ $colorset: (
     'mch-pet': transparentize(#813B3C, 0.5),
     'chocobo': #757575,
     'limit-break': #FFBB00
+  ),
+  'amethyst': (
+    'gauge-default': rgb(32, 32, 32),
+    'pld': rgb(136, 204, 204),
+    'war': rgb(146, 16, 0),
+    'drk': rgb(100, 35, 36),
+    'mnk': rgb(217, 176, 40),
+    'drg': rgb(73, 104, 225),
+    'nin': rgb(86, 72, 72),
+    'sam': rgb(177, 160, 102),
+    'brd': rgb(180, 209, 67),
+    'mch': rgb(56, 176, 180),
+    'smn': rgb(40, 138, 59),
+    'blm': rgb(100, 70, 150),
+    'rdm': rgb(229, 121, 168),
+    'whm': rgb(207, 176, 144),
+    'sch': rgb(35, 40, 152),
+    'ast': rgb(217, 128, 40),
+    'blu': rgb(45, 97, 198),
+    'smn-pet': rgba(40, 138, 59, 0.5),
+    'sch-pet': rgba(35, 40, 152, 0.5),
+    'chocobo': rgba(255, 220, 0),
+    'limit-break': rgb(255, 162, 0)
   )
+  // New color schemes are welcome - just open a PR!
 );
 
 $class-remap: (
