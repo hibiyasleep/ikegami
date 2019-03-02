@@ -7,12 +7,14 @@
     <ul class="c-settings-dropdown-body" v-if="opened">
       <li
         v-if="empty"
-        @click="select('')">
+        @click="select('')"
+        :class="{ active: value === '' }">
         {{ empty }}
       </li>
       <li
         v-for="(s, id) in selections"
-        @click="select(id)">
+        @click="select(id)"
+        :class="{ active: value === id }">
         {{ s }}
       </li>
     </ul>
@@ -75,6 +77,9 @@ export default {
     @include clickable
     padding: 0 calc(0.5rem + #{$_1px})
     text-align: right
+
+    &.active
+      font-weight: 600
 
 
 </style>
