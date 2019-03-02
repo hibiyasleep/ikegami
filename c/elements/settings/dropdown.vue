@@ -1,6 +1,6 @@
 <template>
   <label class="c-settings-input c-settings-dropdown" v-click-outside="close">
-    <span @click="open" class="label">
+    <span @click="toggle" class="label">
       <slot>{{ label }}</slot>
     </span>
     <span @click="open" class="input-text dropdown-label"> {{ selections[value] || empty }} </span>
@@ -41,6 +41,9 @@ export default {
     },
     close() {
       this.opened = false
+    },
+    toggle() {
+      this.opened = !this.opened
     }
   }
 }
