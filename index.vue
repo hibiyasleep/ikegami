@@ -1,8 +1,10 @@
 <template>
   <div :class="[
+    'root',
     'scheme-' + (color_scheme || 'kagerou-material'), {
       'hide-name': hide_name,
       'hide-job-icons': hide_job_icon,
+      'hide-handle': hide_handle,
       'blur-name': blur_name
     }
   ]">
@@ -44,6 +46,7 @@ export default {
       'color_scheme',
       'hide_name',
       'hide_job_icon',
+      'hide_handle',
       'blur_name'
     ]),
     ...mapState('ui', [ 'opened_window' ])

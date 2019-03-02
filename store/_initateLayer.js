@@ -11,11 +11,9 @@ export default function initateLayer(layer) {
 
   layer.on('status', d => {
     if(d.type === 'lock') {
-      // TODO: hide/show with this received data
-      // document.body.classList.toggle(
-      //   'disable-handle',
-      //   d.message && config.get('element.resize-handle')
-      // )
+      store.commit('settings/set', {
+        hide_handle: d.message
+      })
     }
   })
 

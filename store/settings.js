@@ -9,6 +9,7 @@ const _state = () => ({
   username: '',
   username_configured: [],
   uid: '',
+  hide_handle: false,
   // layout
   ui_scale: 100,
   hide_name: false,
