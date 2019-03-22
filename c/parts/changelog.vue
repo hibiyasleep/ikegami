@@ -17,8 +17,12 @@
       </checkbox>
       <hr />
       <version />
-      <group name="0.1.5 'Ontakesan'" :opened="true">
-        <p> (<i>On-ta-ke-san</i>. don't pronounce like&nbsp;<i>on-teik-sein</i>.) </p>
+      <group name="0.1.6 'Yukigaya-Ootsuka'" :opened="true">
+        <p> (this release was updated on this station.) </p>
+        <p> trying to hiding resize handle, base on OverlayPlugin settings </p>
+      </group>
+      <group name="0.1.5 'Ontakesan'">
+        <p> (<u>On-ta-ke-san</u>. don't pronounce like&nbsp;<u>on-teik-sein</u>.) </p>
         <p> Critcal count graph also shown on cell (can be disabled) </p>
         <p> Deathcount will not merged from pet. </p>
       </group>

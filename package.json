@@ -1,7 +1,7 @@
 {
   "name": "ikegami",
-  "version": "0.1.5",
-  "releasename": "Ontakesan",
+  "version": "0.1.6",
+  "releasename": "Yukigaya-Ootsuka",
   "description": "experimental vertical FFXIV Miniparse overlay",
   "dependencies": {
     "vue": "2.x",
