@@ -1,5 +1,9 @@
 <template>
-  <nav class="c-navbar-wrapper">
+  <nav :class="[
+    'c-navbar-wrapper', {
+      'enable-april-fool': isAprilFool && allow_april_fool
+    }
+  ]">
     <div class="location">
       <mark>
         {{ ~~(e.duration / 60) | pad }}:{{ (e.duration || 0) % 60 | pad }}
@@ -22,6 +26,7 @@
       <li @click="endEncounter"> Split Encounter </li>
       <li @click="open('changelog')"> Changelog </li>
       <li @click="open('settings')"> Settings </li>
+      <li v-if="isAprilFool" @click="toggleAprilFool"> {{ allow_april_fool? 'Disallow' : 'Allow' }} april fool </li>
     </ul>
     <detail-wrap>
       <article class="details-group dps">
@@ -76,6 +81,12 @@ export default {
     ...mapMutations('ui', [ 'open' ]),
     endEncounter() {
       this.$layer.request('end')
+    },
+    toggleAprilFool() {
+      this.$store.commit('settings/set', {
+        k: allow_april_fool,
+        v: !this.allow_april_fool
+      })
     }
   },
   computed: {
@@ -83,7 +94,12 @@ export default {
       e: 'encounter',
       c: 'combatants'
     }),
-    ...mapGetters('encounter', [ 'rank' ])
+    ...mapGetters('encounter', [ 'rank' ]),
+    ...mapState('settings', [ 'allow_april_fool' ]),
+    isAprilFool() {
+      const d = new Date()
+      return d.getMonth() === 3 && d.getDate() === 1
+    }
   }
 }
 
@@ -150,4 +166,42 @@ export default {
 
   .location:hover ~ .c-details
     opacity: 1
+
+  &.enable-april-fool
+    position: relative
+    flex-direction: column
+    align-items: stretch
+    justify-content: center
+    text-align: center
+    width: 18rem
+    height: 4rem
+    padding: 0
+    line-height: 1.25rem
+
+    .location
+      border-bottom: 0.125rem solid #fff
+      padding: 0.25rem 0
+
+      mark
+        display: inline-block
+        align-items: center
+        color: #fff !important
+        background-color: #EE86A7
+        width: 2.75rem
+        height: 1.25rem
+        margin-right: 0.125rem
+
+    .info
+      width: 100%
+      border-top: 0.5rem solid #EE86A7
+      padding-top: 0.125rem
+
+    > .button
+      position: absolute
+      right: 0
+      bottom: 0
+
+    .dropdown
+      top: 4rem
+
 </style>

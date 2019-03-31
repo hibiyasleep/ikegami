@@ -19,7 +19,9 @@ const _state = () => ({
   show_critbar: true,
   // changelog
   never_show_changelog_again: false,
-  last_launched_version: null
+  last_launched_version: null,
+  // etc
+  allow_april_fool: true
 })
 
 export default {
