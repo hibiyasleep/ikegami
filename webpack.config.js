@@ -107,10 +107,6 @@ module.exports = {
     }),
     new ScriptExtHtmlWebpackPlugin({
       inline: 'index.js'
-    }),
-    new ArchivePlugin({
-      output: `dist/ikegami-${package.version}`,
-      format: 'tar'
     })
   ],
   node: {
@@ -139,5 +135,10 @@ if (process.env.NODE_ENV === 'production') {
       }
     }
   }
-  // module.exports.plugins = (module.exports.plugins || []).concat([ ])
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new ArchivePlugin({
+      output: `dist/ikegami-${package.version}`,
+      format: 'tar'
+    })
+  ])
 }
