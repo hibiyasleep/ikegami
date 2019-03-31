@@ -17,6 +17,10 @@
       </checkbox>
       <hr />
       <version />
+      <group name="0.1.7 'Ishikawa-dai'" :opened="true">
+        <p> <i>まもなく、石川台です。 出口は左側です。</i> </p>
+        <p> Click 'Disallow april fool' in submenu to rollback this. </p>
+      </group>
       <group name="0.1.6 'Yukigaya-Ootsuka'" :opened="true">
         <p> (this release was updated on this station.) </p>
         <p> trying to hiding resize handle, base on OverlayPlugin settings </p>

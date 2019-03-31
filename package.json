@@ -1,7 +1,7 @@
 {
   "name": "ikegami",
-  "version": "0.1.6",
-  "releasename": "Yukigaya-Ootsuka",
+  "version": "0.1.7",
+  "releasename": "Ishikawa-dai",
   "description": "experimental vertical FFXIV Miniparse overlay",
   "dependencies": {
     "vue": "2.x",
@@ -31,6 +31,7 @@
     "webpack": "latest",
     "webpack-archive-plugin": "^3.0.0",
     "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.3.0",
     "webpack-dev-server": "latest"
   }
 }
