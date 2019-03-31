@@ -1,15 +1,21 @@
 <template>
   <nav :class="[
     'c-navbar-wrapper', {
-      'enable-april-fool': isAprilFool && allow_april_fool
+      'enable-april-fool': aprilFoolEnabled
     }
   ]">
     <div class="location">
-      <mark>
+      <mark v-if="aprilFoolEnabled && !e.duration">
+        IK-07
+      </mark>
+      <mark v-else>
         {{ ~~(e.duration / 60) | pad }}:{{ (e.duration || 0) % 60 | pad }}
       </mark>
       <span v-if="e.zone">
         {{ e.zone }}
+      </span>
+      <span v-else-if="aprilFoolEnabled">
+        {{ releasename }}
       </span>
       <span v-else>
         ikegami {{ version }} '{{ releasename }}'
@@ -17,7 +23,7 @@
     </div>
     <div class="info">
       <span> {{ rank }}/{{ c.length }} </span>
-      <span> {{ e.rdps }}rdps </span>
+      <span> {{ e.rdps || 0 }}rdps </span>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="button" @click="dropdownOpened = !dropdownOpened">
       <path d="M8,10 l4,4 l4,-4" fill="none" stroke="#fff" />
@@ -84,7 +90,7 @@ export default {
     },
     toggleAprilFool() {
       this.$store.commit('settings/set', {
-        k: allow_april_fool,
+        k: 'allow_april_fool',
         v: !this.allow_april_fool
       })
     }
@@ -99,6 +105,9 @@ export default {
     isAprilFool() {
       const d = new Date()
       return d.getMonth() === 3 && d.getDate() === 1
+    },
+    aprilFoolEnabled() {
+      return this.isAprilFool && this.allow_april_fool
     }
   }
 }
@@ -151,6 +160,7 @@ export default {
     top: $nav-height
     right: 0
     background: $ui-background
+    z-index: $z-global-dropdown
 
     li
       @include clickable
@@ -180,7 +190,7 @@ export default {
 
     .location
       border-bottom: 0.125rem solid #fff
-      padding: 0.25rem 0
+      padding: 0.25rem 0 0.375rem 0
 
       mark
         display: inline-block
@@ -195,6 +205,12 @@ export default {
       width: 100%
       border-top: 0.5rem solid #EE86A7
       padding-top: 0.125rem
+
+      > span + span
+        border-left: none
+
+        &::before
+          content: '・\00a0'
 
     > .button
       position: absolute
