@@ -62,7 +62,7 @@ export default {
 
 .c-settings-dropdown-body
   position: absolute
-  top: 0.25rem
+  top: 0
   right: 0
 
   width: $settings-input-width
