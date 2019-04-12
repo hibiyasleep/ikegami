@@ -23,8 +23,8 @@
       </span>
     </div>
     <div class="info">
-      <span> {{ rank }}/{{ c.length }} </span>
-      <span> {{ (e.rdps || 0) | decimal }}rdps </span>
+      <span class="rank">{{ rank }}/{{ c.length }}</span><!--
+   --><span class="rdps">{{ (e.rdps || 0) | decimal(0) }}</span>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="button" @click="dropdownOpened = !dropdownOpened">
       <path d="M8,10 l4,4 l4,-4" fill="none" stroke="#fff" />
@@ -136,9 +136,10 @@ export default {
     flex-shrink: 0
     margin-left: auto
 
-    > span + span::before
-      content: '・\00a0'
-      padding-left: 0.25rem
+    .rdps::before
+      content: '\00a0・\00a0'
+    .rdps::after
+      content: 'rdps'
 
   .button
     width: $nav-height
@@ -235,7 +236,7 @@ export default {
 
         > span
           display: block
-        text-shadow: none !important
+          text-shadow: none !important
 
         .m
           font-size: 0.625rem
@@ -251,23 +252,20 @@ export default {
       border-top: 0.25rem solid white
       height: 1.5rem
 
-      > span + span::before
+      .rdps::before
         display: none
 
     .button
       bottom: -0.125rem
 
   &.theme-minimal
-    width: 12rem
+    width: 10rem
 
     .info
-      span
-        &:first-child::after
-          content: ','
-
-        + span::before
-          content: ''
-          padding-left: 0
+      .rdps::before
+        content: '='
+      .rdps::after
+        content: ''
 
     .location time + span
       display: none
