@@ -41,11 +41,11 @@ export default {
     &:nth-child(1)
       background-color: #FFFFFF
     &:nth-child(2)
-      background-color: #FFCA28
-    &:nth-child(3)
-      background-color: #FF6F00
-    &:nth-child(4)
       background-color: #1DE9B6
+    &:nth-child(3)
+      background-color: #FFCA28
+    &:nth-child(4)
+      background-color: #FF6F00
 
   &.healer-pct .piece
     &:nth-child(1) // shielded
