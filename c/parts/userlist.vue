@@ -34,7 +34,7 @@
             <div class="row">
               <graph
                 class="dps-crit"
-                :value="[ (c.swings - c.ch - c.dh - c.cdh), c.ch, c.dh, c.cdh ]" />
+                :value="[ (c.swings - c.ch - c.dh - c.cdh), c.dh, c.ch, c.cdh ]" />
             </div>
             <hr />
 

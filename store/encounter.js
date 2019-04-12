@@ -137,7 +137,7 @@ export default {
           minion_total: 0,
           minion_over: 0
         }
-        o.critcounts = [ o.ch, o.dh, o.cdh ].join('/')
+        o.critcounts = [ o.dh, o.ch, o.cdh ].join('/')
         o.critcounts_wo_direct = [ o.ch, o.cdh ].join('/')
 
         // override name with maxhit/heal skillname when LMB used once
