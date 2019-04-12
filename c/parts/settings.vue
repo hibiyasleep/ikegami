@@ -8,14 +8,6 @@
     </h4>
     <div class="window-wrap">
       <group name="Layout">
-        <!-- 62.5 = 10px = usual zoomout limit -->
-        <number
-          label="UI Scale (%)"
-          :min="62.5"
-          :max="300"
-          :step="6.25"
-          :default="100"
-          v-model="ui_scale" />
         <dropdown
           label="Element 1"
           :selections="elementSelections"
@@ -38,7 +30,7 @@
           label="Reduced Mode"
           v-model="reduced" />
         <blockquote>
-          This option will hide too much detailed values, like 'Swings' or
+          This option will hide some values from detailed view, like 'Swings' or
           'Overheal', but will keep their graphs.
         </blockquote>
         <checkbox
@@ -51,6 +43,25 @@
           label="Hide Job icons"
           :class="{ disabled: hide_name }"
           v-model="hide_job_icon" />
+      </group>
+      <group name="Style">
+        <!-- 62.5 = 10px = usual zoomout limit -->
+        <number
+          label="UI Scale (%)"
+          :min="62.5"
+          :max="300"
+          :step="6.25"
+          :default="100"
+          v-model="ui_scale" />
+        <dropdown
+          label="Theme"
+          empty="Default"
+          :selections="{
+            'minimal': 'Minimal',
+            'tokyu': 'Tōkyū Ikegami Line',
+            'keikyu': 'Keikyū Line'
+          }"
+          v-model="theme" />
         <dropdown
           label="Color Scheme"
           :selections="{
@@ -69,15 +80,6 @@
         <blockquote>
           This can be toggled by left-clicking on username.
         </blockquote>
-        <dropdown
-          label="Theme"
-          empty="Default"
-          :selections="{
-            'minimal': 'Minimal',
-            'tokyu': 'Tōkyū Ikegami Line',
-            'keikyu': 'Keikyū Line'
-          }"
-          v-model="theme" />
       </group>
       <group name="Data">
         <textlist
