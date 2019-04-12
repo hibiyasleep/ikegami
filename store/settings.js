@@ -17,6 +17,7 @@ const _state = () => ({
   blur_name: false,
   color_scheme: 'kagerou-material',
   show_critbar: true,
+  shorten_name: 0,
   // changelog
   never_show_changelog_again: false,
   last_launched_version: null,

@@ -11,7 +11,7 @@
       ]" /> <!-- TODO: show healer graph? -->
     <label @click="toggleBlur">
       <i :class="[ 'icon-class', 'class-' + combatant.job ]"></i>
-      <span class="name">{{ combatant.name }}</span>
+      <span class="name">{{ combatant.name | name(shorten_name) }}</span>
     </label>
     <var>
       <span class="l">
@@ -55,7 +55,8 @@ export default {
       'cell_display1',
       'cell_display2',
       'show_decimals',
-      'show_critbar'
+      'show_critbar',
+      'shorten_name'
     ]),
     width() {
       return Math.min(100, this.combatant.dps / (this.topdps || 1) * 100) + '%'
@@ -68,6 +69,17 @@ export default {
       } else {
         return value
       }
+    },
+    name(value, type) {
+      let name = value.split(' ')
+      let flag = +type
+      if(name !== 'YOU' && name.length >= 2) {
+        if((flag & 2) && typeof name[0] === 'string') // Firstname
+          name[0] = name[0][0] + '.'
+        if((flag & 1) && typeof name[1] === 'string') // Lastname
+          name[1] = name[1][0] + '.'
+      }
+      return name.join(' ')
     }
   }
 }

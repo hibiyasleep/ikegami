@@ -25,6 +25,15 @@
           empty="None"
           :selections="elementSelections"
           v-model="cell_display2" />
+        <dropdown
+          label="Shorten name as"
+          :selections="{
+            0: 'Firstname Lastname',
+            1: 'Firstname L.',
+            2: 'F. Lastname',
+            3: 'F. L.'
+          }"
+          v-model="shorten_name" />
         <checkbox
           label="Reduced Mode"
           v-model="reduced" />
@@ -165,6 +174,7 @@ export default {
       'reduced',
       'ui_scale',
       'show_critbar',
+      'shorten_name',
       'hide_name',
       'hide_job_icon',
       'blur_name',
