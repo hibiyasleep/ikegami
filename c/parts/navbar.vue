@@ -167,7 +167,7 @@ export default {
   .location:hover ~ .c-details
     opacity: 1
 
-  &.theme
+  &.theme-tokyu, &.theme-keikyu
     position: relative
     flex-direction: column
     align-items: stretch
@@ -256,5 +256,20 @@ export default {
 
     .button
       bottom: -0.125rem
+
+  &.theme-minimal
+    width: 12rem
+
+    .info
+      span
+        &:first-child::after
+          content: ','
+
+        + span::before
+          content: ''
+          padding-left: 0
+
+    .location time + span
+      display: none
 
 </style>

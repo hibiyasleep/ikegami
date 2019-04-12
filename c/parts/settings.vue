@@ -64,6 +64,7 @@
           label="Theme"
           empty="Default"
           :selections="{
+            'minimal': 'Minimal',
             'tokyu': 'Tōkyū Ikegami Line',
             'keikyu': 'Keikyū Line'
           }"
