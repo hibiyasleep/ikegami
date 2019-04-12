@@ -6,7 +6,7 @@
         <path d="M7,7l9,9z M16,7l-9,9z" stroke="#fff" />
       </svg>
     </h4>
-    <div class="window-wrap">
+    <div class="window-wrap changelog">
       <checkbox
         v-model="never_show_changelog_again"
         class="small never-show">
@@ -17,16 +17,37 @@
       </checkbox>
       <hr />
       <version />
-      <group name="0.1.7 'Ishikawa-dai'" :opened="true">
-        <p> <i>まもなく、石川台です。 出口は左側です。</i> </p>
+      <group name="0.1.8 'Senzoku-Ike'" :opened="true">
+        <p>
+          Critical hits and Direct hits was misplaced, so fixed this.
+          <br />
+          Now, order is
+          <span style="color: #1DE9B6">DH</span> -
+          <span style="color: #FFCA28">CH</span> -
+          <span style="color: #FF6F00">CDH</span>.
+        </p>
+        <p> removed tailing decimal on RDPS. </p>
+        <p> Shorten name is now available. </p>
+        <p>
+          'Theme' introduced, re-introducing april fool layout.
+          <br />
+          Preview:
+          <u @click="theme = ''">Default</u> /
+          <u @click="theme = 'minimal'">Minimal</u> /
+          <u @click="theme = 'tokyu'">Tōkyū</u> /
+          <u @click="theme = 'keikyu'">Keikyū</u>
+        </p>
+        <p> Fixed infitite reconnection attempt on 'BeforeLogLineRead' socket. </p>
+      </group>
+      <group name="0.1.7 'Ishikawa-dai'">
         <p> Click 'Disallow april fool' in submenu to rollback this. </p>
       </group>
-      <group name="0.1.6 'Yukigaya-Ootsuka'" :opened="true">
+      <group name="0.1.6 'Yukigaya-Ootsuka'">
         <p> (this release was updated on this station.) </p>
         <p> trying to hiding resize handle, base on OverlayPlugin settings </p>
       </group>
       <group name="0.1.5 'Ontakesan'">
-        <p> (<u>On-ta-ke-san</u>. don't pronounce like&nbsp;<u>on-teik-sein</u>.) </p>
+        <p> (<u>On-ta-ke-san</u>. don't pronounce like <u>on-teik-sein</u>.) </p>
         <p> Critcal count graph also shown on cell (can be disabled) </p>
         <p> Deathcount will not merged from pet. </p>
       </group>
@@ -47,7 +68,10 @@
       <group name="0.1.1 'Hasunuma'">
         <p> Changelog added </p>
         <p> Color scheme can be changed (see Settings) </p>
-        <class-colors />
+        <class-colors style="display: flex" />
+      </group>
+      <group name="0.1.0 'Kamata'">
+        <p> Initial commit. </p>
       </group>
     </div>
   </div>
@@ -77,6 +101,10 @@ export default {
     never_show_changelog_again: {
       get() { return this.$store.state.settings.never_show_changelog_again },
       set(v) { this.$store.commit('settings/set', { k: 'never_show_changelog_again', v }) }
+    },
+    theme: {
+      get() { return this.$store.state.settings.theme },
+      set(v) { this.$store.commit('settings/set', { k: 'theme', v }) }
     }
   }
 }
@@ -90,5 +118,9 @@ export default {
 
   span
     margin-right: auto
+
+.changelog .c-settings-group-content p
+  display: block
+  margin: 0.375rem 0
 
 </style>
