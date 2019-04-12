@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 const _state = () => ({
   cell_display1: 'dps',
-  cell_display2: 'critcounts',
+  cell_display2: 'critcounts_wo_direct',
   reduced: false,
   show_decimals: true,
   username: '',
