@@ -1,24 +1,25 @@
 <template>
   <nav :class="[
-    'c-navbar-wrapper', {
-      'enable-april-fool': aprilFoolEnabled
-    }
+    'c-navbar-wrapper',
+    theme?
+      'theme theme-' + theme
+    : 'theme-none'
   ]">
     <div class="location">
-      <mark v-if="aprilFoolEnabled && !e.duration">
-        IK-07
-      </mark>
-      <mark v-else>
-        {{ ~~(e.duration / 60) | pad }}:{{ (e.duration || 0) % 60 | pad }}
-      </mark>
+      <time :class="{ empty: e.duration }">
+        <span class="m">{{ ~~(e.duration / 60) | pad }}</span><!--
+     --><span class="s">{{ (e.duration || 0) % 60 | pad }}</span>
+      </time>
       <span v-if="e.zone">
         {{ e.zone }}
       </span>
-      <span v-else-if="aprilFoolEnabled">
-        {{ releasename }}
-      </span>
       <span v-else>
-        ikegami {{ version }} '{{ releasename }}'
+        <span class="versioninfo">
+          ikegami {{ version }}
+        </span>
+        <span class="releasename">
+          {{ releasename }}
+        </span>
       </span>
     </div>
     <div class="info">
@@ -32,7 +33,6 @@
       <li @click="endEncounter"> Split Encounter </li>
       <li @click="open('changelog')"> Changelog </li>
       <li @click="open('settings')"> Settings </li>
-      <li v-if="isAprilFool" @click="toggleAprilFool"> {{ allow_april_fool? 'Disallow' : 'Allow' }} april fool </li>
     </ul>
     <detail-wrap>
       <article class="details-group dps">
@@ -87,12 +87,6 @@ export default {
     ...mapMutations('ui', [ 'open' ]),
     endEncounter() {
       this.$layer.request('end')
-    },
-    toggleAprilFool() {
-      this.$store.commit('settings/set', {
-        k: 'allow_april_fool',
-        v: !this.allow_april_fool
-      })
     }
   },
   computed: {
@@ -101,14 +95,7 @@ export default {
       c: 'combatants'
     }),
     ...mapGetters('encounter', [ 'rank' ]),
-    ...mapState('settings', [ 'allow_april_fool' ]),
-    isAprilFool() {
-      const d = new Date()
-      return d.getMonth() === 3 && d.getDate() === 1
-    },
-    aprilFoolEnabled() {
-      return this.isAprilFool && this.allow_april_fool
-    }
+    ...mapState('settings', [ 'theme' ])
   }
 }
 
@@ -136,9 +123,12 @@ export default {
     flex-grow: 0
     flex-shrink: 1
 
-    mark
+    time
       background: none
       color: lighten($color-theme, 20%)
+
+      .s::before
+        content: ':'
 
   .info
     @include unselectable
@@ -146,8 +136,8 @@ export default {
     flex-shrink: 0
     margin-left: auto
 
-    > span + span
-      border-left: $_1px solid #ddd
+    > span + span::before
+      content: '・\00a0'
       padding-left: 0.25rem
 
   .button
@@ -177,7 +167,7 @@ export default {
   .location:hover ~ .c-details
     opacity: 1
 
-  &.enable-april-fool
+  &.theme
     position: relative
     flex-direction: column
     align-items: stretch
@@ -185,14 +175,27 @@ export default {
     text-align: center
     width: 18rem
     height: 4rem
-    padding: 0
     line-height: 1.25rem
+    padding: 0
+
+    .versioninfo
+      display: none
+
+    > .button
+      position: absolute
+      right: 0
+      bottom: 0
+
+    .dropdown, .c-details
+      top: 4rem
+
+  &.theme-tokyu
 
     .location
       border-bottom: 0.125rem solid #fff
       padding: 0.25rem 0 0.375rem 0
 
-      mark
+      time
         display: inline-block
         align-items: center
         color: #fff !important
@@ -206,18 +209,52 @@ export default {
       border-top: 0.5rem solid #EE86A7
       padding-top: 0.125rem
 
-      > span + span
-        border-left: none
+  &.theme-keikyu
+    background: rgba(0, 0, 80, 0.5)
 
-        &::before
-          content: '・\00a0'
+    .location
+      width: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+      border-bottom: 0.125rem solid skyblue
+      flex-grow: 1
 
-    > .button
-      position: absolute
-      right: 0
-      bottom: 0
+      time
+        display: flex
+        flex-direction: column
+        justify-content: center
+        line-height: 0.625rem
+        margin-right: 0.5rem
+        color: #000
+        background-color: #fff
+        width: 1.75rem
+        height: 1.75rem
+        border-radius: 50%
+        border: 0.125rem solid skyblue
 
-    .dropdown
-      top: 4rem
+        > span
+          display: block
+        text-shadow: none !important
+
+        .m
+          font-size: 0.625rem
+
+        .s::before
+          content: ''
+
+    .info
+      width: 100%
+      display: flex
+      padding: 0 1.5rem
+      justify-content: space-between
+      border-top: 0.25rem solid white
+      height: 1.5rem
+
+      > span + span::before
+        display: none
+
+    .button
+      bottom: -0.125rem
 
 </style>

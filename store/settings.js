@@ -21,7 +21,7 @@ const _state = () => ({
   never_show_changelog_again: false,
   last_launched_version: null,
   // etc
-  allow_april_fool: true
+  theme: ''
 })
 
 export default {

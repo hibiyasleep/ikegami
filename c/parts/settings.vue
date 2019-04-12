@@ -60,6 +60,14 @@
         <blockquote>
           This can be toggled by left-clicking on username.
         </blockquote>
+        <dropdown
+          label="Theme"
+          empty="Default"
+          :selections="{
+            'tokyu': 'Tōkyū Ikegami Line',
+            'keikyu': 'Keikyū Line'
+          }"
+          v-model="theme" />
       </group>
       <group name="Data">
         <textlist
@@ -164,7 +172,8 @@ export default {
       'uid',
       'username_configured',
       'show_decimals',
-      'debug'
+      'debug',
+      'theme'
     ]),
     username_configured_computed() {
       return [].concat(this.username_configured, [''])
