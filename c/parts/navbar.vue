@@ -24,7 +24,7 @@
     </div>
     <div class="info">
       <span> {{ rank }}/{{ c.length }} </span>
-      <span> {{ e.rdps || 0 }}rdps </span>
+      <span> {{ (e.rdps || 0) | decimal }}rdps </span>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="button" @click="dropdownOpened = !dropdownOpened">
       <path d="M8,10 l4,4 l4,-4" fill="none" stroke="#fff" />
