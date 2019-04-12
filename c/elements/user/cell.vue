@@ -5,8 +5,8 @@
       v-if="show_critbar"
       :value="[
         (combatant.swings - combatant.ch - combatant.dh - combatant.cdh),
-        combatant.ch,
         combatant.dh,
+        combatant.ch,
         combatant.cdh
       ]" /> <!-- TODO: show healer graph? -->
     <label @click="toggleBlur">
