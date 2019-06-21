@@ -12,6 +12,7 @@
     <span class="icon-class class-smn"><span class="ticker"> </span></span>
     <span class="icon-class class-blm"><span class="ticker"> </span></span>
     <span class="icon-class class-rdm"><span class="ticker"> </span></span>
+    <span class="icon-class class-blu"><span class="ticker"> </span></span>
     <span class="icon-class class-whm"><span class="ticker"> </span></span>
     <span class="icon-class class-sch"><span class="ticker"> </span></span>
     <span class="icon-class class-ast"><span class="ticker"> </span></span>
@@ -26,8 +27,8 @@
   margin-bottom: 1rem !important
 
   > span
-    width: 1.5rem
-    height: 1.5rem
+    width: 1.375rem
+    height: 1.375rem
 
   .ticker
     display: inline-block
