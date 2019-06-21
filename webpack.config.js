@@ -119,7 +119,7 @@ module.exports = {
   }
 }
 
-if (process.env.NODE_ENV === 'production') {
+if(process.env.NODE_ENV === 'production') {
   module.exports.devtool = undefined
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.optimization = {
@@ -135,10 +135,18 @@ if (process.env.NODE_ENV === 'production') {
       }
     }
   }
-  module.exports.plugins = (module.exports.plugins || []).concat([
+  module.exports.plugins.push(
     new ArchivePlugin({
       output: `dist/ikegami-${package.version}`,
       format: 'tar'
     })
-  ])
+  )
+}
+
+if(process.env.ANALYZE) {
+  module.exports.plugins.push(
+    new (require('webpack-bundle-analyzer').BundleAnalyzerPlugin)({
+      analyzerMode: 'static'
+    })
+  )
 }
