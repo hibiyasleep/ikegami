@@ -17,7 +17,12 @@
       </checkbox>
       <hr />
       <version />
-      <group name="0.1.8 'Senzoku-Ike'" :opened="true">
+      <group name="0.1.9 'Nagahara'" :opened="true">
+        <p>
+          Added Blue Mage support.
+        </p>
+      </group>
+      <group name="0.1.8 'Senzoku-Ike'">
         <p>
           Critical hits and Direct hits was misplaced, so fixed this.
           <br />

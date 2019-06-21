@@ -15,7 +15,7 @@
       <!-- oimachi / / -->
       <path opacity="0.25" fill="#FFA500" d="M104,8h-1.4l8,-8l1.4,1.4l-8,8z m-8,8 h1.4 l-8,8 l-1.4,-1.4 l8,-8 z" />
       <path opacity="0.25" fill="#FC73A3" d="M96,8h8v3h16v2h-16v3h-8V8h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <path opacity="0.25" fill="#FC73A3" d="M120,8h8v3h16v2h-16v3h-8V8h8l-2,2h-4v4h4v-4l2,-2z"/>
+      <path opacity="1.00" fill="#FC73A3" d="M120,8h8v3h16v2h-16v3h-8V8h8l-2,2h-4v4h4v-4l2,-2z"/>
       <path opacity="1.00" fill="#FC73A3" d="M144,8h8v3h16v2h-16v3h-8V8h8l-2,2h-4v4h4v-4l2,-2z"/>
       <path opacity="1.00" fill="#FC73A3" d="M168,8h8v3h16v2h-16v3h-8V8h8l-2,2h-4v4h4v-4l2,-2z"/>
       <path opacity="1.00" fill="#FC73A3" d="M192,8h8v3h16v2h-16v3h-8V8h8l-2,2h-4v4h4v-4l2,-2z"/>
