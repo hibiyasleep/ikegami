@@ -9,7 +9,7 @@
 $class-matrix: (
   ( 'gla', 'mrd', 'pgl', 'lnc', 'rog', 'arc', 'thm', 'acn', null,  'cnj' ),
   ( 'pld', 'war', 'mnk', 'drg', 'nin', 'brd', 'blm', 'smn', 'sch', 'whm' ),
-  ( 'drk', 'mch', 'ast', 'sam', 'rdm', 'blu' ),
+  ( 'drk', 'mch', 'ast', 'sam', 'rdm', 'blu', 'gnb', 'dnc' ),
   ( 'acn-pet', 'garuda', 'ifrit', 'titan', 'eos', 'selene', 'rook', 'bishop' ),
   ( 'crp', 'bsm', 'arm', 'gsm', 'ltw', 'wvr', 'alc', 'cul', null,  'chocobo' ),
   ( 'min', 'btn', 'fsh', null,  null,  null,  null,  null,  null,  'limit-break' )
@@ -35,6 +35,7 @@ $colorset: (
     'pld': rgb(21, 28, 100), // Indigo 900 (B -10%)
     'war': rgb(153, 23, 23), // Red 900 (B -10%)
     'drk': rgb(136, 14, 79), // Pink 900
+    'gnb': rgb(78, 52, 46), // Brown 800
     'mnk': rgb(255, 152, 0), // Orange 500
     'drg': rgb(63, 81, 181), // Indigo 500
     'nin': rgb(211, 47, 47), // Red 700 // 와! 시바! 진성! 닌자다!
@@ -45,6 +46,7 @@ $colorset: (
     'blm': rgb(126, 87, 194), // Deep Purple 400
     'rdm': rgb(233, 30, 99), // Pink 500
     'blu': rgb(0, 185, 247), // Light Blue 500
+    'dnc': rgb(244, 143, 177), // Pink 200
     'whm': rgb(117, 117, 117), // Gray 600
     'sch': rgb(121, 134, 203), // Indigo 300
     'ast': rgb(121, 85, 72), // Brown 500
@@ -59,6 +61,7 @@ $colorset: (
     'pld': hsl(207, 80, 45%),
     'war': hsl(207, 80, 45%),
     'drk': hsl(207, 80, 45%),
+    'gnb': hsl(207, 80, 45%),
     'mnk': hsl(340, 85, 40%),
     'drg': hsl(340, 85, 40%),
     'nin': hsl(340, 85, 40%),
@@ -69,6 +72,7 @@ $colorset: (
     'blm': hsl(340, 85, 40%),
     'rdm': hsl(340, 85, 40%),
     'blu': hsl(340, 85, 40%),
+    'dnc': hsl(340, 85, 40%),
     'whm': hsl(94,  50, 40%),
     'sch': hsl(94,  50, 40%),
     'ast': hsl(94,  50, 40%),
@@ -83,16 +87,19 @@ $colorset: (
     'pld': hsl(207, 80, 45%),
     'war': hsl(207, 80, 45%),
     'drk': hsl(207, 80, 45%),
+    'gnb': hsl(207, 80, 45%),
     'mnk': hsl(340, 85, 40%),
     'drg': hsl(340, 85, 40%),
     'nin': hsl(340, 85, 40%),
     'sam': hsl(340, 85, 40%),
     'brd': hsl(60,  90, 30%), // Lime 800
     'mch': hsl(60,  90, 30%),
+    'dnc': hsl(60,  90, 30%),
     'smn': hsl(290, 90, 40%), // Deep Purple 400
     'blm': hsl(290, 90, 40%),
     'rdm': hsl(290, 90, 40%),
     'blu': hsl(290, 90, 40%),
+    // ^ dnc moved up
     'whm': hsl(94,  50, 40%),
     'sch': hsl(94,  50, 40%),
     'ast': hsl(94,  50, 40%),
@@ -107,6 +114,7 @@ $colorset: (
     'pld': #7B9AA2,
     'war': #A91A16,
     'drk': #682531,
+    'gnb': #796D30,
     'mnk': #B38915,
     'drg': #3752D8,
     'nin': #EE2E48,
@@ -116,7 +124,8 @@ $colorset: (
     'smn': #32670B,
     'blm': #674598,
     'rdm': #AC2997,
-    'blu': #757575,
+    'blu': #183D9A,
+    'dnc': #E2B0AF,
     'whm': #BDBDBD,
     'sch': #32307B,
     'ast': #B1561C,
@@ -130,6 +139,7 @@ $colorset: (
     'gauge-default': #757575,
     'pld': #475ECE,
     'war': #475ECE,
+    'gnb': #475ECE,
     'drk': #475ECE,
     'mnk': #813B3C,
     'drg': #813B3C,
@@ -141,6 +151,7 @@ $colorset: (
     'blm': #813B3C,
     'rdm': #813B3C,
     'blu': #813B3C,
+    'dnc': #813B3C,
     'whm': #467837,
     'sch': #467837,
     'ast': #467837,
@@ -155,6 +166,7 @@ $colorset: (
     'pld': rgb(136, 204, 204),
     'war': rgb(146, 16, 0),
     'drk': rgb(100, 35, 36),
+    'gnb': rgb(197, 181, 110),
     'mnk': rgb(217, 176, 40),
     'drg': rgb(73, 104, 225),
     'nin': rgb(86, 72, 72),
@@ -164,6 +176,7 @@ $colorset: (
     'smn': rgb(40, 138, 59),
     'blm': rgb(100, 70, 150),
     'rdm': rgb(229, 121, 168),
+    'dnc': rgb(238, 206, 197),
     'whm': rgb(207, 176, 144),
     'sch': rgb(35, 40, 152),
     'ast': rgb(217, 128, 40),
