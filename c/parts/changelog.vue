@@ -17,7 +17,15 @@
       </checkbox>
       <hr />
       <version />
-      <group name="0.1.9 'Nagahara'" :opened="true">
+      <group name="0.2.0 'Hatanodai'" :opened="true">
+        <p>
+          GNB/DNC support.
+        </p>
+        <p>
+          transfer to Ōimachi Line.
+        </p>
+      </group>
+      <group name="0.1.9 'Nagahara'">
         <p>
           Added Blue Mage support.
         </p>
