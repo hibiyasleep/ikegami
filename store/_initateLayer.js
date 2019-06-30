@@ -12,7 +12,8 @@ export default function initateLayer(layer) {
   layer.on('status', d => {
     if(d.type === 'lock') {
       store.commit('settings/set', {
-        hide_handle: d.message
+        k: 'hide_handle',
+        v: d.message
       })
     }
   })
