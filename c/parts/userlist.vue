@@ -1,5 +1,5 @@
 <template>
-  <div class="c-parts-userlist">
+  <div :class="['c-parts-userlist', {'group-by-4': group_by_4}]">
     <ul>
       <cell
         v-for="c in combatants"
@@ -106,7 +106,7 @@ export default {
     graph
   },
   computed: {
-    ...mapState('settings', [ 'reduced' ]),
+    ...mapState('settings', [ 'reduced', 'group_by_4' ]),
     ...mapState('encounter', {
       combatants: 'combatants',
       topdps: 'topdps',
@@ -140,5 +140,11 @@ export default {
 
     .c-user-cell
       flex-shrink: 0
+
+  &.group-by-4
+    > ul
+      display: grid
+      grid-template-columns: repeat(4, 1fr)
+      grid-auto-flow: dense
 
 </style>
