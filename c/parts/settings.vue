@@ -43,6 +43,10 @@
           label="Hide Job icons"
           :class="{ disabled: hide_name }"
           v-model="hide_job_icon" />
+        <checkbox
+          label="Highlight Self"
+          v-model="highlight_self" />
+
       </group>
       <group name="Style">
         <!-- 62.5 = 10px = usual zoomout limit -->
@@ -179,6 +183,7 @@ export default {
       'shorten_name',
       'hide_name',
       'hide_job_icon',
+      'highlight_self',
       'blur_name',
       'color_scheme',
       'username',

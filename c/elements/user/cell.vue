@@ -1,5 +1,5 @@
 <template>
-  <li :class="[ 'c-user-cell', 'class-' + combatant.job, { singleline: !cell_display2 } ]">
+  <li :class="[ 'c-user-cell', {'self': combatant.name == 'YOU' && highlight_self}, 'class-' + combatant.job, { singleline: !cell_display2 } ]">
     <graph
       class="dps-crit"
       v-if="show_critbar"
@@ -21,6 +21,7 @@
         {{ combatant[cell_display2] | f(cell_display2, show_decimals) }}
       </span>
     </var>
+    <span class="line" v-if="highlight_self"><span class="line-box"></span></span>
     <span class="ticker" :style="{ width }"></span>
     <slot></slot>
   </li>
@@ -56,7 +57,8 @@ export default {
       'cell_display2',
       'show_decimals',
       'show_critbar',
-      'shorten_name'
+      'shorten_name',
+      'highlight_self'
     ]),
     width() {
       return Math.min(100, this.combatant.dps / (this.topdps || 1) * 100) + '%'
@@ -194,6 +196,29 @@ export default {
 
     &.dps-crit .piece:nth-child(1)
       background: transparent
+
+
+  &.self
+    > .line > .line-box
+      height: 0.625rem
+      width: 0.625rem
+      top: -0.25rem
+      display: block
+      border: 0.125rem solid
+
+  > .line
+    height: 0.125rem
+    margin: 0 -0.125rem -0.1875rem -0.125rem
+
+    > .line-box
+      height: 0.375rem
+      width: 0.375rem
+      top: -0.125rem
+      position: relative
+      margin: auto
+      display: block
+      border: 0.0625rem solid
+      background-color: white
 
 .hide-name .c-user-cell
   height: $cell-line-height

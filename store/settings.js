@@ -14,6 +14,7 @@ const _state = () => ({
   ui_scale: 100,
   hide_name: false,
   hide_job_icon: false,
+  highlight_self: true,
   blur_name: false,
   color_scheme: 'kagerou-material',
   show_critbar: true,
