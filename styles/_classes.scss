@@ -228,16 +228,16 @@ $class-remap: (
         }
       }
     }
-    .c-user-cell.self > .cell-box > .line {
+    .c-user-cell.self > .line {
         background-color: map-get($colors, 'line-self');
     }
-    .c-user-cell.self > .cell-box > .line > .line-box {
+    .c-user-cell.self > .line > .line-box {
         border-color: map-get($colors, 'line-self');
     }
-    .c-user-cell > .cell-box > .line {
+    .c-user-cell > .line {
         background-color: map-get($colors, 'line-others');
     }
-    .c-user-cell > .cell-box > .line .line-box {
+    .c-user-cell > .line .line-box {
         border-color: map-get($colors, 'line-others');
     }
   }

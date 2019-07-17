@@ -1,33 +1,29 @@
 <template>
-  <li :class="[ 'c-user-cell', 'vertical', {'self': combatant.name == 'YOU' && highlight_self}, 'class-' + combatant.job, { singleline: !cell_display2 } ]">
-    <span class="cell-box">
-      <graph
-        class="dps-crit"
-        v-if="show_critbar"
-        :value="[
-          (combatant.swings - combatant.ch - combatant.dh - combatant.cdh),
-          combatant.dh,
-          combatant.ch,
-          combatant.cdh
-        ]" /> <!-- TODO: show healer graph? -->
-      <label @click="toggleBlur">
-        <i :class="[ 'icon-class', 'class-' + combatant.job ]"></i>
-        <span class="name">{{ combatant.name | name(shorten_name) }}</span>
-      </label>
-      <var>
-        <span class="l">
-          {{ combatant[cell_display1] | f(cell_display1, show_decimals) }}
-        </span>
-        <span class="r" v-if="cell_display2">
-          {{ combatant[cell_display2] | f(cell_display2, show_decimals) }}
-        </span>
-      </var>
-      <span class="ticker" :style="{ width }"></span>
-      <span class="line" v-if="highlight_self"><span class="line-box"></span></span>
-    </span>
-    <span class="cell-box details">
+  <li :class="[ 'c-user-cell', {'self': combatant.name == 'YOU' && highlight_self}, 'class-' + combatant.job, { singleline: !cell_display2 } ]">
+    <graph
+      class="dps-crit"
+      v-if="show_critbar"
+      :value="[
+        (combatant.swings - combatant.ch - combatant.dh - combatant.cdh),
+        combatant.dh,
+        combatant.ch,
+        combatant.cdh
+      ]" /> <!-- TODO: show healer graph? -->
+    <label @click="toggleBlur">
+      <i :class="[ 'icon-class', 'class-' + combatant.job ]"></i>
+      <span class="name">{{ combatant.name | name(shorten_name) }}</span>
+    </label>
+    <var>
+      <span class="l">
+        {{ combatant[cell_display1] | f(cell_display1, show_decimals) }}
+      </span>
+      <span class="r" v-if="cell_display2">
+        {{ combatant[cell_display2] | f(cell_display2, show_decimals) }}
+      </span>
+    </var>
+    <span class="line" v-if="highlight_self"><span class="line-box"></span></span>
+    <span class="ticker" :style="{ width }"></span>
     <slot></slot>
-    </span>
   </li>
 </template>
 
@@ -106,135 +102,20 @@ export default {
   margin-right: $cell-margin
   font-size: $font-small
 
+  z-index: $z-cell
+
   // hitbox
   background-color: rgba(0, 0, 0, 0.005)
   box-shadow: 0 0 0 0.5rem rgba(0, 0, 0, 0.005), 0 $cell-line-height * -1 0 $cell-background inset
 
-  &:hover > .cell-box > .c-details
-    opacity: 1
-
-  > .cell-box
-    // Fix z-indexing so that details can always go over the main box
-    z-index: $z-cell
-    &.details
-      z-index: $z-details
-    &.singleline
-      height: $cell-line-height
-      flex-direction: row
-
-      > label
-        text-align: left
-        text-shadow: $shadow-with-background
-        margin-left: 0.125rem
-
-      .c-details
-        top: $cell-line-height * 1.25
-
-      > .c-details-graph
-        top: 0
-        bottom: unset
-
-    > label, > var
-      text-align: center
-      color: $cell-color
+  &.singleline
+    height: $cell-line-height
+    flex-direction: row
 
     > label
-      background: none
-      overflow-x: hidden
-      word-break: keep-all
-      white-space: nowrap
-      text-overflow: ellipsis
-      flex-grow: 1
-      display: block
-
-      text-shadow: $shadow-without-background
-
-      > .icon-class
-        display: inline-block
-        width: 1.25rem
-        height: 1.25rem
-
-        vertical-align: -0.375rem
-
-    > var
-      display: flex
-
-      padding: 0 0.5rem
-
-      // background: $cell-background
+      text-align: left
       text-shadow: $shadow-with-background
-
-      > .l, > .r
-        z-index: $z-cell + 1
-
-      > .l
-        text-align: left
-        margin-right: auto
-
-      > .r
-        text-align: center
-
-    .ticker
-      position: absolute
-      left: 0
-      bottom: 0
-      height: $cell-ticker-height
-      z-index: -1
-
-    .c-details
-      position: absolute
-      top: $cell-line-height * 2.25
-      left: 0
-
-      opacity: 0
-      pointer-events: none
-
-      z-index: $z-details
-
-      &:hover
-        opacity: 1
-
-    > .c-details-graph
-      position: absolute
-      bottom: $cell-line-height
-      width: 100%
-      height: 0.125rem
-
-      z-index: $z-cell + 1
-
-      &.dps-crit .piece:nth-child(1)
-        background: transparent
-
-    > .line
-      height: 0.125rem
-      margin: 0 -0.125rem -0.1875rem -0.125rem
-      display: block
-
-      > .line-box
-        height: 0.375rem
-        width: 0.375rem
-        top: -0.125rem
-        position: relative
-        margin: auto
-        display: block
-        border: 0.0625rem solid
-        background-color: white
-
-  &.self
-    > .cell-box
-      > .line > .line-box
-        height: 0.625rem
-        width: 0.625rem
-        top: -0.25rem
-        display: block
-        border: 0.125rem solid
-
-
-  .hide-name .c-user-cell
-    height: $cell-line-height
-
-    label
-      display: none
+      margin-left: 0.125rem
 
     .c-details
       top: $cell-line-height * 1.25
@@ -243,6 +124,114 @@ export default {
       top: 0
       bottom: unset
 
+  > label, > var
+    text-align: center
+    color: $cell-color
+
+    &:hover ~ .c-details
+      opacity: 1
+
+  > label
+    background: none
+    overflow-x: hidden
+    word-break: keep-all
+    white-space: nowrap
+    text-overflow: ellipsis
+    flex-grow: 1
+
+    text-shadow: $shadow-without-background
+
+    > .icon-class
+      display: inline-block
+      width: 1.25rem
+      height: 1.25rem
+
+      vertical-align: -0.375rem
+
+  > var
+    display: flex
+
+    padding: 0 0.5rem
+
+    // background: $cell-background
+    text-shadow: $shadow-with-background
+
+    > .l, > .r
+      z-index: $z-cell + 1
+
+    > .l
+      text-align: left
+      margin-right: auto
+
+    > .r
+      text-align: center
+
+  .ticker
+    position: absolute
+    left: 0
+    bottom: 0
+    height: $cell-ticker-height
+    z-index: -1
+
+  .c-details
+    position: absolute
+    top: $cell-line-height * 2.25
+    left: 0
+
+    opacity: 0
+    pointer-events: none
+
+    z-index: $z-details
+
+    &:hover
+      opacity: 1
+
+  > .c-details-graph
+    position: absolute
+    bottom: $cell-line-height
+    width: 100%
+    height: 0.125rem
+
+    z-index: $z-cell + 1
+
+    &.dps-crit .piece:nth-child(1)
+      background: transparent
+
+
+  &.self
+    > .line > .line-box
+      height: 0.625rem
+      width: 0.625rem
+      top: -0.25rem
+      display: block
+      border: 0.125rem solid
+
+  > .line
+    height: 0.125rem
+    margin: 0 -0.125rem -0.1875rem -0.125rem
+
+    > .line-box
+      height: 0.375rem
+      width: 0.375rem
+      top: -0.125rem
+      position: relative
+      margin: auto
+      display: block
+      border: 0.0625rem solid
+      background-color: white
+
+.hide-name .c-user-cell
+  height: $cell-line-height
+
+  label
+    display: none
+
+  .c-details
+    top: $cell-line-height * 1.25
+
+  > .c-details-graph
+    top: 0
+    bottom: unset
 
 .hide-job-icons .c-user-cell
 

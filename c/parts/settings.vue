@@ -46,9 +46,6 @@
         <checkbox
           label="Highlight Self"
           v-model="highlight_self" />
-        <checkbox
-          label="Group By 4"
-          v-model="group_by_4" />
 
       </group>
       <group name="Style">
@@ -187,7 +184,6 @@ export default {
       'hide_name',
       'hide_job_icon',
       'highlight_self',
-      'group_by_4',
       'blur_name',
       'color_scheme',
       'username',
