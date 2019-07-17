@@ -229,17 +229,19 @@ $class-remap: (
       }
     }
     $self-color: map-get($colors, 'line-self');
+    $self-color-transparent: rgba($self-color, 0);
     $others-color: map-get($colors, 'line-others');
+    $others-color-transparent: rgba($others-color, 0);
     .c-user-cell.self > .line {
         background-image: linear-gradient(to right,
-            white, $self-color, white)
+            $self-color-transparent, $self-color, $self-color-transparent)
     }
     .c-user-cell.self > .line > .line-box {
         border-color: $self-color
     }
     .c-user-cell > .line {
         background-image: linear-gradient(to right,
-            white, $others-color, white)
+            $others-color-transparent, $others-color, $others-color-transparent)
     }
     .c-user-cell > .line .line-box {
         border-color: $others-color

@@ -208,7 +208,7 @@ export default {
   > .line
     height: 0.125rem
     margin: auto
-    width: 100%
+    width: 80%
     z-index: $z-cell + 1
 
     > .line-box
