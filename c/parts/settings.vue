@@ -46,6 +46,9 @@
         <checkbox
           label="Highlight Self"
           v-model="highlight_self" />
+        <checkbox
+          label="Two Rows"
+          v-model="two_rows" />
 
       </group>
       <group name="Style">
@@ -184,6 +187,7 @@ export default {
       'hide_name',
       'hide_job_icon',
       'highlight_self',
+      'two_rows',
       'blur_name',
       'color_scheme',
       'username',
