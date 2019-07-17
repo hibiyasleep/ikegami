@@ -207,7 +207,7 @@ export default {
 
   > .line
     height: 0.125rem
-    margin: 0 -0.125rem -0.1875rem -0.125rem
+    margin: auto
     width: 100%
     z-index: $z-cell + 1
 

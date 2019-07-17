@@ -228,17 +228,21 @@ $class-remap: (
         }
       }
     }
+    $self-color: map-get($colors, 'line-self');
+    $others-color: map-get($colors, 'line-others');
     .c-user-cell.self > .line {
-        background-color: map-get($colors, 'line-self');
+        background-image: linear-gradient(to right,
+            white, $self-color, white)
     }
     .c-user-cell.self > .line > .line-box {
-        border-color: map-get($colors, 'line-self');
+        border-color: $self-color
     }
     .c-user-cell > .line {
-        background-color: map-get($colors, 'line-others');
+        background-image: linear-gradient(to right,
+            white, $others-color, white)
     }
     .c-user-cell > .line .line-box {
-        border-color: map-get($colors, 'line-others');
+        border-color: $others-color
     }
   }
 }
