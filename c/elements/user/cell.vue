@@ -194,7 +194,7 @@ export default {
 
   > .c-details
     position: absolute
-    top: $cell-line-height * 2.25
+    top: $cell-line-height * 1.25
     left: 0
 
     opacity: 0
