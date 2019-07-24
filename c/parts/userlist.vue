@@ -1,5 +1,5 @@
 <template>
-  <div class="c-parts-userlist">
+  <div :class="[ 'c-parts-userlist', { 'two-rows': two_rows } ]">
     <ul>
       <cell
         v-for="c in combatants"
@@ -106,7 +106,7 @@ export default {
     graph
   },
   computed: {
-    ...mapState('settings', [ 'reduced' ]),
+    ...mapState('settings', [ 'reduced', 'two_rows' ]),
     ...mapState('encounter', {
       combatants: 'combatants',
       topdps: 'topdps',
@@ -140,5 +140,12 @@ export default {
 
     .c-user-cell
       flex-shrink: 0
+
+  &.two-rows
+    > ul
+      display: grid
+      grid-template-rows: repeat(2)
+      > li:nth-child(even)
+        grid-row: 2
 
 </style>

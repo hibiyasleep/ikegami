@@ -54,7 +54,9 @@ $colorset: (
     'sch-pet': rgba(121, 134, 203, 0.5),
     'mch-pet': rgba(0, 151, 167, 0.5),
     'chocobo': #444,
-    'limit-break': #444
+    'limit-break': #444,
+    'line-self': rgb(252, 115, 163),
+    'line-others': rgba(252, 115, 163, 0.4)
   ),
   'ikegami-by-role-3': (
     'gauge-default': #444,
@@ -80,7 +82,9 @@ $colorset: (
     'sch-pet': hsla(94,  50, 40%, 0.5),
     'mch-pet': hsla(340, 80, 45%, 0.5),
     'chocobo': #444,
-    'limit-break': #444
+    'limit-break': #444,
+    'line-self': rgb(252, 115, 163),
+    'line-others': rgba(252, 115, 163, 0.4)
   ),
   'ikegami-by-role-5': (
     'gauge-default': #444,
@@ -107,7 +111,9 @@ $colorset: (
     'sch-pet': hsla(94,  50, 40%, 0.5),
     'mch-pet': hsla(60,  90, 30%, 0.5),
     'chocobo': #444,
-    'limit-break': #444
+    'limit-break': #444,
+    'line-self': rgb(252, 115, 163),
+    'line-others': rgba(252, 115, 163, 0.4)
   ),
   'mopimopi-default': (
     'gauge-default': #757575,
@@ -133,7 +139,9 @@ $colorset: (
     'sch-pet': transparentize(#32307B, 0.5),
     'mch-pet': transparentize(#148AA9, 0.5),
     'chocobo': #757575,
-    'limit-break': #FFBB00
+    'limit-break': #FFBB00,
+    'line-self': rgb(252, 115, 163),
+    'line-others': rgba(252, 115, 163, 0.4)
   ),
   'mopimopi-by-role': (
     'gauge-default': #757575,
@@ -159,7 +167,9 @@ $colorset: (
     'sch-pet': transparentize(#467837, 0.5),
     'mch-pet': transparentize(#813B3C, 0.5),
     'chocobo': #757575,
-    'limit-break': #FFBB00
+    'limit-break': #FFBB00,
+    'line-self': rgb(252, 115, 163),
+    'line-others': rgba(252, 115, 163, 0.4)
   ),
   'amethyst': (
     'gauge-default': rgb(32, 32, 32),
@@ -184,7 +194,9 @@ $colorset: (
     'smn-pet': rgba(40, 138, 59, 0.5),
     'sch-pet': rgba(35, 40, 152, 0.5),
     'chocobo': rgb(255, 220, 0),
-    'limit-break': rgb(255, 162, 0)
+    'limit-break': rgb(255, 162, 0),
+    'line-self': rgb(252, 115, 163),
+    'line-others': rgba(252, 115, 163, 0.4)
   )
   // New color schemes are welcome - just open a PR!
 );
@@ -215,6 +227,24 @@ $class-remap: (
           background-color: map-get($colors, $k);
         }
       }
+    }
+    $self-color: map-get($colors, 'line-self');
+    $self-color-transparent: rgba($self-color, 0);
+    $others-color: map-get($colors, 'line-others');
+    $others-color-transparent: rgba($others-color, 0);
+    .c-user-cell.self > .line {
+        background-image: linear-gradient(to right,
+            $self-color-transparent, $self-color, $self-color-transparent)
+    }
+    .c-user-cell.self > .line > .line-box {
+        border-color: $self-color
+    }
+    .c-user-cell > .line {
+        background-image: linear-gradient(to right,
+            $others-color-transparent, $others-color, $others-color-transparent)
+    }
+    .c-user-cell > .line .line-box {
+        border-color: $others-color
     }
   }
 }
