@@ -16,7 +16,7 @@ install(Vue)
 // TODO: move into another module
 Vue.directive('click-outside', {
   bind(el, binding, vnode) {
-    el.clickOutsideEvent = function (event) {
+    el.clickOutsideEvent = function(event) {
       if (!(el == event.target || el.contains(event.target))) {
         vnode.context[binding.expression](event)
       }
@@ -48,5 +48,6 @@ const layer = window.layer = Vue.prototype.$layer = new (detectLayer())
 initateLayer(layer)
 
 if(process.env.NODE_ENV === 'development') {
-  layer.emit('data', dummy)
+  window._dummy = () => layer.emit('data', dummy)
+  window._dummy()
 }
