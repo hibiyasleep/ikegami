@@ -1,7 +1,17 @@
 
 # ikegami
 
-<img src="title.png?raw=true" width="640" />
+<img src="_readme/title.png?raw=true" width="640" __ />
+
+## Example
+
+ In 8-player duty:
+
+![In 8-player duty](_readme/example-1.png)
+
+ Detailed view (when hover, username manually redacted):
+
+![Detailed view (when hover)](_readme/example-1.png)
 
 ## Installation
 
@@ -28,8 +38,10 @@ modifying OverlayPlugin config file. Save and relaunch ACT (or reload plugin).
 ...
 ```
 
-
 ### About HTTP
  this domain serves on HTTP, because browsers doesn't allow downgrade to
-`ws://` connection. ACTWebSocket provides `ws://` interface, but not with
-localhost certificate which required to `wss://`.
+`ws://` connection. ACTWebSocket provides `ws://` interface, but doesn't
+includes local certificate which required to `wss://`.
+
+
+##
