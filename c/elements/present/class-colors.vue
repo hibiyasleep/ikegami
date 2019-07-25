@@ -24,7 +24,7 @@
 <style lang="sass">
 
 .color-scheme-demo
-  height: 1.875rem
+  height: 1.75rem
   margin-top: 0 !important
   margin-bottom: 1rem !important
 
@@ -36,6 +36,8 @@
     display: inline-block
     width: 100%
     height: 0.375rem
-    margin-top: 1.5rem
+    margin-top: 1.375rem
 
+.c-settings-group-content .color-scheme-demo
+  margin-left: -1rem
 </style>
