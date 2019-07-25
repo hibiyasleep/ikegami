@@ -117,6 +117,7 @@ export default {
         const o = {
           job:                _job,
           name:               _name,
+         _name:               c.name, // used by object keying
          _owner:              _owner,
           dps:     parseFloat(c.encdps),
           dps1m:   parseFloat(c.Last60DPS),
@@ -152,7 +153,7 @@ export default {
           }
         }
 
-        players[o.name] = o
+        players[o._name] = o
       }
 
       for(let index in players) {
@@ -163,7 +164,7 @@ export default {
         let isYourMinion = playerNames.indexOf(owner)
         if(isYourMinion !== -1) {
           if(players.YOU) {
-            owner = '`YOU'
+            owner = 'YOU'
           } else {
             owner = playerNames[isYourMinion]
           }
