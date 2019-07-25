@@ -36,14 +36,14 @@ const PET_MAPPING = {
   // TODO: move to const
 }
 
-const resolveOwner = function resolveOwner(_) {
-  let o = /^.+? \((.+?)\)$/.exec(_)
-  return o && o[1] || undefined
-}
+const VALID_PLAYER_JOBS = [
+  'GLA', 'GLD', 'MRD', 'PUG', 'PGL', 'LNC', 'ROG', 'ARC', 'THM', 'ACN', 'CNJ',
+  'PLD', 'WAR', 'MNK', 'DRG', 'NIN', 'BRD', 'BLM', 'SMN', 'SCH', 'WHM', 'DRK',
+  'MCH', 'AST', 'SAM', 'RDM', 'BLU', 'GNB', 'DNC',
+  'CRP', 'BSM', 'ARM', 'GSM', 'LTW', 'WVR', 'ALC', 'CUL', 'MIN', 'BTN', 'FSH'
+]
 
-const resolveJobFromName = function resolveJobFromName(_job, _name) {
-  _job = _job || ''
-
+const resolveJobFromName = function resolveJobFromName(_job = '', _name) {
   const o = /^(.+?) \((.+?)\)$/.exec(_name)
   if(!o) {
     if(_name === 'Limit Break' || _name === '리미트 브레이크') {
@@ -51,12 +51,12 @@ const resolveJobFromName = function resolveJobFromName(_job, _name) {
     } else {
       return [_job.toLowerCase(), _name, false]
     }
+  } else if(_job) {
+    return [_job.toLowerCase(), o[1], false]
+  } else {
+    o[0] = PET_MAPPING[o[1]] || 'chocobo'
+    return o
   }
-
-  o[0] = PET_MAPPING[o[1]] || 'chocobo'
-
-  // TODO: make this localizable again (from kagerou)
-  return o
 }
 
 const _state = () => ({
@@ -157,18 +157,20 @@ export default {
 
       for(let index in players) {
         const player = players[index]
-        let { name, _owner: owner } = player
+        let { job, name, _owner: owner } = player
+        const isValidPet = VALID_PLAYER_JOBS.indexOf(job) === -1
 
         let isYourMinion = playerNames.indexOf(owner)
         if(isYourMinion !== -1) {
           if(players.YOU) {
-            owner = 'YOU'
+            owner = '`YOU'
           } else {
             owner = playerNames[isYourMinion]
           }
         }
 
-        if(owner && players[owner]) {
+        // identified as pet + is valid + its owner exists
+        if(owner && isValidPet && players[owner]) {
           let ownerData = players[owner] || {}
           let petData = players[index]
 
@@ -227,7 +229,7 @@ export default {
   },
   actions: {
     // Listeners
-    update({ commit, dispatch, rootGetters }, { Encounter, Combatant }) {
+    update({ commit, rootGetters }, { Encounter, Combatant }) {
       if(!Encounter || Encounter.hits < 1) {
         return
       }
@@ -237,7 +239,7 @@ export default {
         playerNames: rootGetters['settings/usernames']
       })
     },
-    logline({ commit, dispatch }, { type, payload }) {
+    logline({ commit }, { type, payload }) {
       if(type === 2) {
         // register my name
         commit('settings/setName', payload, { root: true })
