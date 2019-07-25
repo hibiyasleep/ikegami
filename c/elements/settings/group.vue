@@ -78,4 +78,7 @@ export default {
 .c-settings-group-content
   padding: 0 1rem 0 2.25rem
 
+  .c-version svg
+    margin-left: -0.75rem
+
 </style>
