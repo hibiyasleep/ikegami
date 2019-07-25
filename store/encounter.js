@@ -158,7 +158,7 @@ export default {
 
       for(let index in players) {
         const player = players[index]
-        let { job, name, _owner: owner } = player
+        let { job, _owner: owner } = player
         const isValidPet = VALID_PLAYER_JOBS.indexOf(job) === -1
 
         let isYourMinion = playerNames.indexOf(owner)
