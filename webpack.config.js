@@ -96,6 +96,7 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   plugins: [
 //  new BundleAnalyzerPlugin(),
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
