@@ -112,8 +112,8 @@ export default {
           continue
         }
 
-        const [ dskill, damount ] = c.maxhit.split('-')
-        const [ hskill, hamount ] = c.maxheal.split('-')
+        const [ dskill = 0, damount = '---' ] = c.maxhit.split('-')
+        const [ hskill = 0, hamount = '---' ] = c.maxheal.split('-')
         const o = {
           job:                _job,
           name:               _name,
@@ -121,7 +121,7 @@ export default {
          _owner:              _owner,
           dps:     parseFloat(c.encdps),
           dps1m:   parseFloat(c.Last60DPS),
-          maxhit:  [ parseInt(damount) || 0, dskill || '---' ],
+          maxhit:  [ parseInt(damount.replace(/[^0-9]/g, '')), dskill ],
           swings:    parseInt(c.swings),
           miss:      parseInt(c.misses),
           ch:        parseInt(c.crithits),
@@ -129,7 +129,7 @@ export default {
           cdh:       parseInt(c.CritDirectHitCount),
           hps:     parseFloat(c.enchps),
           healed:    parseInt(c.healed),
-          maxheal: [ parseInt(hamount) || 0, hskill || '---' ],
+          maxheal: [ parseInt(hamount.replace(/[^0-9]/g, '')), hskill ],
           ohpct:              c.OverHealPct,
           oh:        parseInt(c.overHeal),
           shield:    parseInt(c.damageShield),
