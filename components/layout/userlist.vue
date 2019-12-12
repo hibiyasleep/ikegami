@@ -93,10 +93,10 @@
 
 import { mapState } from 'vuex'
 
-import cell from '../elements/user/cell.vue'
-import detailWrap from '../elements/detail/wrap.vue'
-import row from '../elements/detail/row.vue'
-import graph from '../elements/detail/graph.vue'
+import cell from '../user/cell.vue'
+import detailWrap from '../details/wrap.vue'
+import row from '../details/row.vue'
+import graph from '../details/graph.vue'
 
 export default {
   components: {

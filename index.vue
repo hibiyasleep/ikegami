@@ -23,11 +23,11 @@ import packageinfo from './package.json'
 
 import { mapState } from 'vuex'
 
-import userlist from './c/parts/userlist.vue'
-import navbar from './c/parts/navbar.vue'
-import debug from './c/parts/debug.vue'
-import settings from './c/parts/settings.vue'
-import changelog from './c/parts/changelog.vue'
+import userlist from './components/layout/userlist.vue'
+import navbar from './components/layout/navbar.vue'
+import debug from './components/layout/debug.vue'
+import settings from './components/layout/settings.vue'
+import changelog from './components/layout/changelog.vue'
 
 export default {
   components: {

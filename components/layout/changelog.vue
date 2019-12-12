@@ -95,10 +95,10 @@
 
 import { mapMutations } from 'vuex'
 
-import group from '../elements/settings/group.vue'
-import checkbox from '../elements/settings/checkbox.vue'
-import version from '../elements/present/version.vue'
-import classColors from '../elements/present/class-colors.vue'
+import group from '../settings/group.vue'
+import checkbox from '../settings/checkbox.vue'
+import version from '../version.vue'
+import classColors from '../class-colors.vue'
 
 export default {
   components: {

@@ -47,7 +47,7 @@
 
 <script>
 
-import packageinfo from '../../../package.json'
+import packageinfo from '@/package.json'
 
 export default {
   data: () => ({

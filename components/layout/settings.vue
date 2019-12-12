@@ -117,14 +117,14 @@ import { mapMutations } from 'vuex'
 
 import packageinfo from '../../package.json'
 
-import group from '../elements/settings/group.vue'
-import checkbox from '../elements/settings/checkbox.vue'
-import dropdown from '../elements/settings/dropdown.vue'
-import number from '../elements/settings/number.vue'
-import string from '../elements/settings/string.vue'
-import textlist from '../elements/settings/textlist.vue'
-import version from '../elements/present/version.vue'
-import classColors from '../elements/present/class-colors.vue'
+import group from '../settings/group.vue'
+import checkbox from '../settings/checkbox.vue'
+import dropdown from '../settings/dropdown.vue'
+import number from '../settings/number.vue'
+import string from '../settings/string.vue'
+import textlist from '../settings/textlist.vue'
+import version from '../version.vue'
+import classColors from '../class-colors.vue'
 
 const _computedGetter = (keys) => {
   let o = {}

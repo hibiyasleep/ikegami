@@ -68,10 +68,10 @@
 
 import { mapState, mapGetters, mapMutations } from 'vuex'
 
-import packageinfo from '../../package.json'
+import packageinfo from '@/package.json'
 
-import detailWrap from '../elements/detail/wrap.vue'
-import row from '../elements/detail/row.vue'
+import detailWrap from '../details/wrap.vue'
+import row from '../details/row.vue'
 
 export default {
   components: {
