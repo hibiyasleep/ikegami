@@ -28,7 +28,7 @@ export default {
     label: { type: String },
     empty: { type: String },
     selections: { type: Object, required: true },
-    value: { type: String }
+    value: { type: [ String, Number ] }
   },
   data: () => ({
     opened: false
