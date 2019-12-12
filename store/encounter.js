@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
 
 const PET_MAPPING = {
   '카벙클 에메랄드': 'acn-pet',
@@ -33,7 +32,7 @@ const PET_MAPPING = {
   'オートタレット・ルーク': 'rook',
   'オートタレット・ビショップ': 'bishop'
   // TODO: add another languages
-  // TODO: move to const
+  // TODO: add shadowbringers support
 }
 
 const VALID_PLAYER_JOBS = [
@@ -112,8 +111,8 @@ export default {
           continue
         }
 
-        const [ dskill = 0, damount = '---' ] = c.maxhit.split('-')
-        const [ hskill = 0, hamount = '---' ] = c.maxheal.split('-')
+        const [ dskill = '---', damount = '0' ] = c.maxhit.split('-')
+        const [ hskill = '---', hamount = '0' ] = c.maxheal.split('-')
         const o = {
           job:                _job,
           name:               _name,

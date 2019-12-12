@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
 
 const _state = () => ({
   cell_display1: 'dps',

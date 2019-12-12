@@ -1,6 +1,3 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-
 const _state = () => ({
   opened_window: null
 })
