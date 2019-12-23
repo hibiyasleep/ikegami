@@ -109,7 +109,7 @@ export default {
 
   width: $ui-width
   height: $nav-height
-  margin: 0.5rem auto
+  margin: 0.25rem auto 0.5rem auto
   padding: 0 0 0 0.5rem
   line-height: $nav-height
 
