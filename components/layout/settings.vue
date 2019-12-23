@@ -27,13 +27,6 @@
           }"
           v-model="shorten_name" />
         <checkbox
-          label="Reduced Mode"
-          v-model="reduced" />
-        <blockquote>
-          This option will hide some values from detailed view, like 'Swings' or
-          'Overheal', but will keep their graphs.
-        </blockquote>
-        <checkbox
           label="Show Critical graph on cell"
           v-model="show_critbar" />
         <checkbox
@@ -43,6 +36,13 @@
           label="Hide Job icons"
           :class="{ disabled: hide_name }"
           v-model="hide_job_icon" />
+        <checkbox
+          label="Reduced Mode"
+          v-model="reduced" />
+        <blockquote>
+          This option will hide some values from detailed view, like 'Swings' or
+          'Overheal', but will keep their graphs.
+        </blockquote>
       </group>
       <group name="Style">
         <!-- 62.5 = 10px = usual zoomout limit -->
