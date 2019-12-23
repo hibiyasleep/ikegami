@@ -10,11 +10,11 @@
     <span class="icon-class class-sam"><span class="ticker"> </span></span>
     <span class="icon-class class-brd"><span class="ticker"> </span></span>
     <span class="icon-class class-mch"><span class="ticker"> </span></span>
+    <span class="icon-class class-dnc"><span class="ticker"> </span></span>
     <span class="icon-class class-smn"><span class="ticker"> </span></span>
     <span class="icon-class class-blm"><span class="ticker"> </span></span>
     <span class="icon-class class-rdm"><span class="ticker"> </span></span>
     <span class="icon-class class-blu"><span class="ticker"> </span></span>
-    <span class="icon-class class-dnc"><span class="ticker"> </span></span>
     <span class="icon-class class-whm"><span class="ticker"> </span></span>
     <span class="icon-class class-sch"><span class="ticker"> </span></span>
     <span class="icon-class class-ast"><span class="ticker"> </span></span>
