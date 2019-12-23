@@ -240,24 +240,28 @@ export default {
       })
     },
     logline({ commit }, { type, payload }) {
-      if(type === 2) {
-        // register my name
-        commit('settings/setName', payload, { root: true })
-      }/* else if(type === 3) {
-        const [ uid, name, job, level, hp, mp, ownerid ] = payload
-        if(uid && uid.startsWith('4') && ownerid === '0') return
-        commit('addPlayer', {
-          uid, name, job, level, hp, mp, ownerid
-        })
-      } else if(type === 4) {
-        // if(uid && uid.startsWith('4')) return
+      switch(type) {
+        case 2:
+          // register my name
+          commit('settings/setName', payload, { root: true })
+          break
 
-        const [ uid, name ] = payload
-        commit('removePlayer', {
-          uid, name
-        })
-      } */ else if(type === 11) {
-        commit('setParty', payload.slice(1, -1))
+        // case 3:
+        //   const [ uid, name, job, level, hp, mp, ownerid ] = payload
+        //   if(uid && uid.startsWith('4') && ownerid === '0') return
+        //   commit('addPlayer', { uid, name, job, level, hp, mp, ownerid })
+        //   break
+        //
+        // case 4:
+        //   // if(uid && uid.startsWith('4')) return
+        //   const [ uid, name ] = payload
+        //   commit('removePlayer', { uid, name })
+        //   break
+
+        case 11:
+          commit('setParty', payload.slice(1, -1))
+          break
+
       }
     }
   },
