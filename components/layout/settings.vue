@@ -95,8 +95,13 @@
           <br />
           Name will be automatically detected on ACTWS or LogParse. If not, try move to another region.
         </blockquote>
-        <checkbox
-          label="Show .1 units"
+        <dropdown
+          label="Decimal format"
+          :selections="{
+            1: '12345.6',
+            0: '12346',
+            '-4': '12.3k'
+          }"
           v-model="show_decimals" />
       </group>
       <group name="About" :opened="true">
