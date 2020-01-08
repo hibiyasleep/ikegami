@@ -122,7 +122,7 @@ export default {
       margin-left: 0.125rem
 
     .c-details
-      top: $cell-line-height * 1.25
+      top: $cell-line-height + 0.25rem
 
     > .c-details-graph
       top: 0
@@ -179,7 +179,7 @@ export default {
 
   .c-details
     position: absolute
-    top: $cell-line-height * 2.25
+    top: $cell-line-height * 2 + 0.25rem
     left: 0
 
     opacity: 0
