@@ -62,14 +62,16 @@ export default {
 
 .c-settings-dropdown-body
   position: absolute
-  top: 0
+  top: 0.25rem
   right: 0
 
   width: $settings-input-width
-  max-height: 12rem
+  max-height: 13rem
   overflow-y: auto
+  line-height: 1.5rem
 
   background: opacify($ui-background, 0.25)
+  border: 1px solid white
 
   z-index: $z-window + 10
 
