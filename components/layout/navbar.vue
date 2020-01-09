@@ -161,7 +161,7 @@ export default {
 
   .c-details
     position: absolute
-    top: $nav-height + 0.5rem
+    top: $nav-height + 0.25rem
     left: 0
 
     opacity: 0
