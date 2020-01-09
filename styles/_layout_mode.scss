@@ -1,0 +1,51 @@
+
+.root.layout-mode {
+  box-shadow: 0 0 0 1px $layout-mode-guideline inset;
+  background-color: $layout-mode-background;
+
+  background-image: linear-gradient(to bottom,
+      $layout-mode-guideline 0%,
+      $layout-mode-guideline 100%
+    ),
+    linear-gradient(to bottom,
+      $layout-mode-guideline 0%,
+      $layout-mode-guideline 100%
+    ),
+    linear-gradient(to right,
+      $layout-mode-guideline 1px,
+      transparent 1px,
+      transparent calc(#{$ui-width} - 1px),
+      $layout-mode-guideline calc(#{$ui-width} - 1px),
+      $layout-mode-guideline 100%
+    ),
+    linear-gradient(to bottom,
+      $layout-mode-guideline 1px,
+      transparent 1px,
+      transparent calc(#{$window-height} - 1px),
+      $layout-mode-guideline calc(#{$window-height} - 1px),
+      $layout-mode-guideline 100%
+    );
+
+  background-size:
+    100% 1px,
+    1px 100%,
+    $ui-width $window-height,
+    $ui-width $window-height;
+
+  background-position:
+    0 $cell-line-height * 2,
+    center,
+    center $cell-line-height * 3 + 0.5rem,
+    center $cell-line-height * 3 + 0.5rem;
+
+  background-repeat: no-repeat;
+
+  &.singleline {
+    background-position:
+      0 $cell-line-height,
+      center,
+      center $cell-line-height * 2 + 0.5rem,
+      center $cell-line-height * 2 + 0.5rem;
+  }
+
+}

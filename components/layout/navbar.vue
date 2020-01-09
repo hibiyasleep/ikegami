@@ -33,6 +33,7 @@
       <li @click="endEncounter"> Split Encounter </li>
       <li @click="open('changelog')"> Changelog </li>
       <li @click="open('settings')"> Settings </li>
+      <li @click="toggleLayoutMode()"> Layout Mode </li>
     </ul>
     <detail-wrap>
       <article class="details-group dps">
@@ -84,7 +85,7 @@ export default {
     releasename: packageinfo.releasename
   }),
   methods: {
-    ...mapMutations('ui', [ 'open' ]),
+    ...mapMutations('ui', [ 'open', 'toggleLayoutMode' ]),
     endEncounter() {
       this.$layer.request('end')
     }

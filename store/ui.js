@@ -1,5 +1,6 @@
 const _state = () => ({
-  opened_window: null
+  opened_window: null,
+  layout_mode: false
 })
 
 export default {
@@ -10,6 +11,13 @@ export default {
     },
     close(state) {
       state.opened_window = null
+    },
+    toggleLayoutMode(state, to) {
+      if(to === undefined) {
+        state.layout_mode = !state.layout_mode
+      } else {
+        state.layout_mode = !!to
+      }
     }
   },
   getters: {

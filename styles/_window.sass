@@ -21,7 +21,7 @@
     height: $nav-height
     line-height: $nav-height
     font-size: $nav-text-size
-    background: $ui-background
+    background: $window-title-background
 
     .button
       @include clickable
@@ -32,7 +32,7 @@
     line-height: $settings-element-height
     padding: 0.25rem 0 0.5rem 0
 
-    height: 18rem
+    height: $window-height - $nav-height
     max-height: calc(100vh - #{($cell-line-height * 2) + $nav-height + 3rem})
     overflow-y: scroll
 

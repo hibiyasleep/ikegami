@@ -11,11 +11,19 @@ $job-color-group-dps: #FF6E2C
 $job-color-group-healer: #00E676
 $job-color-group-tank: #82B1FF
 
+$layout-mode-guideline: #f00
+$layout-mode-background: transparentize(#300, 0.8)
+
 $ui-background: transparentize(#111, 0.2)
 $ui-color: #fff
 $ui-width: 25rem
 $ui-text-size: 0.875rem
 $ui-line: transparentize(#fff, 0.75)
+
+$window-title-background: transparentize(#111, 0.1)
+$window-height: 20rem
+
+// nav-background: $cell-background
 $nav-height: 1.5rem
 $nav-text-size: 0.75rem
 
@@ -47,6 +55,7 @@ $z-cell: 1000
   user-select: none
   -moz-user-select: none
   -webkit-user-select: none
+  cursor: default
 
 @mixin clickable
   @include unselectable
