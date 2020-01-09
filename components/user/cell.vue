@@ -2,8 +2,7 @@
   <li :class="[
     'c-user-cell',
     'class-' + combatant.job, {
-      self: combatant.name == 'YOU' && highlight_self,
-      singleline: !cell_display2
+      self: combatant.name == 'YOU' && highlight_self
     }]">
     <graph
       class="dps-crit"
@@ -112,22 +111,6 @@ export default {
   background-color: rgba(0, 0, 0, 0.005)
   box-shadow: 0 0 0 0.5rem rgba(0, 0, 0, 0.005), 0 $cell-line-height * -1 0 $cell-background inset
 
-  &.singleline
-    height: $cell-line-height
-    flex-direction: row
-
-    > label
-      text-align: left
-      text-shadow: $shadow-with-background
-      margin-left: 0.125rem
-
-    .c-details
-      top: $cell-line-height + 0.25rem
-
-    > .c-details-graph
-      top: 0
-      bottom: unset
-
   > label, > var
     text-align: center
     color: $cell-color
@@ -159,6 +142,8 @@ export default {
 
     // background: $cell-background
     text-shadow: $shadow-with-background
+
+    cursor: default
 
     > .l, > .r
       z-index: $z-cell + 1
@@ -201,6 +186,25 @@ export default {
     &.dps-crit .piece:nth-child(1)
       background: transparent
 
+  &:last-child
+    margin-right: 0
+
+.singleline .c-user-cell
+  height: $cell-line-height
+  flex-direction: row
+
+  > label
+    text-align: left
+    text-shadow: $shadow-with-background
+    margin-left: 0.125rem
+
+  .c-details
+    top: $cell-line-height + 0.25rem
+
+  > .c-details-graph
+    top: 0
+    bottom: unset
+
 .hide-name .c-user-cell
   height: $cell-line-height
 
@@ -214,12 +218,12 @@ export default {
     top: 0
     bottom: unset
 
-.hide-job-icons .c-user-cell
 
-  &.singleline label
+.hide-job-icons
+  &.singleline .c-user-cell label
     margin-left: 0.375rem
 
-  label > .icon-class
+  .c-user-cell label > .icon-class
     display: none
 
 .blur-name .c-user-cell

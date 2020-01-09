@@ -6,7 +6,8 @@
       'hide-job-icons': hide_job_icon,
       'hide-handle': hide_handle,
       'blur-name': blur_name,
-      'layout-mode': layout_mode
+      'layout-mode': layout_mode,
+      'singleline': !cell_display2
     }
   ]">
     <userlist />
@@ -47,7 +48,8 @@ export default {
       'hide_name',
       'hide_job_icon',
       'hide_handle',
-      'blur_name'
+      'blur_name',
+      'cell_display2'
     ]),
     ...mapState('ui', [
       'opened_window',
