@@ -3,7 +3,7 @@
     <h4>
       <b> Layout mode </b>
       -
-      1234x5678
+      {{ width }}x{{ height }}
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="button" @click="exit">
         <path d="M7,7l9,9z M16,7l-9,9z" stroke="#fff" />
       </svg>
@@ -14,10 +14,27 @@
 <script>
 
 export default {
+  data: () => ({
+    width: '---',
+    height: '---',
+    listener: null
+  }),
   methods: {
     exit() {
       this.$store.commit('ui/toggleLayoutMode', false)
+    },
+    update() {
+      this.width = window.innerWidth
+      this.height = window.innerHeight
     }
+  },
+  mounted() {
+    this.update()
+    this.listener = () => this.update()
+    window.addEventListener('resize', this.listener)
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.listener)
   }
 }
 
