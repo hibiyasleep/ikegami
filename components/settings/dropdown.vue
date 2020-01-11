@@ -4,7 +4,7 @@
       <slot>{{ label }}</slot>
     </span>
     <span @click="open" class="input-text dropdown-label"> {{ selections[value] || empty }} </span>
-    <ul class="c-settings-dropdown-body" v-if="opened">
+    <ul class="c-settings-dropdown-body" v-if="opened" ref="dropdownlist">
       <li
         v-if="empty"
         @click="select('')"
@@ -36,6 +36,7 @@ export default {
   methods: {
     open() {
       this.opened = true
+      this.$nextTick(() => this.$refs.dropdownlist?.scrollIntoViewIfNeeded())
     },
     select(opt) {
       this.$emit('input', opt)
@@ -66,12 +67,12 @@ export default {
   right: 0
 
   width: $settings-input-width
-  max-height: 13rem
+  max-height: 14rem
   overflow-y: auto
   line-height: 1.5rem
 
   background: opacify($ui-background, 0.25)
-  border: 1px solid white
+  box-shadow: 0 0 0 1px inset
 
   z-index: $z-window + 10
 
@@ -82,6 +83,8 @@ export default {
 
     &.active
       font-weight: 600
+      box-shadow: -0.25rem 0 inset
+      background-color: transparentize($ui-color, 0.8)
 
 
 </style>
