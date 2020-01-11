@@ -36,7 +36,10 @@ export default {
   methods: {
     open() {
       this.opened = true
-      this.$nextTick(() => this.$refs.dropdownlist?.scrollIntoViewIfNeeded())
+      this.$nextTick(() => this.$refs.dropdownlist?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+      }))
     },
     select(opt) {
       this.$emit('input', opt)
