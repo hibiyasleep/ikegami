@@ -23,12 +23,24 @@ export default {
     // directly passed to dropdown-body
     label: { type: String },
     empty: { type: String },
-    selections: { type: Object, default: null },
-    value: { type: [ String, Number ] }
+    selections: { type: Object, required: true },
+    value: { type: [ String, Number, Boolean ] }
   },
   methods: {
     input(opt) {
       this.$emit('input', opt)
+    }
+  },
+  mounted() {
+    // auto conversion from Boolean, to Number/String
+    if(typeof this.value === 'boolean') {
+      const n = this.value + 0
+      // try Number first
+      if('0' in this.selections && '1' in this.selections) {
+        this.select(n + '')
+        debugger
+      }
+      // String (true/false) not used currently
     }
   }
 }
