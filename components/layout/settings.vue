@@ -17,15 +17,6 @@
           empty="None"
           :selections="elementSelections"
           v-model="cell_display2" />
-        <dropdown
-          label="Shorten name as"
-          :selections="{
-            0: 'Firstname Lastname',
-            1: 'Firstname L.',
-            2: 'F. Lastname',
-            3: 'F. L.'
-          }"
-          v-model="shorten_name" />
         <checkbox
           label="Show Critical graph on cell"
           v-model="show_critbar" />
@@ -82,6 +73,23 @@
         </blockquote>
       </group>
       <group name="Data">
+        <dropdown
+          label="Shorten name as"
+          :selections="{
+            0: 'Firstname Lastname',
+            1: 'Firstname L.',
+            2: 'F. Lastname',
+            3: 'F. L.'
+          }"
+          v-model="shorten_name" />
+        <dropdown
+          label="Decimal format"
+          :selections="{
+            1: '12345.6',
+            0: '12346',
+            '-4': '12.3k'
+          }"
+          v-model="show_decimals" />
         <textlist
           label="Name for merging"
           :values="username_configured_computed"
@@ -95,14 +103,6 @@
           <br />
           Name will be automatically detected on ACTWS or LogParse. If not, try move to another region.
         </blockquote>
-        <dropdown
-          label="Decimal format"
-          :selections="{
-            1: '12345.6',
-            0: '12346',
-            '-4': '12.3k'
-          }"
-          v-model="show_decimals" />
       </group>
       <group name="About" :opened="true">
         <version />

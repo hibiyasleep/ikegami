@@ -1,27 +1,29 @@
 import Vue from 'vue'
 
 const _state = () => ({
+  // layout
   cell_display1: 'dps',
   cell_display2: 'critcounts_wo_direct',
+  show_critbar: true,
+  hide_name: false,
+  hide_job_icon: false,
   reduced: false,
+  // style
+  ui_scale: 100,
+  theme: '', // TODO: reconsider
+  color_scheme: 'kagerou-material',
+  blur_name: false,
+  // data
+  shorten_name: 0,
   show_decimals: 0,
   username: '',
   username_configured: [],
   uid: '',
+  // internal (auto)
   hide_handle: false,
-  // layout
-  ui_scale: 100,
-  hide_name: false,
-  hide_job_icon: false,
-  blur_name: false,
-  color_scheme: 'kagerou-material',
-  show_critbar: true,
-  shorten_name: 0,
   // changelog
   never_show_changelog_again: false,
   last_launched_version: null,
-  // etc
-  theme: ''
 })
 
 export default {
