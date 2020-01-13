@@ -51,6 +51,10 @@ $z-cell: 1000
 
 
 
+@mixin overflow-fadeout($direction: right, $from: 90%, $to: 100%)
+  mask-image: linear-gradient(to $direction, #fff 0%, #fff $from, transparent $to)
+  -webkit-mask-image: linear-gradient(to $direction, #fff 0%, #fff $from, transparent $to)
+
 @mixin unselectable
   user-select: none
   -moz-user-select: none

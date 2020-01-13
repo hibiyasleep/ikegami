@@ -26,9 +26,13 @@
       <span class="rank">{{ rank }}/{{ c.length }}</span><!--
    --><span class="rdps">{{ (e.rdps || 0) | decimal(0) }}</span>
     </div>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="button" @click="dropdownOpened = !dropdownOpened">
-      <path d="M8,10 l4,4 l4,-4" fill="none" stroke="#fff" />
-    </svg>
+    <div class="buttons">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18"
+           class="button"
+          @click="dropdownOpened = !dropdownOpened">
+        <path d="M4,12h2m2,0h2m2,0h2" stroke="#fff" stroke-width="2" />
+      </svg>
+    </div>
     <ul class="dropdown" v-if="dropdownOpened" @click="dropdownOpened = false">
       <li @click="endEncounter"> Split Encounter </li>
       <li @click="open('changelog')"> Changelog </li>
@@ -103,13 +107,14 @@ export default {
 <style lang="sass">
 
 .c-navbar-wrapper
+  @include unselectable
   display: flex
   position: relative
 
   width: $ui-width
   height: $nav-height
   margin: 0.25rem auto
-  padding: 0 0 0 0.5rem
+  padding: 0
   line-height: $nav-height
 
   color: $ui-color
@@ -119,8 +124,16 @@ export default {
 
   .location
     @include unselectable
-    flex-grow: 0
+    @include overflow-fadeout
+    flex-grow: 1
     flex-shrink: 1
+
+    padding: 0 0 0 0.5rem
+
+    overflow: hidden
+    word-break: keep-all
+    white-space: nowrap
+    text-overflow: clip
 
     time
       background: none
@@ -131,8 +144,6 @@ export default {
 
   .info
     @include unselectable
-    flex-grow: 0
-    flex-shrink: 0
     margin-left: auto
 
     .rdps::before
@@ -140,10 +151,21 @@ export default {
     .rdps::after
       content: 'rdps'
 
+  .info, .buttons
+    flex-grow: 0
+    flex-shrink: 0
+
+  .buttons
+    display: flex
+    margin-left: 0.125rem
+
   .button
-    width: $nav-height
+    width: $nav-height * 0.75
     height: $nav-height
+
     filter: drop-shadow($shadow-with-background)
+    outline: none
+    box-shadow: 0 0 0 -1px red inset
 
   .dropdown
     position: absolute
