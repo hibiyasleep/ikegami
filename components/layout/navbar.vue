@@ -75,7 +75,7 @@ import { mapState, mapGetters, mapMutations } from 'vuex'
 
 import packageinfo from '@/package.json'
 
-import row from '../details/row.vue'
+import row from '../user/details-row.vue'
 
 export default {
   components: {

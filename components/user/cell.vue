@@ -35,7 +35,7 @@
 import { mapState } from 'vuex'
 import { filters } from '@/lib/util.js'
 
-import graph from '../details/graph.vue'
+import graph from './graph.vue'
 
 export default {
   components: { graph },
