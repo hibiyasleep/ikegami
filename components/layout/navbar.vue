@@ -35,7 +35,7 @@
       <li @click="open('settings')"> Settings </li>
       <li @click="toggleLayoutMode()"> Layout Mode </li>
     </ul>
-    <detail-wrap>
+    <section class="details">
       <article class="details-group dps">
         <row
           title="RDPS"
@@ -61,7 +61,7 @@
           title="Deaths"
           :value="e.deaths" />
       </article> -->
-    </detail-wrap>
+    </section>
   </nav>
 </template>
 
@@ -71,12 +71,10 @@ import { mapState, mapGetters, mapMutations } from 'vuex'
 
 import packageinfo from '@/package.json'
 
-import detailWrap from '../details/wrap.vue'
 import row from '../details/row.vue'
 
 export default {
   components: {
-    detailWrap,
     row
   },
   data: () => ({
@@ -159,14 +157,14 @@ export default {
       padding: 0.125rem 0.5rem
       text-align: right
 
-  .c-details
+  .details
     position: absolute
     top: $nav-height + 0.25rem
     left: 0
 
     opacity: 0
 
-  .location:hover ~ .c-details
+  .location:hover ~ .details
     opacity: 1
 
   &.theme-tokyu, &.theme-keikyu

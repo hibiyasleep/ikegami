@@ -162,15 +162,12 @@ export default {
     height: $cell-ticker-height
     z-index: -1
 
-  .c-details
+  .details
     position: absolute
     top: $cell-line-height * 2 + 0.25rem
     left: 0
 
     opacity: 0
-    pointer-events: none
-
-    z-index: $z-details
 
     &:hover
       opacity: 1

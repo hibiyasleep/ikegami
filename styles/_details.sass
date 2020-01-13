@@ -1,12 +1,5 @@
-<template>
-  <section class="c-details">
-    <slot></slot>
-  </section>
-</template>
 
-<style lang="sass">
-
-.c-details
+.details
   @include unselectable
   display: flex
   flex-direction: column
@@ -23,6 +16,7 @@
   overflow-x: auto
   transition: opacity 200ms ease
 
+  pointer-events: none
   z-index: $z-details
 
   hr
@@ -48,5 +42,3 @@
     border-left-color: #00E676
   &.tank .row
     border-left-color: #82B1FF
-
-</style>

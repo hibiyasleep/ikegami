@@ -6,8 +6,8 @@
         :combatant="c"
         :topdps="topdps"
         :key="c.name">
-        <detail-wrap>
-          <article class="details-group dps"> <!-- wrap; do nothing but row stylings -->
+        <section class="details">
+          <article class="details-group dps">
             <row
               title="DPS"
               :value="c.dps | decimal" />
@@ -83,7 +83,7 @@
               title="Deaths"
               :value="c.deaths" />
           </article>
-        </detail-wrap>
+        </section>
       </cell>
     </ul>
   </div>
@@ -94,14 +94,12 @@
 import { mapState } from 'vuex'
 
 import cell from '../user/cell.vue'
-import detailWrap from '../details/wrap.vue'
 import row from '../details/row.vue'
 import graph from '../details/graph.vue'
 
 export default {
   components: {
     cell,
-    detailWrap,
     row,
     graph
   },
