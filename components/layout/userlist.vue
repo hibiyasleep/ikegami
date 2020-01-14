@@ -1,5 +1,7 @@
 <template>
-  <div :class="[ 'c-parts-userlist' ]">
+  <div :class="[ 'c-parts-userlist', {
+    collapsed: collapse
+  } ]">
     <ul>
       <cell
         v-for="c in combatants"
