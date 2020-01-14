@@ -74,7 +74,6 @@ export default {
 @import styles/index
 @import styles/classes
 @import styles/window
-@import styles/details
 @import styles/layout_mode
 
 </style>

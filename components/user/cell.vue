@@ -4,28 +4,30 @@
     'class-' + combatant.job, {
       self: combatant.name == 'YOU' && highlight_self
     }]">
-    <graph
-      class="dps-crit"
-      v-if="show_critbar"
-      :value="[
-        (combatant.swings - combatant.ch - combatant.dh - combatant.cdh),
-        combatant.dh,
-        combatant.ch,
-        combatant.cdh
-      ]" /> <!-- TODO: show healer graph? -->
-    <label @click="toggleBlur">
-      <i :class="[ 'icon-class', 'class-' + combatant.job ]"></i>
-      <span class="name">{{ combatant.name | name(shorten_name) }}</span>
-    </label>
-    <var>
-      <span class="l">
-        {{ combatant[cell_display1] | f(cell_display1, show_decimals) }}
-      </span>
-      <span class="r" v-if="cell_display2">
-        {{ combatant[cell_display2] | f(cell_display2, show_decimals) }}
-      </span>
-    </var>
-    <span class="ticker" :style="{ width }"></span>
+    <div class="user-cell-wrap">
+      <graph
+        class="dps-crit inside-cell"
+        v-if="show_critbar"
+        :value="[
+          (combatant.swings - combatant.ch - combatant.dh - combatant.cdh),
+          combatant.dh,
+          combatant.ch,
+          combatant.cdh
+        ]" /> <!-- TODO: show healer graph? -->
+      <label class="name-row" @click="toggleBlur">
+        <i :class="[ 'icon-class', 'class-' + combatant.job ]"></i>
+        <span class="name">{{ combatant.name | name(shorten_name) }}</span>
+      </label>
+      <var class="values">
+        <span class="l">
+          {{ combatant[cell_display1] | f(cell_display1, show_decimals) }}
+        </span>
+        <span class="r" v-if="cell_display2">
+          {{ combatant[cell_display2] | f(cell_display2, show_decimals) }}
+        </span>
+      </var>
+      <span class="ticker" :style="{ width }"></span>
+    </div>
     <slot></slot>
   </li>
 </template>
@@ -95,8 +97,6 @@ export default {
 
 .c-user-cell
   @include unselectable
-  display: flex
-  flex-direction: column
   position: relative
 
   width: $cell-width
@@ -111,49 +111,58 @@ export default {
   background-color: rgba(0, 0, 0, 0.005)
   box-shadow: 0 0 0 0.5rem rgba(0, 0, 0, 0.005), 0 $cell-line-height * -1 0 $cell-background inset
 
-  > label, > var
-    text-align: center
-    color: $cell-color
+  .user-cell-wrap
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+    width: 100%
+    height: 100%
 
     &:hover ~ .c-details
       opacity: 1
 
-  > label
-    background: none
-    overflow-x: hidden
-    word-break: keep-all
-    white-space: nowrap
-    text-overflow: ellipsis
-    flex-grow: 1
-
-    text-shadow: $shadow-without-background
-
-    > .icon-class
-      display: inline-block
-      width: 1.25rem
-      height: 1.25rem
-
-      vertical-align: -0.375rem
-
-  > var
-    display: flex
-
-    padding: 0 0.5rem
-
-    // background: $cell-background
-    text-shadow: $shadow-with-background
-
-    cursor: default
-
-    > .l, > .r
-      z-index: $z-cell + 1
-
-    > .l
-      text-align: left
-      margin-right: auto
-
-    > .r
+    .name-row, .values
       text-align: center
+      color: $cell-color
+
+    .name-row
+      background: none
+      overflow-x: hidden
+      word-break: keep-all
+      white-space: nowrap
+      text-overflow: ellipsis
+      flex-grow: 1
+
+      padding: 0 0 0 0.125rem
+      text-shadow: $shadow-without-background
+
+      > .icon-class
+        display: inline-block
+        width: 1.25rem
+        height: 1.25rem
+
+        vertical-align: -0.375rem
+
+    .values
+      display: flex
+
+      padding: 0 0.375rem
+
+      // background: $cell-background
+      text-shadow: $shadow-with-background
+
+      cursor: default
+
+      > .l, > .r
+        z-index: $z-cell + 1
+
+      > .l
+        text-align: left
+        margin-right: auto
+
+      > .r
+        text-align: center
 
   .ticker
     position: absolute
@@ -162,7 +171,7 @@ export default {
     height: $cell-ticker-height
     z-index: -1
 
-  .details
+  .c-details
     position: absolute
     top: $cell-line-height * 2 + 0.25rem
     left: 0
@@ -172,7 +181,7 @@ export default {
     &:hover
       opacity: 1
 
-  > .c-details-graph
+  .c-details-graph.inside-cell
     position: absolute
     bottom: $cell-line-height
     width: 100%
@@ -186,45 +195,43 @@ export default {
   &:last-child
     margin-right: 0
 
+// option: singleline
 .singleline .c-user-cell
-  height: $cell-line-height
-  flex-direction: row
 
-  > label
+  .name-row
     text-align: left
     text-shadow: $shadow-with-background
-    margin-left: 0.125rem
+
+  .icon-class
+    margin-right: -0.25rem
+
+  .user-cell-wrap
+    flex-direction: row
+
+// option: hide-name
+.hide-name .name-row
+  display: none
+
+.singleline, .hide-name
+  .c-user-cell
+    height: $cell-line-height
+
+  .c-details-graph.inside-cell
+    top: 0
+    bottom: unset
+
+  .name
+    margin-left: 0.25rem
 
   .c-details
     top: $cell-line-height + 0.25rem
 
-  > .c-details-graph
-    top: 0
-    bottom: unset
+// option: hide-job-icons
+.hide-job-icons .c-user-cell .icon-class
+  display: none
 
-.hide-name .c-user-cell
-  height: $cell-line-height
-
-  label
-    display: none
-
-  .c-details
-    top: $cell-line-height * 1.25
-
-  > .c-details-graph
-    top: 0
-    bottom: unset
-
-
-.hide-job-icons
-  &.singleline .c-user-cell label
-    margin-left: 0.375rem
-
-  .c-user-cell label > .icon-class
-    display: none
-
-.blur-name .c-user-cell
-  .name
+// option: blur-name
+.blur-name .c-user-cell .name
     filter: blur(0.2rem)
     -webkit-filter: blur(0.2rem)
 
