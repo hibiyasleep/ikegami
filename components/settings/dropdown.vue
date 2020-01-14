@@ -1,55 +1,34 @@
 <template>
-  <label class="c-settings-input c-settings-dropdown" v-click-outside="close">
-    <span @click="toggle" class="label">
+  <label class="c-settings-input c-settings-dropdown">
+    <span class="label">
       <slot>{{ label }}</slot>
     </span>
-    <span @click="open" class="input-text dropdown-label"> {{ selections[value] || empty }} </span>
-    <ul class="c-settings-dropdown-body" v-if="opened" ref="dropdownlist">
-      <li
-        v-if="empty"
-        @click="select('')"
-        :class="{ active: value === '' }">
-        {{ empty }}
-      </li>
-      <li
-        v-for="(s, id) in selections"
-        @click="select(id)"
-        :class="{ active: value === id }">
-        {{ s }}
-      </li>
-    </ul>
+    <slot name="contents">
+      <dropdown-body
+        v-bind="$props"
+        @input="input" />
+    </slot>
   </label>
 </template>
 
 <script>
 
+import dropdownBody from './dropdown-body.vue'
+
 export default {
+  components: {
+    dropdownBody
+  },
   props: {
+    // directly passed to dropdown-body
     label: { type: String },
     empty: { type: String },
-    selections: { type: Object, required: true },
+    selections: { type: Object, default: null },
     value: { type: [ String, Number ] }
   },
-  data: () => ({
-    opened: false
-  }),
   methods: {
-    open() {
-      this.opened = true
-      this.$nextTick(() => this.$refs.dropdownlist?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest'
-      }))
-    },
-    select(opt) {
+    input(opt) {
       this.$emit('input', opt)
-      this.opened = false
-    },
-    close() {
-      this.opened = false
-    },
-    toggle() {
-      this.opened = !this.opened
     }
   }
 }
@@ -63,31 +42,5 @@ export default {
 
   .input-text
     @include clickable
-
-.c-settings-dropdown-body
-  position: absolute
-  top: 0.25rem
-  right: 0
-
-  width: $settings-input-width
-  max-height: 14rem
-  overflow-y: auto
-  line-height: 1.5rem
-
-  background: opacify($ui-background, 0.25)
-  box-shadow: 0 0 0 1px inset
-
-  z-index: $z-window + 10
-
-  > li
-    @include clickable
-    padding: 0 calc(0.5rem + #{$_1px})
-    text-align: right
-
-    &.active
-      font-weight: 600
-      box-shadow: -0.25rem 0 inset
-      background-color: transparentize($ui-color, 0.8)
-
 
 </style>

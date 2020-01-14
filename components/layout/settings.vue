@@ -8,15 +8,17 @@
     </h4>
     <div class="window-wrap">
       <group name="Layout">
-        <dropdown
-          label="Element 1"
-          :selections="elementSelections"
-          v-model="cell_display1" />
-        <dropdown
-          label="Element 2"
-          empty="None"
-          :selections="elementSelections"
-          v-model="cell_display2" />
+        <dropdown label="Elements">
+          <div class="multiple-dropdown-wrap" slot="contents">
+            <dropdown-body
+              :selections="elementSelections"
+              v-model="cell_display1" />
+            <dropdown-body
+              empty="None"
+              :selections="elementSelections"
+              v-model="cell_display2" />
+          </div>
+        </dropdown>
         <checkbox
           label="Show Critical graph on cell"
           v-model="show_critbar" />
@@ -125,6 +127,7 @@ import packageinfo from '../../package.json'
 import group from '../settings/group.vue'
 import checkbox from '../settings/checkbox.vue'
 import dropdown from '../settings/dropdown.vue'
+import dropdownBody from '../settings/dropdown-body.vue'
 import number from '../settings/number.vue'
 import string from '../settings/string.vue'
 import textlist from '../settings/textlist.vue'
@@ -147,6 +150,7 @@ export default {
     group,
     checkbox,
     dropdown,
+    dropdownBody,
     number,
     string,
     textlist,
@@ -157,10 +161,10 @@ export default {
     // warning: dropdown content's order are rely on object key order!
     elementSelections: {
       dps: 'DPS',
-      dps1m: 'DPS (1min)',
+      dps1m: '(1min) DPS',
       swings: 'Swings',
       critcounts: 'Criticals',
-      critcounts_wo_direct: '(w/o Direct) Criticals',
+      critcounts_wo_direct: '(w/o Direct) Crits',
       hps: 'HPS',
       ohpct: 'Overheal %',
       deaths: 'Deaths'
@@ -204,12 +208,13 @@ export default {
 <style lang="sass">
 
 .input-text
-  border: $_1px solid #fff
-  width: 10rem
+  display: inline-block
+  width: $settings-input-width
   height: $ui-text-size + 0.625rem
 
+  box-shadow: 0 0 0 $_1px #fff inset
   padding: 0 0.5rem 0 0.25rem
-  line-height: 1.25rem
+  line-height: 1.375rem
 
   text-align: right
 
@@ -217,5 +222,14 @@ export default {
   background-size: 0.5rem 0.5rem
   background-position: right bottom
   background-repeat: no-repeat
+
+.multiple-dropdown-wrap
+  display: flex
+
+  .dropdown-label
+    width: $settings-input-width * 0.8
+
+    + .dropdown-label
+      margin-left: 0.25rem
 
 </style>
