@@ -34,10 +34,10 @@
           v-model="reduced" />
         <blockquote>
           This option will hide some values from detailed view, like 'Swings' or
-          'Overheal', but will keep their graphs.
+          'Overheal' etc.
         </blockquote>
       </group>
-      <group name="Style">
+      <group name="Appearance">
         <!-- 62.5 = 10px = usual zoomout limit -->
         <number
           label="UI Scale (%)"
