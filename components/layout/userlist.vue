@@ -14,7 +14,7 @@
 
 <script>
 
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 import cell from '../user/cell.vue'
 import detailedView from '../user/detailed-view.vue'
@@ -26,7 +26,8 @@ export default {
   },
   computed: {
     ...mapState('encounter', {
-      combatants: 'combatants',
+      // assuming worst case of combatant count: 124px * 75% * 32 = 2976px
+      combatants: state => state.combatants?.slice(0, 32),
       topdps: 'topdps',
       e: 'encounter'
     })
