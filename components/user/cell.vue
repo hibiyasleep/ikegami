@@ -100,7 +100,6 @@ export default {
   position: relative
 
   width: $cell-width
-  height: $cell-line-height * 2
   line-height: $cell-line-height
   margin-right: $cell-margin
   font-size: $font-small
