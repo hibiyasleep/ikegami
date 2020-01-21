@@ -23,7 +23,7 @@ export default {
     // directly passed to dropdown-body
     label: { type: String },
     empty: { type: String },
-    selections: { type: Object, required: true },
+    selections: { type: Object, default: () => ({}) },
     value: { type: [ String, Number, Boolean ] }
   },
   methods: {
