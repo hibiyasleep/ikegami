@@ -27,7 +27,7 @@ export default {
   props: {
     empty: { type: String },
     selections: { type: Object, required: true },
-    value: { type: [ String, Number ] }
+    value: { type: [ String, Number, Boolean ] }
   },
   data: () => ({
     opened: false
@@ -49,6 +49,17 @@ export default {
     },
     toggle() {
       this.opened = !this.opened
+    }
+  },
+  mounted() {
+    // auto conversion from Boolean, to Number/String
+    if(typeof this.value === 'boolean') {
+      const n = this.value + 0
+      // try Number first
+      if('0' in this.selections && '1' in this.selections) {
+        this.select(n + '')
+      }
+      // String (true/false) not used currently
     }
   }
 }
