@@ -11,7 +11,7 @@
 
  Detailed view (when hover, username manually redacted):
 
-![Detailed view (when hover)](_readme/example-1.png)
+![Detailed view (when hover)](_readme/example-2.png)
 
 ## Installation
 
