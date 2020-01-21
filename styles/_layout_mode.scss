@@ -3,15 +3,15 @@
 }
 
 .root.layout-mode {
-  box-shadow: 0 0 0 1px $layout-mode-guideline inset;
-  background-color: $layout-mode-background;
-
   $fill-as-image: linear-gradient(to bottom,
     $layout-mode-guideline 0%,
     $layout-mode-guideline 100%
   );
   $w: rem-to-unitless-px($ui-width);
   $h: rem-to-unitless-px($window-height);
+
+  box-shadow: 0 0 0 1px $layout-mode-guideline inset;
+  background-color: $layout-mode-background;
 
   background-image: $fill-as-image, $fill-as-image,
     url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 #{$w} #{$h}"><rect x="0.5" y="0.5" width="#{$w - 1}" height="#{$h - 1}" fill="none" stroke="#{transparentize($layout-mode-guideline, 0.01)}" stroke-width="1"/></svg>');

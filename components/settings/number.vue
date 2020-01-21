@@ -12,7 +12,7 @@
         :step="step"
         :value="value"
         @input="input"
-        @blur="d(0)"/>
+        @blur="d(0)" />
       <button class="plus" @click="d(step)">＋</button>
     </span>
   </span>
@@ -26,14 +26,8 @@ export default {
     value: Number,
     min: Number,
     max: Number,
-    step: {
-      type: Number,
-      default: 1
-    },
-    default: {
-      type: Number,
-      default: 1
-    }
+    step: { type: Number, default: 1 },
+    default: { type: Number, default: 1 }
   },
   methods: {
     input(e) {

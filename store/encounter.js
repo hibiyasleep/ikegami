@@ -1,5 +1,7 @@
 import Vue from 'vue'
 
+// pet name to internal icon id mapping, for mark correct 'job' for unmerged pets.
+// this mapping isn't really necessary.
 const PET_MAPPING = {
   '카벙클 에메랄드': 'acn-pet',
   '카벙클 토파즈': 'acn-pet',
@@ -62,7 +64,6 @@ const _state = () => ({
   encounter: {},
   combatants: [],
   allies: {},
-  party: [],
   topdps: 0,
   active: false
 })
@@ -216,15 +217,6 @@ export default {
       state.topdps = players[0]? players[0].dps : 0
 
       Vue.set(state, 'combatants', players)
-    },
-    addPlayer(state, user) {
-      Vue.set(state.allies, user.uid, user)
-    },
-    removePlayer(state, { uid }) {
-      delete state.allies[uid]
-    },
-    setParty(state, uids) {
-      Vue.set(state, 'party', uids)
     }
   },
   actions: {

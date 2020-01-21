@@ -196,7 +196,9 @@ export default {
     margin-right: 0
 
 // option: singleline
-.singleline .c-user-cell
+.singleline .user-cell-wrap
+  flex-direction: row
+  max-height: $cell-line-height
 
   .name-row
     text-align: left
@@ -205,16 +207,12 @@ export default {
   .icon-class
     margin-right: -0.25rem
 
-  .user-cell-wrap
-    flex-direction: row
 
 // option: hide-name
 .hide-name .name-row
   display: none
 
 .singleline, .hide-name
-  .c-user-cell
-    height: $cell-line-height
 
   .c-details-graph.inside-cell
     top: 0
@@ -228,7 +226,7 @@ export default {
 
 // option: hide-job-icons
 .hide-job-icons .c-user-cell .icon-class
-  display: none
+  display: none !important
 
 // option: blur-name
 .blur-name .c-user-cell .name

@@ -8,7 +8,7 @@ const _state = () => ({
   hide_name: false,
   hide_job_icon: false,
   reduced: false,
-  // style
+  // appearance
   ui_scale: 100,
   theme: '', // TODO: reconsider
   color_scheme: 'kagerou-material',
@@ -60,7 +60,7 @@ export default {
   },
   actions: {
     updateGlobalStyle({ state }) {
-      window.document.body.parentElement.style.fontSize = (state.ui_scale * 0.16) + 'px'
+      window.document.documentElement.style.fontSize = (state.ui_scale * 0.16) + 'px'
     }
   },
   namespaced: true
