@@ -39,7 +39,7 @@
       <li @click="open('settings')"> Settings </li>
       <li @click="toggleLayoutMode()"> Layout Mode </li>
     </ul>
-    <section class="details">
+    <section class="c-details">
       <article class="details-group dps">
         <row
           title="RDPS"
@@ -179,14 +179,14 @@ export default {
       padding: 0.125rem 0.5rem
       text-align: right
 
-  .details
+  .c-details
     position: absolute
     top: $nav-height + 0.25rem
     left: 0
 
     opacity: 0
 
-  .location:hover ~ .details
+  .location:hover ~ .c-details
     opacity: 1
 
   &.theme-tokyu, &.theme-keikyu
