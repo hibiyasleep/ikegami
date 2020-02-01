@@ -42,14 +42,9 @@ import graph from './graph.vue'
 export default {
   components: { graph },
   props: {
-    combatant: {
-      type: Object,
-      required: true
-    },
-    topdps: {
-      type: Number,
-      default: 1
-    }
+    combatant: { type: Object, required: true },
+    topdps: { type: Number, default: 1 },
+    tophps: { type: Number, default: 1 }
   },
   methods: {
     toggleBlur() {

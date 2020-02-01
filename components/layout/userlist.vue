@@ -5,6 +5,7 @@
         v-for="c in combatants"
         :combatant="c"
         :topdps="topdps"
+        :tophps="tophps"
         :key="c.name">
         <detailed-view :c="c" :e="e" />
       </cell>
@@ -29,6 +30,7 @@ export default {
       // assuming worst case of combatant count: 124px * 75% * 32 = 2976px
       combatants: state => state.combatants?.slice(0, 32),
       topdps: 'topdps',
+      tophps: 'tophps',
       e: 'encounter'
     })
   }

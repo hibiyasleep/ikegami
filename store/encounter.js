@@ -64,7 +64,8 @@ const _state = () => ({
   encounter: {},
   combatants: [],
   allies: {},
-  topdps: 0,
+  topdps: 1,
+  tophps: 1,
   active: false
 })
 
@@ -215,6 +216,7 @@ export default {
       players = Object.keys(players).map(_ => players[_]).sort((a, b) => b.dps - a.dps)
 
       state.topdps = players[0]? players[0].dps : 0
+      state.tophps = Math.max.apply(null, _ => _.hps)
 
       Vue.set(state, 'combatants', players)
     }
