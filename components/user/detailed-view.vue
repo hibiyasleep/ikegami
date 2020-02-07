@@ -25,9 +25,7 @@
         :value="c.critcounts"
         v-if="!reduced" />
       <div class="row">
-        <graph
-          class="dps-crit"
-          :value="[ (c.swings - c.ch - c.dh - c.cdh), c.dh, c.ch, c.cdh ]" />
+        <graph type="dps-crit" :combatant="c" />
       </div>
       <hr />
 
@@ -57,15 +55,7 @@
         :value="c.shield"
         v-if="!reduced" />
       <div class="row">
-        <graph
-          class="healer-pct"
-          :value="[
-            c.shield,
-            (c.healed - c.minion_total - c.oh + c.minion_over - c.shield),
-            c.minion_total - c.minion_over,
-            c.minion_over,
-            c.oh - c.minion_over
-          ]" /> <!-- TODO -->
+        <graph type="healer-pct" :combatant="c" />
       </div>
 
       <hr />

@@ -6,14 +6,10 @@
     }]">
     <div class="user-cell-wrap">
       <graph
-        class="dps-crit inside-cell"
+        class="inside-cell"
         v-if="show_critbar"
-        :value="[
-          (combatant.swings - combatant.ch - combatant.dh - combatant.cdh),
-          combatant.dh,
-          combatant.ch,
-          combatant.cdh
-        ]" /> <!-- TODO: show healer graph? -->
+        :type="show_critbar === true? 'dps-crit' : show_critbar"
+        :combatant="combatant" />
       <label class="name-row" @click="toggleBlur">
         <i :class="[ 'icon-class', 'class-' + combatant.job ]"></i>
         <span class="name">{{ combatant.name | name(shorten_name) }}</span>
