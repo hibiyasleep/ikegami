@@ -27,9 +27,11 @@
    --><span class="rdps">{{ (e.rdps || 0) | decimal(0) }}</span>
     </div>
     <div class="buttons">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18"
-           class="button"
-          @click="dropdownOpened = !dropdownOpened">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 18 24" width="1.5rem" height="1.125rem"
+        class="button"
+        @click="dropdownOpened = !dropdownOpened">
         <path d="M4,12h2m2,0h2m2,0h2" stroke="#fff" stroke-width="2" />
       </svg>
     </div>

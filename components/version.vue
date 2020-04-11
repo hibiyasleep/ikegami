@@ -3,7 +3,9 @@
     ikegami {{ version }}
     <span class="spacer"></span>
     '{{ releasename }}'<br />
-    <svg xmlns="http://www.w3.org/2000/svg" width="360" height="24">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 360 24" width="22.5rem" height="1.5rem">
       <path opacity="0.25" fill="#20A288" d="M0,12h8v3h11v2h-11v3h-8l2,-2h4v-4h-4v4l-2,2z"/>
       <path opacity="0.25" fill="#20A288" d="M19,12h8v3h11v2h-11v3h-8l2,-2h4v-4h-4v4l-2,2z"/>
       <path opacity="0.25" fill="#20A288" d="M38,12h8v3h11v2h-11v3h-8l2,-2h4v-4h-4v4l-2,2z"/>
