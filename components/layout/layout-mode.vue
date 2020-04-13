@@ -1,9 +1,11 @@
 <template>
   <nav class="c-layout-mode-wrapper window">
     <h4>
-      <b> Layout mode </b>
-      -
-      {{ width }}x{{ height }}
+      <span>
+        <b> Layout mode </b>
+        -
+        {{ width }}x{{ height }}
+      </span>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="button" @click="exit">
         <path d="M7,7l9,9z M16,7l-9,9z" stroke="#fff" />
       </svg>

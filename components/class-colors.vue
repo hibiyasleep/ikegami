@@ -24,9 +24,8 @@
 <style lang="sass">
 
 .color-scheme-demo
+  display: flex
   height: 1.75rem
-  margin-top: 0 !important
-  margin-bottom: 0.5rem !important
 
   > span
     width: 1.25rem
