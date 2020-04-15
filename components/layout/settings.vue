@@ -12,6 +12,15 @@
             v-model="cell_display2" />
         </div>
       </dropdown>
+      <dropdown
+        label="Shortenize name as"
+        :selections="{
+          0: 'Firstname Lastname',
+          1: 'Firstname L.',
+          2: 'F. Lastname',
+          3: 'F. L.'
+        }"
+        v-model="shorten_name" />
       <checkbox
         label="Show Critical graph on cell"
         v-model="show_critbar" />
@@ -69,15 +78,6 @@
     </group>
     <group name="Data">
       <dropdown
-        label="Shorten name as"
-        :selections="{
-          0: 'Firstname Lastname',
-          1: 'Firstname L.',
-          2: 'F. Lastname',
-          3: 'F. L.'
-        }"
-        v-model="shorten_name" />
-      <dropdown
         label="Decimal format"
         :selections="{
           1: '12345.6',
@@ -94,9 +94,11 @@
         :value="`(${uid}) ${username}`"
         disabled />
       <blockquote>
-        If multiple pet (including other's) detected as yours, it'll cause duplication of merging.
+        If multiple pet (including other's) detected as yours, it'll cause
+        duplication of merging.
         <br />
-        Name will be automatically detected on ACTWS or LogParse. If not, try move to another region.
+        Name will be automatically detected on ACTWS or recent version of
+        OverlayPlugin. If not, try move to another region.
       </blockquote>
     </group>
     <group name="About" :opened="true">
@@ -115,6 +117,8 @@
 import { mapMutations } from 'vuex'
 
 import packageinfo from '../../package.json'
+import * as _const from '@/lib/const.js'
+import mapStateDynamically from '@/lib/map-state-dynamically.js'
 
 import group from '../settings/group.vue'
 import checkbox from '../settings/checkbox.vue'
@@ -126,17 +130,6 @@ import textlist from '../settings/textlist.vue'
 import window from '../window.vue'
 import version from '../version.vue'
 import classColors from '../class-colors.vue'
-
-const _computedGetter = (keys) => {
-  let o = {}
-  for(let key of keys) {
-    o[key] = {
-      get() { return this.$store.state.settings[key] },
-      set(v) { this.$store.commit('settings/set', { k: key, v })}
-    }
-  }
-  return o
-}
 
 export default {
   components: {
@@ -153,16 +146,7 @@ export default {
   },
   data: () => ({
     // warning: dropdown content's order are rely on object key order!
-    elementSelections: {
-      dps: 'DPS',
-      dps1m: '(1min) DPS',
-      swings: 'Swings',
-      critcounts: 'Criticals',
-      critcounts_wo_direct: '(w/o Direct) Crits',
-      hps: 'HPS',
-      ohpct: 'Overheal %',
-      deaths: 'Deaths'
-    },
+    elementSelections: _const.CELL_DISPLAY_SELECTIONS,
     version: packageinfo.version,
     releasename: packageinfo.releasename
   }),
@@ -173,7 +157,7 @@ export default {
     }
   },
   computed: {
-    ..._computedGetter([
+    ...mapStateDynamically('settings', [
       'cell_display1',
       'cell_display2',
       'reduced',
@@ -198,32 +182,3 @@ export default {
 }
 
 </script>
-
-<style lang="sass">
-
-.input-text
-  display: inline-block
-  width: $settings-input-width
-  height: $ui-text-size + 0.625rem
-
-  box-shadow: 0 0 0 $_1px #fff inset
-  padding: 0 0.5rem 0 0.25rem
-  line-height: 1.375rem
-
-  text-align: right
-
-  background-image: linear-gradient(135deg, transparent 0%, transparent 49%, #fff 50%, #fff 100%)
-  background-size: 0.5rem 0.5rem
-  background-position: right bottom
-  background-repeat: no-repeat
-
-.multiple-dropdown-wrap
-  display: flex
-
-  .dropdown-label
-    width: $settings-input-width * 0.8
-
-    + .dropdown-label
-      margin-left: 0.25rem
-
-</style>
