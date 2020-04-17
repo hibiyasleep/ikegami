@@ -31,11 +31,11 @@
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 24" width="1.5rem" height="1.125rem"
         class="button"
-        @click="dropdownOpened = !dropdownOpened">
+        @click="dropdown_opened = !dropdown_opened">
         <path d="M4,12h2m2,0h2m2,0h2" stroke="#fff" stroke-width="2" />
       </svg>
     </div>
-    <ul class="dropdown" v-if="dropdownOpened" @click="dropdownOpened = false">
+    <ul class="dropdown" v-if="dropdown_opened" @click="dropdown_opened = false">
       <li @click="endEncounter"> Split Encounter </li>
       <li @click="open('changelog')"> Changelog </li>
       <li @click="open('settings')"> Settings </li>
@@ -84,7 +84,7 @@ export default {
     row
   },
   data: () => ({
-    dropdownOpened: false,
+    dropdown_opened: false,
     version: packageinfo.version,
     releasename: packageinfo.releasename
   }),

@@ -4,11 +4,11 @@
       <dropdown label="Elements">
         <div class="multiple-dropdown-wrap" slot="contents">
           <dropdown-body
-            :selections="elementSelections"
+            :selections="element_selections"
             v-model="cell_display1" />
           <dropdown-body
             empty="None"
-            :selections="elementSelections"
+            :selections="element_selections"
             v-model="cell_display2" />
         </div>
       </dropdown>
@@ -146,7 +146,7 @@ export default {
   },
   data: () => ({
     // warning: dropdown content's order are rely on object key order!
-    elementSelections: _const.CELL_DISPLAY_SELECTIONS,
+    element_selections: _const.CELL_DISPLAY_SELECTIONS,
     version: packageinfo.version,
     releasename: packageinfo.releasename
   }),
