@@ -88,3 +88,22 @@
   .center
     text-align: center
     align-self: center
+
+
+.input-text, .input-toggles, .input-wrap
+  display: inline-block
+  width: $settings-input-width
+  height: $ui-text-size + 0.625rem
+
+.input-text, .input-toggles
+  box-shadow: 0 0 0 $_1px #fff inset
+  padding: 0 0.5rem 0 0.25rem
+  line-height: 1.375rem
+
+  text-align: right
+
+.input-text, .has-input-hint
+  background-image: linear-gradient(135deg, transparent 0%, transparent 49%, #fff 50%, #fff 100%)
+  background-size: $ui-input-hint-size $ui-input-hint-size
+  background-position: right bottom
+  background-repeat: no-repeat
