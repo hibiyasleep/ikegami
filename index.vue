@@ -27,7 +27,7 @@ import { mapState } from 'vuex'
 import userlist from './components/layout/userlist.vue'
 import navbar from './components/layout/navbar.vue'
 import layoutMode from './components/layout/layout-mode.vue'
-import settings from './components/layout/settings.vue'
+import settings from './components/layout/settings'
 import changelog from './components/layout/changelog.vue'
 
 export default {
