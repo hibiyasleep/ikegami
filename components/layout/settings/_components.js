@@ -1,5 +1,6 @@
 export const group = require('@/components/settings/group.vue').default
 export const checkbox = require('@/components/settings/checkbox.vue').default
+export const radioButton = require('@/components/settings/radio-button.vue').default
 export const dropdown = require('@/components/settings/dropdown.vue').default
 export const dropdownBody = require('@/components/settings/dropdown-body.vue').default
 export const number = require('@/components/settings/number.vue').default

@@ -11,25 +11,34 @@
           v-model="cell_display2" />
       </div>
     </dropdown>
-    <dropdown
+    <radio-button
+      mode="multiple"
       label="Shortenize name as"
-      :selections="{
-        0: 'Firstname Lastname',
-        1: 'Firstname L.',
-        2: 'F. Lastname',
-        3: 'F. L.'
+      :selections="new Map([
+        ['2', (shorten_name & 2)? 'F.' : 'Firstname'],
+        ['1', (shorten_name & 1)? 'L.' : 'Lastname']
+      ])"
+      :value="{
+        '2': +shorten_name & 2,
+        '1': +shorten_name & 1
       }"
-      v-model="shorten_name" />
+      @input="v => shorten_name = +shorten_name ^ v" />
     <checkbox
       label="Show Critical graph on cell"
       v-model="show_critbar" />
-    <checkbox
-      label="Hide name section"
-      v-model="hide_name" />
-    <checkbox
-      label="Hide Job icons"
+    <radio-button
       :class="{ disabled: hide_name }"
-      v-model="hide_job_icon" />
+      mode="multiple"
+      label="Nameplate"
+      :selections="{
+        hide_job_icon: 'Icon',
+        hide_name: 'Name'
+      }"
+      :value="{
+        hide_name: !hide_name,
+        hide_job_icon: !hide_job_icon
+      }"
+      @input="v => this[v] = !this[v]" />
     <checkbox
       label="Reduced Mode"
       v-model="reduced" />
