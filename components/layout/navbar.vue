@@ -282,15 +282,30 @@ export default {
       bottom: -0.125rem
 
   &.theme-minimal
-    width: 10rem
+    width: $cell-width
+
+    .location
+      padding-left: 0.375rem
+
+      time + span
+        display: none
 
     .info
-      .rdps::before
-        content: '='
+      padding-right: 0.375rem
+
       .rdps::after
         content: ''
 
-    .location time + span
-      display: none
+    .buttons
+      margin: 0
+
+      > .button:first-child
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        width: 50%
+        height: 100%
+        opacity: 0
 
 </style>
