@@ -24,7 +24,7 @@
     </div>
     <div class="info">
       <span class="rank">{{ rank }}/{{ c.length }}</span><!--
-   --><span class="rdps">{{ (e.rdps || 0) | decimal(0) }}</span>
+   --><span class="rdps">{{ (e.rdps || 0) | f(show_decimals) }}</span>
     </div>
     <div class="buttons">
       <svg
@@ -76,6 +76,7 @@
 import { mapState, mapGetters, mapMutations } from 'vuex'
 
 import packageinfo from '@/package.json'
+import { filters } from '@/lib/util.js'
 
 import row from '../user/details-row.vue'
 
@@ -99,8 +100,16 @@ export default {
       e: 'encounter',
       c: 'combatants'
     }),
-    ...mapGetters('encounter', [ 'rank' ]),
-    ...mapState('settings', [ 'theme' ])
+    ...mapState('settings', [
+      'show_decimals',
+      'theme'
+    ]),
+    ...mapGetters('encounter', [ 'rank' ])
+  },
+  filters: {
+    f(value, show_decimals) {
+      return filters.decimal(value, Math.min(0, show_decimals))
+    }
   }
 }
 
