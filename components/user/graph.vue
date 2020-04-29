@@ -54,7 +54,10 @@ export default {
   height: $details-row-height / 2
 
   > .piece
-    //
+    &[style='width: 0%;']
+      display: none
+    + .piece
+      margin-left: $_1px
 
   &.dps-crit .piece
     &:nth-child(1)
