@@ -1,11 +1,11 @@
 <template>
   <group name="Data">
-    <dropdown
+    <radio-button
       label="Decimal format"
       :selections="{
-        1: '12345.6',
-        0: '12346',
-        '-4': '12.3k'
+        1: '1234.5',
+        0: '1235',
+        '-4': '1.2k'
       }"
       v-model="show_decimals" />
     <textlist

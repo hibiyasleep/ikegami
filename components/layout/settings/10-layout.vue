@@ -12,6 +12,7 @@
       </div>
     </dropdown>
     <radio-button
+      :class="[ 'equal-width', { disabled: hide_name }]"
       mode="multiple"
       label="Shortenize name as"
       :selections="new Map([
@@ -27,7 +28,7 @@
       label="Show Critical graph on cell"
       v-model="show_critbar" />
     <radio-button
-      :class="{ disabled: hide_name }"
+      class="equal-width"
       mode="multiple"
       label="Nameplate"
       :selections="{
