@@ -1,6 +1,6 @@
 <template>
   <group name="Layout">
-    <dropdown label="Elements">
+    <dropdown label="Values">
       <div class="multiple-dropdown-wrap" slot="contents">
         <dropdown-body
           :selections="element_selections"
@@ -24,9 +24,6 @@
         '1': +shorten_name & 1
       }"
       @input="v => shorten_name = +shorten_name ^ v" />
-    <checkbox
-      label="Show Critical graph on cell"
-      v-model="show_critbar" />
     <radio-button
       class="equal-width"
       mode="multiple"
@@ -41,12 +38,11 @@
       }"
       @input="v => this[v] = !this[v]" />
     <checkbox
-      label="Reduced Mode"
+      label="Show Critical graph on cell"
+      v-model="show_critbar" />
+    <checkbox
+      label="Less information on detailed view"
       v-model="reduced" />
-    <blockquote>
-      This option will hide some values from detailed view, like 'Swings' or
-      'Overheal' etc.
-    </blockquote>
   </group>
 </template>
 

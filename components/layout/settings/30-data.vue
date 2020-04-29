@@ -42,7 +42,9 @@ export default {
   computed: {
     ...mapStateDynamically('settings', [
       'username_configured',
-      'show_decimals'
+      'show_decimals',
+      'uid',
+      'username'
     ]),
     username_configured_computed() {
       return [].concat(this.username_configured, [''])

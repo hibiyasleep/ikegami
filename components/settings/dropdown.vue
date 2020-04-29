@@ -45,9 +45,7 @@ export default {
 
   .dropdown-label
     width: $settings-input-width * 0.8
-
-    + .dropdown-label
-      margin-left: 0.25rem
+    margin: 0 ($_1px / 2)
 
     &:only-of-type
       width: $settings-input-width
