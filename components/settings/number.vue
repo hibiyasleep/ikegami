@@ -75,8 +75,7 @@ export default {
 
     width: $settings-input-width
     height: 1.5rem
-
-    border: $_1px solid #fff
+    padding: 0
 
     > button, > input
       line-height: 1.375rem !important

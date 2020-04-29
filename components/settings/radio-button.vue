@@ -1,15 +1,19 @@
 <template>
-  <label class="c-settings-input c-settings-radio-button">
+  <label :class="[
+    'c-settings-input',
+    'c-settings-radio-button',
+    'mode-' + mode
+  ]">
     <span class="label">
       <slot>{{ label }}</slot>
     </span>
-    <ul class="input-toggles">
+    <ul class="input-wrap toggles">
       <li
         v-for="[id, s] in _selections"
         @click="select(id)"
-        :class="{
+        :class="[ 'input hinted', {
           active: (value === id) || (mode === 'multiple' && value[id])
-        }"> {{ s }} </li>
+        }]"> {{ s }} </li>
     </ul>
   </label>
 </template>
@@ -55,26 +59,40 @@ export default {
 
 .c-settings-radio-button
 
-  .input-toggles
+  .toggles
     @include clickable
 
     display: flex
     padding: 0
 
     > li
-      flex: 1
-      text-align: center
+      flex-grow: 1
       padding: 0 0.25rem
+      margin: 0 ($_1px / 2)
+      width: unset
 
-      border-right: $_1px solid #fff
+      text-align: center
 
       &.active
-        background: $ui-color
         color: $ui-background
-        margin-right: $_1px
+        background-color: $ui-color
 
       &:last-of-type
         margin-right: 0
 
+  &.equal-width li
+    flex: 1
+
+  &.mode-single .toggles > li
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><circle cx="6" cy="6" r="3" fill="white" /></svg>')
+
+    &.active
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><circle cx="6" cy="6" r="3" fill="#{$ui-background}" /></svg>')
+
+  &.mode-multiple .toggles > li
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><rect x="3" y="5" width="4" height="4" fill="white" /></svg>')
+
+    &.active
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><rect x="3" y="5" width="4" height="4" fill="#{$ui-background}" /></svg>')
 
 </style>

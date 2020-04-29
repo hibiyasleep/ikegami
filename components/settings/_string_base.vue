@@ -13,7 +13,7 @@
     </svg>
     <input
       type="text"
-      class="input-text"
+      class="input hinted"
       :value="value"
       @input="input"
       :disabled="disabled"

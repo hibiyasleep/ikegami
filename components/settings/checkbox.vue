@@ -32,8 +32,6 @@ export default {
     width: 1.5rem
     height: 1.5rem
 
-    border: $_1px solid #fff
-
     &::after
       display: inline-block
       content: ''
@@ -50,7 +48,7 @@ export default {
 
       opacity: 0.2
 
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline stroke="%23fff" fill="none" stroke-width="2" points="3 12 8 17 19 6"/></svg>')
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline stroke="%23fff" fill="none" stroke-width="2" points="4 12 9 17 20 6"/></svg>')
       background-position: center
       background-size: 1.5rem
       background-repeat: no-repeat

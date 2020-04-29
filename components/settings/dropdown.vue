@@ -40,9 +40,6 @@ export default {
 .c-settings-dropdown
   position: relative
 
-  .input-text
-    @include clickable
-
 .multiple-dropdown-wrap
   display: flex
 

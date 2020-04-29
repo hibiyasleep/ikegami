@@ -1,7 +1,7 @@
 <template>
   <span
     @click.self="open"
-    class="input-text dropdown-label"
+    class="dropdown-label input hinted"
     v-click-outside="close">
     {{ selections[value] || empty }}
     <ul class="c-settings-dropdown-body" v-if="opened" ref="dropdownlist">
@@ -69,6 +69,8 @@ export default {
 <style lang="sass">
 
 .dropdown-label
+  @include clickable
+
   position: relative
 
 .c-settings-dropdown-body
