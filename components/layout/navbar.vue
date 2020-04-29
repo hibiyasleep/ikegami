@@ -159,8 +159,6 @@ export default {
 
     .rdps::before
       content: '\00a0・\00a0'
-    .rdps::after
-      content: 'rdps'
 
   .info, .buttons
     flex-grow: 0
@@ -308,9 +306,6 @@ export default {
 
     .info
       padding-right: 0.375rem
-
-      .rdps::after
-        content: ''
 
     .buttons
       margin: 0
