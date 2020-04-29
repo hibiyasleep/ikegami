@@ -202,6 +202,10 @@ export default {
     line-height: 1.25rem
     padding: 0
 
+    .location
+      -webkit-mask-image: none
+      mask-image: none
+
     .versioninfo
       display: none
 
@@ -212,6 +216,11 @@ export default {
 
     .dropdown, .c-details
       top: 4rem
+
+    .buttons
+      position: absolute
+      top: 0
+      right: 0
 
   &.theme-tokyu
 
@@ -277,9 +286,6 @@ export default {
 
       .rdps::before
         display: none
-
-    .button
-      bottom: -0.125rem
 
   &.theme-minimal
     width: $cell-width
