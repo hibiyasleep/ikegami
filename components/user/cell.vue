@@ -185,34 +185,47 @@ export default {
   &:last-child
     margin-right: 0
 
-// option: singleline
-.singleline .user-cell-wrap
-  flex-direction: row
-  max-height: $cell-line-height
+// options that makes single userlist line
+.single-value, .hide-name
 
-  .name-row
-    text-align: left
-    text-shadow: $shadow-with-background
+  .user-cell-wrap
+    flex-direction: row
+    max-height: $cell-line-height
 
-  .icon-class
-    margin-right: -0.25rem
+    .name-row
+      text-align: left
+      text-shadow: $shadow-with-background
 
+      .name
+        margin-left: 0.25rem
 
-// option: hide-name
-.hide-name .name-row
-  display: none
+    .c-details
+      top: $cell-line-height + 0.25rem
 
-.singleline, .hide-name
+    .icon-class
+      margin-right: -0.25rem
+
+    .values > .l
+      margin-left: auto
 
   .c-details-graph.inside-cell
     top: 0
     bottom: unset
 
-  .name
-    margin-left: 0.25rem
+// option: hide-name
+.hide-name .user-cell-wrap
 
-  .c-details
-    top: $cell-line-height + 0.25rem
+  .name-row
+    flex-grow: 0
+
+  .name
+    display: none
+
+  .values
+    flex-grow: 1
+
+.hide-name.hide-job-icons .name-row
+  display: none
 
 // option: hide-job-icons
 .hide-job-icons .c-user-cell .icon-class

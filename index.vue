@@ -7,7 +7,7 @@
       'hide-handle': hide_handle,
       'blur-name': blur_name,
       'layout-mode': layout_mode,
-      'singleline': !cell_display2
+      'single-value': !cell_display2
     }
   ]">
     <userlist />
