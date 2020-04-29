@@ -167,6 +167,7 @@ export default {
     flex-shrink: 0
 
   .buttons
+    @include clickable
     display: flex
     margin-left: 0.125rem
 
