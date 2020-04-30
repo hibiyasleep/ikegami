@@ -48,8 +48,8 @@ export default {
   justify-content: center
 
   // trick wrapper
-  // |    ==== ====    |
-  // |==== ==== ==== ==|= ==== ====
+  // |    <==== ====>    |
+  // |<==== ==== ==== ==|= ==== ====>
   > ul
     display: flex
     max-width: 100%
