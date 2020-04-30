@@ -11,22 +11,23 @@
     <dropdown
       label="Theme"
       empty="Default"
-      :selections="{
-        'minimal': 'Minimal',
-        'tokyu': 'Tōkyū Ikegami Line',
-        'keikyu': 'Keikyū Line'
-      }"
+      :selections="new Map([
+        [ 'minimal', 'Minimal' ],
+        [ 'tokyu', 'Tōkyū Ikegami Line' ],
+        [ 'keikyu', 'Keikyū Line' ]
+      ])"
       v-model="theme" />
     <dropdown
       label="Color Scheme"
-      :selections="{
-        'kagerou-material': 'kagerou Material',
-        'mopimopi-default': 'MopiMopi default',
-        'amethyst': 'Amethyst',
-        'ikegami-by-role-3': 'ikegami 3-roles',
-        'ikegami-by-role-5': 'ikegami 5-roles',
-        'mopimopi-by-role': 'MopiMopi 3-roles'
-      }"
+      :selections="new Map([
+        [ 'kagerou-material', 'kagerou Material' ],
+        [ 'mopimopi-default', 'MopiMopi default' ],
+        [ 'amethyst', 'Amethyst' ],
+        [ 'fflogs', '(beta) FFLogs' ],
+        [ 'ikegami-by-role-3', 'ikegami 3-roles' ],
+        [ 'ikegami-by-role-5', 'ikegami 5-roles' ],
+        [ 'mopimopi-by-role', 'MopiMopi 3-roles' ]
+      ])"
       v-model="color_scheme" />
     <class-colors />
     <checkbox

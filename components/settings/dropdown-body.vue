@@ -3,7 +3,7 @@
     @click.self="open"
     class="dropdown-label input hinted"
     v-click-outside="close">
-    {{ selections[value] || empty }}
+    {{ _current }}
     <ul class="c-settings-dropdown-body" v-if="opened" ref="dropdownlist">
       <li
         v-if="empty"
@@ -12,7 +12,7 @@
         {{ empty }}
       </li>
       <li
-        v-for="(s, id) in selections"
+        v-for="[id, s] in _selections"
         @click="select(id)"
         :class="{ active: value === id }">
         {{ s }}
@@ -26,7 +26,7 @@
 export default {
   props: {
     empty: { type: String },
-    selections: { type: Object, required: true },
+    selections: { type: [ Object, Map ], required: true },
     value: { type: [ String, Number, Boolean ] }
   },
   data: () => ({
@@ -49,6 +49,27 @@ export default {
     },
     toggle() {
       this.opened = !this.opened
+    }
+  },
+  computed: {
+    _current() {
+      if(this.selections instanceof Map) {
+        return this.selections.get(this.value) || this.empty
+      } else {
+        return this.selections[this.value] || this.empty
+      }
+    },
+    _selections() {
+      if(this.selections instanceof Map) {
+        return Array.from(this.selections.entries())
+      } else {
+        let r = []
+        let keys = Object.keys(this.selections)
+        for(let k of keys) {
+          r.push([k, this.selections[k]])
+        }
+        return r
+      }
     }
   },
   mounted() {
