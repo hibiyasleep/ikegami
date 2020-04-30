@@ -12,24 +12,6 @@ body
 html, body, .root
   height: 100%
 
-.root::after
-  display: block
-  content: ''
-
-  position: fixed
-  right: 0
-  bottom: 0
-
-  width: 0
-  height: 0
-
-  border: 8px solid // Resize handle size is controlled by plugin - no ctrl
-  border-color: transparent rgba(127, 127, 127, 0.3) rgba(127, 127, 127, 0.3) transparent
-  background: rgba(127, 127, 127, 0.1)
-
-.root.hide-handle::after
-  display: none
-
 .hidden
   display: none
 
