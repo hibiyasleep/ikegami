@@ -17,9 +17,9 @@
         title="Swings"
         :value="c.swings"
         v-if="!reduced" />
-      <row
+      <!-- <row
         title="Swings/GC"
-        :value="c.swings / e.duration * 2.5 | decimal" />
+        :value="c.swings / e.duration * 2.5 | decimal" /> -->
       <row
         title="D/!/!!!"
         :value="c.critcounts"
