@@ -34,18 +34,25 @@ html, body, .root
   display: none
 
 ::-webkit-scrollbar
-  width: 0.25rem
-  height: 0.25rem
+  width: 0.5rem
+  height: 0.5rem
   background: none
+  cursor: col-resize
 
   margin-right: 0
 
+::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb
+  background-size: #{$_1px * 2} calc(100% - 0.5rem)
+  background-position: 25% center
+  background-repeat: no-repeat
+  border-radius: 0
+
 ::-webkit-scrollbar-track
-  background: none
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5))
+  background-size: $_1px calc(100% - 0.5rem)
 
 ::-webkit-scrollbar-thumb
-  background: rgba(255, 255, 255, 0.5)
-  border-radius: 0
+  background-image: linear-gradient(to right, white, white)
 
 ::-webkit-scrollbar-corner
   background: none
