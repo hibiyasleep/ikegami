@@ -199,14 +199,15 @@ export default {
       .name
         margin-left: 0.25rem
 
-    .c-details
-      top: $cell-line-height + 0.25rem
 
     .icon-class
       margin-right: -0.25rem
 
     .values > .l
       margin-left: auto
+
+  .c-details
+    top: $cell-line-height + 0.25rem
 
   .c-details-graph.inside-cell
     top: 0
