@@ -1,18 +1,19 @@
 <template>
-  <p class="justify c-version">
-    ikegami {{ version }}
-    <span class="spacer"></span>
-    '{{ releasename }}'<br />
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 360 24" width="22.5rem" height="1.5rem">
-      <path opacity="0.25" fill="#20A288" d="M0,12h8v3h11v2h-11v3h-8l2,-2h4v-4h-4v4l-2,2z"/>
-      <path opacity="0.25" fill="#20A288" d="M19,12h8v3h11v2h-11v3h-8l2,-2h4v-4h-4v4l-2,2z"/>
-      <path opacity="0.25" fill="#20A288" d="M38,12h8v3h11v2h-11v3h-8l2,-2h4v-4h-4v4l-2,2z"/>
-      <path opacity="0.25" fill="#20A288" d="M57,12h8v6.6l4.1,4.1l-1.4,1.4l-4.1,-4.1h-6.6l2,-2h4v-4h-4v4l-2,2z"/>
-      <path opacity="0.25" fill="#FFA500" d="M0,4h8v3h49v2h-49v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <path opacity="0.25" fill="#FFA500" d="M57,4h8v3h4l4,4h3v1h-5l-3,-3h-3v3h-8l2,-2h4v-4h-4v4l-2,2z"/>
-      <path opacity="0.25" fill="#FFA500" d="M65,17h4l4,-4h3v-1h-5l-3,3h-3z"/>
+  <div class="c-version">
+    <p class="justify">
+      ikegami {{ version }}
+      <span class="spacer"></span>
+      '{{ releasename }}'
+    </p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="360" height="24">
+      <path opacity="0.25" fill="#20A288" d="M0,16h8v-2h11v-2h-11v-1l-2,1v2h-4v-2l-2,1z"/>
+      <path opacity="0.25" fill="#20A288" d="M19,8h8v4h11v2h-11v2h-8l2,-2h4v-4h-4v4l-2,2z"/>
+      <path opacity="0.25" fill="#20A288" d="M38,8h8v4h11v2h-11v2h-8l2,-2h4v-4h-4v4l-2,2z"/>
+      <path opacity="0.25" fill="#20A288" d="M57,16h6.6l4.1,4.1l1.4,-1.4l-4.1,-4.1v-1.6l-2,-1v2h-4v-2l-2,-1z"/>
+      <!-- <path opacity="0.25" fill="#FFA500" d="M0,8h8v3h49v2h-49v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/> -->
+      <path opacity="0.25" fill="#FFA500" d="M0,8h8v1h11v2h-11l-2,1v-2h-4v2l-2,1z"/>
+      <path opacity="0.25" fill="#FFA500" d="M27,8v1h11v2h-11z"/>
+      <path opacity="0.25" fill="#FFA500" d="M57,8h8v3h11v2h-11l-2,-1v-2h-4v2l-2,-1h-11v-2h11z"/>
       <path opacity="0.25" fill="#FFA500" d="M76,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
       <path opacity="0.25" fill="#FFA500" d="M95,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
       <path opacity="0.25" fill="#FFA500" d="M114,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
@@ -43,8 +44,7 @@
       <path opacity="0.25" fill="#00BFFF" d="M345,0v8h2v-8z m0,16v8h2v-8z" />
       <!-- <path opacity="0.25" fill="#FFA500" d="M214,18v2h-1.6l-9-9H200v2h3l9,9h2v2h10v-6H214z M222,22h-6v-2h6V22z"/> -->
     </svg>
-
-  </p>
+  </div>
 </template>
 
 <script>
@@ -66,12 +66,19 @@ export default {
   @include unselectable
   flex-wrap: wrap
 
-  > span
-    flex-grow: 1
+  p
+    display: flex
+    margin: 0 0 0.25rem 0
+
+  > svg
+    display: block
+
+  &.without-version-number > .justify
+    display: none
 
 .window-wrap > .c-version
-  padding: 0 0.75rem 0 1rem
+  padding: 0.5rem 0.75rem 0.5rem 1rem
 
   svg
-    margin: 0.5rem auto
+    margin: 0 auto
 </style>

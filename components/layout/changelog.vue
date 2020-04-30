@@ -1,11 +1,12 @@
 <template>
-  <window title="Changelog" type="changelog">
+  <window class="c-changelog-wrapper" title="Changelog" type="changelog">
     <checkbox
       v-model="never_show_changelog_again"
       class="small never-show">
-      <span>
-        {{ never_show_changelog_again? '' : 'this will only appear once after update.' }}
+      <span v-show="!never_show_changelog_again">
+        this will only appear once after update.
       </span>
+      <span></span>
       Never show this again
     </checkbox>
     <hr />
@@ -121,9 +122,14 @@ export default {
   span
     margin-right: auto
 
-.changelog .c-settings-group-content p
-  @include unselectable
-  display: block
-  margin: 0.375rem 0
+.changelog
+
+  .c-version p
+    display: none
+
+  .c-settings-group-content p
+    @include unselectable
+    display: block
+    margin: 0.375rem 0
 
 </style>
