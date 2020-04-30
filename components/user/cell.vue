@@ -173,8 +173,9 @@ export default {
 
   .c-details-graph.inside-cell
     position: absolute
+    right: 0
     bottom: calc(#{$cell-line-height} + #{$_1px})
-    width: 100%
+    width: calc(100% + #{$_1px})
     height: 0.125rem
 
     z-index: $z-cell + 1
