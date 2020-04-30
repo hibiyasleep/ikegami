@@ -59,7 +59,10 @@ export default {
   mounted() {
     if(!this.$store.state.settings.never_show_changelog_again) {
       if(this.$store.state.settings.last_launched_version !== packageinfo.version) {
-        this.$store.commit('settings/set', { k: 'last_launched_version', v: packageinfo.version })
+        this.$store.commit('settings/set', {
+          k: 'last_launched_version',
+          v: packageinfo.version
+        })
         this.$store.commit('ui/open', 'changelog')
       }
     }
