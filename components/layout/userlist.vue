@@ -47,11 +47,9 @@ export default {
   align-items: flex-start
   justify-content: center
 
-  // this container exists for alignment.
-  // |      *------*      |
-  // -> this may implemented by only one container
-  // |*-------------------|---*
-  // -> but this is why <ul> exists
+  // trick wrapper
+  // |    ==== ====    |
+  // |==== ==== ==== ==|= ==== ====
   > ul
     display: flex
     max-width: 100%
