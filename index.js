@@ -12,6 +12,8 @@ import dummy from './dummy-encounter.json'
 
 install(Vue)
 
+const layer = window.layer = Vue.prototype.$layer = new (detectLayer())
+
 const vm = window.rootvm = new Vue({
   components: { index },
   el: '#vue-root',
@@ -24,11 +26,10 @@ const vm = window.rootvm = new Vue({
   },
   mounted() {
     this.$store.dispatch('settings/updateGlobalStyle')
+    initateLayer(layer)
   }
 })
 
-const layer = window.layer = Vue.prototype.$layer = new (detectLayer())
-initateLayer(layer)
 
 if(process.env.NODE_ENV === 'development') {
   window._dummy = () => layer.emit('data', dummy)
