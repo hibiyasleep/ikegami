@@ -31,8 +31,9 @@ export default {
       } else if(this.type === 'healer-pct') {
         return [
           c.shield,
-          // TODO: comment this
+          // c.healed - (total of all other graphed values)
           (c.healed - c.minion_total - c.oh + c.minion_over - c.shield),
+          // TODO: this could jump through under zero, possibly merging problem?
           c.minion_total - c.minion_over,
           c.minion_over,
           c.oh - c.minion_over
