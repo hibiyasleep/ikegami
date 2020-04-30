@@ -13,6 +13,7 @@
   z-index: $z-window
 
   h4
+    @include unselectable
     display: flex
     justify-content: space-between
 
@@ -50,6 +51,7 @@
     padding: 0
 
     .label
+      @include unselectable
       flex-grow: 10
       padding-right: 0.5rem
 
@@ -61,6 +63,7 @@
         text-align: right
 
   blockquote
+    @include unselectable
     display: block
     line-height: 1.125rem
     margin: 0 0 0.75rem 0

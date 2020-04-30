@@ -122,6 +122,7 @@ export default {
     margin-right: auto
 
 .changelog .c-settings-group-content p
+  @include unselectable
   display: block
   margin: 0.375rem 0
 

@@ -63,6 +63,7 @@ export default {
 <style lang="sass">
 
 .c-version
+  @include unselectable
   flex-wrap: wrap
 
   > span
