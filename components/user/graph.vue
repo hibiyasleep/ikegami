@@ -55,6 +55,7 @@ export default {
   height: $details-row-height / 2
 
   > .piece
+    min-width: 1px
 
     &[style='width: 0%;']
       display: none
