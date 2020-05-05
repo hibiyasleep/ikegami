@@ -1,5 +1,10 @@
 <template>
-  <div :class="[ 'c-details-graph', type ]">
+  <div :class="[
+    'c-details-graph',
+    type, {
+      empty: total === 0
+    }
+  ]">
     <span
       class="piece"
       v-for="v in values"
@@ -62,6 +67,9 @@ export default {
 
     + .piece
       margin-left: $_1px
+
+  &.empty .piece
+    min-width: 0
 
   &.dps-crit .piece
     &:nth-child(1)
