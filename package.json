@@ -1,7 +1,7 @@
 {
   "name": "ikegami",
-  "version": "0.2.0",
-  "releasename": "Hatanodai",
+  "version": "0.2.1",
+  "releasename": "Ookayama",
   "description": "experimental vertical FFXIV Miniparse overlay",
   "dependencies": {
     "vue": "2.x",

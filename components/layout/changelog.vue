@@ -11,7 +11,30 @@
     </checkbox>
     <hr />
     <version />
-    <group name="0.2.0 'Hatanodai'" :opened="true">
+    <group name="0.2.1 'Ookayama'" :opened="true">
+      <p>
+        <u @click="toggleLayoutMode()">Layout mode</u>
+        added for precise overlay placement.
+        <br />
+        it's required to resize overlay, as resize handle removed.
+      </p>
+      <p>
+        many fixes about layout, performance, typo etc.
+      </p>
+      <p>
+        Job icon can be shown alone,
+        Minimal theme got simpler,
+        Swings/GC removed.
+      </p>
+      <p>
+        <u>FFLogs color scheme</u> added. (to be adjusted)
+      </p>
+      <class-colors class="scheme-fflogs" style="display: flex" />
+      <p>
+        <i> Upcoming: (auto-)collapse, vertical theme, etc. </i>
+      </p>
+    </group>
+    <group name="0.2.0 'Hatanodai'">
       <p>
         GNB/DNC support.
       </p>
