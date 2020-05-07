@@ -100,7 +100,7 @@ export default {
   right: 0
 
   width: 100%
-  max-height: 14rem
+  max-height: 15rem
   overflow-y: auto
   line-height: 1.5rem
 
@@ -113,6 +113,11 @@ export default {
     @include clickable
     padding: 0 calc(0.5rem + #{$_1px})
     text-align: right
+
+    text-overflow: clip
+    overflow: hidden
+    word-wrap: keep-all
+    white-space: nowrap
 
     &.active
       font-weight: 600

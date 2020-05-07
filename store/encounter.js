@@ -122,6 +122,7 @@ export default {
          _owner:              _owner,
           dps:     parseFloat(c.encdps),
           dps1m:   parseFloat(c.Last60DPS),
+          dpspct:             c['damage%'],
           maxhit:  [ parseInt(damount.replace(/[^0-9]/g, '')), dskill ],
           swings:    parseInt(c.swings),
           miss:      parseInt(c.misses),
