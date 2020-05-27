@@ -307,6 +307,9 @@ export default {
     .info
       padding-right: 0.375rem
 
+      .rdps::before
+        content: ' '
+
     .buttons
       margin: 0
 
