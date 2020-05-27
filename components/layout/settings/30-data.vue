@@ -2,11 +2,11 @@
   <group name="Data">
     <radio-button
       label="Decimal format"
-      :selections="{
-        1: '1234.5',
-        0: '1235',
-        '-4': '1.2k'
-      }"
+      :selections="new Map([
+        [ 1, '123.4' ],
+        [ 0, '1234' ],
+        [ '-4', '1.2k' ]
+      ])"
       v-model="show_decimals" />
     <textlist
       label="Name for merging"
