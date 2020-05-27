@@ -44,8 +44,8 @@ export default {
   display: flex
 
   .dropdown-label
-    width: $settings-input-width * 0.8
-    margin: 0 ($_1px / 2)
+    width: $settings-input-width * 0.666
+    margin: 0 0 0 $_1px
 
     &:only-of-type
       width: $settings-input-width

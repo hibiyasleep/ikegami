@@ -62,7 +62,7 @@ export default {
   },
   filters: {
     f(value, key, show_decimals) {
-      if(show_decimals !== '0' || key === 'dps' || key === 'dps1m' || key === 'hps') {
+      if(key === 'dps' || key === 'dps1m' || key === 'hps') {
         return filters.decimal(value, show_decimals)
       } else {
         return value
