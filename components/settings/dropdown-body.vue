@@ -111,7 +111,7 @@ export default {
 
   > li
     @include clickable
-    padding: 0 calc(0.5rem + #{$_1px})
+    padding: 0 0.5rem
     text-align: right
 
     text-overflow: clip
