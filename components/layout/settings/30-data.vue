@@ -1,5 +1,5 @@
 <template>
-  <group name="Data">
+  <div class="tab-content">
     <radio-button
       label="Decimal format"
       :selections="new Map([
@@ -23,7 +23,7 @@
       Name will be automatically detected on ACTWS or recent version of
       OverlayPlugin. If not, try move to another region.
     </blockquote>
-  </group>
+  </div>
 </template>
 
 <script>

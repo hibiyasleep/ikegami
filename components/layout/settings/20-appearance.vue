@@ -1,5 +1,5 @@
 <template>
-  <group name="Appearance">
+  <div class="tab-content">
     <!-- 62.5 = 10px = usual zoomout limit -->
     <number
       label="UI Scale (%)"
@@ -36,7 +36,7 @@
     <blockquote>
       This can be toggled by left-clicking on username.
     </blockquote>
-  </group>
+  </div>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <group name="Layout">
+  <div class="tab-content">
     <dropdown label="Values">
       <div class="multiple-dropdown-wrap" slot="contents">
         <dropdown-body
@@ -43,7 +43,7 @@
     <checkbox
       label="Less information on detailed view"
       v-model="reduced" />
-  </group>
+  </div>
 </template>
 
 <script>

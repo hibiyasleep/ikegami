@@ -32,7 +32,7 @@
 
   .window-wrap
     line-height: $settings-element-height
-    padding: 0.25rem 0 0.5rem 0
+    padding: 0.5rem 0
 
     height: $window-height - $nav-height
     max-height: calc(100vh - #{($cell-line-height + $nav-height) * 2 + 0.5rem})
@@ -43,6 +43,10 @@
 
     > hr
       margin: 0.5rem 0.75rem 0.5rem 1rem
+
+    &.without-wrapper
+      padding: 0
+      overflow-y: hidden
 
   .c-settings-input, .settings-item
     display: flex

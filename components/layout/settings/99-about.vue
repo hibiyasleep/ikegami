@@ -1,12 +1,12 @@
 <template>
-  <group name="About" :opened="true">
+  <div class="tab-content">
     <version />
     <p>
       © 2018- kuriyama hibiya, all rights reserved.
       <br />
       This program is disturibed under GNU GPLv3.
     </p>
-  </group>
+  </div>
 </template>
 
 <script>
