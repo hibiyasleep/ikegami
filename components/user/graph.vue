@@ -6,9 +6,10 @@
     }
   ]">
     <span
-      class="piece"
-      v-for="v in values"
-     :style="{ width: (v / total * 100) + '%' }"></span>
+      v-for="(v, index) in values"
+      v-if="v"
+     :class="[ 'piece', 'p' + index ]"
+     :style="{ 'flex-grow': v }"></span>
   </div>
 </template>
 
@@ -62,34 +63,37 @@ export default {
   > .piece
     min-width: 1px
 
-    &[style='width: 0%;']
+    &.zero
       display: none
 
     + .piece
       margin-left: $_1px
 
+    &:first-of-type
+      margin-left: 0
+
   &.empty .piece
     min-width: 0
 
   &.dps-crit .piece
-    &:nth-child(1)
+    &.p0
       background-color: #FFFFFF
-    &:nth-child(2)
+    &.p1
       background-color: #1DE9B6
-    &:nth-child(3)
+    &.p2
       background-color: #FFCA28
-    &:nth-child(4)
+    &.p3
       background-color: #FF6F00
 
   &.healer-pct .piece
-    &:nth-child(1) // shielded
+    &.p0 // shielded
       background-color: #40C4FF
-    &:nth-child(2) // healed (- shielded - by minion)
+    &.p1 // healed (- shielded - by minion)
       background-color: #00E676
-    &:nth-child(3) // healed by minion
+    &.p2 // healed by minion
       background-color: #B9F6CA
-    &:nth-child(4) // overhealed by minion
+    &.p3 // overhealed by minion
       background-color: #EC8986
-    &:nth-child(5) // overhealed by me
+    &.p4 // overhealed by me
       background-color: #E53935
 </style>
