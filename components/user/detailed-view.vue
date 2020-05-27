@@ -28,8 +28,8 @@
         <graph type="dps-crit" :combatant="c" />
       </div>
       <hr />
-
     </article>
+
     <article class="details-group healer" v-if="c.healed">
       <row
         title="HPS"
@@ -59,8 +59,8 @@
       </div>
 
       <hr />
-
     </article>
+
     <article class="details-group tank">
       <row
         title="Deaths"
