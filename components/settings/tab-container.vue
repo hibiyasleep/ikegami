@@ -44,7 +44,7 @@ export default {
       padding: 0 0.5rem
 
       &.active
-        box-shadow: 0 ($nav-height / -12) 0 $ui-color inset
+        box-shadow: 0 -0.125rem 0 $ui-color inset
 
   .tab-content
     flex-grow: 1

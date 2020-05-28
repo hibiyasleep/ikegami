@@ -51,8 +51,9 @@ $z-ui: 2000
 $z-cell: 1000
 
 @mixin overflow-fadeout($direction: right, $from: 90%, $to: 100%)
-  mask-image: linear-gradient(to $direction, #fff 0%, #fff $from, transparent $to)
-  -webkit-mask-image: linear-gradient(to $direction, #fff 0%, #fff $from, transparent $to)
+  $image: linear-gradient(to $direction, #fff 0%, #fff $from, transparent $to)
+  mask-image: $image
+  -webkit-mask-image: $image
 
 @mixin unselectable
   user-select: none
@@ -64,3 +65,6 @@ $z-cell: 1000
   @include unselectable
 
   cursor: pointer
+
+@function _esc($color)
+  @return transparentize($color, 0)

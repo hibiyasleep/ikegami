@@ -67,7 +67,7 @@ export default {
         width: 0.375rem
         height: 0.375rem
 
-        border: solid #fff
+        border: solid $ui-color
         border-width: 0 0.125rem 0.125rem 0
 
         transform: rotate(-45deg)

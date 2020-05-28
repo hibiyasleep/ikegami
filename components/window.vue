@@ -9,7 +9,7 @@
         class="button"
         @click="close">
         <slot name="close-button">
-          <path d="M7,7l9,9z M16,7l-9,9z" stroke="#fff" />
+          <path d="M7,7l9,9z M16,7l-9,9z" class="stroke" />
         </slot>
       </svg>
     </h4>

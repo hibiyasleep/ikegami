@@ -30,11 +30,12 @@ html, body, .root
   border-radius: 0
 
 ::-webkit-scrollbar-track
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5))
+  $track-color: transparentize($ui-color, 0.5)
+  background-image: linear-gradient(to right, $track-color, $track-color)
   background-size: $_1px calc(100% - 0.5rem)
 
 ::-webkit-scrollbar-thumb
-  background-image: linear-gradient(to right, white, white)
+  background-image: linear-gradient(to right, $ui-color, $ui-color)
 
 ::-webkit-scrollbar-corner
   background: none

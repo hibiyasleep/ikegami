@@ -84,15 +84,15 @@ export default {
     flex: 1
 
   &.mode-single .toggles > li
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><circle cx="6" cy="6" r="3" fill="white" /></svg>')
+    background-image: none
 
     &.active
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><circle cx="6" cy="6" r="3" fill="#{$ui-background}" /></svg>')
+      // background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><circle cx="6" cy="6" r="3" fill="#{$ui-background}" /></svg>')
 
   &.mode-multiple .toggles > li
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><rect x="3" y="5" width="4" height="4" fill="white" /></svg>')
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><rect x="3.5" y="4.5" width="4" height="4" fill="none" stroke="#{_esc($ui-color)}" /></svg>')
 
     &.active
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><rect x="3" y="5" width="4" height="4" fill="#{$ui-background}" /></svg>')
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M3.5,5l2,2l4,-4l1.414,1.414l-5.414,5.414l-3.414,-3.414z" fill="#{_esc($ui-background)}" /></svg>')
 
 </style>
