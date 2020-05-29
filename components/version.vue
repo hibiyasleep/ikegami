@@ -74,6 +74,7 @@ export default {
 
   > svg
     display: block
+    margin: 0 auto
 
   &.without-version-number > .justify
     display: none
