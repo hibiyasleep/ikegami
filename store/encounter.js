@@ -126,9 +126,9 @@ export default {
           maxhit:  [ parseInt(damount.replace(/[^0-9]/g, '')), dskill ],
           swings:    parseInt(c.swings),
           miss:      parseInt(c.misses),
+          cdh:       parseInt(c.CritDirectHitCount),
           ch:        parseInt(c.crithits),
           dh:        parseInt(c.DirectHitCount),
-          cdh:       parseInt(c.CritDirectHitCount),
           hps:     parseFloat(c.enchps),
           healed:    parseInt(c.healed),
           maxheal: [ parseInt(hamount.replace(/[^0-9]/g, '')), hskill ],
@@ -140,6 +140,8 @@ export default {
           minion_total: 0,
           minion_over: 0
         }
+        o.ch -= o.cdh
+        o.dh -= o.cdh
         o.critcounts = [ o.dh, o.ch, o.cdh ].join('/')
         o.critcounts_wo_direct = [ o.ch, o.cdh ].join('/')
 
