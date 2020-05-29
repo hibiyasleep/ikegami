@@ -123,6 +123,7 @@ export default {
   position: relative
 
   width: $ui-width
+  max-width: 100vw
   height: $nav-height
   margin: 0.25rem auto
   padding: 0
