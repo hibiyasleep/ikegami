@@ -25,6 +25,7 @@
 
 .color-scheme-demo
   display: flex
+  justify-content: center
   height: 1.75rem
 
   > span
