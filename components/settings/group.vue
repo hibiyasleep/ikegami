@@ -81,4 +81,13 @@ export default {
   .c-version svg
     margin-left: -0.75rem
 
+.tab-container .c-settings-group
+  margin-right: -0.25rem
+
+  h5
+    padding: 0
+
+  .c-settings-group-content
+    padding: 0 0 0 1.25rem
+
 </style>

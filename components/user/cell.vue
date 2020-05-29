@@ -5,11 +5,6 @@
       self: combatant.name == 'YOU' && highlight_self
     }]">
     <div class="user-cell-wrap">
-      <graph
-        class="inside-cell"
-        v-if="show_critbar"
-        :type="show_critbar === true? 'dps-crit' : show_critbar"
-        :combatant="combatant" />
       <label class="name-row" @click="toggleBlur">
         <i :class="[ 'icon-class', 'class-' + combatant.job ]"></i>
         <span class="name">{{ combatant.name | name(shorten_name) }}</span>
@@ -22,7 +17,22 @@
           {{ combatant[cell_display2] | f(cell_display2, show_decimals) }}
         </span>
       </var>
-      <span class="ticker" :style="{ width }"></span>
+      <div class="tickers">
+        <graph
+          type="dps-crit"
+          v-if="tickers_dps_crit"
+          :class="tickers_dps_crit"
+          :combatant="combatant" />
+        <graph
+          type="healer-pct"
+          v-if="tickers_healer_pct && show_healer_graph"
+          :class="tickers_healer_pct"
+          :style="{ width: Math.min(100, combatant.hps / (tophps || 1) * 100) + '%' }"
+          :combatant="combatant" />
+        <span class="ticker main" :style="{
+          width: Math.min(100, combatant.dps / (topdps || 1) * 100) + '%'
+        }"></span>
+      </div>
     </div>
     <slot></slot>
   </li>
@@ -52,12 +62,13 @@ export default {
       'cell_display1',
       'cell_display2',
       'show_decimals',
-      'show_critbar',
+      'tickers_dps_crit',
+      'tickers_healer_pct',
       'shorten_name',
       'highlight_self'
     ]),
-    width() {
-      return Math.min(100, this.combatant.dps / (this.topdps || 1) * 100) + '%'
+    show_healer_graph() {
+      return (this.combatant.hps / this.tophps) > 0.05
     }
   },
   filters: {
@@ -112,6 +123,9 @@ export default {
     &:hover ~ .c-details
       opacity: 1
 
+    &:last-child
+      margin-right: 0
+
     .name-row, .values
       text-align: center
       color: $cell-color
@@ -154,13 +168,6 @@ export default {
       > .r
         text-align: center
 
-  .ticker
-    position: absolute
-    left: 0
-    bottom: 0
-    height: $cell-ticker-height
-    z-index: -1
-
   .c-details
     position: absolute
     top: $cell-line-height * 2 + 0.25rem
@@ -171,20 +178,64 @@ export default {
     &:hover
       opacity: 1
 
-  .c-details-graph.inside-cell
+  $inner-graph-height: 0.25rem / 2
+
+  .tickers
+    display: flex
+    flex-direction: column
+    align-content: space-between
+
     position: absolute
     right: 0
-    bottom: calc(#{$cell-line-height} + #{$_1px})
-    width: calc(100% + #{$_1px})
-    height: 0.125rem
+    bottom: 0
+    left: 0
+    margin: auto 0
 
-    z-index: $z-cell + 1
+    height: $cell-line-height
+    z-index: -1
 
-    &.dps-crit .piece:nth-child(1)
-      background: transparent
+    .ticker, .c-details-graph
+      position: relative
+      flex-shrink: 0
 
-  &:last-child
-    margin-right: 0
+      &.above
+        order: 1
+        margin-top: -$inner-graph-height
+        transform: translateY(-1 * $_1px)
+      &.top
+        order: 2
+        top: 0
+        margin-bottom: $_1px
+      &.main
+        order: 3
+      &.bottom
+        order: 4
+        bottom: 0
+        margin-top: $_1px
+      &.below
+        order: 5
+        margin-bottom: -$inner-graph-height
+        transform: translateY($_1px)
+
+    .ticker.main
+      align-self: flex-start
+      flex-grow: 100
+
+    .c-details-graph
+      width: calc(100% + #{$_1px})
+      // TODO: redefine ↓
+      height: 0.125rem
+      z-index: $z-cell + 1
+
+      &.dps-crit
+        align-self: flex-end
+
+        .piece:nth-child(1)
+          background: transparent
+
+      &.healer-pct
+        align-self: flex-start
+
 
 // options that makes single userlist line
 .single-value, .hide-name
@@ -210,10 +261,6 @@ export default {
   .c-details
     top: $cell-line-height + 0.25rem
 
-  .c-details-graph.inside-cell
-    top: 0
-    bottom: unset
-
 // option: hide-name
 .hide-name .user-cell-wrap
 
@@ -228,6 +275,14 @@ export default {
 
 .hide-name.hide-job-icons .name-row
   display: none
+
+// option: !yield_for_subtickers
+.main-ticker-will-not-yield .tickers
+  .main
+    margin: 0
+
+  .top, .bottom
+    position: absolute
 
 // option: hide-job-icons
 .hide-job-icons .c-user-cell .icon-class

@@ -1,10 +1,16 @@
 import Vue from 'vue'
 
+const _version = 1
+
 const _state = () => ({
+  version: 0,
   // layout
   cell_display1: 'dps',
   cell_display2: 'critcounts_wo_direct',
-  show_critbar: true,
+  // show_critbar: true, // deprecated on version 1
+  tickers_dps_crit: '',
+  tickers_healer_pct: 'below',
+  yield_for_subtickers: true,
   hide_name: false,
   hide_job_icon: false,
   reduced: false,
@@ -46,6 +52,13 @@ export default {
         state.username_configured.splice(index, 1)
       } else {
         Vue.set(state.username_configured, index, name)
+      }
+    },
+    migrate(state, version) {
+      const defaults = _state()
+
+      if(state.version < 1 || state.version == null) {
+        delete state.show_critbar
       }
     }
   },

@@ -6,6 +6,7 @@
       'hide-job-icons': hide_job_icon,
       'hide-handle': hide_handle,
       'blur-name': blur_name,
+      'main-ticker-will-not-yield': !yield_for_subtickers,
       'layout-mode': layout_mode,
       'single-value': !cell_display2
     }
@@ -45,6 +46,7 @@ export default {
     ...mapState('settings', [
       'debug',
       'color_scheme',
+      'yield_for_subtickers',
       'hide_name',
       'hide_job_icon',
       'hide_handle',

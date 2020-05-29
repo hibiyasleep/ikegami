@@ -52,4 +52,32 @@ export default {
 
     overflow-y: auto
 
+    &.has-another-wrapper
+      display: flex
+      flex-direction: column
+      padding: 0
+
+      .tab-content
+        padding: 0.5rem 1rem
+
+  .tab-content-presentation
+    @include unselectable
+    flex-shrink: 0
+    text-align: center
+    margin: 0.25rem 0 0 0
+    background: $window-title-background
+
+    overflow: hidden
+
+    img, svg
+      vertical-align: top
+      fill: $ui-color
+      stroke: $ui-color
+
+    // figcaption
+    //   background: $window-title-background
+    //   font-size: $nav-text-size
+    //   line-height: $nav-height
+
+
 </style>
