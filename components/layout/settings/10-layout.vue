@@ -18,13 +18,13 @@
           <text
             id="value1"
             font-size="18"
-            :x="hide_job_icon || cell_display2? 9 : 30"
+            :x="hide_job_icon || (cell_display2 && !hide_name)? 9 : 30"
             y="24.5">
             {{ shortenized_name }}
           </text>
           <text id="value2" font-size="18" x="171" y="24.5" text-anchor="end"> 1234 </text>
           <g id="content">
-            <use href="#whm-icon" v-if="!hide_job_icon && !cell_display2" />
+            <use href="#whm-icon" v-if="!hide_job_icon && (!cell_display2 || hide_name)" />
             <use href="#value1" />
             <use href="#value2" />
           </g>

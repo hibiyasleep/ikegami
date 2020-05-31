@@ -132,7 +132,7 @@ export default {
   color: $ui-color
   background: $cell-background
   font-size: $nav-text-size
-  text-shadow: $shadow-with-background
+  text-shadow: $shadow-text-background
 
   .location
     @include unselectable
@@ -174,7 +174,7 @@ export default {
     width: $nav-height * 0.75
     height: $nav-height
 
-    filter: drop-shadow($shadow-with-background)
+    filter: drop-shadow($shadow-text-background)
     outline: none
     box-shadow: 0 0 0 -1px red inset
 

@@ -6,7 +6,7 @@
     }]">
     <div class="user-cell-wrap">
       <label class="name-row" @click="toggleBlur">
-        <i :class="[ 'icon-class', 'class-' + combatant.job ]"></i>
+        <i :class="[ 'icon', 'class-' + combatant.job ]"></i>
         <span class="name">{{ combatant.name | name(shorten_name) }}</span>
       </label>
       <var class="values">
@@ -131,22 +131,28 @@ export default {
       color: $cell-color
 
     .name-row
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-grow: 1
+
+      padding: 0 0 0 0.125rem
       background: none
+
       overflow-x: hidden
       word-break: keep-all
       white-space: nowrap
       text-overflow: ellipsis
-      flex-grow: 1
 
-      padding: 0 0 0 0.125rem
-      text-shadow: $shadow-without-background
-
-      > .icon-class
+      > .icon
         display: inline-block
         width: 1.25rem
-        height: 1.25rem
+        font-size: 1.75em
+        text-shadow: $shadow-class-without-background, $shadow-class-outline
 
-        vertical-align: -0.375rem
+      > .name
+        padding-left: 0.125rem
+        text-shadow: $shadow-text-without-background, $shadow-text-background
 
     .values
       display: flex
@@ -154,7 +160,7 @@ export default {
       padding: 0 0.375rem
 
       // background: $cell-background
-      text-shadow: $shadow-with-background
+      text-shadow: $shadow-text-background
 
       cursor: default
 
@@ -245,12 +251,15 @@ export default {
     max-height: $cell-line-height
 
     .name-row
-      text-align: left
-      text-shadow: $shadow-with-background
+      justify-content: flex-start
+      text-shadow: $shadow-text-background
 
-      .name
-        margin-left: 0.25rem
+      > .icon
+        text-shadow: inherit
 
+      > .name
+        margin-left: 0.125rem
+        text-shadow: inherit
 
     .icon-class
       margin-right: -0.25rem
@@ -285,7 +294,7 @@ export default {
     position: absolute
 
 // option: hide-job-icons
-.hide-job-icons .c-user-cell .icon-class
+.hide-job-icons .c-user-cell .name-row .icon
   display: none !important
 
 // option: blur-name

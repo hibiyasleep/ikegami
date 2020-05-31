@@ -1,43 +1,48 @@
 <template>
   <p class="color-scheme-demo">
-    <span class="icon-class class-pld"><span class="ticker"> </span></span>
-    <span class="icon-class class-war"><span class="ticker"> </span></span>
-    <span class="icon-class class-drk"><span class="ticker"> </span></span>
-    <span class="icon-class class-gnb"><span class="ticker"> </span></span>
-    <span class="icon-class class-mnk"><span class="ticker"> </span></span>
-    <span class="icon-class class-drg"><span class="ticker"> </span></span>
-    <span class="icon-class class-nin"><span class="ticker"> </span></span>
-    <span class="icon-class class-sam"><span class="ticker"> </span></span>
-    <span class="icon-class class-brd"><span class="ticker"> </span></span>
-    <span class="icon-class class-mch"><span class="ticker"> </span></span>
-    <span class="icon-class class-dnc"><span class="ticker"> </span></span>
-    <span class="icon-class class-smn"><span class="ticker"> </span></span>
-    <span class="icon-class class-blm"><span class="ticker"> </span></span>
-    <span class="icon-class class-rdm"><span class="ticker"> </span></span>
-    <span class="icon-class class-blu"><span class="ticker"> </span></span>
-    <span class="icon-class class-whm"><span class="ticker"> </span></span>
-    <span class="icon-class class-sch"><span class="ticker"> </span></span>
-    <span class="icon-class class-ast"><span class="ticker"> </span></span>
+    <span class="icon class-pld"><span class="ticker"> </span></span>
+    <span class="icon class-war"><span class="ticker"> </span></span>
+    <span class="icon class-drk"><span class="ticker"> </span></span>
+    <span class="icon class-gnb"><span class="ticker"> </span></span>
+    <span class="icon class-mnk"><span class="ticker"> </span></span>
+    <span class="icon class-drg"><span class="ticker"> </span></span>
+    <span class="icon class-nin"><span class="ticker"> </span></span>
+    <span class="icon class-sam"><span class="ticker"> </span></span>
+    <span class="icon class-brd"><span class="ticker"> </span></span>
+    <span class="icon class-mch"><span class="ticker"> </span></span>
+    <span class="icon class-dnc"><span class="ticker"> </span></span>
+    <span class="icon class-smn"><span class="ticker"> </span></span>
+    <span class="icon class-blm"><span class="ticker"> </span></span>
+    <span class="icon class-rdm"><span class="ticker"> </span></span>
+    <span class="icon class-blu"><span class="ticker"> </span></span>
+    <span class="icon class-whm"><span class="ticker"> </span></span>
+    <span class="icon class-sch"><span class="ticker"> </span></span>
+    <span class="icon class-ast"><span class="ticker"> </span></span>
   </p>
 </template>
 
 <style lang="sass">
 
-.color-scheme-demo
+.color-scheme-demo.color-scheme-demo
   display: flex
   justify-content: center
-  height: 1.75rem
+  height: 2rem
+  line-height: 2rem
+  // text-shadow: $shadow-text-background
 
   > span
-    width: 1.25rem
-    height: 1.25rem
+    position: relative
+    flex-grow: 1
+    height: 100%
+    text-indent: 0
+
+  .icon::before
+    position: absolute
 
   .ticker
     display: inline-block
     width: 100%
-    height: 0.5rem
-    margin-top: 0.75rem
-    mix-blend-mode: lighten
+    height: 100%
 
 .c-settings-group-content .color-scheme-demo
   margin-left: -1rem
