@@ -3,7 +3,7 @@ import Vue from 'vue'
 const _version = 1
 
 const _state = () => ({
-  version: 0,
+  version: _version,
   // layout
   cell_display1: 'dps',
   cell_display2: '',
@@ -55,8 +55,8 @@ export default {
         Vue.set(state.username_configured, index, name)
       }
     },
-    migrate(state, version) {
-      const defaults = _state()
+    migrate(state) {
+      // const defaults = _state()
 
       if(state.version < 1 || state.version == null) {
         delete state.show_critbar

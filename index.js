@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
 
 import index from './index.vue'
 import store from './store'
@@ -20,12 +19,13 @@ const vm = window.rootvm = new Vue({
   template: '<index />',
   store,
   watch: {
-    ['$store.state.settings.ui_scale'](to, from) {
+    ['$store.state.settings.ui_scale']() {
       this.$store.dispatch('settings/updateGlobalStyle')
     }
   },
   mounted() {
     this.$store.dispatch('settings/updateGlobalStyle')
+    this.$store.commit('settings/migrate')
     initateLayer(layer)
   }
 })
