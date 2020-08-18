@@ -18,6 +18,7 @@ const _state = () => ({
   ui_scale: 100,
   theme: '', // TODO: reconsider
   color_scheme: 'kagerou-material',
+  job_icons: 'default',
   blur_name: false,
   // data
   shorten_name: 0,

@@ -23,26 +23,44 @@
 
 <style lang="sass">
 
+$icon-size: 1.25rem
+
 .color-scheme-demo.color-scheme-demo
+  position: relative
+
   display: flex
   justify-content: center
-  height: 2rem
-  line-height: 2rem
-  // text-shadow: $shadow-text-background
+  // max-width: $icon-size * 18
+  margin: 0.5rem auto
 
-  > span
+  text-align: center
+  line-height: $icon-size * 1
+
+  .icon
     position: relative
+
     flex-grow: 1
     height: 100%
+
     text-indent: 0
 
-  .icon::before
-    position: absolute
-
   .ticker
+    position: absolute
+    bottom: 0
+    left: 0
+
     display: inline-block
     width: 100%
-    height: 100%
+    height: 20%
+
+    z-index: -1
+
+// icon displayed over ticker background
+.root.single-value, .root.hide-name
+  .color-scheme-demo
+    line-height: $icon-size * 1.75
+    .ticker
+      height: 100%
 
 .c-settings-group-content .color-scheme-demo
   margin-left: -1rem

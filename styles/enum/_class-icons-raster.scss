@@ -1,0 +1,35 @@
+.root.icon-legacy {
+  .icon {
+    background-image: url('./assets/classes.png');
+    background-size: 1100% 600%;
+    background-repeat: no-repeat;
+    background-position: 90% 60%;
+    opacity: 1 !important;
+
+    &::before {
+      content: '' !important;
+    }
+  }
+  $class-matrix: (
+    ( 'gla', 'mrd', 'pgl', 'lnc', 'rog', 'arc', 'thm', 'acn', null,  'cnj' ),
+    ( 'pld', 'war', 'mnk', 'drg', 'nin', 'brd', 'blm', 'smn', 'sch', 'whm' ),
+    ( 'drk', 'mch', 'ast', 'sam', 'rdm', 'blu', 'gnb', 'dnc' ),
+    ( 'acn-pet', 'garuda', 'ifrit', 'titan', 'eos', 'selene', 'rook', 'bishop' ),
+    ( 'crp', 'bsm', 'arm', 'gsm', 'ltw', 'wvr', 'alc', 'cul', null,  'chocobo' ),
+    ( 'min', 'btn', 'fsh', null,  null,  null,  null,  null,  null,  'limit-break' )
+  );
+
+  $y: 0%;
+  @each $l in $class-matrix {
+    $x: 0%;
+    @each $class in $l {
+      @if $class != null {
+        .icon.class-#{$class} {
+          background-position: $x $y;
+        }
+      }
+      $x: $x + 10%;
+    }
+    $y: $y + 20%;
+  }
+}

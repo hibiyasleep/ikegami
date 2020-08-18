@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'FFXIVAppIcons';
+  src: url('assets/FFXIVAppIcons.woff') format('woff');
+}
+
+.icon {
+  font-family: 'FFXIVAppIcons';
+  font-size: 1.375em;
+  font-weight: 100;
+  -webkit-font-smoothing: antialiased;
+}
+.icon::before {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.root.icon-default, .root.icon-monochrome {
+  .icon {
+    text-shadow: $shadow-class-outline, $shadow-class-background, $shadow-class-without-background;
+  }
+  &.single-value, &.hide-name {
+    .icon {
+      text-shadow: $shadow-class-outline, $shadow-class-background;
+    }
+  }
+}
+.root.icon-monochrome {
+  .icon::before {
+    filter: grayscale(1);
+  }
+}
+$class-pua-glyph-map: (
+  gla: '\f001',
+  pgl: '\f002',
+  mrd: '\f003',
+  lnc: '\f004',
+  arc: '\f005',
+  cnj: '\f006',
+  thm: '\f007',
+  crp: '\f008',
+  bsm: '\f009',
+  arm: '\f010',
+  gsm: '\f011',
+  ltw: '\f012',
+  wvr: '\f013',
+  alc: '\f014',
+  cul: '\f015',
+  min: '\f016',
+  btn: '\f017',
+  fsh: '\f018',
+  pld: '\f019',
+  mnk: '\f020',
+  war: '\f021',
+  drg: '\f022',
+  brd: '\f023',
+  whm: '\f024',
+  blm: '\f025',
+  acn: '\f026',
+  smn: '\f027',
+  sch: '\f028',
+  rog: '\f029',
+  nin: '\f030',
+  mch: '\f031',
+  drk: '\f032',
+  ast: '\f033',
+  sam: '\f034',
+  rdm: '\f035',
+  blu: '\f036',
+  gnb: '\f037',
+  dnc: '\f038',
+  limit-break: '\e076'
+);
+
+@each $name, $glyph in $class-pua-glyph-map {
+  .icon.class-#{$name}::before {
+    content: $glyph;
+  }
+}
+.icon.class-rdm::before {
+  transform: translateX(-4%);
+}
+.icon.class-nin::before {
+  transform: translateX(1%);
+}
+
+.icon.class-ast::before {
+  transform: scale(1.2) translateX(3%);
+}
+.icon.class-blm::before {
+  transform: scale(0.875);
+}

@@ -1,7 +1,8 @@
 <template>
   <div :class="[
     'root',
-    'scheme-' + (color_scheme || 'kagerou-material'), {
+    'scheme-' + (color_scheme || 'kagerou-material'),
+    'icon-' + (job_icons || 'default'), {
       'hide-name': hide_name,
       'hide-job-icons': hide_job_icon,
       'hide-handle': hide_handle,
@@ -46,6 +47,7 @@ export default {
     ...mapState('settings', [
       'debug',
       'color_scheme',
+      'job_icons',
       'yield_for_subtickers',
       'hide_name',
       'hide_job_icon',
@@ -77,8 +79,11 @@ export default {
 
 @import styles/reset
 @import styles/index
-@import styles/classes
 @import styles/window
 @import styles/layout_mode
+
+@import styles/enum/job-colors
+@import styles/enum/class-icons-raster
+@import styles/enum/class-icons-vector
 
 </style>

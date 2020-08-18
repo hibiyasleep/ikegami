@@ -29,6 +29,14 @@
         [ 'mopimopi-by-role', 'MopiMopi 3-roles' ]
       ])"
       v-model="color_scheme" />
+    <dropdown
+      label="Job Icons"
+      :selections="new Map([
+        [ 'default', 'Default' ],
+        [ 'monochrome', 'Monochrome' ],
+        [ 'legacy', 'Legacy (Bitmap)' ]
+      ])"
+      v-model="job_icons" />
     <class-colors />
     <checkbox
       label="Blur out usernames"
@@ -52,6 +60,7 @@ export default {
       'ui_scale',
       'theme',
       'color_scheme',
+      'job_icons',
       'blur_name'
     ])
   }
