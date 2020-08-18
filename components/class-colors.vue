@@ -1,4 +1,4 @@
-<template>
+<template functional>
   <p class="color-scheme-demo">
     <span class="icon class-pld"><span class="ticker"> </span></span>
     <span class="icon class-war"><span class="ticker"> </span></span>
