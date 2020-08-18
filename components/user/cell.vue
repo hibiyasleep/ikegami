@@ -137,12 +137,15 @@ export default {
     .name-row
       display: flex
       flex-grow: 1
-      text-align: center
+      justify-content: center
 
       width: 100%
       margin: 0
       padding: 0
       background: none
+
+      text-overflow: clip
+      overflow-x: hidden
 
       > *
         vertical-align: top
@@ -157,6 +160,7 @@ export default {
 
       > .name
         text-shadow: $shadow-text-without-background, $shadow-text-background
+        min-width: 0
 
     .values
       display: flex
@@ -255,10 +259,8 @@ export default {
     max-height: $cell-line-height
 
     .name-row
-      text-align: left
+      justify-content: flex-start
       text-shadow: $shadow-text-background
-
-      overflow-x: hidden
 
       > .name
         text-shadow: inherit
