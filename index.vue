@@ -82,6 +82,7 @@ export default {
 @import styles/window
 @import styles/layout_mode
 
+@import styles/enum/gauge-colors
 @import styles/enum/job-colors
 @import styles/enum/class-icons-raster
 @import styles/enum/class-icons-vector

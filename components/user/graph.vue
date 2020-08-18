@@ -53,11 +53,6 @@ export default {
 
 <style lang="sass">
 
-$graph-palette-dps-crit: #FFFFFF #1DE9B6 #FFCA28 #FF6F00
-$graph-palette-healer-pct: #40C4FF #00E676 #B9F6CA #EC8986 #E53935
-
-$graph-palette: (dps-crit: $graph-palette-dps-crit, healer-pct: $graph-palette-healer-pct)
-
 .c-details-graph
   display: flex
   align-items: stretch
@@ -79,17 +74,5 @@ $graph-palette: (dps-crit: $graph-palette-dps-crit, healer-pct: $graph-palette-h
 
   &.empty .piece
     min-width: 0
-
-@each $name in ('dps-crit' 'healer-pct')
-  &.#{$name} .piece
-    $palette: map-get($graph-palette, $name)
-
-    $index: -1
-    @each $color in $palette
-      $index: $index + 1
-
-      &.p#{$index}
-        background-color: $color
-        fill: $color
 
 </style>
