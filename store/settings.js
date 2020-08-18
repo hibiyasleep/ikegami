@@ -6,7 +6,7 @@ const _state = () => ({
   version: 0,
   // layout
   cell_display1: 'dps',
-  cell_display2: 'critcounts_wo_direct',
+  cell_display2: '',
   // show_critbar: true, // deprecated on version 1
   tickers_dps_crit: '',
   tickers_healer_pct: 'below',
