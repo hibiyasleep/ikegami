@@ -19,10 +19,12 @@
       <path opacity="0.25" fill="#FFA500" d="M114,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
       <path opacity="0.25" fill="#FFA500" d="M133,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
       <path opacity="0.25" fill="#FFA500" d="M152,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <path opacity="0.25" fill="#FFA500" d="M171,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
+      <path opacity="1.00" fill="#FFA500" d="M171,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
       <!-- toyoko | | -->
       <path opacity="0.25" fill="#DA0442" d="M174,8V0h2v8zm0,8h2v8h-2z" />
       <path opacity="0.25" fill="#FFA500" d="M190,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
+      <!-- express passthrough -->
+      <path opacity="1.00" fill="#FFA500" d="M209,8m-0,3h-19v2h19z"/>
       <path opacity="1.00" fill="#FFA500" d="M209,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
       <!-- meguro / / -->
       <path opacity="0.25" fill="#009CD2" d="M217,8h-1.4l8,-8l1.4,1.4l-8,8z m-8,8 h1.4 l-8,8 l-1.4,-1.4 l8,-8 z" />

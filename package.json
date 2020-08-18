@@ -1,7 +1,7 @@
 {
   "name": "ikegami",
-  "version": "0.2.1",
-  "releasename": "Ookayama",
+  "version": "0.3.0",
+  "releasename": "Jiyugaoka",
   "description": "experimental vertical FFXIV Miniparse overlay",
   "dependencies": {
     "vue": "2.x",

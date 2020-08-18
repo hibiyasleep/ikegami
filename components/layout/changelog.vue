@@ -11,7 +11,25 @@
     </checkbox>
     <hr />
     <version />
-    <group name="0.2.1 'Ookayama'" :opened="true">
+    <group name="0.3.0 'Jiyugaoka'" opened>
+      <p>
+        Fixed noisy logs and some bugs (CDH count fix, etc)
+      </p>
+      <p>
+        Job icons are now <u>vector</u>; monochrome also added.
+        <br />
+        Can be rollbacked to old friendly raster one.
+      </p>
+      <p>
+        DPS % option added.
+      </p>
+      <p>
+        thinner sticks is now configurable.
+        <br />
+        Now healed stats will be shown default, instead of crits.
+      </p>
+    </group>
+    <group name="0.2.1 'Ookayama'" >
       <p>
         <u @click="toggleLayoutMode()">Layout mode</u>
         added for precise overlay placement.
