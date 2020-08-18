@@ -71,4 +71,4 @@ $z-cell: 1000
   cursor: pointer
 
 @function _esc($color)
-  @return transparentize($color, 0)
+  @return unquote("rgb(#{red($color)},#{green($color)},#{blue($color)})")
