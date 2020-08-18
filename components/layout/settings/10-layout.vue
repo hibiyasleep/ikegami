@@ -5,15 +5,12 @@
         width="400"
         height="56"
         viewBox="-110 -9 400 56"
+        style="width: 100%; height: 100%;"
         xmlns:xlink="http://www.w3.org/1999/xlink">
         <!-- warn: fill and stroke are inherited inside this element from CSS -->
         <defs stroke="none">
           <g id="whm-icon" x="0" y="0" width="36" height="36">
-            <path
-              x="8" y="8"
-              transform="scale(0.75)"
-              d="M19.9 13.6c.5 0 1.1.3 1.7.9.5.3.8.8.8 1.7 0 .5-.3 1-.8 1.6-.6.6-1.2.9-1.7.9-.9 0-1.4-.3-2-.9a4 4 0 0 1-.5-1.6c0-.9.2-1.4.5-1.7.6-.6 1.1-.9 2-.9m.8-3.6v.6l.6.2.3.3c2.2 1.1 3.3 2.8 3.3 5 0 1.5-.5 2.9-1.4 3.7a4 4 0 0 1-3.3 1.7c-1.2 0-2 0-2.8-.3L16 20.1h-.3c-.3-.3-.9-.6-1.1-.3v1.1c.2.3.2.6.5.9.6.8 2 1.6 3.7 2.5h.2c.6.3 1.2.5 1.2 1.1v10c0 .6 0 1.2.2 1.8.3.5.6.8.9.8.3 0 .5-.3.5-.8a4 4 0 0 0 .6-1.7V25.4c0-.3 0-.6.3-.8 0-.6.3-.6.5-.9.9-.3 1.7-1.1 2.6-2 1.4-1.6 2-3.6 2-5.5 0-1.7-.6-3.4-1.8-4.5a8 8 0 0 0-3.9-2.3H21c0 .3-.3.3-.3.6"
-              />
+            <text x="16" y="32" font-family="FFXIVAppIcons" font-size="28" text-anchor="middle"> &#xf024; </text>
           </g>
           <text
             id="value1"
@@ -33,8 +30,8 @@
             <g fill="black">
               <use href="#content" />
               <!-- when main ticker should yield space for subtickers -->
-              <rect x="0" y="1" width="100%" height="5" v-if="yielded.top" />
-              <rect x="0" y="30" width="100%" height="5" v-if="yielded.bottom" />
+              <rect x="0" y="0" width="100%" height="4" v-if="yielded.top" />
+              <rect x="0" y="32" width="100%" height="4" v-if="yielded.bottom" />
             </g>
           </mask>
           <mask id="rest" x="0" y="0" width="180" height="36" mask-units="objectBoundingBox">
@@ -45,8 +42,12 @@
         <g stroke="none">
           <!-- normal text -->
           <g font-size="12" fill-opacity="0.25">
-            <text x="-12" y="23" text-anchor="end"> preview </text>
+            <!-- <text x="-12" y="23" text-anchor="end"> preview </text> -->
           </g>
+          <!-- background -->
+          <!-- <rect x="-184" y="0" width="180" height="36" fill-opacity="0.1" /> -->
+          <rect x="0" y="0" width="180" height="36" fill-opacity="0.1" />
+          <!-- <rect x="184" y="0" width="180" height="36" fill-opacity="0.1" /> -->
           <!-- filled gauge region -->
           <g mask="url(#barclip)">
             <rect x="0" y="0" width="100" height="36" />
@@ -70,13 +71,52 @@
             <rect x="118" y="0" width="51" height="3" class="piece p2" /> <!-- ch -->
             <rect x="170" y="0" width="10" height="3" class="piece p3" /> <!-- cdh -->
           </g>
+          <!-- legend -->
+          <g font-size="12" fill-opacity="0.5">
+            <!-- left -->
+            <g
+              v-if="tickers_dps_crit"
+              class="dps-crit"
+              transform="translate(-94, -4)">
+              <g transform="translate(0, 0)">
+                <rect width="4" height="14" class="piece p1" />
+                <text x="8" y="11.3"> direct </text>
+              </g>
+              <g transform="translate(0, 16)">
+                <rect width="4" height="14" class="piece p2" />
+                <text x="8" y="11.3"> crit </text>
+              </g>
+              <g transform="translate(0, 32)">
+                <rect width="4" height="14" class="piece p3" />
+                <text x="8" y="11.3"> critical direct </text>
+              </g>
+            </g>
+            <g
+              v-if="tickers_healer_pct"
+              class="healer-pct"
+              text-anchor="end"
+              transform="translate(270, -4)">
+              <g transform="translate(0, 0)">
+                <rect width="4" height="14" class="piece p0" />
+                <text x="-4" y="11.3"> shielded </text>
+              </g>
+              <g transform="translate(0, 16)">
+                <rect width="4" height="10" class="piece p1" y="4" />
+                <rect width="4" height="4" class="piece p2" />
+                <text x="-4" y="11.3"> healed </text>
+              </g>
+              <g transform="translate(0, 32)">
+                <rect width="4" height="10" class="piece p4" y="4" />
+                <rect width="4" height="4" class="piece p3" />
+                <text x="-4" y="11.3"> overhealed </text>
+              </g>
+            </g>
+          </g>
         </g>
         <g fill="none">
           <!-- various strokes -->
           <g stroke-width="1">
-            <rect x="0.5" y="0.5" width="179" height="35" />
-            <path d="M-184.5,0.5 h180 v35 h-180" stroke-opacity="0.25" />
-            <path d="M364.5,0.5 h-180 v35 h180" stroke-opacity="0.25" />
+            <!-- <rect x="0.5" y="0.5" width="179" height="35" /> -->
             <!-- <path d="M-22.5,-12 q-6,6 0,12 t0,12 q-6,6 0,12 t0,12 q-6,6 0,12" /> -->
             <!-- <path d="M202.5,-12 q-6,6 0,12 t0,12 q-6,6 0,12 t0,12 q-6,6 0,12" /> -->
           </g>
@@ -159,8 +199,8 @@ export default {
     ticker_selections: _const.TICKER_POSITION_SELECTIONS,
     preview_coords: {
       above: -4,
-      top: 2,
-      bottom: 31,
+      top: 0,
+      bottom: 33,
       below: 37,
       '': 1000
     }
