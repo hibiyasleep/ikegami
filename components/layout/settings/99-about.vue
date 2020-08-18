@@ -18,12 +18,10 @@
 
 <script>
 
-import group from '@/components/settings/group.vue'
 import version from '@/components/version.vue'
 
 export default {
   components: {
-    group,
     version
   }
 }
