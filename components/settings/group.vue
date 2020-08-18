@@ -75,6 +75,9 @@ export default {
       &.show::after
         transform: rotate(0deg)
 
+  > .c-settings-group-content > .c-settings-group
+    margin-left: -1rem
+
 .c-settings-group-content
   padding: 0 1rem 0 2.25rem
 
