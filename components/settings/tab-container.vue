@@ -30,7 +30,7 @@ export default {
   flex-direction: column
 
   height: 100%
-  overflow-y: auto
+  overflow-y: hidden
 
   .tab-list
     display: flex
@@ -48,17 +48,16 @@ export default {
 
   .tab-content
     flex-grow: 1
-    padding: 0.5rem 1rem
+    padding: 0.5rem 0.5rem 0.5rem 1rem
 
-    overflow-y: auto
+    overflow-y: scroll
 
     &.has-another-wrapper
       display: flex
       flex-direction: column
       padding: 0
 
-      .tab-content
-        padding: 0.5rem 1rem
+      overflow-y: hidden
 
   .tab-content-presentation
     @include unselectable
