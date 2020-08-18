@@ -60,9 +60,9 @@
           <g
             class="healer-pct"
             :transform="`translate(0, ${preview_coords[tickers_healer_pct]})`">
-            <rect x="0" y="0" width="10" height="3" class="piece p0" /> <!-- shielded -->
-            <rect x="11" y="0" width="111" height="3" class="piece p1" /> <!-- total healed -->
-            <rect x="123" y="0" width="24" height="3" class="piece p4" /> <!-- overheal -->
+            <rect x="0" y="0" width="15" height="3" class="piece p0" /> <!-- shielded -->
+            <rect x="16" y="0" width="57" height="3" class="piece p1" /> <!-- total healed -->
+            <rect x="74" y="0" width="12" height="3" class="piece p4" /> <!-- overheal -->
           </g>
           <g
             class="dps-crit"
@@ -235,10 +235,10 @@ export default {
         return ''
       } else {
         return [
-          this.hide_job_icon? 'Hibiya Inemu…' : 'Hibiya Ine…',
-          'Hibiya I.',
-          'H. Inemuri',
-          'H. I.',
+          this.hide_job_icon? 'Crystal Exarch' : 'Crystal Ex…',
+          'Crystal E.',
+          'C. Exarch',
+          'C. E.',
         ][this.shorten_name]
       }
     },
@@ -261,3 +261,10 @@ export default {
 }
 
 </script>
+
+<style lang="sass">
+
+.w-settings-layout-preview
+  height: 3.5rem // 56
+
+</style>
