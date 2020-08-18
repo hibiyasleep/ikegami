@@ -112,10 +112,15 @@ export default {
   background-color: rgba(0, 0, 0, 0.005)
   box-shadow: 0 0 0 0.5rem rgba(0, 0, 0, 0.005), 0 $cell-line-height * -1 0 $cell-background inset
 
+  word-break: keep-all
+  white-space: nowrap
+  text-overflow: clip
+
   .user-cell-wrap
     display: flex
     flex-direction: column
     justify-content: center
+    align-content: stretch
 
     width: 100%
     height: 100%
@@ -127,31 +132,30 @@ export default {
       margin-right: 0
 
     .name-row, .values
-      text-align: center
       color: $cell-color
 
     .name-row
       display: flex
-      justify-content: center
-      align-items: center
       flex-grow: 1
+      text-align: center
 
-      padding: 0 0 0 0.125rem
+      width: 100%
+      margin: 0
+      padding: 0
       background: none
 
-      overflow-x: hidden
-      word-break: keep-all
-      white-space: nowrap
-      text-overflow: ellipsis
+      > *
+        vertical-align: top
 
       > .icon
         display: inline-block
-        width: 1.25rem
-        font-size: 1.75em
-        text-shadow: $shadow-class-without-background, $shadow-class-outline
+        margin: 0.125rem
+
+        font-size: 1.25rem
+        line-height: 1em
+        width: 1em
 
       > .name
-        padding-left: 0.125rem
         text-shadow: $shadow-text-without-background, $shadow-text-background
 
     .values
@@ -243,7 +247,7 @@ export default {
         align-self: flex-start
 
 
-// options that makes single userlist line
+// options that makes userlist simple (singleline)
 .single-value, .hide-name
 
   .user-cell-wrap
@@ -251,14 +255,12 @@ export default {
     max-height: $cell-line-height
 
     .name-row
-      justify-content: flex-start
+      text-align: left
       text-shadow: $shadow-text-background
 
-      > .icon
-        text-shadow: inherit
+      overflow-x: hidden
 
       > .name
-        margin-left: 0.125rem
         text-shadow: inherit
 
     .icon-class
@@ -294,12 +296,18 @@ export default {
     position: absolute
 
 // option: hide-job-icons
-.hide-job-icons .c-user-cell .name-row .icon
-  display: none !important
+.hide-job-icons .c-user-cell .name-row
+
+  .icon
+    display: none !important
+
+  .name
+    padding-left: 0.375rem
 
 // option: blur-name
 .blur-name .c-user-cell .name
   filter: blur(0.2rem)
   -webkit-filter: blur(0.2rem)
+
 
 </style>
