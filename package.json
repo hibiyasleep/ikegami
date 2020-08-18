@@ -2,7 +2,7 @@
   "name": "ikegami",
   "version": "0.3.0",
   "releasename": "Jiyugaoka",
-  "description": "experimental vertical FFXIV Miniparse overlay",
+  "description": "experimental horizontal FFXIV Miniparse overlay",
   "dependencies": {
     "vue": "2.x",
     "vuex": "^3.0.1",
