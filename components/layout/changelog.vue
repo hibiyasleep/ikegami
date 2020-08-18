@@ -11,7 +11,7 @@
     </checkbox>
     <hr />
     <version />
-    <group name="0.3.0 'Jiyugaoka'" opened>
+    <group name="0.3.1 'Jiyugaoka'" opened>
       <p>
         Fixed noisy logs and some bugs (CDH count fix, etc)
       </p>
@@ -27,6 +27,9 @@
         thinner sticks is now configurable.
         <br />
         Now healed stats will be shown default, instead of crits.
+      </p>
+      <p>
+        transfer to Toyoko Line.
       </p>
     </group>
     <group name="0.2.1 'Ookayama'" >

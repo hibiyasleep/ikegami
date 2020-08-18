@@ -1,6 +1,6 @@
 {
   "name": "ikegami",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "releasename": "Jiyugaoka",
   "description": "experimental horizontal FFXIV Miniparse overlay",
   "dependencies": {
