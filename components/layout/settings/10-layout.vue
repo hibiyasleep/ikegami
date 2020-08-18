@@ -235,10 +235,10 @@ export default {
         return ''
       } else {
         return [
-          this.hide_job_icon? 'Crystal Exarch' : 'Crystal Ex…',
-          'Crystal E.',
-          'C. Exarch',
-          'C. E.',
+          this.hide_job_icon? 'Yoshi\'p Sampo' : 'Yoshi\'p Sa…',
+          'Yoshi\'p S.',
+          'Y. Sampo',
+          'Y. S.',
         ][this.shorten_name]
       }
     },
