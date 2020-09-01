@@ -42,7 +42,7 @@ module.exports = {
                     loader: 'sass-loader',
                     options: {
                       indentedSyntax: true,
-                      data: '@import "variables";',
+                      data: '@import "variables"',
                       includePaths: [ path.resolve(__dirname, './styles') ]
                     }
                   }

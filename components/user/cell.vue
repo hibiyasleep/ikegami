@@ -125,6 +125,10 @@ export default {
     width: 100%
     height: 100%
 
+    @include if-enabled('single-value', 'hide-name')
+      flex-direction: row
+      max-height: $cell-line-height
+
     &:hover ~ .c-details
       opacity: 1
 
@@ -147,6 +151,16 @@ export default {
       text-overflow: clip
       overflow-x: hidden
 
+      @include if-enabled('single-value', 'hide-name')
+        justify-content: flex-start
+        text-shadow: $shadow-text-background
+
+      @include if-enabled('hide-name')
+        flex-grow: 0
+
+      @include if-enabled('hide-name.hide-job-icons')
+        display: none
+
       > *
         vertical-align: top
 
@@ -158,9 +172,28 @@ export default {
         line-height: 1em
         width: 1em
 
+        // @include if-enabled('single-value', 'hide-name')
+        //   margin-right: -0.25rem
+
+        @include if-enabled('hide-job-icons')
+          display: none !important
+
       > .name
         text-shadow: $shadow-text-without-background, $shadow-text-background
         min-width: 0
+
+        @include if-enabled('single-value')
+          text-shadow: inherit
+
+        @include if-enabled('hide-name')
+          display: none
+
+        @include if-enabled('hide-job-icons')
+          padding-left: 0.375rem
+
+        @include if-enabled('blur-name')
+          filter: blur(0.2rem)
+          -webkit-filter: blur(0.2rem)
 
     .values
       display: flex
@@ -172,6 +205,9 @@ export default {
 
       cursor: default
 
+      @include if-enabled('hide-name')
+        flex-grow: 1
+
       > .l, > .r
         z-index: $z-cell + 1
 
@@ -179,8 +215,12 @@ export default {
         text-align: left
         margin-right: auto
 
+        @include if-enabled('single-value', 'hide-name')
+          margin-left: auto
+
       > .r
         text-align: center
+
 
   .c-details
     position: absolute
@@ -188,6 +228,9 @@ export default {
     left: 0
 
     opacity: 0
+
+    @include if-enabled('single-value', 'hide-name')
+      top: $cell-line-height + 0.25rem
 
     &:hover
       opacity: 1
@@ -231,6 +274,13 @@ export default {
         margin-bottom: -$inner-graph-height
         transform: translateY($_1px)
 
+      @include if-enabled('main-ticker-will-not-yield')
+        &.main
+          margin: 0
+
+        &.top, &.bottom
+          position: absolute
+
     .ticker.main
       align-self: flex-start
       flex-grow: 100
@@ -249,67 +299,5 @@ export default {
 
       &.healer-pct
         align-self: flex-start
-
-
-// options that makes userlist simple (singleline)
-.single-value, .hide-name
-
-  .user-cell-wrap
-    flex-direction: row
-    max-height: $cell-line-height
-
-    .name-row
-      justify-content: flex-start
-      text-shadow: $shadow-text-background
-
-      > .name
-        text-shadow: inherit
-
-    .icon-class
-      margin-right: -0.25rem
-
-    .values > .l
-      margin-left: auto
-
-  .c-details
-    top: $cell-line-height + 0.25rem
-
-// option: hide-name
-.hide-name .user-cell-wrap
-
-  .name-row
-    flex-grow: 0
-
-  .name
-    display: none
-
-  .values
-    flex-grow: 1
-
-.hide-name.hide-job-icons .name-row
-  display: none
-
-// option: !yield_for_subtickers
-.main-ticker-will-not-yield .tickers
-  .main
-    margin: 0
-
-  .top, .bottom
-    position: absolute
-
-// option: hide-job-icons
-.hide-job-icons .c-user-cell .name-row
-
-  .icon
-    display: none !important
-
-  .name
-    padding-left: 0.375rem
-
-// option: blur-name
-.blur-name .c-user-cell .name
-  filter: blur(0.2rem)
-  -webkit-filter: blur(0.2rem)
-
 
 </style>

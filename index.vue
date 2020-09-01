@@ -1,17 +1,19 @@
 <template>
-  <div :class="[
-    'root',
-    'scheme-' + (color_scheme || 'kagerou-material'),
-    'icon-' + (job_icons || 'default'), {
-      'hide-name': hide_name,
-      'hide-job-icons': hide_job_icon,
-      'hide-handle': hide_handle,
-      'blur-name': blur_name,
-      'main-ticker-will-not-yield': !yield_for_subtickers,
-      'layout-mode': layout_mode,
-      'single-value': !cell_display2
-    }
-  ]">
+  <div
+    id="root"
+    :class="[
+      'root',
+      'scheme-' + (color_scheme || 'kagerou-material'),
+      'icon-' + (job_icons || 'default'), {
+        'hide-name': hide_name,
+        'hide-job-icons': hide_job_icon,
+        'hide-handle': hide_handle,
+        'blur-name': blur_name,
+        'main-ticker-will-not-yield': !yield_for_subtickers,
+        'layout-mode': layout_mode,
+        'single-value': !cell_display2
+      }
+    ]">
     <userlist />
     <navbar />
     <settings v-if="opened_window === 'settings'" />

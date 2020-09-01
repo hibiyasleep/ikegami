@@ -70,5 +70,14 @@ $z-cell: 1000
 
   cursor: pointer
 
+@mixin if-enabled($options...)
+  @for $index from 1 through length($options)
+    $item: nth($options, $index)
+    $options: set-nth($options, $index, '#root.' + $item + ' &')
+
+  @debug $options
+  #{$options}
+    @content
+
 @function _esc($color)
   @return unquote("rgb(#{red($color)},#{green($color)},#{blue($color)})")
