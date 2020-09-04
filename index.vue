@@ -3,6 +3,7 @@
     id="root"
     :class="[
       'root',
+      'theme-' + (theme || 'none'),
       'scheme-' + (color_scheme || 'kagerou-material'),
       'icon-' + (job_icons || 'default'),
       'order-by-' + (list_order || 'asc'),
@@ -51,6 +52,7 @@ export default {
     ...mapState('settings', [
       'debug',
       'color_scheme',
+      'theme',
       'job_icons',
       'yield_for_subtickers',
       'hide_name',

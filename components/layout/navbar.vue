@@ -1,10 +1,5 @@
 <template>
-  <nav :class="[
-    'c-navbar-wrapper',
-    theme?
-      'theme theme-' + theme
-    : 'theme-none'
-  ]">
+  <nav class="c-navbar-wrapper">
     <div class="location">
       <time :class="{ empty: e.duration }">
         <span class="m">{{ ~~(e.duration / 60) | pad }}</span><!--
@@ -100,10 +95,7 @@ export default {
       e: 'encounter',
       c: 'combatants'
     }),
-    ...mapState('settings', [
-      'show_decimals',
-      'theme'
-    ]),
+    ...mapState('settings', [ 'show_decimals' ]),
     ...mapGetters('encounter', [ 'rank' ])
   },
   filters: {
@@ -206,7 +198,9 @@ export default {
   .location:hover ~ .c-details
     opacity: 1
 
-  &.theme-tokyu, &.theme-keikyu
+  // themes
+
+  @include if-enabled('theme-tokyu', 'theme-keikyu')
     position: relative
     flex-direction: column
     align-items: stretch
@@ -237,7 +231,7 @@ export default {
       top: 0
       right: 0
 
-  &.theme-tokyu
+  @include if-enabled('theme-tokyu')
 
     .location
       border-bottom: 0.125rem solid #fff
@@ -257,7 +251,7 @@ export default {
       border-top: 0.5rem solid #EE86A7
       padding-top: 0.125rem
 
-  &.theme-keikyu
+  @include if-enabled('theme-keikyu')
     background: rgba(0, 0, 80, 0.5)
 
     .location
@@ -302,7 +296,7 @@ export default {
       .rdps::before
         display: none
 
-  &.theme-minimal
+  @include if-enabled('theme-minimal')
     width: $cell-width
 
     .location
