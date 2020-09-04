@@ -6,13 +6,13 @@
       @navigate="navigate"
       :current="current"
       :tabs="new Map([
-        [ 'display', 'Display' ],
+        [ 'layout', 'Layout' ],
         [ 'appearance', 'Appearance' ],
         [ 'data', 'Data' ],
         [ 'about', 'About' ]
       ])">
-      <template v-slot:display>
-        <display />
+      <template v-slot:layout>
+        <layout />
       </template>
       <template v-slot:appearance>
         <appearance />
@@ -35,7 +35,7 @@ import packageinfo from '@/package.json'
 
 import tabContainer from '@/components/settings/tab-container.vue'
 import window from '@/components/window.vue'
-import display from './10-display.vue'
+import layout from './10-layout.vue'
 import appearance from './20-appearance.vue'
 import dataOptions from './30-data.vue'
 import about from './99-about.vue'
@@ -44,7 +44,7 @@ export default {
   components: {
     tabContainer,
     window,
-    display,
+    layout,
     appearance,
     dataOptions,
     about
