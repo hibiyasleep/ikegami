@@ -146,7 +146,7 @@
                 </g>
                 <g transform="translate(0, 32)">
                   <rect width="4" height="14" class="piece p3" />
-                  <text x="8" y="11.3"> critical direct </text>
+                  <text x="8" y="11.3"> crit direct </text>
                 </g>
               </g>
               <g
