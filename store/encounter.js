@@ -254,10 +254,9 @@ export default {
         //   const [ uid, name ] = payload
         //   commit('removePlayer', { uid, name })
         //   break
-
-        case 11:
-          commit('setParty', payload.slice(1, -1))
-          break
+        // case 11:
+        //   commit('setParty', payload.slice(1, -1))
+        //   break
 
       }
     }
