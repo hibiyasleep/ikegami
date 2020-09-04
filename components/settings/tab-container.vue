@@ -59,24 +59,27 @@ export default {
 
       overflow-y: hidden
 
-  .tab-content-presentation
-    @include unselectable
-    flex-shrink: 0
-    text-align: center
-    margin: 0.25rem 0 0 0
-    background: $window-title-background
+.tab-content-presentation
+  @include unselectable
+  flex-shrink: 0
+  text-align: center
+  margin: 0.25rem 0 0 0
+  background: $window-title-background
 
-    overflow: hidden
+  overflow: hidden
 
-    img, svg
-      vertical-align: top
-      fill: $ui-color
-      stroke: $ui-color
+  .c-settings-group-content > &
+    margin-left: -1.25rem
 
-    // figcaption
-    //   background: $window-title-background
-    //   font-size: $nav-text-size
-    //   line-height: $nav-height
+  img, svg
+    vertical-align: top
+    fill: $ui-color
+    stroke: $ui-color
+
+  // figcaption
+  //   background: $window-title-background
+  //   font-size: $nav-text-size
+  //   line-height: $nav-height
 
 
 </style>
