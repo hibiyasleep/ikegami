@@ -2,7 +2,7 @@
   @return ($length / 1rem) * 16px / 1px;
 }
 
-.root.layout-mode {
+#root.layout-mode {
   $fill-as-image: linear-gradient(to bottom,
     $layout-mode-guideline 0%,
     $layout-mode-guideline 100%
