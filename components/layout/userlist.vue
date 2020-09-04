@@ -7,7 +7,7 @@
         :topdps="topdps"
         :tophps="tophps"
         :key="c.name">
-        <detailed-view :c="c" :e="e" />
+        <detailed-view :c="c" :e="encounter" />
       </cell>
     </ul>
   </div>
@@ -33,12 +33,13 @@ export default {
     ]),
     ...mapState('settings', [ 'list_order' ]),
     combatants() {
-      const l = this.$store.state.encounter.combatants
-      // assuming worst case of combatant count: 124px * 75% * 32 = 2976px
+      const l = this.$store.state.encounter.combatants || []
+
       if(this.list_order === 'desc') {
-        return this.$store.state.encounter.combatants?.slice(-32).reverse()
+        // assuming worst case of combatant count: 124px * 75% * 32 = 2976px
+        return this.$store.state.encounter.combatants.slice(-32).reverse()
       } else {
-        return this.$store.state.encounter.combatants?.slice(0, 32)
+        return this.$store.state.encounter.combatants.slice(0, 32)
       }
     }
   }
