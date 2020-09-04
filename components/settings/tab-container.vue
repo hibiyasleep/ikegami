@@ -35,6 +35,8 @@ export default {
   .tab-list
     display: flex
     justify-content: center
+    flex-shrink: 0
+
     background: $window-title-background
     font-size: $nav-text-size
     line-height: $nav-height
