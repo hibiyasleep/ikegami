@@ -323,4 +323,7 @@ export default {
         height: 100%
         opacity: 0
 
+  @include if-enabled('theme-minimal.align-left', 'theme-minimal.align-right')
+    margin-top: -1 * $nav-height
+
 </style>

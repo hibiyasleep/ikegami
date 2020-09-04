@@ -74,6 +74,11 @@ export default {
     align-items: flex-start
     justify-content: flex-start
 
+    @include if-enabled('align-left')
+      padding-left: $cell-width + $cell-margin
+    @include if-enabled('align-right')
+      padding-right: $cell-width + $cell-margin
+
     .c-user-cell
       flex-shrink: 0
 
