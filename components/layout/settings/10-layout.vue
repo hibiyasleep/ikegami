@@ -1,15 +1,15 @@
 <template>
   <div class="tab-content">
     <dropdown label="Values">
-        <div class="multiple-dropdown-wrap" slot="contents">
-          <dropdown-body
-            :selections="element_selections"
-            v-model="cell_display1" />
-          <dropdown-body
-            empty="None"
-            :selections="element_selections"
-            v-model="cell_display2" />
-        </div>
+      <div class="multiple-dropdown-wrap" slot="contents">
+        <dropdown-body
+          :selections="element_selections"
+          v-model="cell_display1" />
+        <dropdown-body
+          empty="None"
+          :selections="element_selections"
+          v-model="cell_display2" />
+      </div>
     </dropdown>
     <radio-button
       :class="[ 'equal-width', { disabled: hide_name }]"
