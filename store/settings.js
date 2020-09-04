@@ -20,6 +20,9 @@ const _state = () => ({
   color_scheme: 'kagerou-material',
   job_icons: 'default',
   blur_name: false,
+  // appearance: layout
+  list_order: 'asc',
+  list_align: 'center',
   // data
   shorten_name: 0,
   show_decimals: 0,

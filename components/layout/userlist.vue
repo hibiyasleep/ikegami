@@ -26,13 +26,21 @@ export default {
     detailedView
   },
   computed: {
-    ...mapState('encounter', {
+    ...mapState('encounter', [
+      'topdps',
+      'tophps',
+      'encounter'
+    ]),
+    ...mapState('settings', [ 'list_order' ]),
+    combatants() {
+      const l = this.$store.state.encounter.combatants
       // assuming worst case of combatant count: 124px * 75% * 32 = 2976px
-      combatants: state => state.combatants?.slice(0, 32),
-      topdps: 'topdps',
-      tophps: 'tophps',
-      e: 'encounter'
-    })
+      if(this.list_order === 'desc') {
+        return this.$store.state.encounter.combatants?.slice(-32).reverse()
+      } else {
+        return this.$store.state.encounter.combatants?.slice(0, 32)
+      }
+    }
   }
 }
 
@@ -47,6 +55,14 @@ export default {
   align-items: flex-start
   justify-content: center
 
+  // @include if-enabled('order-by-desc')
+
+  @include if-enabled('align-left')
+    justify-content: flex-start
+
+  @include if-enabled('align-right')
+    justify-content: flex-end
+
   // trick wrapper
   // |    <==== ====>    |
   // |<==== ==== ==== ==|= ==== ====>
@@ -59,5 +75,8 @@ export default {
 
     .c-user-cell
       flex-shrink: 0
+
+      &:last-of-type
+        margin-right: 0
 
 </style>

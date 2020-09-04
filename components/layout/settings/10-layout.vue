@@ -37,6 +37,23 @@
         hide_job_icon: !hide_job_icon
       }"
       @input="v => this[v] = !this[v]" />
+    <radio-button
+      class="equal-width"
+      label="Sort"
+      :selections="new Map([
+        [ 'asc', '▼' ],
+        [ 'desc', '▲' ]
+      ])"
+      v-model="list_order" />
+    <radio-button
+      class="equal-width"
+      label="Align"
+      :selections="new Map([
+        [ 'left', '←' ],
+        [ 'center', '◯' ],
+        [ 'right', '→' ]
+      ])"
+      v-model="list_align" />
     <checkbox
       label="Less information on detailed view"
       v-model="reduced" />
@@ -224,6 +241,8 @@ export default {
       'yield_for_subtickers',
       'hide_name',
       'hide_job_icon',
+      'list_order',
+      'list_align',
       'reduced'
     ]),
     shortenized_name() {

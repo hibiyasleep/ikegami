@@ -4,7 +4,9 @@
     :class="[
       'root',
       'scheme-' + (color_scheme || 'kagerou-material'),
-      'icon-' + (job_icons || 'default'), {
+      'icon-' + (job_icons || 'default'),
+      'order-by-' + (list_order || 'asc'),
+      'align-' + (list_align || 'center'), {
         'hide-name': hide_name,
         'hide-job-icons': hide_job_icon,
         'hide-handle': hide_handle,
@@ -55,6 +57,8 @@ export default {
       'hide_job_icon',
       'hide_handle',
       'blur_name',
+      'list_order',
+      'list_align',
       'cell_display2'
     ]),
     ...mapState('ui', [

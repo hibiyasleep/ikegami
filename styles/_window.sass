@@ -12,6 +12,12 @@
 
   z-index: $z-window
 
+  @include if-enabled('align-left')
+    margin-left: 0
+
+  @include if-enabled('align-right')
+    margin-right: 0
+
   h4
     @include unselectable
     display: flex

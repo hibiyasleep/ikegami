@@ -25,6 +25,19 @@
 
   background-repeat: no-repeat;
 
+  &.align-left {
+    background-position:
+      0 $cell-line-height * 2,
+      left,
+      left $cell-line-height * 3 + 0.5rem;
+  }
+  &.align-right {
+    background-position:
+      0 $cell-line-height * 2,
+      right,
+      right $cell-line-height * 3 + 0.5rem;
+  }
+
   &.singleline {
     background-position:
       0 $cell-line-height,

@@ -134,6 +134,12 @@ export default {
   font-size: $nav-text-size
   text-shadow: $shadow-text-background
 
+  @include if-enabled('align-left')
+    margin-left: 0
+
+  @include if-enabled('align-right')
+    margin-right: 0
+
   .location
     @include unselectable
     @include overflow-fadeout
