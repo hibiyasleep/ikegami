@@ -60,9 +60,16 @@ export default {
 
   @include if-enabled('align-left')
     justify-content: flex-start
-
   @include if-enabled('align-right')
     justify-content: flex-end
+
+  $padding: $cell-width + $cell-margin
+
+  @include if-enabled('align-left.theme-minimal')
+    padding-left: $padding
+  @include if-enabled('align-right.theme-minimal')
+    padding-right: $padding
+    clip-path: polygon(0 0, calc(100vw - #{$padding}) 0, calc(100vw - #{$padding}) 100%, 100% 100%, 100% 100vh, 0 100vh)
 
   // trick wrapper
   // |    <==== ====>    |
@@ -73,11 +80,6 @@ export default {
 
     align-items: flex-start
     justify-content: flex-start
-
-    @include if-enabled('align-left')
-      padding-left: $cell-width + $cell-margin
-    @include if-enabled('align-right')
-      padding-right: $cell-width + $cell-margin
 
     .c-user-cell
       flex-shrink: 0
