@@ -155,7 +155,9 @@ export default {
         justify-content: flex-start
         text-shadow: $shadow-text-background
 
-      @include if-enabled('hide-name')
+      @include if-enabled('hide-name:not(.hide-job-icons)')
+        // FIXME
+        flex-basis: $cell-line-height
         flex-grow: 0
 
       @include if-enabled('hide-name.hide-job-icons')
@@ -208,6 +210,9 @@ export default {
       @include if-enabled('hide-name')
         flex-grow: 1
 
+      @include if-enabled('hide-name:not(.hide-job-icons)')
+        padding-left: 0
+
       > .l, > .r
         z-index: $z-cell + 1
 
@@ -215,7 +220,7 @@ export default {
         text-align: left
         margin-right: auto
 
-        @include if-enabled('single-value', 'hide-name')
+        @include if-enabled('single-value.hide-name')
           margin-left: auto
 
       > .r
