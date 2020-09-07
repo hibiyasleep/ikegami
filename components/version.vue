@@ -5,7 +5,7 @@
       <span class="spacer"></span>
       '{{ releasename }}'
     </p>
-    <svg xmlns="http://www.w3.org/2000/svg" width="360" height="24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 24" style="width: 22.5rem; height: 1.5rem;">
       <path opacity="0.25" fill="#20A288" d="M0,16h8v-2h11v-2h-11v-1l-2,1v2h-4v-2l-2,1z"/>
       <path opacity="0.25" fill="#20A288" d="M19,8h8v4h11v2h-11v2h-8l2,-2h4v-4h-4v4l-2,2z"/>
       <path opacity="0.25" fill="#20A288" d="M38,8h8v4h11v2h-11v2h-8l2,-2h4v-4h-4v4l-2,2z"/>
