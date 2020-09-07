@@ -69,7 +69,10 @@ export default {
     padding-left: $padding
   @include if-enabled('align-right.theme-minimal')
     padding-right: $padding
-    clip-path: polygon(0 0, calc(100vw - #{$padding}) 0, calc(100vw - #{$padding}) 100%, 100% 100%, 100% 100vh, 0 100vh)
+
+    $clip-horizontal: calc(100vw - #{$padding})
+    $clip-vertical: calc(100% + #{$cell-margin})
+    clip-path: polygon(0 0, $clip-horizontal 0, $clip-horizontal $clip-vertical, 100vw $clip-vertical, 100vw 100vh, 0 100vh)
 
   // trick wrapper
   // |    <==== ====>    |
