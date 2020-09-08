@@ -11,7 +11,15 @@
     </checkbox>
     <hr />
     <version />
-    <group name="0.3.1 'Jiyugaoka'" opened>
+    <group name="0.3.2 'Gakugei-Daigaku'" opened>
+      <p>
+        Align and Sort direction is added to options.
+        <br />
+        (when non-center align is applied with minimal theme, <br />
+        overlay will shown in single line.)
+      </p>
+    </group>
+    <group name="0.3.1 'Jiyugaoka'">
       <p>
         Fixed noisy logs and some bugs (CDH count fix, etc)
       </p>
