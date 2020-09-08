@@ -5,49 +5,112 @@
       <span class="spacer"></span>
       '{{ releasename }}'
     </p>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 24" style="width: 22.5rem; height: 1.5rem;">
-      <path opacity="0.25" fill="#20A288" d="M0,16h8v-2h11v-2h-11v-1l-2,1v2h-4v-2l-2,1z"/>
-      <path opacity="0.25" fill="#20A288" d="M19,8h8v4h11v2h-11v2h-8l2,-2h4v-4h-4v4l-2,2z"/>
-      <path opacity="0.25" fill="#20A288" d="M38,8h8v4h11v2h-11v2h-8l2,-2h4v-4h-4v4l-2,2z"/>
-      <path opacity="0.25" fill="#20A288" d="M57,16h6.6l4.1,4.1l1.4,-1.4l-4.1,-4.1v-1.6l-2,-1v2h-4v-2l-2,-1z"/>
-      <!-- <path opacity="0.25" fill="#FFA500" d="M0,8h8v3h49v2h-49v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/> -->
-      <path opacity="0.25" fill="#FFA500" d="M0,8h8v1h11v2h-11l-2,1v-2h-4v2l-2,1z"/>
-      <path opacity="0.25" fill="#FFA500" d="M27,8v1h11v2h-11z"/>
-      <path opacity="0.25" fill="#FFA500" d="M57,8h8v3h11v2h-11l-2,-1v-2h-4v2l-2,-1h-11v-2h11z"/>
-      <path opacity="0.25" fill="#FFA500" d="M76,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <path opacity="0.25" fill="#FFA500" d="M95,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <path opacity="0.25" fill="#FFA500" d="M114,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <path opacity="0.25" fill="#FFA500" d="M133,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <path opacity="0.25" fill="#FFA500" d="M152,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <path opacity="1.00" fill="#FFA500" d="M171,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <!-- toyoko | | -->
-      <path opacity="1.00" fill="#DA0442" d="M174,8V0h2v8z" />
-      <path opacity="0.25" fill="#DA0442" d="M174,16h2v8h-2z" />
-      <path opacity="0.25" fill="#FFA500" d="M190,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <!-- express passthrough -->
-      <path opacity="1.00" fill="#FFA500" d="M209,8m-0,3h-19v2h19z"/>
-      <path opacity="1.00" fill="#FFA500" d="M209,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <!-- meguro / / -->
-      <path opacity="0.25" fill="#009CD2" d="M217,8h-1.4l8,-8l1.4,1.4l-8,8z m-8,8 h1.4 l-8,8 l-1.4,-1.4 l8,-8 z" />
-      <path opacity="0.25" fill="#FFA500" d="M228,8h8v3h11v2h-11v3h-8v-8h8l-2,2h-4v4h4v-4l2,-2z" />
-      <!-- express passthrough -->
-      <path opacity="1.00" fill="#FFA500" d="M247,8m-0,3h-19v2h19z"/>
-      <path opacity="1.00" fill="#FFA500" d="M247,8h8v8h-8v-8h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <!-- ikegami / / -->
-      <path opacity="0.25" fill="#FC73A3" d="M255,8h-1.4l8,-8l1.4,1.4l-8,8z" />
-      <path opacity="1.00" fill="#FC73A3" d="M247,16 h1.4 l-8,8 l-1.4,-1.4 l8,-8 z" />
-      <path opacity="0.25" fill="#FFA500" d="M266,8h8v8h-8v-3h-11v-2h11v-3h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <path opacity="0.25" fill="#FFA500" d="M285,8h8v8h-8v-3h-11v-2h11v-3h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <!-- asakusa / / -->
-      <path opacity="0.25" fill="#EC6E65" d="M293,8h-1.4l8,-8l1.4,1.4l-8,8z m-8,8 h1.4 l-8,8 l-1.4,-1.4 l8,-8 z" />
-      <path opacity="0.25" fill="#FFA500" d="M304,8h8v8h-8v-3h-11v-2h11v-3h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <path opacity="0.25" fill="#FFA500" d="M323,8h8v8h-8v-3h-11v-2h11v-3h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <path opacity="0.25" fill="#FFA500" d="M342,8h8v8h-8v-3h-11v-2h11v-3h8l-2,2h-4v4h4v-4l2,-2z"/>
-      <!-- rinkai \ - -->
-      <path opacity="0.25" fill="#00B48D" d="M342,8h1.4l-8,-8l-1.4,1.4l8,8z m8,3h10v2h-10z" />
-      <!-- keihin tohoku | | -->
-      <path opacity="0.25" fill="#00BFFF" d="M345,0v8h2v-8z m0,16v8h2v-8z" />
-      <!-- <path opacity="0.25" fill="#FFA500" d="M214,18v2h-1.6l-9-9H200v2h3l9,9h2v2h10v-6H214z M222,22h-6v-2h6V22z"/> -->
+    <svg
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="-2 0 364 24"
+      style="width: 22.75rem; height: 1.5rem;">
+      <defs>
+        <svg:style>
+        <!-- <![CDATA[ -->
+          .line-toyoko { stroke: #da0442; }
+          .line-minato-mirai { stroke: #0067c0; }
+          .line-fukutoshin { stroke: #9c5e31; }
+
+          .line-tokaido { stroke: #ffa500; }
+          .line-yokosuka { stroke: #0070b9; }
+          .line-nambu { stroke: #ffd700; }
+          .line-yamanote { stroke: #9acd32; }
+          .line-saikyo { stroke: #2e8b57; }
+          .line-keihin-tohoku { stroke: #00bfff; }
+          .line-yokohama { stroke: #9acd32; }
+          .line-shonan-shinjuku { stroke: #ff0000; }
+
+          .line-keikyu { stroke: #00bfff; }
+          .line-sotetsu { stroke: #1e90ff; }
+          .line-yokohama-green { stroke: #40cc40; }
+
+          .line-meguro { stroke: #009cd2; }
+          .line-tamagawa { stroke: #ae0378; }
+          .line-oimachi { stroke: #f18c43; }
+          .line-den-en-toshi { stroke: #20a288; }
+
+          .line-hibiya { stroke: #b5b5ac; }
+          .line-hanzomon { stroke: #9370db; }
+          .line-ginza { stroke: #ff9500; }
+
+        <!-- ]]> -->
+      </svg:style>
+        <clipPath id="adj-clip" clipPathUnits="userSpaceOnUse">
+          <path d="M0,8h8v8h-8v-8l-8,-8h24v24h-24v-24" clip-rule="evenodd" />
+        </clipPath>
+        <path id="station-main" fill="none" class="line-toyoko" stroke-width="2" d="M1,9v6h6v-6z M7,12 h10" />
+        <path id="station-stop" fill="none" class="line-toyoko" stroke-width="2" d="M1,9v6h6v-6z" />
+        <path id="adj-n" stroke-width="2" d="M4,0v8" />
+        <path id="adj-s" stroke-width="2" d="M4,16v8" />
+        <path id="adj-ns" stroke-width="2" d="M4,0v8m0,8v8" />
+        <path id="adj-w" stroke-width="2" d="M0,12h-8" />
+        <path id="adj-e" stroke-width="2" d="M8,12h8" />
+        <path id="adj-nw" stroke-width="2" d="M4,12l-10,-10" clip-path="url(#adj-clip)" />
+        <path id="adj-ne" stroke-width="2" d="M4,12l10,-10" clip-path="url(#adj-clip)" />
+        <path id="adj-sw" stroke-width="2" d="M4,12l-10,10" clip-path="url(#adj-clip)" />
+        <path id="adj-se" stroke-width="2" d="M4,12l10,10" clip-path="url(#adj-clip)" />
+      </defs>
+      <!-- <path opacity="0.25" fill="#20A288" d="M57,16h6.6l4.1,4.1l1.4,-1.4l-4.1,-4.1v-1.6l-2,-1v2h-4v-2l-2,-1z"/> -->
+
+      <g fill="none" stroke-width="1">
+        <path d="M22,1.5h-24" class="line-yokosuka" />
+        <path d="M22,3h-24" stroke-width="2" class="line-tokaido" />
+        <path d="M22,4.5h-12" class="line-yokohama" />
+        <path d="M22,5.5h-24" class="line-keihin-tohoku" />
+        <path d="M22,21h-24" stroke-width="2" class="line-keikyu" />
+      </g>
+      <use href="#adj-w" x="4" y="-3" class="line-sotetsu" />
+      <use href="#adj-w" x="6" class="line-minato-mirai" />
+      <use href="#station-main" x="6" />
+      <use href="#station-main" x="23" />
+      <use href="#station-main" x="40" />
+      <use href="#station-main" x="57" />
+      <use href="#station-main" x="74" />
+      <use href="#adj-ns" x="91" class="line-yokohama" />
+      <use href="#station-main" x="91" />
+      <use href="#station-main" x="108" />
+      <use href="#station-main" x="125" />
+
+      <use href="#adj-sw" x="142" class="line-meguro" />
+      <use href="#adj-s" x="142" class="line-yokohama-green" />
+      <path d="M150,14 h9 m8,0 h9 m8,0 h9 m8,0 h9 m8,0 h9 m8,0" stroke-width="2" class="line-meguro" />
+      <use href="#station-main" x="142" />
+      <use href="#station-main" x="159" />
+
+      <use href="#adj-ns" x="176" class="line-nambu" />
+      <use href="#adj-ne" x="176" class="line-yokosuka" />
+      <use href="#adj-sw" x="176" class="line-yokosuka" />
+      <use href="#station-main" x="176" />
+      <use href="#station-main" x="193" />
+
+      <use href="#adj-s" x="210" class="line-tamagawa" />
+      <use href="#station-main" x="210" />
+      <use href="#adj-ne" x="227" class="line-meguro" />
+
+      <use href="#station-main" x="227" />
+
+      <use href="#adj-ns" x="244" class="line-oimachi" />
+      <use href="#station-main" x="244" />
+      <use href="#station-main" x="261" />
+      <use href="#station-main" x="278" />
+      <use href="#station-main" x="295" />
+
+      <use href="#adj-se" x="312" class="line-hibiya" />
+      <use href="#station-main" x="312" />
+      <use href="#station-main" x="329" />
+
+      <use href="#adj-e" x="346" class="line-fukutoshin" />
+      <use href="#adj-ns" x="345" class="line-yamanote" />
+      <use href="#adj-ns" x="347" class="line-saikyo" />
+      <use href="#adj-w" x="348" y="-3" class="line-den-en-toshi" />
+      <use href="#adj-e" x="346" y="-3" class="line-hanzomon" />
+      <use href="#adj-e" x="348" y="3" class="line-ginza" />
+      <use href="#station-stop" x="346" />
     </svg>
   </div>
 </template>
