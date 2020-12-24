@@ -1,5 +1,11 @@
 <template>
   <section class="c-details">
+    <article class="details-group" v-if="hide_name">
+      <row
+        title=""
+        :value="c.name" />
+      <hr />
+    </article>
     <article class="details-group dps">
       <row
         title="DPS"
@@ -86,7 +92,10 @@ export default {
     e: Object // encounter
   },
   computed: {
-    ...mapState('settings', [ 'reduced' ])
+    ...mapState('settings', [
+      'hide_name',
+      'reduced'
+    ])
   }
 }
 
