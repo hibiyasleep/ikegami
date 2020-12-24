@@ -37,6 +37,12 @@
       <li @click="toggleLayoutMode()"> Layout Mode </li>
     </ul>
     <section class="c-details">
+      <article class="details-group" v-if="theme === 'minimal'">
+        <row
+          title=""
+          :value="e.zone" />
+        <hr />
+      </article>
       <article class="details-group dps">
         <row
           title="RDPS"
@@ -95,7 +101,10 @@ export default {
       e: 'encounter',
       c: 'combatants'
     }),
-    ...mapState('settings', [ 'show_decimals' ]),
+    ...mapState('settings', [
+      'show_decimals',
+      'theme'
+    ]),
     ...mapGetters('encounter', [ 'rank' ])
   },
   filters: {
