@@ -14,7 +14,9 @@
         'blur-name': blur_name,
         'main-ticker-will-not-yield': !yield_for_subtickers,
         'layout-mode': layout_mode,
-        'single-value': !cell_display2
+        'single-value': !cell_display2,
+        'singleline': cell_display2 && force_singleline_allowed,
+        'force-singleline-allowed': force_singleline_allowed
       }
     ]">
     <userlist />
@@ -29,7 +31,7 @@
 
 import packageinfo from './package.json'
 
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 import userlist from './components/layout/userlist.vue'
 import navbar from './components/layout/navbar.vue'
@@ -66,6 +68,9 @@ export default {
     ...mapState('ui', [
       'opened_window',
       'layout_mode'
+    ]),
+    ...mapGetters('settings', [
+      'force_singleline_allowed'
     ])
   },
   mounted() {

@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { ALLOWED_NARROW_CELL_VALUES } from '../lib/const'
 
 const _version = 1
 
@@ -13,6 +14,7 @@ const _state = () => ({
   yield_for_subtickers: true,
   hide_name: false,
   hide_job_icon: false,
+  force_inline_short_values: true,
   reduced: false,
   // appearance
   ui_scale: 100,
@@ -73,6 +75,11 @@ export default {
       } else {
         return [state.username]
       }
+    },
+    force_singleline_allowed(state) {
+      return state.force_inline_short_values && ALLOWED_NARROW_CELL_VALUES.some(_ =>
+        _ === state.cell_display1 || _ === state.cell_display2
+      )
     }
   },
   actions: {

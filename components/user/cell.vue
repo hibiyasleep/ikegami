@@ -125,7 +125,7 @@ export default {
     width: 100%
     height: 100%
 
-    @include if-enabled('single-value', 'hide-name')
+    @include if-enabled('singleline', 'hide-name')
       flex-direction: row
       max-height: $cell-line-height
 
@@ -151,7 +151,7 @@ export default {
       text-overflow: clip
       overflow-x: hidden
 
-      @include if-enabled('single-value', 'hide-name')
+      @include if-enabled('singleline', 'hide-name')
         justify-content: flex-start
         text-shadow: $shadow-text-background
 
@@ -174,7 +174,7 @@ export default {
         line-height: 1em
         width: 1em
 
-        // @include if-enabled('single-value', 'hide-name')
+        // @include if-enabled('singleline', 'hide-name')
         //   margin-right: -0.25rem
 
         @include if-enabled('hide-job-icons')
@@ -184,7 +184,7 @@ export default {
         text-shadow: $shadow-text-without-background, $shadow-text-background
         min-width: 0
 
-        @include if-enabled('single-value')
+        @include if-enabled('singleline')
           text-shadow: inherit
 
         @include if-enabled('hide-name')
@@ -220,12 +220,17 @@ export default {
         text-align: left
         margin-right: auto
 
-        @include if-enabled('single-value.hide-name')
+        @include if-enabled('single-value')
           margin-left: auto
+
+        @include if-enabled('force-singleline-allowed:not(.single-value):not(.hide-name)')
+          opacity: 0.666
 
       > .r
         text-align: center
 
+        @include if-enabled('force-singleline-allowed')
+          margin-left: 0.25rem
 
   .c-details
     position: absolute
@@ -234,7 +239,7 @@ export default {
 
     opacity: 0
 
-    @include if-enabled('single-value', 'hide-name')
+    @include if-enabled('singleline', 'hide-name')
       top: $cell-line-height + 0.25rem
 
     &:hover

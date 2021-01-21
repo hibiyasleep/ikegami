@@ -55,6 +55,9 @@
       ])"
       v-model="list_align" />
     <checkbox
+      label="Force singleline with short values"
+      v-model="force_inline_short_values" />
+    <checkbox
       label="Less information on detailed view"
       v-model="reduced" />
     <group name="Tickers">
@@ -235,6 +238,7 @@ export default {
     ...mapStateDynamically('settings', [
       'cell_display1',
       'cell_display2',
+      'force_inline_short_values',
       'shorten_name',
       'tickers_dps_crit',
       'tickers_healer_pct',

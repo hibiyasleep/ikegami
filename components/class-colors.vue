@@ -56,7 +56,7 @@ $icon-size: 1.25rem
     z-index: -1
 
 // icon displayed over ticker background
-.root.single-value, .root.hide-name
+.root.singleline, .root.hide-name
   .color-scheme-demo
     line-height: $icon-size * 1.75
     .ticker
