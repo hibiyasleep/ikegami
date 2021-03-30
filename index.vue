@@ -15,7 +15,7 @@
         'main-ticker-will-not-yield': !yield_for_subtickers,
         'layout-mode': layout_mode,
         'single-value': !cell_display2,
-        'singleline': cell_display2 && force_singleline_allowed,
+        'singleline': cell_display2? force_singleline_allowed : true,
         'force-singleline-allowed': force_singleline_allowed
       }
     ]">
