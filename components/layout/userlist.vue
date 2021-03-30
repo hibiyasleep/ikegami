@@ -56,23 +56,34 @@ export default {
   align-items: flex-start
   justify-content: center
 
-  // @include if-enabled('order-by-desc')
+  $clip-width: $cell-width + $cell-margin
 
-  @include if-enabled('align-left')
-    justify-content: flex-start
-  @include if-enabled('align-right')
-    justify-content: flex-end
-
-  $padding: $cell-width + $cell-margin
+  $clip-height: calc(100% + #{$cell-margin})
 
   @include if-enabled('align-left.theme-minimal')
-    padding-left: $padding
-  @include if-enabled('align-right.theme-minimal')
-    padding-right: $padding
+    padding-left: $clip-width
 
-    $clip-horizontal: calc(100vw - #{$padding})
-    $clip-vertical: calc(100% + #{$cell-margin})
-    clip-path: polygon(0 0, $clip-horizontal 0, $clip-horizontal $clip-vertical, 100vw $clip-vertical, 100vw 100vh, 0 100vh)
+  @include if-enabled('align-right.theme-minimal')
+    padding-right: $clip-width
+
+  @include if-enabled('order-by-asc.align-right.theme-minimal')
+    $clip-point-horizontal: calc(100vw - #{$clip-width})
+    // 0                100vw
+    // +-------+              < 0
+    // |       | $clip-width
+    // |       +------------+ < $clip-height
+    // |                    |
+    // +--------------------+ < 100vh
+    clip-path: polygon(0 0, $clip-point-horizontal 0, $clip-point-horizontal $clip-height, 100vw $clip-height, 100vw 100vh, 0 100vh)
+
+  @include if-enabled('order-by-desc.align-left.theme-minimal')
+    // 0                100vw
+    //              +-------+ < 0
+    //  $clip-width |       |
+    // +------------+       | < $clip-height
+    // |                    |
+    // +--------------------+ < 100vh
+    clip-path: polygon(100vw 0, $clip-width 0, $clip-width $clip-height, 0 $clip-height, 0 100vh, 100vw 100vh)
 
   // trick wrapper
   // |    <==== ====>    |
@@ -83,6 +94,9 @@ export default {
 
     align-items: flex-start
     justify-content: flex-start
+
+    @include if-enabled('order-by-desc')
+      justify-content: flex-end
 
     .c-user-cell
       flex-shrink: 0
