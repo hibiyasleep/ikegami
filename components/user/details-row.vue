@@ -3,7 +3,9 @@
     <span class="title">
       {{ title }}
     </span>
-    <var class="values" v-for="v in values"> {{ v }} </var>
+    <var class="values" v-for="v in values">
+      {{ v }}
+    </var>
   </div>
 </template>
 

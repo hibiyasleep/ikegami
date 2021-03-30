@@ -6,6 +6,7 @@
         :value="c.name" />
       <hr />
     </article>
+
     <article class="details-group dps">
       <row
         title="DPS"
