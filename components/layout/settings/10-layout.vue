@@ -54,12 +54,14 @@
         [ 'right', '→' ]
       ])"
       v-model="list_align" />
-    <checkbox
-      label="Force singleline with short values"
-      v-model="force_inline_short_values" />
-    <checkbox
-      label="Less information on detailed view"
-      v-model="reduced" />
+    <group name="More">
+      <checkbox
+        label="Force singleline with short values"
+        v-model="force_inline_short_values" />
+      <checkbox
+        label="Less information on detailed view"
+        v-model="reduced" />
+    </group>
     <group name="Tickers">
       <figure class="tab-content-presentation w-settings-layout-preview">
         <svg
