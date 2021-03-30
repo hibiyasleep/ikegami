@@ -133,7 +133,7 @@ export default {
     font-style: normal
 
   .row
-    border-left: 0.125rem solid transparent
+    border-left: 0.125rem solid #fff8
     padding-left: 0.25rem
 
   .c-details-graph
