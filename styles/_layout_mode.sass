@@ -1,0 +1,29 @@
+@function rem-to-unitless-px($length)
+  @return ($length / 1rem) * 16px / 1px
+
+
+#root.layout-mode
+  $fill-as-image: linear-gradient(to bottom, $layout-mode-guideline 0%, $layout-mode-guideline 100%)
+  $w: rem-to-unitless-px($ui-width)
+  $h: rem-to-unitless-px($window-height)
+
+  box-shadow: 0 0 0 1px $layout-mode-guideline inset
+  background-color: $layout-mode-background
+
+  background-image: $fill-as-image, $fill-as-image, url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 #{$w} #{$h}"><rect x="0.5" y="0.5" width="#{$w - 1}" height="#{$h - 1}" fill="none" stroke="#{transparentize($layout-mode-guideline, 0.01)}" stroke-width="1"/></svg>')
+
+  background-size: 100% 1px, 1px 100%, $ui-width $window-height
+
+  background-position-x: 0, center, center
+  background-position-y: $cell-line-height * 2, center, $cell-line-height * 2 + 0.25rem
+
+  background-repeat: no-repeat
+
+  &.align-left
+    background-position-x: 0, left, left
+
+  &.align-right
+  background-position-x: 0, right, right
+
+  &.singleline
+    background-position-y: $cell-line-height, center, $cell-line-height + 0.25rem
