@@ -229,7 +229,10 @@ export default {
           opacity: 0.666
 
           &.zero
-            opacity: 0
+            display: none
+
+            ~ .r
+              margin-left: 0
 
       > .r
         text-align: center
