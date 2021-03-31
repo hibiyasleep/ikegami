@@ -32,6 +32,8 @@ export default {
     width: 1.5rem
     height: 1.5rem
 
+    flex-shrink: 0
+
     &::after
       display: inline-block
       content: ''
