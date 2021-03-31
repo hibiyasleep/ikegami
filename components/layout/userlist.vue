@@ -60,9 +60,13 @@ export default {
 
   $clip-height: calc(100% + #{$cell-margin})
 
+  @include if-enabled('align-left')
+    justify-content: flex-start
+  @include if-enabled('align-right')
+    justify-content: flex-end
+
   @include if-enabled('align-left.theme-minimal')
     padding-left: $clip-width
-
   @include if-enabled('align-right.theme-minimal')
     padding-right: $clip-width
 
