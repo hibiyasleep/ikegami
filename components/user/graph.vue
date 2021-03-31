@@ -7,7 +7,7 @@
   ]">
     <span
       v-for="(v, index) in values"
-      v-if="v"
+      v-if="v > 0"
      :class="[ 'piece', 'p' + index ]"
      :style="{ 'flex-grow': v }"></span>
   </div>
