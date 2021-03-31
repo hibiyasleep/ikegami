@@ -10,7 +10,7 @@
         <span class="name">{{ combatant.name | name(shorten_name) }}</span>
       </label>
       <var class="values">
-        <span class="l">
+        <span :class="[ 'l', { zero: combatant[cell_display1] < 0.02 } ]">
           {{ combatant[cell_display1] | f(cell_display1, show_decimals) }}
         </span>
         <span class="r" v-if="cell_display2">
@@ -227,6 +227,9 @@ export default {
 
         @include if-enabled('force-singleline-allowed:not(.single-value):not(.hide-name)')
           opacity: 0.666
+
+          &.zero
+            opacity: 0
 
       > .r
         text-align: center
