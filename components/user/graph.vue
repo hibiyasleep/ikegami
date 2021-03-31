@@ -40,7 +40,7 @@ export default {
           // amount of shield 'created' counted, regardness of it was effective or not
           c.shield,
           // c.healed - (total of all other graphed values)
-          (c.healed - c.minion_total - c.oh + c.minion_over),
+          (c.healed - c.minion_total - (c.oh + c.minion_over)),
           // TODO: this could jump through under zero, possibly merging problem?
           c.minion_total - c.minion_over,
           c.minion_over,
