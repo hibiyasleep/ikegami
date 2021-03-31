@@ -75,6 +75,8 @@ export default {
     f(value, key, show_decimals) {
       if(key === 'dps' || key === 'dps1m' || key === 'hps') {
         return filters.decimal(value, show_decimals)
+      } else if(key === 'ohpct') {
+        return filters.pct(value, 0)
       } else {
         return value
       }

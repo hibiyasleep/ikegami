@@ -132,7 +132,7 @@ export default {
           hps:     parseFloat(c.enchps),
           healed:    parseInt(c.healed),
           maxheal: [ parseInt(hamount.replace(/[^0-9]/g, '')), hskill ],
-          ohpct:              c.OverHealPct,
+          ohpct:              0, // post-calculated
           oh:        parseInt(c.overHeal),
           shield:    parseInt(c.damageShield),
           absorb:    parseInt(c.absorbHeal),
@@ -140,21 +140,13 @@ export default {
           minion_total: 0,
           minion_over: 0
         }
-        o.ch -= o.cdh
-        o.dh -= o.cdh
-        o.critcounts = [ o.dh, o.ch, o.cdh ].join('/')
-        o.critcounts_wo_direct = [ o.ch, o.cdh ].join('/')
 
         // override name with maxhit/heal skillname when LMB used once
         if(o.job === 'limit-break' && (
            o.swings === 1 ||
            o.maxheal[0] === o.healed
         )) {
-          if(dskill) {
-            o.name = dskill
-          } else if(hskill) {
-            o.name = hskill
-          }
+          o.name = dskill || hskill || o.name
         }
 
         players[o._name] = o
@@ -183,37 +175,51 @@ export default {
             let old = ownerData[k]
             let pet = petData[k]
 
-            if(typeof old === 'string') {
-              if(k === 'job' || k === 'name') {
-                ownerData[k] = old // FIXME
-              }
-              if(k.endsWith('%')) {
-                ownerData[k] = old // FIXME
-              }
-            } else if(k === 'maxhit' || k === 'maxheal') {
-              if(old[0] >= pet[0]) {
-                ownerData[k] = old // FIXME
-              } else {
-                ownerData[k] = pet
-              }
-            } else if(k === 'healed') {
-              ownerData[k] += pet
-              ownerData.minion_heal = pet
-            } else if(k === 'oh') {
-              ownerData[k] += pet
-              ownerData.minion_over = pet
-            } else if(k !== 'deaths') { // don't merge death count
-              ownerData[k] = (old + pet) || 0
+            switch(k) {
+              case 'job':
+              case 'name':
+                ownerData[k] = old
+                break
+
+              case 'maxhit':
+              case 'maxheal':
+                ownerData[k] = old[0] >= pet[0]? old : pet
+                break
+
+              case 'healed':
+                ownerData[k] += pet
+                ownerData.minion_heal = pet
+                break
+
+              case 'oh':
+                ownerData[k] += pet
+                ownerData.minion_over = pet
+                break
+
+              case 'deaths':
+                break // don't merge death count
+
+              default:
+                ownerData[k] = (old + pet) || 0
             }
           }
-          ownerData.critcounts = [
-            ownerData.dh,
-            ownerData.ch,
-            ownerData.cdh
-          ].join('/')
 
           delete players[index] // merge done
         }
+      }
+
+      // post-recalculations
+      for(let k in players) {
+        const o = players[k]
+
+        // crit direct hits are also counted indiviually as crits and directs
+        o.ch -= o.cdh
+        o.dh -= o.cdh
+
+        o.critcounts = [ o.dh, o.ch, o.cdh ].join('/')
+        o.critcounts_wo_direct = [ o.ch, o.cdh ].join('/')
+
+        o.ohpct = o.oh / o.healed
       }
 
       players = Object.keys(players).map(_ => players[_]).sort((a, b) => b.dps - a.dps)
