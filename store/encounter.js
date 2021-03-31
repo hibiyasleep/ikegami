@@ -196,8 +196,9 @@ export default {
                 ownerData.minion_over = pet
                 break
 
-              case 'deaths':
-                break // don't merge death count
+              case 'deaths': // don't merge death count
+              case 'dpspct': // this is string, provided as-is from ACT
+                break
 
               default:
                 ownerData[k] = (old + pet) || 0
