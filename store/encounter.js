@@ -219,7 +219,7 @@ export default {
         o.critcounts = [ o.dh, o.ch, o.cdh ].join('/')
         o.critcounts_wo_direct = [ o.ch, o.cdh ].join('/')
 
-        o.ohpct = o.oh / o.healed
+        o.ohpct = o.oh / o.healed || 0
       }
 
       players = Object.keys(players).map(_ => players[_]).sort((a, b) => b.dps - a.dps)
