@@ -29,11 +29,11 @@
     "vue-loader": "^14.2.3",
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
-    "webpack": "latest",
+    "webpack": "4",
     "webpack-archive-plugin": "^3.0.0",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "latest"
+    "webpack-dev-server": "3"
   },
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --host=0.0.0.0 --port=9000 --disable-host-check"
