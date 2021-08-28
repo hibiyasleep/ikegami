@@ -1,7 +1,7 @@
 <template>
   <div class="tab-content">
     <radio-button
-      label="Decimal format"
+      :label="$t('settings.data.showDecimals')"
       :selections="new Map([
         [ 1, '123.4' ],
         [ 0, '1234' ],
@@ -9,19 +9,17 @@
       ])"
       v-model="show_decimals" />
     <textlist
-      label="Name for merging"
+      :label="$t('settings.data.nameForMerging')"
       :values="username_configured_computed"
       @input="updateUsername" />
     <string
-      label="(Automatically set)"
+      :label="$t('settings.data.automaticallySet')"
       :value="`(${uid}) ${username}`"
       disabled />
     <blockquote>
-      If multiple pet (including other's) detected as yours, it'll cause
-      duplication of merging.
+      {{ $t('settings.data.automaticallySetTip1') }}
       <br />
-      Name will be automatically detected on ACTWS or recent version of
-      OverlayPlugin. If not, try move to another region.
+      {{ $t('settings.data.automaticallySetTip2') }}
     </blockquote>
   </div>
 </template>

@@ -1,6 +1,13 @@
 <template>
   <div class="tab-content">
-    <dropdown label="Values">
+    <dropdown
+      :label="$t('settings.layout.locale')"
+      :selections="new Map([
+        [ 'en', 'English' ],
+        [ 'zh-CN', '简体中文' ],
+      ])"
+      v-model="locale" />
+    <dropdown :label="$t('settings.layout.values')">
       <div class="multiple-dropdown-wrap" slot="contents">
         <dropdown-body
           :selections="element_selections"
@@ -14,10 +21,10 @@
     <radio-button
       :class="[ 'equal-width', { disabled: hide_name }]"
       mode="multiple"
-      label="Shortenize name as"
+      :label="$t('settings.layout.shortName')"
       :selections="new Map([
-        ['2', (shorten_name & 2)? 'F.' : 'Firstname'],
-        ['1', (shorten_name & 1)? 'L.' : 'Lastname']
+        ['2', (shorten_name & 2)? $t('settings.layout.firstNameShort') : $t('settings.layout.firstName')],
+        ['1', (shorten_name & 1)? $t('settings.layout.lastNameShort') : $t('settings.layout.lastName')]
       ])"
       :value="{
         '2': +shorten_name & 2,
@@ -27,10 +34,10 @@
     <radio-button
       class="equal-width"
       mode="multiple"
-      label="Nameplate"
+      :label="$t('settings.layout.nameplate')"
       :selections="{
-        hide_job_icon: 'Icon',
-        hide_name: 'Name'
+        hide_job_icon: $t('settings.layout.hideJobIcon'),
+        hide_name: $t('settings.layout.hideName')
       }"
       :value="{
         hide_name: !hide_name,
@@ -39,30 +46,30 @@
       @input="v => this[v] = !this[v]" />
     <radio-button
       class="equal-width"
-      label="Sort"
+      :label="$t('settings.layout.sort')"
       :selections="new Map([
-        [ 'asc', '▼' ],
-        [ 'desc', '▲' ]
+        [ 'asc', $t('settings.layout.asc') ],
+        [ 'desc', $t('settings.layout.desc') ]
       ])"
       v-model="list_order" />
     <radio-button
       class="equal-width"
-      label="Align"
+      :label="$t('settings.layout.align')"
       :selections="new Map([
-        [ 'left', '←' ],
-        [ 'center', '◯' ],
-        [ 'right', '→' ]
+        [ 'left', $t('settings.layout.alignLeft') ],
+        [ 'center', $t('settings.layout.alignCenter') ],
+        [ 'right', $t('settings.layout.alignRight') ]
       ])"
       v-model="list_align" />
-    <group name="More">
+    <group :name="$t('settings.layout.more')">
       <checkbox
-        label="Force singleline with short values"
+        :label="$t('settings.layout.forceInlineShortValues')"
         v-model="force_inline_short_values" />
       <checkbox
-        label="Less information on detailed view"
+        :label="$t('settings.layout.reduced')"
         v-model="reduced" />
     </group>
-    <group name="Tickers">
+    <group :name="$t('settings.layout.tickers')">
       <figure class="tab-content-presentation w-settings-layout-preview">
         <svg
           width="372"
@@ -143,15 +150,15 @@
                 transform="translate(-86, -4)">
                 <g transform="translate(0, 0)">
                   <rect width="4" height="14" class="piece p1" />
-                  <text x="8" y="11.3"> direct </text>
+                  <text x="8" y="11.3"> {{$t('settings.layout.tickersDirect')}} </text>
                 </g>
                 <g transform="translate(0, 16)">
                   <rect width="4" height="14" class="piece p2" />
-                  <text x="8" y="11.3"> crit </text>
+                  <text x="8" y="11.3"> {{$t('settings.layout.tickersCrit')}} </text>
                 </g>
                 <g transform="translate(0, 32)">
                   <rect width="4" height="14" class="piece p3" />
-                  <text x="8" y="11.3"> crit direct </text>
+                  <text x="8" y="11.3"> {{$t('settings.layout.tickersCritDirect')}} </text>
                 </g>
               </g>
               <g
@@ -161,17 +168,17 @@
                 transform="translate(262, -4)">
                 <g transform="translate(0, 0)">
                   <rect width="4" height="14" class="piece p0" />
-                  <text x="-4" y="11.3"> shielded </text>
+                  <text x="-4" y="11.3"> {{$t('settings.layout.tickersShielded')}} </text>
                 </g>
                 <g transform="translate(0, 16)">
                   <rect width="4" height="10" class="piece p1" y="4" />
                   <rect width="4" height="4" class="piece p2" />
-                  <text x="-4" y="11.3"> healed </text>
+                  <text x="-4" y="11.3"> {{$t('settings.layout.tickersHealed')}} </text>
                 </g>
                 <g transform="translate(0, 32)">
                   <rect width="4" height="10" class="piece p4" y="4" />
                   <rect width="4" height="4" class="piece p3" />
-                  <text x="-4" y="11.3"> overhealed </text>
+                  <text x="-4" y="11.3"> {{$t('settings.layout.tickersOverhealed')}} </text>
                 </g>
               </g>
             </g>
@@ -188,18 +195,18 @@
       </figure>
       <radio-button
         :class="[ 'equal-width' ]"
-        label="Critical hits"
+        :label="$t('settings.layout.tickersDpsCrit')"
         :selections="ticker_selections"
         :value="tickers_dps_crit"
         @input="updateTickerOption('tickers_dps_crit', $event)" />
       <radio-button
         :class="[ 'equal-width' ]"
-        label="Healed percentages"
+        :label="$t('settings.layout.tickersHealerPct')"
         :selections="ticker_selections"
         :value="tickers_healer_pct"
         @input="updateTickerOption('tickers_healer_pct', $event)" />
       <checkbox
-        label="Yield space of main ticker for subtickers"
+        :label="$t('settings.layout.yieldForSubtickers')"
         v-model="yield_for_subtickers" />
     </group>
   </div>
@@ -225,6 +232,11 @@ export default {
       '': 1000
     }
   }),
+  mounted() {
+    for (const key in this.element_selections) {
+      this.element_selections[key] = this.$t(`stats.${key}`)
+    }
+  },
   methods: {
     updateTickerOption(key, value) {
       let otherkeys = ['tickers_dps_crit', 'tickers_healer_pct'].filter(_ => _ !== key)
@@ -249,7 +261,8 @@ export default {
       'hide_job_icon',
       'list_order',
       'list_align',
-      'reduced'
+      'reduced',
+      'locale'
     ]),
     shortenized_name() {
       if(this.cell_display2) {

@@ -1,6 +1,7 @@
 <template>
   <div
     id="root"
+    :lang="$store.state.settings.locale"
     :class="[
       'root',
       'theme-' + (theme || 'none'),

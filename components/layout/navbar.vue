@@ -31,10 +31,10 @@
       </svg>
     </div>
     <ul class="dropdown" v-if="dropdown_opened" @click="dropdown_opened = false">
-      <li @click="endEncounter"> Split Encounter </li>
-      <li @click="open('changelog')"> Changelog </li>
-      <li @click="open('settings')"> Settings </li>
-      <li @click="toggleLayoutMode()"> Layout Mode </li>
+      <li @click="endEncounter"> {{$t('overlay.dropdown.endEncounter')}} </li>
+      <li @click="open('changelog')"> {{$t('overlay.dropdown.changelog')}} </li>
+      <li @click="open('settings')"> {{$t('overlay.dropdown.settings')}} </li>
+      <li @click="toggleLayoutMode()"> {{$t('overlay.dropdown.layoutMode')}} </li>
     </ul>
     <section class="c-details">
       <article class="details-group" v-if="theme === 'minimal'">
@@ -45,27 +45,27 @@
       </article>
       <article class="details-group dps">
         <row
-          title="RDPS"
+          :title="$t('stats.rdps')"
           :value="e.rdps | decimal" />
         <row
-          title="1m"
+          :title="$t('stats.1m')"
           :value="e.dps1m | decimal" />
         <row
-          title="Max"
+          :title="$t('stats.max')"
           :value="e.max" />
         <hr />
       </article>
 
       <article class="details-group healer">
         <row
-          title="RHPS"
+          :title="$t('stats.rhps')"
           :value="e.rhps | decimal" />
         <hr />
       </article>
 
       <article class="details-group tank">
         <row
-          title="Total deaths"
+          :title="$t('stats.totalDeaths')"
           :value="e.deaths" />
       </article>
     </section>

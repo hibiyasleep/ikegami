@@ -2,7 +2,7 @@
   <nav class="c-layout-mode-wrapper window">
     <h4>
       <span>
-        <b> Layout mode </b>
+        <b> {{$t('overlay.layout.title')}} </b>
         -
         {{ width }}x{{ height }}
       </span>

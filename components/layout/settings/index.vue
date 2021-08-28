@@ -6,10 +6,10 @@
       @navigate="navigate"
       :current="current"
       :tabs="new Map([
-        [ 'layout', 'Layout' ],
-        [ 'appearance', 'Appearance' ],
-        [ 'data', 'Data' ],
-        [ 'about', 'About' ]
+        [ 'layout', $t('settings.index.layout') ],
+        [ 'appearance', $t('settings.index.appearance') ],
+        [ 'data', $t('settings.index.data') ],
+        [ 'about', $t('settings.index.about') ]
       ])">
       <template v-slot:layout>
         <layout />
