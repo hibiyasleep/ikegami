@@ -9,26 +9,26 @@
 
     <article class="details-group dps">
       <row
-        title="DPS"
+        :title="$t('stats.dps')"
         :value="c.dps | decimal" />
       <row
-        title="1m"
+        :title="$t('stats.1m')"
         :value="c.dps1m | decimal" />
       <row
-        title="Max"
+        :title="$t('stats.maxhit')"
         :value="c.maxhit" />
 
       <hr v-if="!reduced" />
 
       <row
-        title="Swings"
+        :title="$t('stats.swings')"
         :value="c.swings"
         v-if="!reduced" />
       <!-- <row
         title="Swings/GC"
         :value="c.swings / e.duration * 2.5 | decimal" /> -->
       <row
-        title="D/!/!!!"
+        :title="$t('stats.critcounts')"
         :value="c.critcounts"
         v-if="!reduced" />
       <div class="row">
@@ -39,26 +39,26 @@
 
     <article class="details-group healer" v-if="c.healed">
       <row
-        title="HPS"
+        :title="$t('stats.hps')"
         :value="c.hps | decimal" />
       <row
-        title="%"
+        :title="$t('stats.pct')"
         :value="(c.healed / e.healed) | pct" />
       <row
-        title="Max"
+        :title="$t('stats.maxheal')"
         :value="c.maxheal" v-if="!reduced" />
 
       <hr v-if="!reduced" />
 
       <row
-        title="Overheal"
+        :title="$t('stats.overheal')"
         :value="(c.oh / c.healed) | pct" />
       <row
-        title="By minion"
+        :title="$t('stats.minionHeal')"
         :value="(c.minion_heal / c.healed) | pct"
         v-if="!reduced && c.minion_heal" />
       <row
-        title="Shielded"
+        :title="$t('stats.shield')"
         :value="c.shield"
         v-if="!reduced" />
       <div class="row">
@@ -70,7 +70,7 @@
 
     <article class="details-group tank">
       <row
-        title="Deaths"
+        :title="$t('stats.deaths')"
         :value="c.deaths" />
     </article>
   </section>

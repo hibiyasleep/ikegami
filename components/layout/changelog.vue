@@ -1,13 +1,13 @@
 <template>
-  <window class="c-changelog-wrapper" title="Changelog" type="changelog">
+  <window class="c-changelog-wrapper" :title="$t('changelog.title')" type="changelog">
     <checkbox
       v-model="never_show_changelog_again"
       class="small never-show">
       <span v-show="!never_show_changelog_again">
-        this will only appear once after update.
+        {{$t('changelog.onlyAfterUpdates')}}
       </span>
       <span></span>
-      Never show this again
+      {{$t('changelog.never')}}
     </checkbox>
     <hr />
     <version />

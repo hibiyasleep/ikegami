@@ -2,47 +2,47 @@
   <div class="tab-content">
     <!-- 62.5 = 10px = usual zoomout limit -->
     <number
-      label="UI Scale (%)"
+      :label="$t('settings.appearance.uiScale')"
       :min="62.5"
       :max="300"
       :step="6.25"
       :default="100"
       v-model="ui_scale" />
     <dropdown
-      label="Theme"
-      empty="Default"
+      :label="$t('settings.appearance.theme')"
+      :empty="$t('settings.appearance.themeDefault')"
       :selections="new Map([
-        [ 'minimal', 'Minimal' ],
-        [ 'tokyu', 'Tōkyū Ikegami Line' ],
-        [ 'keikyu', 'Keikyū Line' ]
+        [ 'minimal', $t('settings.appearance.themeMinimal') ],
+        [ 'tokyu', $t('settings.appearance.themeTokyu') ],
+        [ 'keikyu', $t('settings.appearance.themeKeikyu') ]
       ])"
       v-model="theme" />
     <dropdown
-      label="Color Scheme"
+      :label="$t('settings.appearance.colorScheme')"
       :selections="new Map([
-        [ 'kagerou-material', 'kagerou Material' ],
-        [ 'mopimopi-default', 'MopiMopi default' ],
-        [ 'amethyst', 'Amethyst' ],
-        [ 'fflogs', '(beta) FFLogs' ],
-        [ 'ikegami-by-role-3', 'ikegami 3-roles' ],
-        [ 'ikegami-by-role-5', 'ikegami 5-roles' ],
-        [ 'mopimopi-by-role', 'MopiMopi 3-roles' ]
+        [ 'kagerou-material', $t('settings.appearance.colorSchemeKagerouMaterial') ],
+        [ 'mopimopi-default', $t('settings.appearance.colorSchemeMopimopiDefault') ],
+        [ 'amethyst', $t('settings.appearance.colorSchemeAmethyst') ],
+        [ 'fflogs', $t('settings.appearance.colorSchemeFflogs') ],
+        [ 'ikegami-by-role-3', $t('settings.appearance.colorSchemeIkegamiByRole3') ],
+        [ 'ikegami-by-role-5', $t('settings.appearance.colorSchemeIkegamiByRole5') ],
+        [ 'mopimopi-by-role', $t('settings.appearance.colorSchemeMopimopiByRole') ]
       ])"
       v-model="color_scheme" />
     <dropdown
-      label="Job Icons"
+      :label="$t('settings.appearance.jobIcons')"
       :selections="new Map([
-        [ 'default', 'Default' ],
-        [ 'monochrome', 'Monochrome' ],
-        [ 'legacy', 'Legacy (Bitmap)' ]
+        [ 'default', $t('settings.appearance.jobIconsDefault') ],
+        [ 'monochrome', $t('settings.appearance.jobIconsMonochrome') ],
+        [ 'legacy', $t('settings.appearance.jobIconsLegacy') ]
       ])"
       v-model="job_icons" />
     <class-colors />
     <checkbox
-      label="Blur out usernames"
+      :label="$t('settings.appearance.blurName')"
       v-model="blur_name" />
     <blockquote>
-      This can be toggled by left-clicking on username.
+      {{ $t('settings.appearance.blurNameTip') }}
     </blockquote>
   </div>
 </template>
