@@ -2,7 +2,8 @@
   <li :class="[
     'c-user-cell',
     'class-' + combatant.job, {
-      self: combatant.name == 'YOU' && highlight_self
+      self: combatant.name == 'YOU' && highlight_self,
+      'limit-break': combatant.job === 'limit-break' && highlight_self,
     }]">
     <div class="user-cell-wrap">
       <label class="name-row" @click="toggleBlur">
@@ -118,7 +119,7 @@ export default {
   white-space: nowrap
   text-overflow: clip
 
-  &:not(.self) .name-row > .name
+  &:not(.self):not(.limit-break) .name-row > .name
     @include if-enabled('blur-name')
       filter: blur(0.2rem)
       -webkit-filter: blur(0.2rem)

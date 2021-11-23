@@ -46,7 +46,7 @@
     </blockquote>
     <template v-if="blur_name">
       <checkbox
-        label="Don't blur out my name"
+        label="Don't blur out my name and limit breaks"
         v-model="highlight_self"
         disabled="blur_name" />
     </template>
