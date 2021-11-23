@@ -44,6 +44,12 @@
     <blockquote>
       This can be toggled by left-clicking on username.
     </blockquote>
+    <template v-if="blur_name">
+      <checkbox
+        label="Don't blur out my name"
+        v-model="highlight_self"
+        disabled="blur_name" />
+    </template>
   </div>
 </template>
 
@@ -61,7 +67,8 @@ export default {
       'theme',
       'color_scheme',
       'job_icons',
-      'blur_name'
+      'blur_name',
+      'highlight_self',
     ])
   }
 }

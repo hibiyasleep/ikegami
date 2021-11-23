@@ -118,6 +118,11 @@ export default {
   white-space: nowrap
   text-overflow: clip
 
+  &:not(.self) .name-row > .name
+    @include if-enabled('blur-name')
+      filter: blur(0.2rem)
+      -webkit-filter: blur(0.2rem)
+
   .user-cell-wrap
     display: flex
     flex-direction: column
@@ -194,10 +199,6 @@ export default {
 
         @include if-enabled('hide-job-icons')
           padding-left: 0.375rem
-
-        @include if-enabled('blur-name')
-          filter: blur(0.2rem)
-          -webkit-filter: blur(0.2rem)
 
     .values
       display: flex
