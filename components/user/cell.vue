@@ -172,6 +172,8 @@ export default {
         display: inline-block
         margin: 0.125rem
 
+        flex-shrink: 0
+
         font-size: 1.25rem
         line-height: 1em
         width: 1em
