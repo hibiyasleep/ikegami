@@ -8,6 +8,7 @@
     <span class="icon class-drg"><span class="ticker"> </span></span>
     <span class="icon class-nin"><span class="ticker"> </span></span>
     <span class="icon class-sam"><span class="ticker"> </span></span>
+    <span class="icon class-rpr"><span class="ticker"> </span></span>
     <span class="icon class-brd"><span class="ticker"> </span></span>
     <span class="icon class-mch"><span class="ticker"> </span></span>
     <span class="icon class-dnc"><span class="ticker"> </span></span>
@@ -18,6 +19,7 @@
     <span class="icon class-whm"><span class="ticker"> </span></span>
     <span class="icon class-sch"><span class="ticker"> </span></span>
     <span class="icon class-ast"><span class="ticker"> </span></span>
+    <span class="icon class-sge"><span class="ticker"> </span></span>
   </p>
 </template>
 
