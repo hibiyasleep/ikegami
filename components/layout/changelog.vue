@@ -11,7 +11,26 @@
     </checkbox>
     <hr />
     <version />
-    <group name="0.3.2 'Gakugei-Daigaku'" opened>
+    <group name="0.3.3 'Yuutenji'" opened>
+      <p>
+        Name is alternatively go inside details view (if hidden).
+      </p>
+      <p>
+        Fixed bugs, about overflow on reverse-align, minion overheals,
+        overheal percentages, and more.
+      </p>
+      <p>
+        <checkbox
+          v-model="force_inline_short_values" >
+          Some values now can stay inside singleline cell.
+          <span class="muted"> (dps%, oh%, deaths; click to toggle) </span>
+        </checkbox>
+      </p>
+      <p>
+        Added 6.0 jobs support.
+      </p>
+    </group>
+    <group name="0.3.2 'Gakugei-Daigaku'">
       <p>
         Align and Sort direction is added to options.
         <br />
@@ -140,6 +159,8 @@
 
 <script>
 
+import mapStateDynamically from '@/lib/map-state-dynamically.js'
+
 import group from '../settings/group.vue'
 import checkbox from '../settings/checkbox.vue'
 import window from '../window.vue'
@@ -155,14 +176,11 @@ export default {
     classColors
   },
   computed: {
-    never_show_changelog_again: {
-      get() { return this.$store.state.settings.never_show_changelog_again },
-      set(v) { this.$store.commit('settings/set', { k: 'never_show_changelog_again', v }) }
-    },
-    theme: {
-      get() { return this.$store.state.settings.theme },
-      set(v) { this.$store.commit('settings/set', { k: 'theme', v }) }
-    }
+    ...mapStateDynamically('settings', [
+      'never_show_changelog_again',
+      'theme',
+      'force_inline_short_values'
+    ])
   }
 }
 
@@ -184,6 +202,9 @@ export default {
   .c-settings-group-content p
     @include unselectable
     display: block
-    margin: 0.375rem 0
+    margin: 0.5rem 0
+
+  .muted
+    opacity: 0.5
 
 </style>
