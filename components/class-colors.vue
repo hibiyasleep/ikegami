@@ -59,10 +59,9 @@ $icon-size: 1.25rem
 
 // icon displayed over ticker background
 .root.singleline, .root.hide-name
-  .color-scheme-demo
-    line-height: $icon-size * 1.75
-    .ticker
-      height: 100%
+  .color-scheme-demo .ticker
+    height: 150%
+    margin-bottom: -25%
 
 .c-settings-group-content .color-scheme-demo
   margin-left: -1rem
