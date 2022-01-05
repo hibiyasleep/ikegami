@@ -1,7 +1,7 @@
 {
   "name": "ikegami",
-  "version": "0.3.2",
-  "releasename": "Gakugei-Daigaku",
+  "version": "0.3.3",
+  "releasename": "Yuutenji",
   "description": "experimental horizontal FFXIV Miniparse overlay",
   "dependencies": {
     "vue": "2.x",

@@ -99,10 +99,10 @@
       <use href="#adj-ns" x="244" class="line-oimachi" />
       <use href="#station-main" x="244" />
       <use href="#station-main" x="261" />
-      <use href="#station-stop" x="278" />
+      <use href="#station-main" x="278" />
+      <use href="#station-stop" x="295" />
 
       <g opacity="0.333">
-        <use href="#station-main" x="278" />
         <use href="#station-main" x="295" />
 
         <use href="#adj-se" x="312" class="line-hibiya" />

@@ -14,6 +14,7 @@ const _state = () => ({
   yield_for_subtickers: true,
   hide_name: false,
   hide_job_icon: false,
+  hide_after: 10,
   force_inline_short_values: true,
   reduced: false,
   // appearance

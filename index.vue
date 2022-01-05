@@ -19,8 +19,8 @@
         'force-singleline-allowed': force_singleline_allowed
       }
     ]">
-    <userlist />
-    <navbar />
+    <userlist v-if="!hidden" />
+    <navbar v-if="!hidden"/>
     <settings v-if="opened_window === 'settings'" />
     <changelog v-if="opened_window === 'changelog'" />
     <layout-mode v-if="layout_mode" />
@@ -69,6 +69,9 @@ export default {
       'opened_window',
       'layout_mode'
     ]),
+    ...mapState('ui', {
+      hidden: state => !state.hideTimeoutId,
+    }),
     ...mapGetters('settings', [
       'force_singleline_allowed'
     ])

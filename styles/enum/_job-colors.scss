@@ -9,6 +9,7 @@ $colorset: (
     'drg': rgb(63, 81, 181), // Indigo 500
     'nin': rgb(211, 47, 47), // Red 700 // 와! 시바! 진성! 닌자다!
     'sam': rgb(255, 202, 40), // Amber 400
+    'rpr': rgb(254, 179, 0), // Amber 600
     'brd': rgb(158, 157, 36), // Lime 800
     'mch': rgb(0, 151, 167), // Cyan 700
     'smn': rgb(46, 125, 50), // Green 800
@@ -18,7 +19,8 @@ $colorset: (
     'dnc': rgb(244, 143, 177), // Pink 200
     'whm': rgb(117, 117, 117), // Gray 600
     'sch': rgb(121, 134, 203), // Indigo 300
-    'ast': rgb(121, 85, 72), // Brown 500),
+    'ast': rgb(121, 85, 72), // Brown 500
+    'sge': rgb(79, 195, 247), // Light Blue 300
     'chocobo': #444,
     'limit-break': #444,
     'line-self': rgb(252, 115, 163),
@@ -34,6 +36,7 @@ $colorset: (
     'drg': hsl(340, 85, 40%),
     'nin': hsl(340, 85, 40%),
     'sam': hsl(340, 85, 40%),
+    'rpr': hsl(340, 85, 40%),
     'brd': hsl(340, 85, 40%),
     'mch': hsl(340, 85, 40%),
     'dnc': hsl(340, 85, 40%),
@@ -44,6 +47,7 @@ $colorset: (
     'whm': hsl(94,  50, 40%),
     'sch': hsl(94,  50, 40%),
     'ast': hsl(94,  50, 40%),
+    'sge': hsl(94,  50, 40%),
     'chocobo': #444,
     'limit-break': #444,
     'line-self': rgb(252, 115, 163),
@@ -59,6 +63,7 @@ $colorset: (
     'drg': hsl(340, 85, 40%),
     'nin': hsl(340, 85, 40%),
     'sam': hsl(340, 85, 40%),
+    'rpr': hsl(340, 85, 40%),
     'brd': hsl(60,  90, 30%), // Lime 800
     'mch': hsl(60,  90, 30%),
     'dnc': hsl(60,  90, 30%),
@@ -69,6 +74,7 @@ $colorset: (
     'whm': hsl(94,  50, 40%),
     'sch': hsl(94,  50, 40%),
     'ast': hsl(94,  50, 40%),
+    'sge': hsl(94,  50, 40%),
     'chocobo': #444,
     'limit-break': #444,
     'line-self': rgb(252, 115, 163),
@@ -84,6 +90,7 @@ $colorset: (
     'drg': #3752D8,
     'nin': #EE2E48,
     'sam': #E45A0F,
+    'rpr': #EADD6F,
     'brd': #ADC551,
     'mch': #148AA9,
     'dnc': #E2B0AF,
@@ -94,6 +101,7 @@ $colorset: (
     'whm': #BDBDBD,
     'sch': #32307B,
     'ast': #B1561C,
+    'sge': #85C4D4,
     'chocobo': #757575,
     'limit-break': #FFBB00,
     'line-self': rgb(252, 115, 163),
@@ -109,6 +117,7 @@ $colorset: (
     'drg': #813B3C,
     'nin': #813B3C,
     'sam': #813B3C,
+    'rpr': #813B3C,
     'brd': #813B3C,
     'mch': #813B3C,
     'dnc': #813B3C,
@@ -118,6 +127,7 @@ $colorset: (
     'whm': #467837,
     'sch': #467837,
     'ast': #467837,
+    'sge': #467837,
     'blu': #813B3C,
     'chocobo': #757575,
     'limit-break': #FFBB00,
@@ -134,6 +144,7 @@ $colorset: (
     'drg': rgb(73, 104, 225),
     'nin': rgb(86, 72, 72),
     'sam': rgb(177, 160, 102),
+    'rpr': rgb(160, 160, 160),
     'brd': rgb(180, 209, 67),
     'mch': rgb(56, 176, 180),
     'dnc': rgb(238, 206, 197),
@@ -143,6 +154,7 @@ $colorset: (
     'whm': rgb(207, 176, 144),
     'sch': rgb(35, 40, 152),
     'ast': rgb(217, 128, 40),
+    'sge': rgb(96, 96, 112),
     'blu': rgb(45, 97, 198),
     'chocobo': rgb(255, 220, 0),
     'limit-break': rgb(255, 162, 0),
@@ -159,6 +171,7 @@ $colorset: (
     'drg': #4164CD,
     'nin': #AF1964,
     'sam': #e46d04,
+    'rpr': #965a90,
     'brd': rgb(57%, 73%, 37%),
     'mch': #6EE1D6,
     'dnc': #E2B0AF,
@@ -169,6 +182,7 @@ $colorset: (
     'whm': #AFA08C,
     'sch': #8657FF,
     'ast': #ab9400,
+    'sge': #80a0f0,
     'limit-break': #2599BE
   )
   // New color schemes are welcome - just open a PR!

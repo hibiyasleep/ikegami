@@ -233,7 +233,7 @@ export default {
   },
   actions: {
     // Listeners
-    update({ commit, rootGetters }, { Encounter, Combatant }) {
+    update({ commit, dispatch, rootGetters }, { Encounter, Combatant }) {
       if(!Encounter || Encounter.hits < 1) {
         return
       }
@@ -242,6 +242,7 @@ export default {
         combatants: Combatant,
         playerNames: rootGetters['settings/usernames']
       })
+      dispatch('ui/show', null, { root: true })
     },
     logline({ commit }, { type, payload }) {
       switch(type) {

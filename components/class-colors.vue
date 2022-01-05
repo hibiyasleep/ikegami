@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <p class="color-scheme-demo">
     <span class="icon class-pld"><span class="ticker"> </span></span>
     <span class="icon class-war"><span class="ticker"> </span></span>
@@ -8,6 +8,7 @@
     <span class="icon class-drg"><span class="ticker"> </span></span>
     <span class="icon class-nin"><span class="ticker"> </span></span>
     <span class="icon class-sam"><span class="ticker"> </span></span>
+    <span class="icon class-rpr"><span class="ticker"> </span></span>
     <span class="icon class-brd"><span class="ticker"> </span></span>
     <span class="icon class-mch"><span class="ticker"> </span></span>
     <span class="icon class-dnc"><span class="ticker"> </span></span>
@@ -18,6 +19,7 @@
     <span class="icon class-whm"><span class="ticker"> </span></span>
     <span class="icon class-sch"><span class="ticker"> </span></span>
     <span class="icon class-ast"><span class="ticker"> </span></span>
+    <span class="icon class-sge"><span class="ticker"> </span></span>
   </p>
 </template>
 
@@ -57,10 +59,9 @@ $icon-size: 1.25rem
 
 // icon displayed over ticker background
 .root.singleline, .root.hide-name
-  .color-scheme-demo
-    line-height: $icon-size * 1.75
-    .ticker
-      height: 100%
+  .color-scheme-demo .ticker
+    height: 150%
+    margin-bottom: -25%
 
 .c-settings-group-content .color-scheme-demo
   margin-left: -1rem

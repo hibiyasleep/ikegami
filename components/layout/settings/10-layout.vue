@@ -61,6 +61,13 @@
       <checkbox
         label="Less information on detailed view"
         v-model="reduced" />
+      <number
+        label="Hide after (sec)"
+        :min="0"
+        :max="60"
+        :step="1"
+        :default="10"
+        v-model="hide_after" />
     </group>
     <group name="Tickers">
       <figure class="tab-content-presentation w-settings-layout-preview">
@@ -247,6 +254,7 @@ export default {
       'yield_for_subtickers',
       'hide_name',
       'hide_job_icon',
+      'hide_after',
       'list_order',
       'list_align',
       'reduced'
