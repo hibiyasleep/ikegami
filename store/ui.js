@@ -1,4 +1,5 @@
 const _state = () => ({
+  hideTimeoutId: null,
   opened_window: null,
   layout_mode: false
 })
@@ -12,6 +13,14 @@ export default {
     close(state) {
       state.opened_window = null
     },
+    updateHideTimeoutId(state, id) {
+      if(id == null) {
+        state.hideTimeoutId = null
+      } else {
+        clearTimeout(state.hideTimeoutId)
+        state.hideTimeoutId = id
+      }
+    },
     toggleLayoutMode(state, to) {
       if(to === undefined) {
         state.layout_mode = !state.layout_mode
@@ -23,6 +32,12 @@ export default {
   getters: {
   },
   actions: {
+    show({ commit, rootState }) {
+      const timeoutId = setTimeout(() => {
+        commit('updateHideTimeoutId', null)
+      }, rootState.settings.hide_after * 1000)
+      commit('updateHideTimeoutId', timeoutId)
+    }
   },
   namespaced: true
 }
