@@ -301,9 +301,12 @@ export default {
         &.top, &.bottom
           position: absolute
 
-    .ticker.main
-      align-self: flex-start
-      flex-grow: 100
+    .ticker
+      background: var(--job-color, var(--job-gauge-default))
+
+      &.main
+        align-self: flex-start
+        flex-grow: 100
 
     .c-details-graph
       width: calc(100% + #{$_1px})

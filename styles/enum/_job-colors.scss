@@ -205,13 +205,13 @@ $class-remap: (
 
   .scheme-#{$set} {
     @each $k in map-keys($colors) {
-      .class-#{$k} .ticker {
-        background-color: map-get($colors, $k);
+      .class-#{$k} {
+        --job-color: #{map-get($colors, $k)};
       }
       $cl: map-get($class-remap, $k);
       @if $cl {
-        .class-#{$cl} .ticker {
-          background-color: map-get($colors, $k);
+        .class-#{$cl} {
+          --job-color: #{map-get($colors, $k)};
         }
       }
     }
