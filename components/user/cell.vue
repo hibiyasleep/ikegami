@@ -278,7 +278,7 @@ export default {
 
     @include if-enabled('cell-tinted')
       background-color: transparent
-      box-shadow: 0 0 8rem -3rem var(--job-color, var(--job-gauge-default)) inset
+      box-shadow: 0 0 8rem -4rem var(--job-color, var(--job-gauge-default)) inset, 0 0 0 1rem #1116 inset
 
     .ticker, .c-details-graph
       position: relative
