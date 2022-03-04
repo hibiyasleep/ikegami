@@ -21,6 +21,7 @@ const _state = () => ({
   theme: '', // TODO: reconsider
   color_scheme: 'kagerou-material',
   job_icons: 'default',
+  cell_background: 'translucent',
   blur_name: false,
   // appearance: layout
   list_order: 'asc',

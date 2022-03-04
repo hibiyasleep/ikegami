@@ -135,6 +135,9 @@ export default {
   font-size: $nav-text-size
   text-shadow: $shadow-text-background
 
+  @include if-enabled('cell-opaque')
+    background-color: adjust-color($cell-background, $alpha: 1)
+
   @include if-enabled('align-left')
     margin-left: 0
 

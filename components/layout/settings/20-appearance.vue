@@ -18,6 +18,14 @@
       ])"
       v-model="theme" />
     <dropdown
+      label="Cell Background"
+      :selections="new Map([
+        [ 'translucent', 'Translucent' ],
+        [ 'opaque', 'Opaque' ],
+        [ 'tinted', 'Tinted' ]
+      ])"
+      v-model="cell_background" />
+    <dropdown
       label="Color Scheme"
       :selections="new Map([
         [ 'kagerou-material', 'kagerou Material' ],
@@ -59,6 +67,7 @@ export default {
     ...mapStateDynamically('settings', [
       'ui_scale',
       'theme',
+      'cell_background',
       'color_scheme',
       'job_icons',
       'blur_name'

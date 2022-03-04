@@ -112,7 +112,7 @@ export default {
 
   // hitbox
   background-color: rgba(0, 0, 0, 0.005)
-  box-shadow: 0 0 0 0.5rem rgba(0, 0, 0, 0.005), 0 $cell-line-height * -1 0 $cell-background inset
+  box-shadow: 0 0 0 0.5rem rgba(0, 0, 0, 0.005) // , 0 $cell-line-height * -1 0 $cell-background inset
 
   word-break: keep-all
   white-space: nowrap
@@ -270,6 +270,15 @@ export default {
 
     height: $cell-line-height
     z-index: -1
+
+    background-color: $cell-background
+
+    @include if-enabled('cell-opaque')
+      background-color: adjust-color($cell-background, $alpha: 1)
+
+    @include if-enabled('cell-tinted')
+      background-color: transparent
+      box-shadow: 0 0 8rem -3rem var(--job-color, var(--job-gauge-default)) inset
 
     .ticker, .c-details-graph
       position: relative

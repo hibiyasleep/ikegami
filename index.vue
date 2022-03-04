@@ -7,7 +7,8 @@
       'scheme-' + (color_scheme || 'kagerou-material'),
       'icon-' + (job_icons || 'default'),
       'order-by-' + (list_order || 'asc'),
-      'align-' + (list_align || 'center'), {
+      'align-' + (list_align || 'center'),
+      'cell-' + (cell_background || 'translucent'), {
         'hide-name': hide_name,
         'hide-job-icons': hide_job_icon,
         'hide-handle': hide_handle,
@@ -63,7 +64,8 @@ export default {
       'blur_name',
       'list_order',
       'list_align',
-      'cell_display2'
+      'cell_display2',
+      'cell_background'
     ]),
     ...mapState('ui', [
       'opened_window',
