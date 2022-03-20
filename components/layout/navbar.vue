@@ -338,4 +338,92 @@ export default {
   @include if-enabled('theme-minimal.align-left', 'theme-minimal.align-right')
     margin-top: -1 * $nav-height
 
+  @include if-enabled('theme-korail-tgis')
+    background: #00f
+    text-shadow: none
+
+    box-shadow: 0 0 0 1px #fff inset
+
+    &::before, .location, .info, .dropdown
+      font-family: Gulim, sans-serif
+
+    &::before
+      padding: 0 0 0 2rem
+      content: '운전상태'
+
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUBAMAAAB/pwA+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAwUExURQAA/ycn/ysr/zMz/zw8/0hI/2xs/319/4eH/5OT/6am/7m5/8vL/9LS/+bm/////1dIjo8AAACCSURBVBjTY0AFBgim/v8Z5///UQAx+f8DwS8Qq7wDBC4zQEXz/38AM/k64cwO0ftQJvPdzr/3IUy2//9//ocqYD9/4v//BWAmy/m2//8bINZZ3v//FWY1VKl6AAMrhMn0/0fF+f9g1zD9hwCgNuad9mAmUAVzCwfQXTPbCxDuZ2AAAAVmTxlaDFo/AAAAAElFTkSuQmCC')
+      background-size: 1.25rem
+      background-repeat: no-repeat
+      background-position: 0.5rem center
+
+    .location
+      display: flex
+
+
+      flex-grow: 1
+      flex-shrink: 0
+      flex-basis: 0
+      overflow: hidden
+
+      mask-image: none
+      -webkit-mask-image: none
+
+      > time
+        color: inherit
+        margin-right: 0.5rem
+
+      > span
+        flex-grow: 1
+        flex-shrink: 0
+        flex-basis: 0
+        overflow: hidden
+        text-align: center
+        text-overflow: clip
+
+    .info
+      padding-right: 0.5rem
+
+      .rdps::before
+        content: '　'
+
+    .location, .info
+      position: relative
+      padding-left: 2.5rem
+
+      &::before
+        display: block
+        content: ''
+
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 1.2rem
+        margin: auto
+
+        width: 1.5px
+        height: 100%
+
+        background: white
+        transform: skewX(-56.25deg)
+        transform-origin: center
+
+    .buttons
+      margin: 0
+
+      > .button
+        position: absolute
+        right: 0
+        width: 4rem
+        opacity: 0
+
+    .dropdown
+      background: none
+
+      > li
+        margin-top: 1px
+        border: 1px solid #fff
+        background: #00f
+
+        text-align: center
+
 </style>

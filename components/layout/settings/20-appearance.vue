@@ -13,6 +13,7 @@
       empty="Default"
       :selections="new Map([
         [ 'minimal', 'Minimal' ],
+        [ 'korail-tgis', 'Korail TGIS' ],
         [ 'tokyu', 'Tōkyū Ikegami Line' ],
         [ 'keikyu', 'Keikyū Line' ]
       ])"
