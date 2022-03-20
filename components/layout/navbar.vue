@@ -345,7 +345,8 @@ export default {
     box-shadow: 0 0 0 1px #fff inset
 
     &::before, .location, .info, .dropdown
-      font-family: Gulim, sans-serif
+      font-family: Dotum, 'MS PGothic', sans-serif
+      letter-spacing: -0.083em
 
     &::before
       padding: 0 0 0 2rem
