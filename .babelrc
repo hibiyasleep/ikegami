@@ -4,10 +4,11 @@
       "targets": {
         "browsers": [
           "last 2 versions",
+          "> 3%",
           "not dead",
           "not android <= 999",
           "not ie <= 999",
-          "chrome 45"
+          "chrome 75"
         ]
       },
       "debug": true
