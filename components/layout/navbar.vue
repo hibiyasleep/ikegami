@@ -342,20 +342,11 @@ export default {
     background: #00f
     text-shadow: none
 
-    box-shadow: 0 0 0 1px #fff inset
+    border: 1px solid #fff
 
     &::before, .location, .info, .dropdown
       font-family: Dotum, 'MS PGothic', sans-serif
       letter-spacing: -0.083em
-
-    &::before
-      padding: 0 0 0 2rem
-      content: '운전상태'
-
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUBAMAAAB/pwA+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAwUExURQAA/ycn/ysr/zMz/zw8/0hI/2xs/319/4eH/5OT/6am/7m5/8vL/9LS/+bm/////1dIjo8AAACCSURBVBjTY0AFBgim/v8Z5///UQAx+f8DwS8Qq7wDBC4zQEXz/38AM/k64cwO0ftQJvPdzr/3IUy2//9//ocqYD9/4v//BWAmy/m2//8bINZZ3v//FWY1VKl6AAMrhMn0/0fF+f9g1zD9hwCgNuad9mAmUAVzCwfQXTPbCxDuZ2AAAAVmTxlaDFo/AAAAAElFTkSuQmCC')
-      background-size: 1.25rem
-      background-repeat: no-repeat
-      background-position: 0.5rem center
 
     .location
       display: flex
@@ -426,5 +417,18 @@ export default {
         background: #00f
 
         text-align: center
+
+    &::before
+      padding: 0 0 0 2.25rem
+      content: '운전상태'
+
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAWBAMAAAAoU0G7AAAABlBMVEUAAP////973JksAAAAVUlEQVQoz12PURYAIQgC4QZ4/8uWD3Vt/bAmFBP/0IYIgZH5Rl6iAQV+r2osRfYKFTCd2ux2UMTA5/wA1UMNmJmZuAEP9J/daOGe5VDL2EBrM0sDwgHWxwnAe5IljgAAAABJRU5ErkJggg==')
+      background-size: 1.5rem 1.375rem
+      background-repeat: no-repeat
+      background-position: 0.5rem center
+
+  @include if-enabled('theme-korail-tgis.active')
+    &::before
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAWBAMAAAAoU0G7AAAABlBMVEUAAP////973JksAAAAUklEQVQoz3WPQQ7AIAgElx8w//9spYBik3IwDg6S1bd8AriMOFfFhQYVZL/sHsLbusDQDzC1ADvaAL1WrVlPF9iBXBtdry86jNhABkqNEWcHdT1GaAh6qM12ZAAAAABJRU5ErkJggg==')
 
 </style>
