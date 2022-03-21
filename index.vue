@@ -9,6 +9,7 @@
       'order-by-' + (list_order || 'asc'),
       'align-' + (list_align || 'center'),
       'cell-' + (cell_background || 'translucent'), {
+        active,
         'hide-name': hide_name,
         'hide-job-icons': hide_job_icon,
         'hide-handle': hide_handle,
@@ -66,6 +67,9 @@ export default {
       'list_align',
       'cell_display2',
       'cell_background'
+    ]),
+    ...mapState('encounter', [
+      'active'
     ]),
     ...mapState('ui', [
       'opened_window',

@@ -229,11 +229,14 @@ export default {
       state.tophps = Math.max.apply(null, players.map(_ => _.hps))
 
       Vue.set(state, 'combatants', players)
+    },
+    setActive(state, isActive) {
+      state.active = isActive
     }
   },
   actions: {
     // Listeners
-    update({ commit, rootGetters }, { Encounter, Combatant }) {
+    update({ commit, rootGetters }, { Encounter, Combatant, isActive }) {
       if(!Encounter || Encounter.hits < 1) {
         return
       }
@@ -242,6 +245,7 @@ export default {
         combatants: Combatant,
         playerNames: rootGetters['settings/usernames']
       })
+      commit('setActive', isActive)
     },
     logline({ commit }, { type, payload }) {
       switch(type) {
