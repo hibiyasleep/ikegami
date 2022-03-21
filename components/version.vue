@@ -37,9 +37,8 @@
           .line-hibiya { stroke: #b5b5ac; }
           .line-hanzomon { stroke: #9370db; }
           .line-ginza { stroke: #ff9500; }
-
         <!-- ]]> -->
-      </svg:style>
+        </svg:style>
         <clipPath id="adj-clip" clipPathUnits="userSpaceOnUse">
           <path d="M0,8h8v8h-8v-8l-8,-8h24v24h-24v-24" clip-rule="evenodd" />
         </clipPath>
@@ -100,10 +99,12 @@
       <use href="#station-main" x="244" />
       <use href="#station-main" x="261" />
       <use href="#station-main" x="278" />
-      <use href="#station-stop" x="295" />
+      <use href="#station-main" x="295" />
+      <use href="#station-stop" x="312" />
 
       <g opacity="0.333">
-        <use href="#station-main" x="295" />
+        <use href="#adj-se" x="312" class="line-hibiya" />
+        <use href="#station-main" x="312" />
 
         <use href="#adj-se" x="312" class="line-hibiya" />
         <use href="#station-main" x="312" />

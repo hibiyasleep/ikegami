@@ -11,7 +11,34 @@
     </checkbox>
     <hr />
     <version />
-    <group name="0.3.3 'Yuutenji'" opened>
+    <div style="--display: none; display: block; display: var(--display); font-weight: bold">
+      <p style="display: block; padding-left: 1rem">
+        If you're seeing this message,
+        <br />
+        please upgrade to <u>ngld's overlayplugin</u> as fast as possible.
+        <br />
+        job gauge color will no longer work on older browsers.
+      </p>
+      <hr />
+    </div>
+    <group name="0.3.4 'Naka-Meguro'" opened>
+      <p>
+        New option Cell Background added.
+        <br />
+        (Click to change: <u @click="cell_background = 'translucent'">default</u>
+        / <u @click="cell_background = 'opaque'">opaque</u>
+        / <u @click="cell_background = 'tinted'">tinted</u>)
+      </p>
+      <p>
+        New theme <u @click="theme = 'korail-tgis'">'Korail TGIS'</u> added.
+        <br/>
+        <span class="muted">(advices on design is welcome)</span>
+      </p>
+      <p>
+        some colors in kagerou palette has been adjusted.
+      </p>
+    </group>
+    <group name="0.3.3 'Yuutenji'">
       <p>
         Name is alternatively go inside details view (if hidden).
       </p>
@@ -179,7 +206,8 @@ export default {
     ...mapStateDynamically('settings', [
       'never_show_changelog_again',
       'theme',
-      'force_inline_short_values'
+      'force_inline_short_values',
+      'cell_background'
     ])
   }
 }
