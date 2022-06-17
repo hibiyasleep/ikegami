@@ -255,7 +255,7 @@ export default {
     &:hover
       opacity: 1
 
-  $inner-graph-height: 0.25rem / 2
+  $inner-graph-height: 0.25rem * 0.5
 
   .tickers
     display: flex
