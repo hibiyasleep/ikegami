@@ -60,7 +60,7 @@ export default {
   align-items: stretch
   justify-content: center
 
-  height: $details-row-height / 2
+  height: $details-row-height * 0.5
 
   > .piece
     min-width: 1px

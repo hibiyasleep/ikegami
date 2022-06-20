@@ -18,7 +18,8 @@
         'layout-mode': layout_mode,
         'single-value': !cell_display2,
         'singleline': cell_display2? force_singleline_allowed : true,
-        'force-singleline-allowed': force_singleline_allowed
+        'force-singleline-allowed': force_singleline_allowed,
+        'has-subticker-above': tickers_dps_crit === 'above' || tickers_healer_pct === 'above'
       }
     ]">
     <userlist />
@@ -66,7 +67,9 @@ export default {
       'list_order',
       'list_align',
       'cell_display2',
-      'cell_background'
+      'cell_background',
+      'tickers_dps_crit',
+      'tickers_healer_pct'
     ]),
     ...mapState('encounter', [
       'active'
