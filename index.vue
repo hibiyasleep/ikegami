@@ -19,7 +19,7 @@
         'single-value': !cell_display2,
         'singleline': cell_display2? force_singleline_allowed : true,
         'force-singleline-allowed': force_singleline_allowed,
-        'has-subticker-above': tickers_dps_crit === 'above' || tickers_healer_pct === 'above'
+        'has-subticker-above-edge': tickers_dps_crit === 'above' || tickers_healer_pct === 'above'
       }
     ]">
     <userlist />

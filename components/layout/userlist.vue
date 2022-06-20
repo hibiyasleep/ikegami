@@ -108,7 +108,7 @@ export default {
       &:last-of-type
         margin-right: 0
 
-  @include if-enabled('singleline.has-subticker-above')
+  @include if-enabled('singleline.has-subticker-above-edge')
     margin-top: calc($cell-subticker-height + $_1px)
 
 </style>
