@@ -1,9 +1,9 @@
-export const group = require('@/components/settings/group.vue').default
-export const checkbox = require('@/components/settings/checkbox.vue').default
-export const radioButton = require('@/components/settings/radio-button.vue').default
-export const dropdown = require('@/components/settings/dropdown.vue').default
-export const dropdownBody = require('@/components/settings/dropdown-body.vue').default
-export const number = require('@/components/settings/number.vue').default
-export const string = require('@/components/settings/string.vue').default
-export const textlist = require('@/components/settings/textlist.vue').default
-export const classColors = require('@/components/class-colors.vue').default
+export { default as group } from '@/components/settings/group.vue'
+export { default as checkbox } from '@/components/settings/checkbox.vue'
+export { default as radioButton } from '@/components/settings/radio-button.vue'
+export { default as dropdown } from '@/components/settings/dropdown.vue'
+export { default as dropdownBody } from '@/components/settings/dropdown-body.vue'
+export { default as number } from '@/components/settings/number.vue'
+export { default as string } from '@/components/settings/string.vue'
+export { default as textlist } from '@/components/settings/textlist.vue'
+export { default as classColors } from '@/components/class-colors.vue'
