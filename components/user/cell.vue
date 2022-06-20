@@ -11,10 +11,10 @@
       </label>
       <var class="values">
         <span :class="[ 'l', { zero: combatant[cell_display1] < 0.02 } ]">
-          {{ combatant[cell_display1] | f(cell_display1, show_decimals) }}
+          {{ v(cell_display1, show_decimals) }}
         </span>
         <span class="r" v-if="cell_display2">
-          {{ combatant[cell_display2] | f(cell_display2, show_decimals) }}
+          {{ v(cell_display2, show_decimals) }}
         </span>
       </var>
       <div class="tickers">
@@ -55,7 +55,29 @@ export default {
   methods: {
     toggleBlur() {
       this.$store.commit('settings/toggle', 'blur_name')
-    }
+    },
+    v(key, show_decimals) {
+      let value = this.combatant[key]
+
+      switch(key) {
+        case 'dps':
+        case 'dps1m':
+        case 'hps':
+          return filters.decimal(value, show_decimals)
+
+        case 'ohpct':
+          return filters.pct(value, 0)
+
+        case 'critcounts':
+          return value.join('/')
+        case 'critpcts':
+          value = this.combatant.critcounts
+          return value.map(_ => (_ / this.combatant.swings * 100).toFixed(0)).join('/') + '%'
+
+        default:
+          return value
+      }
+    },
   },
   computed: {
     ...mapState('settings', [
@@ -72,15 +94,6 @@ export default {
     }
   },
   filters: {
-    f(value, key, show_decimals) {
-      if(key === 'dps' || key === 'dps1m' || key === 'hps') {
-        return filters.decimal(value, show_decimals)
-      } else if(key === 'ohpct') {
-        return filters.pct(value, 0)
-      } else {
-        return value
-      }
-    },
     name(value, type) {
       let name = value.split(' ')
       let flag = +type

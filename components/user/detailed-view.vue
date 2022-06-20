@@ -29,7 +29,7 @@
         :value="c.swings / e.duration * 2.5 | decimal" /> -->
       <row
         title="D/!/!!!"
-        :value="c.critcounts"
+        :value="c.critcounts.join('/')"
         v-if="!reduced" />
       <div class="row">
         <graph type="dps-crit" :combatant="c" />

@@ -6,6 +6,7 @@ const _version = 1
 const _state = () => ({
   version: _version,
   // layout
+  // cell_display = critcounts_wo_direct: deprecated on version 2
   cell_display1: 'dps',
   cell_display2: '',
   // show_critbar: true, // deprecated on version 1
@@ -67,6 +68,16 @@ export default {
       if(state.version < 1 || state.version == null) {
         delete state.show_critbar
       }
+      if(state.version < 2 || state.version == null) {
+        if(state.cell_display1 === 'critcounts_wo_directs') {
+          state.cell_display1 = 'critcounts'
+        }
+        if(state.cell_display2 === 'critcounts_wo_directs') {
+          state.cell_display2 = 'critcounts'
+        }
+      }
+
+      state.version = _version
     }
   },
   getters: {

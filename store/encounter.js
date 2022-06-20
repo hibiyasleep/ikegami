@@ -217,8 +217,7 @@ export default {
         o.ch -= o.cdh
         o.dh -= o.cdh
 
-        o.critcounts = [ o.dh, o.ch, o.cdh ].join('/')
-        o.critcounts_wo_direct = [ o.ch, o.cdh ].join('/')
+        o.critcounts = [ o.dh, o.ch, o.cdh ]
 
         o.ohpct = o.oh / o.healed || 0
       }
