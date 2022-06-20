@@ -332,8 +332,7 @@ export default {
 
     .c-details-graph
       width: calc(100% + #{$_1px})
-      // TODO: redefine ↓
-      height: 0.125rem
+      height: $cell-subticker-height
       z-index: $z-cell + 1
 
       &.dps-crit
