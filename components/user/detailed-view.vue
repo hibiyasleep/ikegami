@@ -112,7 +112,7 @@ export default {
   width: $details-width
   max-height: calc(100vh - #{$cell-line-height * 2} - 1rem)
 
-  margin-left: ($details-width - $cell-width) / -2
+  margin-left: ($details-width - $cell-width) * -0.5
   padding: 0.375rem
 
   background-color: $details-background

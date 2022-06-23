@@ -105,7 +105,7 @@ export default {
   line-height: 1.5rem
 
   background: opacify($ui-background, 0.25)
-  box-shadow: 0 0 0 1px inset
+  box-shadow: 0 0 0 $_1px inset
 
   z-index: $z-window + 10
 

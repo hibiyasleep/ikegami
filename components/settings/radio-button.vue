@@ -68,7 +68,7 @@ export default {
     > li
       flex-grow: 1
       padding: 0 0.25rem
-      margin: 0 ($_1px / 2)
+      margin: 0 ($_1px * 0.5)
       width: unset
 
       text-align: center

@@ -1,6 +1,7 @@
-@function rem-to-unitless-px($length)
-  @return ($length / 1rem) * 16px / 1px
+@use 'sass:math'
 
+@function rem-to-unitless-px($length)
+  @return math.div(math.div($length, 1rem) * 16px, 1px)
 
 #root.layout-mode
   $fill-as-image: linear-gradient(to bottom, $layout-mode-guideline 0%, $layout-mode-guideline 100%)
@@ -23,7 +24,7 @@
     background-position-x: 0, left, left
 
   &.align-right
-  background-position-x: 0, right, right
+    background-position-x: 0, right, right
 
   &.singleline
     background-position-y: $cell-line-height, center, $cell-line-height + 0.25rem
