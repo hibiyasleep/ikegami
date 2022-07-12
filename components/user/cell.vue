@@ -147,6 +147,9 @@ export default {
     &:hover ~ .c-details
       opacity: 1
 
+    #root.layout-mode & ~ .c-details
+      opacity: 0.5
+
     &:last-child
       margin-right: 0
 
