@@ -27,4 +27,10 @@
     background-position-x: 0, right, right
 
   &.singleline
-    background-position-y: $cell-line-height, center, $cell-line-height + 0.25rem
+    background-position-y: $cell-line-height, center, ($cell-line-height + 0.25rem) * 2
+
+    &.theme-minimal:not(.align-center)
+      background-position-y: $cell-line-height, center, $cell-line-height + 0.25rem
+
+    &.theme-keikyu, &.theme-tokyu
+      background-position-y: $cell-line-height, center, $cell-line-height + 4.5rem

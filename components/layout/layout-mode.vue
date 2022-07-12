@@ -67,4 +67,7 @@ export default {
     margin: 0
     text-align: center
 
+    > span
+      flex-grow: 1
+
 </style>
