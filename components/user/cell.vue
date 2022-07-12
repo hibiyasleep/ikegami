@@ -149,6 +149,7 @@ export default {
 
     #root.layout-mode & ~ .c-details
       opacity: 0.5
+      border-bottom: $_1px solid red
 
     &:last-child
       margin-right: 0
