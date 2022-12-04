@@ -2,7 +2,8 @@
   <li :class="[
     'c-user-cell',
     'class-' + combatant.job, {
-      self: combatant.name == 'YOU' && highlight_self
+      self: combatant.name == 'YOU' && highlight_self,
+      'limit-break': combatant.job === 'limit-break' && highlight_self,
     }]">
     <div class="user-cell-wrap">
       <label class="name-row" @click="toggleBlur">
@@ -131,6 +132,11 @@ export default {
   white-space: nowrap
   text-overflow: clip
 
+  &:not(.self):not(.limit-break) .name-row > .name
+    @include if-enabled('blur-name')
+      filter: blur(0.2rem)
+      -webkit-filter: blur(0.2rem)
+
   .user-cell-wrap
     display: flex
     flex-direction: column
@@ -209,10 +215,6 @@ export default {
 
         @include if-enabled('hide-job-icons')
           padding-left: 0.375rem
-
-        @include if-enabled('blur-name')
-          filter: blur(0.2rem)
-          -webkit-filter: blur(0.2rem)
 
     .values
       display: flex
