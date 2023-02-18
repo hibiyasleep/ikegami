@@ -95,6 +95,7 @@ export default {
   > ul
     display: flex
     max-width: 100%
+    flex-wrap: wrap
 
     align-items: flex-start
     justify-content: flex-start
