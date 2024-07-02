@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { ALLOWED_NARROW_CELL_VALUES } from '../lib/const'
 
-const _version = 1
+const _version = 3
 
 const _state = () => ({
   version: _version,
