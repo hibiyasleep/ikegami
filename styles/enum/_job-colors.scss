@@ -7,14 +7,16 @@ $colorset: (
     'gnb': rgb(78, 52, 46), // Brown 800
     'mnk': rgb(245, 124, 0), // Orange 700
     'drg': rgb(63, 81, 181), // Indigo 500
-    'nin': rgb(211, 47, 47), // Red 700 // 와! 시바! 진성! 닌자다!
+    'nin': rgb(211, 47, 47), // Red 700
     'sam': rgb(255, 202, 40), // Amber 400
     'rpr': rgb(255, 160, 0), // Amber 700
+    'vpr': rgb(216, 67, 21), // Deep Orange 800
     'brd': rgb(158, 157, 36), // Lime 800
     'mch': rgb(0, 151, 167), // Cyan 700
     'smn': rgb(46, 125, 50), // Green 800
     'blm': rgb(126, 87, 194), // Deep Purple 400
     'rdm': rgb(233, 30, 99), // Pink 500
+    'pct': rgb(253, 216, 53), // Yellow 600
     'blu': rgb(0, 185, 247), // Light Blue 500
     'dnc': rgb(244, 143, 177), // Pink 200
     'whm': rgb(117, 117, 117), // Gray 600
@@ -37,12 +39,14 @@ $colorset: (
     'nin': hsl(340, 85%, 40%),
     'sam': hsl(340, 85%, 40%),
     'rpr': hsl(340, 85%, 40%),
+    'vpr': hsl(340, 85%, 40%),
     'brd': hsl(340, 85%, 40%),
     'mch': hsl(340, 85%, 40%),
     'dnc': hsl(340, 85%, 40%),
     'smn': hsl(340, 85%, 40%),
     'blm': hsl(340, 85%, 40%),
     'rdm': hsl(340, 85%, 40%),
+    'pct': hsl(340, 85%, 40%),
     'blu': hsl(340, 85%, 40%),
     'whm': hsl(94,  50%, 40%),
     'sch': hsl(94,  50%, 40%),
@@ -64,12 +68,14 @@ $colorset: (
     'nin': hsl(340, 85%, 40%),
     'sam': hsl(340, 85%, 40%),
     'rpr': hsl(340, 85%, 40%),
+    'vpr': hsl(340, 85%, 40%),
     'brd': hsl(60,  90%, 30%), // Lime 800
     'mch': hsl(60,  90%, 30%),
     'dnc': hsl(60,  90%, 30%),
     'smn': hsl(290, 90%, 40%), // Deep Purple 400
     'blm': hsl(290, 90%, 40%),
     'rdm': hsl(290, 90%, 40%),
+    'pct': hsl(290, 90%, 40%),
     'blu': hsl(290, 90%, 40%),
     'whm': hsl(94,  50%, 40%),
     'sch': hsl(94,  50%, 40%),
@@ -91,12 +97,14 @@ $colorset: (
     'nin': #EE2E48,
     'sam': #E45A0F,
     'rpr': #EADD6F,
+    'vpr': #863E25,
     'brd': #ADC551,
     'mch': #148AA9,
     'dnc': #E2B0AF,
     'smn': #32670B,
     'blm': #674598,
     'rdm': #AC2997,
+    'pct': #D36A6D,
     'blu': #183D9A,
     'whm': #BDBDBD,
     'sch': #32307B,
@@ -118,17 +126,19 @@ $colorset: (
     'nin': #813B3C,
     'sam': #813B3C,
     'rpr': #813B3C,
+    'vpr': #813B3C,
     'brd': #813B3C,
     'mch': #813B3C,
     'dnc': #813B3C,
     'smn': #813B3C,
     'blm': #813B3C,
     'rdm': #813B3C,
+    'pct': #813B3C,
+    'blu': #813B3C,
     'whm': #467837,
     'sch': #467837,
     'ast': #467837,
     'sge': #467837,
-    'blu': #813B3C,
     'chocobo': #757575,
     'limit-break': #FFBB00,
     'line-self': rgb(252, 115, 163),
@@ -145,12 +155,14 @@ $colorset: (
     'nin': rgb(86, 72, 72),
     'sam': rgb(177, 160, 102),
     'rpr': rgb(160, 160, 160),
+    'vpr': rgb(239, 167, 21), // FIXME
     'brd': rgb(180, 209, 67),
     'mch': rgb(56, 176, 180),
     'dnc': rgb(238, 206, 197),
     'smn': rgb(40, 138, 59),
     'blm': rgb(100, 70, 150),
     'rdm': rgb(229, 121, 168),
+    'pct': rgb(220, 223, 49), // FIXME
     'whm': rgb(207, 176, 144),
     'sch': rgb(35, 40, 152),
     'ast': rgb(217, 128, 40),
@@ -166,19 +178,21 @@ $colorset: (
     'pld': #588296,
     'war': #cf2621,
     'gnb': #796d30,
-    'drk': rgb(104, 19, 102),
+    'drk': #681366,
     'mnk': #d69c00,
     'drg': #4164cd,
     'nin': #af1964,
     'sam': #e46d04,
     'rpr': #965a90,
-    'brd': rgb(57%, 73%, 37%),
+    'vpr': #108210,
+    'brd': #91ba5e,
     'mch': #6ee1D6,
     'dnc': #e2b0af,
     'smn': #2d9B78,
     'blm': #a579d6,
     'rdm': #e87b7b,
-    'blu': rgb(14%, 35%, 100%),
+    'pct': #fc92e1,
+    'blu': #2459ff,
     'whm': #afa08c,
     'sch': #8657ff,
     'ast': #ab9400,

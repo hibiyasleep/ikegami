@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'FFXIVAppIcons';
-  src: url('assets/FFXIVAppIcons.woff') format('woff');
+  src: url('assets/FFXIVAppIcons.woff2') format('woff2');
 }
 
 .icon {
@@ -71,6 +71,8 @@ $class-pua-glyph-map: (
   dnc: '\f038',
   rpr: '\f039',
   sge: '\f040',
+  vpr: '\f041',
+  pct: '\f042',
   limit-break: '\e076'
 );
 

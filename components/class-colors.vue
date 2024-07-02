@@ -9,12 +9,14 @@
     <span class="icon class-nin"><span class="ticker"> </span></span>
     <span class="icon class-sam"><span class="ticker"> </span></span>
     <span class="icon class-rpr"><span class="ticker"> </span></span>
+    <span class="icon class-vpr"><span class="ticker"> </span></span>
     <span class="icon class-brd"><span class="ticker"> </span></span>
     <span class="icon class-mch"><span class="ticker"> </span></span>
     <span class="icon class-dnc"><span class="ticker"> </span></span>
     <span class="icon class-smn"><span class="ticker"> </span></span>
     <span class="icon class-blm"><span class="ticker"> </span></span>
     <span class="icon class-rdm"><span class="ticker"> </span></span>
+    <span class="icon class-pct"><span class="ticker"> </span></span>
     <span class="icon class-blu"><span class="ticker"> </span></span>
     <span class="icon class-whm"><span class="ticker"> </span></span>
     <span class="icon class-sch"><span class="ticker"> </span></span>
@@ -32,7 +34,7 @@ $icon-size: 1.25rem
 
   display: flex
   justify-content: center
-  // max-width: $icon-size * 18
+  // max-width: $icon-size * 20
   margin: 0.5rem auto
 
   text-align: center
@@ -42,9 +44,10 @@ $icon-size: 1.25rem
     position: relative
 
     flex-grow: 1
-    height: 100%
+    width: 1rem
+    height: 1rem
 
-    text-indent: 0
+    text-indent: -0.0625rem
 
   .ticker
     position: absolute
@@ -62,8 +65,8 @@ $icon-size: 1.25rem
 // icon displayed over ticker background
 .root.singleline, .root.hide-name
   .color-scheme-demo .ticker
-    height: 150%
-    margin-bottom: -25%
+    height: 200%
+    margin-bottom: -50%
 
 .c-settings-group-content .color-scheme-demo
   margin-left: -1rem
