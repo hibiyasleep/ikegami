@@ -21,7 +21,22 @@
       </p>
       <hr />
     </div>
-    <group name="0.3.4 'Naka-Meguro'" opened>
+    <group name="0.3.5 'Daikan-yama'" opened>
+      <p>
+        New jobs support are added.
+        <class-colors style="display: flex" />
+      </p>
+      <p>
+        When enable Layout Mode, every detailed view will appear to help resizing.
+      </p>
+      <p>
+        Crits (w/o Directs) removed.
+      </p>
+      <p>
+        …and more forgotten changes.
+      </p>
+    </group>
+    <group name="0.3.4 'Naka-Meguro'">
       <p>
         New option Cell Background added.
         <br />

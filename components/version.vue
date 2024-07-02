@@ -103,11 +103,10 @@
       <use href="#station-stop" x="312" />
       <use href="#adj-se" x="312" class="line-hibiya" />
       <use href="#station-main" x="312" />
+      <use href="#station-stop" x="329" />
 
       <g opacity="0.333">
 
-        <use href="#adj-se" x="312" class="line-hibiya" />
-        <use href="#station-main" x="312" />
         <use href="#station-main" x="329" />
 
         <use href="#adj-e" x="346" class="line-fukutoshin" />

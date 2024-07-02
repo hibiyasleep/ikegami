@@ -5,6 +5,7 @@ import { tarball } from 'vite-plugin-compression2'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: './',
   plugins: [
     vue(),
     mode === 'production' && tarball({

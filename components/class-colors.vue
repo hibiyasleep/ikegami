@@ -56,17 +56,17 @@ $icon-size: 1.25rem
 
     display: inline-block
     width: 100%
-    height: 20%
+    height: 175%
+    margin-bottom: -37.5%
 
     z-index: -1
 
     background: var(--job-color)
 
 // icon displayed over ticker background
-.root.singleline, .root.hide-name
-  .color-scheme-demo .ticker
-    height: 200%
-    margin-bottom: -50%
+// forgotted context about it…
+// .root.singleline, .root.hide-name
+  // .color-scheme-demo .ticker
 
 .c-settings-group-content .color-scheme-demo
   margin-left: -1rem

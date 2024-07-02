@@ -1,7 +1,7 @@
 {
   "name": "ikegami",
-  "version": "0.3.4",
-  "releasename": "Naka-Meguro",
+  "version": "0.3.5",
+  "releasename": "Daikan-yama",
   "description": "experimental horizontal FFXIV Miniparse overlay",
   "type": "module",
   "dependencies": {
