@@ -69,10 +69,10 @@ export default {
         delete state.show_critbar
       }
       if(state.version < 2 || state.version == null) {
-        if(state.cell_display1 === 'critcounts_wo_directs') {
+        if(state.cell_display1 === 'critcounts_wo_direct') {
           state.cell_display1 = 'critcounts'
         }
-        if(state.cell_display2 === 'critcounts_wo_directs') {
+        if(state.cell_display2 === 'critcounts_wo_direct') {
           state.cell_display2 = 'critcounts'
         }
       }
