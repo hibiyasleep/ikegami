@@ -3,37 +3,17 @@
   "version": "0.3.4",
   "releasename": "Naka-Meguro",
   "description": "experimental horizontal FFXIV Miniparse overlay",
+  "type": "module",
   "dependencies": {
     "vue": "2.x",
     "vuex": "^3.0.1",
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
-    "@babel/core": "^7",
-    "@babel/plugin-proposal-object-rest-spread": "^7",
-    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
-    "@babel/preset-env": "^7",
-    "@vue/component-compiler-utils": "1.x",
-    "babel-loader": "^8.0.4",
-    "babel-plugin-transform-object-assign": "^6.22.0",
-    "core-js": "^2.5.7",
-    "css-loader": "^0.28.11",
-    "file-loader": "^3.0.1",
-    "html-webpack-plugin": "^3.2.0",
+    "@vitejs/plugin-vue2": "^2.3.1",
     "sass": "^1.26.10",
-    "sass-loader": "^7.0.3",
-    "script-ext-html-webpack-plugin": "^2.0.1",
-    "script-loader": "^0.7.2",
-    "uglifyjs-webpack-plugin": "^1.2.7",
-    "vue-hot-reload-api": "2.x",
-    "vue-loader": "^14.2.3",
-    "vue-style-loader": "^4.1.0",
-    "vue-template-compiler": "^2.5.16",
-    "webpack": "latest",
-    "webpack-archive-plugin": "^3.0.0",
-    "webpack-bundle-analyzer": "^3.0.3",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.3"
+    "vite": "^5.3.2",
+    "vite-plugin-compression2": "^1.1.2"
   },
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --host=0.0.0.0 --port=9000 --disable-host-check"
