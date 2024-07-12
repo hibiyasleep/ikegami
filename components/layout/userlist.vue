@@ -37,7 +37,7 @@ export default {
 
       if(this.list_order === 'desc') {
         // assuming worst case of combatant count: 124px * 75% * 32 = 2976px
-        return this.$store.state.encounter.combatants.slice(-32).reverse()
+        return this.$store.state.encounter.combatants.slice(0, 32).reverse()
       } else {
         return this.$store.state.encounter.combatants.slice(0, 32)
       }
